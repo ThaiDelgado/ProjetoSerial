@@ -1,0 +1,41 @@
+
+
+body{
+    margin: 0;
+    font-family: "Athiti";
+}
+
+.logo{
+    width: 6%;
+    height: 6%;
+    padding-top: 2%;
+    padding-left: 5%;
+}
+
+h1{ 
+    font-size: 500%;
+    padding-left: 5%;
+    padding-right: 50%;
+    padding-top: 10%;
+    letter-spacing: 20px
+}
+
+.icon{
+    width: 4%;
+    height: 4%;
+    position: fixed;
+    left: 93%;
+    bottom: 92%;
+}
+
+/* ==== MODAL ====*/
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 30%;
+    height: 100%;
+    top: 0;
+    opacity: 0.5;
+    visibility: visible;
+}
