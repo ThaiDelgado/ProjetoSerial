@@ -1,0 +1,116 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    list-style: none;
+
+    font-family: 'Athiti', sans-serif;
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+header{
+    width: 100%;
+    padding: 10px 30px;
+    background-color:#282D31;
+    color:#FFFFFF;
+    display: flex;
+    align-items: center;
+}
+
+header img{
+    width: 10%;
+}
+
+header nav{
+    width: 70%;
+}
+
+header ul{
+    text-align: center;
+}
+
+header ul li{
+    margin: 20px;
+    display: inline;
+}
+
+header ul li a{
+    text-decoration: none;
+    color:#FFFFFF;
+}
+
+
+header #divBuscaUser{
+    background: rgba(103, 65, 185, 0.5);
+    border-radius: 50px;
+    width:20%;
+    height: 23px;
+}
+
+header #divBuscaUser:focus{
+    outline: none;
+    border: none;
+}
+ 
+header #txtBusca{
+    float:left;
+    background-color:transparent;
+    padding-left:15px;
+    font-size:15px;
+    border:none;
+    height:23px;
+    width:90%;
+  }
+
+header #btnBusca{
+    width: 15px;
+    padding-top: 4px;
+    opacity: 0.5;
+}
+
+.background-user{
+    width: 100%;
+    height: 90vh;
+    background-image:url('../Images/background-user.jpg');
+    background-size: 100%;
+    position: relative;
+    z-index: 1;
+    top: 0;
+}
+
+.background-user nav{
+    width: 100%;
+    padding: 10px 30px;
+    background-color: rgba(81, 91, 99, 0.5);
+    color:#FFFFFF;
+}
+
+.background-user nav{
+    position: absolute;
+    bottom: 0;
+}
+
+.background-user ul{
+    text-align: center;
+}
+
+.background-user ul li{
+    margin: 20px;
+    display: inline;
+}
+
+.background-user ul li a{
+    text-decoration: none;
+    color:#FFFFFF;
+}
+
+#select{
+    width: 100px;
+    height: 100%;
+    background-color: #000000;
+}
