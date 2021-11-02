@@ -13,6 +13,8 @@ html,body{
 	font-family: 'Nunito Sans', sans-serif;
 }
 
+/*Header - Menu Principal - Busca Usuário*/
+
 header{
     width: 100%;
     padding: 10px 30px;
@@ -73,44 +75,101 @@ header #btnBusca{
     opacity: 0.5;
 }
 
+/******************/
+
+/*Perfil Usuário - Navegação Usuário*/
+
 .background-user{
     width: 100%;
-    height: 90vh;
-    background-image:url('../Images/background-user.jpg');
+    height: 50%;
+    background-image:url('../images/background-user.jpg');
     background-size: 100%;
+    background-repeat: no-repeat;
+    padding-top: 40px;
     position: relative;
-    z-index: 1;
-    top: 0;
+}
+
+.background-user #profilePicture{
+    width: 100px;
+    height: 100px;
+    background-image: url('../images/user-profile.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.background-user #userName{
+    width: max-content;
+    background-color: #6741B9;
+    margin: 20px auto;
+    border-radius:10px;
+    text-align: center;
+    padding: 0 15px 5px;
+    color: #FFFFFF;
+}
+
+.background-user #userName h1{
+    font-size: 20px;
+    font-weight:600;
+}
+
+.background-user #userName #userFollows{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 auto;
+    background-color: #282D31;
+}
+
+.background-user #userName #userFollows img{
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+}
+
+.background-user #userName #userFollows h4{
+    width: 120px;
+    line-height:15px;
+    padding-top:4px;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 .background-user nav{
     width: 100%;
-    padding: 10px 30px;
     background-color: rgba(81, 91, 99, 0.5);
     color:#FFFFFF;
-}
-
-.background-user nav{
     position: absolute;
     bottom: 0;
 }
 
 .background-user ul{
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .background-user ul li{
-    margin: 20px;
-    display: inline;
+    width: 150px;
+    height: 100%;
+	display: inline;
+	position: relative;
+    padding: 10px;
 }
 
 .background-user ul li a{
     text-decoration: none;
     color:#FFFFFF;
+    font-size: 16px;    
 }
 
-#select{
-    width: 100px;
-    height: 100%;
-    background-color: #000000;
+.select{
+    background-color: black;
 }
+
+/******************/
