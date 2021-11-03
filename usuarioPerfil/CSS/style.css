@@ -22,13 +22,18 @@ header{
     color:#FFFFFF;
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 header img{
     width: 10%;
 }
 
-header nav{
+header nav.menu-mobile{
+    display: none;
+}
+
+header nav.menu-desktop{
     width: 70%;
 }
 
@@ -46,17 +51,11 @@ header ul li a{
     color:#FFFFFF;
 }
 
-
-header #divBuscaUser{
+header #divSearchUser{
     background: rgba(103, 65, 185, 0.5);
     border-radius: 50px;
     width:20%;
     height: 23px;
-}
-
-header #divBuscaUser:focus{
-    outline: none;
-    border: none;
 }
  
 header #txtBusca{
@@ -67,6 +66,7 @@ header #txtBusca{
     border:none;
     height:23px;
     width:90%;
+    outline: none;
   }
 
 header #btnBusca{
@@ -83,10 +83,15 @@ header #btnBusca{
     width: 100%;
     height: 50%;
     background-image:url('../images/background-user.jpg');
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
-    padding-top: 40px;
     position: relative;
+}
+
+.blockUser{
+    width: 320px;
+    margin: 0 auto;
+    padding-top: 10vh;
 }
 
 .background-user #profilePicture{
@@ -101,7 +106,8 @@ header #btnBusca{
 }
 
 .background-user #userName{
-    width: max-content;
+    width: 310px;
+    height: 80px;
     background-color: #6741B9;
     margin: 20px auto;
     border-radius:10px;
@@ -139,7 +145,11 @@ header #btnBusca{
     text-transform: uppercase;
 }
 
-.background-user nav{
+.background-user nav.menu-perfil-mobile{
+    display: none;
+}
+
+.background-user nav.menu-perfil-desktop{
     width: 100%;
     background-color: rgba(81, 91, 99, 0.5);
     color:#FFFFFF;
@@ -170,6 +180,26 @@ header #btnBusca{
 
 .select{
     background-color: black;
+}
+
+/******************/
+
+/*Media Queries*/
+
+@media screen and (max-width: 500px){
+    header #divSearchUser{
+        width: 10%;
+        text-align: center;
+    }
+
+    header #txtBusca{
+        display: none;
+    }
+
+    .menu-desktop{
+        display: none;
+    }
+
 }
 
 /******************/
