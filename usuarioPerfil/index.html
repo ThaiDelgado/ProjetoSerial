@@ -8,6 +8,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700" rel="stylesheet">
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
         <link href="CSS/style.css" rel="stylesheet">
         <title>Serial - Perfil</title>
     </head>
@@ -15,7 +19,7 @@
         <header>   
             <img src="images/Logo.png"> 
                 
-            <nav>            
+            <nav class="menu-desktop">            
                 <ul>                
                     <li><a href="">PERFIL</a></li>
                     <li><a href="">CALENDÁRIO</a></li>
@@ -25,28 +29,38 @@
                 </ul>
             </nav>
 
-            <div id="divBuscaUser">
+            <nav class="menu-mobile">            
+                <ul>                
+                    <li><a href="">PERFIL</a></li>
+                    <li><a href="">CALENDÁRIO</a></li>
+                    <li><a href="">PARA ASSISTIR</a></li>
+                    <li><a href="">NO RADAR</a></li>
+                    <li><a href="">EXPLORAR</a></li>
+                </ul>
+            </nav>
+
+            <div id="divSearchUser">
                 <input type="text" id="txtBusca" placeholder="PESQUISAR USUÁRIO"/>
                 <img src="images/icones/iconePesquisa.png" id="btnBusca" alt="Buscar"/>
             </div>
         </header>
 
         <div class="background-user">
-
-            <div id="profilePicture">
-            </div>
-
-            <div id="userName">
-                <h1>Nome Usuário</h1>
-                <div id="userFollows">
-                    <h4>300<br>seguindo</h4>
-                    <img src="images/icones/iconeConexão.png"/>
-                    <h4>100000<br>seguidores</h4>
+            
+            <div class="blockUser">
+                <div id="profilePicture"></div>
+                    
+                <div id="userName">
+                    <h1>Nome Usuário</h1>
+                    <div id="userFollows">
+                        <h4>300<br>seguindo</h4>
+                        <img src="images/icones/iconeConexão.png"/>
+                        <h4>100000<br>seguidores</h4>
+                    </div>                
                 </div>
-                
             </div>
-
-            <nav>
+    
+            <nav class="menu-perfil-desktop">
                 <ul>
                     <li class="select"><a href="">PERFIL</a></li>
                     <li><a href="">FEED</a></li>
@@ -54,7 +68,35 @@
                     <li><a href="">PIPOCANDO</a></li>
                 </ul>
             </nav>
-        </div>
+
+            <nav class="menu-perfil-mobile">
+                <ul>
+                    <li class="select"><a href=""></a></li>
+                    <li><a href="">FEED</a></li>
+                    <li><a href="">CONEXÕES</a></li>
+                    <li><a href="">PIPOCANDO</a></li>
+                </ul> 
+            </nav>
+        </div> 
+
+        <main>
+            <section class="favoritesUser">
+                <div class="favoritesTitle">
+                    <h1>FAVORITOS</h1>
+                </div>                
+                <div class="favoritesCast">
+
+                </div>
+            </section><!--favoritesUser-->
+
+            <section class="timekeeper">
+
+            </section><!--timekeeper-->
+
+            <section class="userTvShows">
+
+            </section><!--userTvShows-->
+        </main>
 
     </body>
 </html>

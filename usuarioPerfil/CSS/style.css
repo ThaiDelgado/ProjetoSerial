@@ -13,6 +13,19 @@ html,body{
 	font-family: 'Nunito Sans', sans-serif;
 }
 
+body::-webkit-scrollbar {
+    width: 6px;                  
+  }
+  
+  body::-webkit-scrollbar-track {
+    background-color: #000000;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color:#6741B9;    
+    border-radius: 20px;
+  }
+
 /*Header - Menu Principal - Busca Usuário*/
 
 header{
@@ -22,13 +35,18 @@ header{
     color:#FFFFFF;
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 header img{
     width: 10%;
 }
 
-header nav{
+header nav.menu-mobile{
+    display: none;
+}
+
+header nav.menu-desktop{
     width: 70%;
 }
 
@@ -46,17 +64,11 @@ header ul li a{
     color:#FFFFFF;
 }
 
-
-header #divBuscaUser{
+header #divSearchUser{
     background: rgba(103, 65, 185, 0.5);
     border-radius: 50px;
     width:20%;
     height: 23px;
-}
-
-header #divBuscaUser:focus{
-    outline: none;
-    border: none;
 }
  
 header #txtBusca{
@@ -67,6 +79,7 @@ header #txtBusca{
     border:none;
     height:23px;
     width:90%;
+    outline: none;
   }
 
 header #btnBusca{
@@ -83,10 +96,15 @@ header #btnBusca{
     width: 100%;
     height: 50%;
     background-image:url('../images/background-user.jpg');
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
-    padding-top: 40px;
     position: relative;
+}
+
+.blockUser{
+    width: 320px;
+    margin: 0 auto;
+    padding-top: 5vh;
 }
 
 .background-user #profilePicture{
@@ -101,7 +119,8 @@ header #btnBusca{
 }
 
 .background-user #userName{
-    width: max-content;
+    width: 310px;
+    height: 80px;
     background-color: #6741B9;
     margin: 20px auto;
     border-radius:10px;
@@ -139,7 +158,11 @@ header #btnBusca{
     text-transform: uppercase;
 }
 
-.background-user nav{
+.background-user nav.menu-perfil-mobile{
+    display: none;
+}
+
+.background-user nav.menu-perfil-desktop{
     width: 100%;
     background-color: rgba(81, 91, 99, 0.5);
     color:#FFFFFF;
@@ -170,6 +193,85 @@ header #btnBusca{
 
 .select{
     background-color: black;
+}
+
+/******************/
+
+/*Sessão Favoritos*/
+
+.favoritesUser{
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    height: 100vh;
+}
+
+.favoritesTitle{
+    width: 20%;
+    position: relative;
+    bottom: -200px
+}
+
+.favoritesUser h1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 150px;
+    color: #6741B9;     
+    transform: rotate(-90deg);
+    
+}
+
+.favoritesCast{
+    width: 80%;
+    height: 100%;
+
+}
+
+/******************/
+
+/*Sessão Temporizador*/
+
+.timekeeper{
+    background-color: #6741B9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    height: 100vh;
+}
+
+/******************/
+
+/*Sessão Catalogo Usuário*/
+
+.userTvShows{
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    height: 100vh;
+}
+
+/******************/
+
+/*Media Queries*/
+
+@media screen and (max-width: 500px){
+    header #divSearchUser{
+        width: 10%;
+        text-align: center;
+    }
+
+    header #txtBusca{
+        display: none;
+    }
+
+    .menu-desktop{
+        display: none;
+    }
+
 }
 
 /******************/
