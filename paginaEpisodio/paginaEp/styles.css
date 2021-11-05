@@ -1,0 +1,105 @@
+.background {
+    background-color: black;
+    color: white;
+    width:1400px;
+	height:1643px;
+
+}
+.descricao {
+    color:rgba(255, 255, 255, 1);
+	width:614px;
+	height:439px;
+	font-family:Athiti;
+	text-align:right;
+	font-size:25px;
+	letter-spacing:0;
+}
+
+.tituloEp {
+    color:rgba(100.00000163912773, 63.000000044703484, 181.0000044107437, 1);
+	width:259px;
+	height:62px;
+	font-family:League Gothic;
+	text-align:justified;
+	font-size:50px;
+	letter-spacing:0;
+
+}
+.top {
+    display: flex;
+}
+.imagemTop {
+    align-items: stretch;
+}
+.tituloEp {
+    display: start-end;
+}
+.middle {
+	align-items: center;
+	position: absolute;
+	
+	height: 100%;
+	margin-top: auto;
+	margin-left: 25%;
+	margin-right: auto;
+	margin-bottom: auto;
+    display: flex;
+
+}
+.nComentarios {
+    color:rgba(255, 255, 255, 1);
+	width:173px;
+	height:116px;
+	font-family:Bebas Neue;
+	text-align:justified;
+	font-size:100px;
+	letter-spacing:0;
+}	
+.traco {
+    transform: rotate(90deg);
+	width:200px;
+	height:0px;
+    border:5px solid rgba(255, 255, 255, 1);
+    
+}
+.nReacoes {
+    color:rgba(255, 255, 255, 1);
+	width:173px;
+	height:116px;
+	font-family:Bebas Neue;
+	text-align:justified;
+	font-size:100px;
+	letter-spacing:0;
+}
+.session {
+    color:rgba(103.1602768599987, 64.70625668764114, 184.87500607967377, 1);
+	width:533px;
+	height:82px;
+	font-family:Bebas Neue;
+	text-align:justified;
+	font-size:60px;
+	letter-spacing:30;
+	margin-top: auto;
+	margin-left: 42%;
+	margin-right: center;
+	margin-bottom: center;
+
+}
+.privateSession {
+    color:rgba(255, 255, 255, 1);
+	width:1066px;
+	height:82px;
+	font-family:Marvel;
+	text-align:justified;
+	font-size:30px;
+	letter-spacing:0;
+	margin-top: auto;
+	margin-left: 12%;
+	margin-right: center;
+	margin-bottom: center;
+}
+
+.botao {
+    background-color:rgba(80.00000283122063, 46.000001057982445, 152.0000061392784, 1);
+
+}
