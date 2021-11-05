@@ -1,0 +1,154 @@
+
+
+.header {
+    display: flex;
+    background-color:black;
+    color:white;
+    align-self: flex;
+}
+.body{
+    background-color:black;
+    color: white;
+    align-self: block;
+    justify-content: center;
+}
+.textoImage{
+    color:rgba(255, 255, 255, 1);
+	width:614px;
+	height:439px;
+	font-family:Athiti;
+	text-align:right;
+	font-size:25px;
+	letter-spacing:0;
+    display: flex-end;
+}
+
+.footer { 
+	width:1400px;
+	height:1643px;
+	position:absolute;
+}
+.assistidos { 
+	background-color:rgba(0, 0, 0, 1);
+	width:1400px;
+	height:1643px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.nAssistidos { 
+	color:rgba(255, 255, 255, 1);
+	width:173px;
+	height:116px;
+	position:absolute;
+	left:452px;
+	top:907px;
+	font-family:Bebas Neue;
+	text-align:justified;
+	font-size:100px;
+	letter-spacing:0;
+}
+.reacoes { 
+	color:rgba(255, 255, 255, 1);
+	width:173px;
+	height:116px;
+	position:absolute;
+	left:774px;
+	top:907px;
+	font-family:Bebas Neue;
+	text-align:justified;
+	font-size:100px;
+	letter-spacing:0;
+}
+.tagAss { 
+	transform: rotate(90deg);
+	width:200px;
+	height:0px;
+	position:absolute;
+	left:700px;
+	top:891px;
+}
+
+
+.tagAss2 { 
+	color:rgba(255, 255, 255, 1);
+	width:150px;
+	height:34px;
+	position:absolute;
+	left:464px;
+	top:1012px;
+	font-family:Athiti;
+	text-align:justified;
+	font-size:25px;
+	letter-spacing:0;
+}
+.tagReact { 
+	color:rgba(255, 255, 255, 1);
+	width:97px;
+	height:34px;
+	position:absolute;
+	left:812px;
+	top:1012px;
+	font-family:Athiti;
+	text-align:justified;
+	font-size:25px;
+	letter-spacing:0;
+}
+.privado{ 
+	color:rgba(255, 255, 255, 1);
+	width:1066px;
+	height:82px;
+	position:absolute;
+	left:167px;
+	top:1309px;
+	font-family:Marvel;
+	text-align:justified;
+	font-size:30px;
+	letter-spacing:0;
+}
+.liberar { 
+	background-color:rgba(80.00000283122063, 46.000001057982445, 152.0000061392784, 1);
+	width:229px;
+	height:43px;
+	position:absolute;
+	left:585px;
+	top:1469px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.liberar1 { 
+	color:rgba(255, 255, 255, 1);
+	width:205px;
+	height:37px;
+	position:absolute;
+	left:597px;
+	top:1469px;
+	font-family:Marvel;
+	text-align:justified;
+	font-size:30px;
+	letter-spacing:0;
+}
+.sessaoPrivada { 
+	color:rgba(103.1602768599987, 64.70625668764114, 184.87500607967377, 1);
+	width:533px;
+	height:82px;
+	position:absolute;
+	left:433px;
+	top:1187px;
+	font-family:Bebas Neue;
+	text-align:justified;
+	font-size:60px;
+	letter-spacing:30;
+}
+.voltar {
+    color:rgba(100.00000163912773, 63.000000044703484, 181.0000044107437, 1);
+	width:259px;
+	height:62px;
+	font-family:League Gothic;
+	text-align:justified;
+	font-size:50px;
+	letter-spacing:0;
+    display: flex-start;
+}
