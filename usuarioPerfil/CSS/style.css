@@ -47,8 +47,8 @@ header .container{
 }
 
 header .container img.logo{
->>>>>>> usuarioPerfil
     width: 10%;
+    max-width: 100px;
 }
 
 header .container nav.menu-mobile{
