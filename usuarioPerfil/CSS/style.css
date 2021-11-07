@@ -48,6 +48,7 @@ header .container{
 
 header .container img.logo{
     width: 10%;
+    max-width: 100px;
 }
 
 header .container nav.menu-mobile{
@@ -59,12 +60,14 @@ header .container nav.menu-desktop{
 }
 
 header .container ul{
-    text-align: center;
+    display: flex;
+    justify-content: right;
 }
 
 header .container ul li{
-    margin: 20px;
-    display: inline;
+    margin: 0;
+    display: block;
+    margin-right: 40px;
 }
 
 header .container ul li a{
