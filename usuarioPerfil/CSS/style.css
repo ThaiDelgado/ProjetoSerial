@@ -46,9 +46,6 @@ header .container{
     justify-content: space-around;
 }
 
-<<<<<<< HEAD
-header .container img{
-=======
 header .container img.logo{
 >>>>>>> usuarioPerfil
     width: 10%;
