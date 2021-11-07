@@ -46,7 +46,11 @@ header .container{
     justify-content: space-around;
 }
 
+<<<<<<< HEAD
 header .container img{
+=======
+header .container img.logo{
+>>>>>>> usuarioPerfil
     width: 10%;
 }
 
@@ -75,7 +79,7 @@ header .container ul li a{
 header .container #divSearchUser{
     background: rgba(103, 65, 185, 0.5);
     border-radius: 50px;
-    width:20%;
+    width:30%;
     height: 23px;
 }
  
@@ -272,19 +276,44 @@ header .container #btnBusca{
 
 /*Media Queries*/
 
+@media screen and (max-width: 768px){
+    header .container #divSearchUser{
+        width:40%;
+    }
+
+    header .container img.logo{
+        width: 20%;
+        max-width: 100px;
+    }
+
+    header .container nav.menu-desktop{
+        display: none;
+    }
+
+    header .container nav.menu-mobile{
+        width: 40%;
+        display: block;
+    }
+    
+
+    header .container nav.menu-mobile ul{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    header .container nav.menu-mobile ul li{
+        margin: 0;
+        display: block;
+    }
+
+    header .container nav.menu-mobile img{
+        width: 20px;
+    }  
+    
+}
+
 @media screen and (max-width: 500px){
-    header #divSearchUser{
-        width: 10%;
-        text-align: center;
-    }
-
-    header #txtBusca{
-        display: none;
-    }
-
-    .menu-desktop{
-        display: none;
-    }
+ 
 
 }
 
