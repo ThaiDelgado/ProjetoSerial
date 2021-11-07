@@ -212,11 +212,11 @@ header .container #btnBusca{
 
 .favoritesUser{
     background-color: #000000;
-    height: 70vh;
+    height: 80vh;
 }
 
 .favoritesUser .container{
-    height: 70vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -225,7 +225,7 @@ header .container #btnBusca{
 
 .favoritesTitle{
     width: 20%;
-    height: 70vh;
+    height: 80vh;
     position: relative;
 }
 
@@ -241,7 +241,7 @@ header .container #btnBusca{
 
 .favoritesCast{
     width: 80%;
-    height: 70vh;
+    height: 80vh;
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
@@ -252,7 +252,6 @@ header .container #btnBusca{
     width: 100%;
     height: 80%;
     display: flex;
-    flex-direction: row-reverse;
     flex-wrap: nowrap;
     align-items: center;
     overflow-x: scroll;
@@ -286,6 +285,7 @@ header .container #btnBusca{
 
 .favoritesCastTitle h3{
     font-family: 'Bebas Neue', cursive;
+    height: 40px;
     max-width: 180px;
     font-size: 25px;
     text-transform: uppercase;
@@ -313,12 +313,126 @@ header .container #btnBusca{
 /*Sessão Temporizador*/
 
 .timekeeper{
-    background-color: #6741B9;
+    width: 100%;
+    height: 100vh;
+    background-color: #6741B9;  
+    text-align: center; 
+}
+
+.timekeeper .container{
+    padding: 5%; 
+}
+
+.timekeeper h1{
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 5px;
+    margin-bottom: 40px;
+}
+
+.timekeeper #timeclock{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2%;
-    height: 100vh;
+    margin-bottom: 40px;
+}
+
+.timekeeper #timeclock .timer{
+    min-width: 136px;
+    min-height: 136px;    
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 136px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.timekeeper #timeclock .timer h2{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: #6741B9;
+    text-align: center;
+    margin-bottom: -5px;
+    margin-left: -5px;
+
+}
+
+.timekeeper #timeclock .timer h4{
+    font-size: 15px;
+    letter-spacing: 5px;
+    font-weight: normal;
+    color: #B4B4B4;
+}
+
+.episodeInfo{
+    width: 100%;
+    max-width: 880px;
+    display: flex;
+    justify-content: left;
+    margin: 0 auto;
+}
+
+.episodeInfo h2{
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 300;
+    text-align: left;
+    font-size: 24px;
+    
+}
+
+.episodeInfo .episodesCount{
+    width: 30%;
+    height: 50%;
+}
+
+.episodeInfo .episodesCount h3{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-align: left;
+    font-size: 40px;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 100;
+}
+
+.episodeInfo .episodesGenders{
+    width: 70%;
+    height: 50%;
+}
+
+.episodeInfo .episodesGenders ul{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: left;
+    overflow-x: scroll;
+}
+
+.episodeInfo .episodesGenders ul::-webkit-scrollbar{
+    width: 6px;   
+    height: 6px;               
+}
+  
+.episodeInfo .episodesGenders ul::-webkit-scrollbar-track{
+    background-color: #6741B9;
+}
+  
+.episodeInfo .episodesGenders ul::-webkit-scrollbar-thumb{
+    background-color:#000000; 
+    border-radius: 20px;
+}
+
+.episodeInfo .episodesGenders li{
+    width: 100px;
 }
 
 /******************/
@@ -357,7 +471,6 @@ header .container #btnBusca{
         display: block;
     }
     
-
     header .container nav.menu-mobile ul{
         display: flex;
         justify-content: space-around;
