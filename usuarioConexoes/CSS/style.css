@@ -197,68 +197,161 @@ header #btnBusca{
 
 /******************/
 
-/*Sessão Favoritos*/
+/*Sessão Conexões*/
 
-.favoritesUser{
+
+.conexoes{
     background-color: #000000;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 2%;
-    height: 100vh;
+    padding-top: 60px;
+    padding-left: 2%;
+    padding-right:2%;
+    height: 300px;
 }
 
-.favoritesTitle{
-    width: 20%;
-    position: relative;
-    bottom: -200px
+.conexoes img {
+    max-width: 100px;
 }
 
-.favoritesUser h1{
-    font-family: 'Bebas Neue', cursive;
-    font-size: 150px;
-    color: #6741B9;     
-    transform: rotate(-90deg);
-    
+main div h1 {
+width: 658px;
+height: 91px;
+left: 492px;
+top: 706px;
+font-family: Bebas Neue;
+font-style: normal;
+font-weight: normal;
+font-size: 90px;
+line-height: 122px;
+text-align: justify;
+letter-spacing: 0.6em;
+color: #6741B9;
 }
 
-.favoritesCast{
-    width: 80%;
-    height: 100%;
 
+/******************/
+
+/*Sessão Conexões Seguindo*/
+
+
+.seguindo{
+    background-color: #000000;
+    text-align: left;
+    padding: 0 5%;
+    padding-top: 70px;
+    padding-bottom: 25px;
+}
+
+main .seguindo h2{
+    font-family: Bebas Neue;
+    font-weight: 200;
+    font-size: 35px;
+    letter-spacing: 0.6em;
+    color: #6741B9;
+}
+
+.seguindoPessoas {
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    flex-direction: row;
+    padding: 0 5%;
+}
+
+.follower {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.follower h4{
+    color:#FFFFFF;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 5px;
+    line-height: 95%;
+    font-weight: normal;
+}
+
+
+.follower .followerPicture {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
 }
 
 /******************/
 
-/*Sessão Temporizador*/
+/*Sessão Conexões Seguidores*/
 
-.timekeeper{
-    background-color: #6741B9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2%;
-    height: 100vh;
+
+.seguidores{
+    background-color: #000000;
+    text-align: right;
+    padding: 0 4%;
+    padding-top: 70px;
+    padding-bottom: 25px;
 }
 
-/******************/
+main .seguidores h2{
+    font-family: Bebas Neue;
+    font-weight: 200;
+    font-size: 35px;
+    letter-spacing: 0.6em;
+    color: #6741B9;
+}
 
-/*Sessão Catalogo Usuário*/
-
-.userTvShows{
+.seguidoresPessoas {
     background-color: #000000;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: left;
+    flex-direction: row;
+    padding: 0 5%;
+}
+
+.follower {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 2%;
-    height: 100vh;
+    margin: 20px;
+}
+
+.follower h4{
+    color:#FFFFFF;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 5px;
+    line-height: 95%;
+    font-weight: normal;
+}
+
+
+.follower .followerPicture {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
 }
 
 /******************/
 
 /*Media Queries*/
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 576px){
     header #divSearchUser{
         width: 10%;
         text-align: center;
@@ -270,6 +363,43 @@ header #btnBusca{
 
     .menu-desktop{
         display: none;
+    }
+
+    .seguindoPessoas {
+        background-color: #000000;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        flex-direction: row;
+        padding: 0 5%;
+    }
+
+    .seguidoresPessoas {
+        background-color: #000000;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: right;
+        flex-direction: row;
+        padding: 0 5%;
+    }
+
+    .follower .followerPicture {
+        width: 128px;
+        height: 128px;
+        border-radius: 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+        object-fit: cover;
+    }
+
+    .seguindo{
+        background-color: #000000;
+        text-align: center;
+        padding: 0 5%;
+        padding-top: 70px;
+        padding-bottom: 25px;
     }
 
 }
