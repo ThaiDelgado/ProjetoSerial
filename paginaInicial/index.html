@@ -12,27 +12,45 @@
 </head>
 
 <body>
-    <header>
+    <header>     
         <img class="logo" src="/paginaInicial/images/Logo.png" alt="Logo Serial">
+
+        <img  class="iconMenu" src="/paginaInicial/images/reorder_black_24dp.svg" alt="ícon menu">
         
         <video id="bakground" src="/paginaInicial/video/videoBackground.mp4" autoplay="true" loop="true"></video>    
     </header>
 
     <main>
+
         <h1>GERENCIE SUAS SÉRIES EM UM SÓ LUGAR</h1>
+        <aside class="container"> 
+            <div class="card">
+                <h2>Entrar</h2>
 
-        <a href="#">
-            <img class="icon" src="images/reorder_black_24dp.svg" alt="ícon menu">
-        </a>
-        
-        <div class="modal-overlay">
-            <div class="modal">
-                <div class="modal-content">
-                    <iframe class="iframe" src="" frameborder="0"></iframe>
+                <div class="label-float"> 
+                    <input type="text" id="usuario" placeholder="">
+                    <label for="usuario">Usuário</label>
                 </div>
-                
-            </div>
+                    
+                <div class="label-float"> 
+                    <input type="password" id="senha" placeholder="">
+                    <label for="senha">Senha</label>
+                </div>
 
+                <div class="justify-center">
+                    <button>Entrar</button>
+                </div>
+
+                <div class="justify-center">
+                    <hr>
+                </div>
+
+                <p>Não tens uma conta?
+                    <a href=""> Cadastre-se </a>
+                </p>
+            </div>
+        </aside>
+    
     </main>
     
 </body>
