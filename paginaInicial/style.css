@@ -1,4 +1,7 @@
-
+*{
+    margin: 0;
+    padding: 0;
+}
 
 body{
     margin: 0;
@@ -16,10 +19,21 @@ body{
 
 .logo{
     position: absolute;
-    width: 5%;
-    height: 5%;
+    width: 90px;
+    height: 40px;
     top: 2%;
     left: 5%;
+}
+
+.iconMenu{
+
+    background-color: #ffffff30;
+    position: fixed;
+    width: 80px;
+    height: 60px;
+    border-radius: 4px;
+    right: 2%;
+    top: 2%;
 }
 
 header{
@@ -27,7 +41,7 @@ header{
 }
 
 main{
-    position: absolute;
+    position: fixed;
     top: 20px;
     padding: 30px;
     color: #fff ;
@@ -42,17 +56,114 @@ h1{
     letter-spacing: 20px
 }
 
-.icon{
-    width: 7%;
-    height: 7%;
-    position: fixed;
-    left: 93%;
-    bottom: 92%;
+.container{
+    display: flex ;
+    width: 100%;
+    justify-content: right;
+
 }
+
+.card{
+   background-color: #ffffff30;
+   padding: 30px;
+   border-radius: 4%;
+   margin-right: 7%;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: white
+    font-size: 30px;
+}
+
+input{
+    width: 100%;
+    padding: 5px 5px;
+    display: inline-block;
+    border: 0;
+    border-bottom: 2px solid  #6741B9;
+    background-color: transparent;
+    outline: none;
+    min-width: 180px;
+    font-size: 16px;
+    transition: all .3s ease-out;
+    border-radius: 0;
+}
+
+.label-float{
+    position: relative;
+    padding-top: 13px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.label-float label{
+    color:white;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 13px;
+    transition: all .3s ease-out;
+}
+
+.label-float input:focus + label{
+    font-size: 13px;
+    margin-top: 0;
+    color: white;
+}
+
+button{
+    background-color: #6741B9;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover{
+    background-color: ;
+}
+
+.justify-center{
+    display: flex;
+    justify-content: center;
+}
+
+hr{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 60%;
+}
+
+p{
+    color: #6741B9;
+    font-size: 14pt;
+    text-align: center;
+}
+
+a{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .3s ease-out ;
+}
+
+a:hover{
+    color: #fff;
+}
+
+
+
+
 
 /* ==== MODAL ====*/
 
-.modal-overlay {
+/*.modal-overlay {
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
     width: 30%;
@@ -63,3 +174,4 @@ h1{
     right: 10%;
     bottom: 92%
 }
+*/
