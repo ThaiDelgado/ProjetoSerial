@@ -30,7 +30,7 @@ body{
     position: fixed;
     width: 70px;
     height: 60px;
-    border-radius: 4px;
+    border-radius: 10px;
     right: 3%;
     top: 2%;
 }
@@ -55,46 +55,48 @@ h1{
     letter-spacing: 20px
 }
 
-.listMenu{
-    background-color: #ffffff20;
-    position: fixed;
-    width: 400px;
-    height: 200px;
-    border-radius: 10px;
-    right: 3%;
-    top: 2%;
-}
-
 a{
     text-decoration: none;
     font-size: 30px;
     letter-spacing: 60%;
-    line-height: 180%;
+    line-height: 250%;
     color: black;
-    font-weight: bold;   
+    font-weight: bold;
+    
 }
 
 ul{
-    letter-spacing: 40%;
-    line-height: 130%;
+    text-align: center;
+    margin-top: 2%;
+    list-style: none;
+    
 }
 
+span{
+    background-color: #ffffff20;
+    cursor: pointer;
+    position: inherit;  
+}
 
-
-
-
-
-/* ==== MODAL ====*/
-
-/*.modal-overlay {
-    background-color: rgba(0, 0, 0, 0.4);
+/* ==== listMenu ====*/
+    
+.listMenu{
+    background-color: #ffffff20;
     position: fixed;
-    width: 30%;
-    height: 30%;
-    top: 1%;
-    visibility: visible;
-    left: 70%;
-    right: 10%;
-    bottom: 92%
+    width: 400px;
+    height: 180px;
+    border-radius: 10px;
+    right: 3%;
+    top: 2%;
+    visibility: hidden;
 }
-*/
+
+/* --- active ----*/
+
+.listMenu.active {
+    opacity: 1;
+    visibility: visible;
+
+
+
+

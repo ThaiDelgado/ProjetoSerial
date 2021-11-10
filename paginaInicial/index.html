@@ -15,24 +15,46 @@
     <header>     
         <img class="logo" src="/paginaInicial/images/Logo.png" alt="Logo Serial">
 
-        <img  class="iconMenu" src="/paginaInicial/images/reorder_black_24dp.svg" alt="ícon menu">
+        <span class="material-icons-outlined">menu</span>
 
-        <div class="listMenu">
+        <nav class="listMenu">
             <ul>
                 <li class="login"><a href="#">LOGIN</a></li>
+               
                 <li class="cadastro"><a href="#">CADASTRO</a></li>
             </ul>
-        </div>
+        </nav>
+
+        <section>
+            <h2>login</h2>
+
+            <form class="menuLogin" action="">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu email">
+                <label for="password">Senha</label>
+                <input type="password" name="password" id="password" placeholder="Digite sua senha">
+                
+                <a href="#" id="forgot-pass">Esquecestes a senha?</a>
+                
+                <input type="submit" value="Login">
+            </form>
+        </section>
+       
+
+
+
+        </form>
         
         <video id="bakground" src="/paginaInicial/video/videoBackground.mp4" autoplay="true" loop="true"></video>    
     </header>
 
-    <main>
+    <main class="mainClose">
 
         <h1>GERENCIE SUAS SÉRIES EM UM SÓ LUGAR</h1>
         
-    
     </main>
     
+
+<script src="/paginaInicial/script.js"></script>
 </body>
 </html>
