@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Athiti";
+    color:white;
+    border: none;
+}
+
+body{
+    background: black;
+}
+
+img{
+    width: 120px;
+    height: 40px;
+}
+
+a{
+    font-size: .8rem;
+    padding-top: 5px;
+    transition: .5s;
+}
+
+a:hover{
+    color: #8A2BE2
+}
+
+section{
+    background: #ffffff20;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 20px 30px;
+    margin-top: 10vh;
+    border-radius: 10px;
+}
+
+form{
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+input{
+    display: block;
+    width: 100%;
+    padding-top: 5px;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    background: none;
+    letter-spacing: 60%;
+    line-height: 40px;
+}
+
+#forgot-pass{
+    text-align: right;
+    display: block;
+    color: #B5B5B5
+    transition: .5s #8A2BE2;
+}
+
+input[type="submit"] {
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+    background: #8A2BE230;
+    margin-top: 40px;
+    padding-top: 2px;
+    color: #B5B5B5;
+    cursor: pointer;
+    letter-spacing: 60%;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+

@@ -25,7 +25,7 @@ body{
     left: 5%;
 }
 
-.iconMenu{
+/*.iconMenu{
     background-color: #ffffff20;
     position: fixed;
     width: 70px;
@@ -33,7 +33,7 @@ body{
     border-radius: 10px;
     right: 3%;
     top: 2%;
-}
+} */
 
 header{
     position: fixed;
@@ -96,6 +96,7 @@ span{
 .listMenu.active {
     opacity: 1;
     visibility: visible;
+}
 
 
 
