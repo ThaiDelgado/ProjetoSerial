@@ -13,7 +13,7 @@ body{
 
 img{
     width: 120px;
-    height: 40px;
+    object-fit: cover;
 }
 
 section{

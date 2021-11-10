@@ -486,19 +486,18 @@ header .container #btnBusca{
     height: 60vh;
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-around;
     overflow-y: scroll;
 }
 
 .userCastTitle{
-    width:170px;
     margin-right: 25px;
     margin-bottom: 25px;
+
 }
 
 .userCastTitle img{
-    width: 170px;
-    height: 270px;
+    width: 180px;
+    height: 280px;
     background-position: center;
     object-fit: cover;
     border-radius: 10px;
@@ -515,7 +514,6 @@ header .container #btnBusca{
     text-align: center;
     margin-top: 20px;
     letter-spacing: 2px;
-    margin-left: -4px;
 }
 
 .userCastTitle h4{
@@ -533,39 +531,6 @@ header .container #btnBusca{
 /******************/
 
 /*Media Queries*/
-
-@media screen and (max-width: 1024px){
-    .favoritesTitle{
-        width: 15%;
-    }
-
-    .favoritesTitle h1{
-        font-size: 130px;
-        bottom: 105px;
-        left: -165px;
-    }
-
-    .favoritesCast{
-        width:70%;
-    }
-    
-    .timekeeper #timeclock .timer{
-        min-width:100px;
-        min-height:100px;
-        margin:5px;
-    }
-
-    .timekeeper #timeclock .timer h2{
-        margin-left:-2px;
-        margin-bottom:-10px;
-        font-size:35px;
-    }
-
-    .timekeeper #timeclock .timer h4{
-        font-size:13px;
-        margin-right: -5px;
-    }
-} 
 
 @media screen and (max-width: 768px){
     header .container #divSearchUser{
@@ -599,67 +564,7 @@ header .container #btnBusca{
     header .container nav.menu-mobile img{
         width: 20px;
     }  
-
-    .favoritesTitle h1{
-        font-size: 120px;
-    }
-
-    .timekeeper #timeclock .timer{
-        min-width:90px;
-        min-height:90px;
-    }
     
-    .episodeInfo .episodesCount{
-        width: 40%;
-    }
-   
-    .episodeInfo .episodesGenders{
-        width: 60%;
-        height: 50%;
-    }
-
-    .userTvShows ul li{
-        width:150px;
-        font-size: 20px;
-    }
-
-    .userCastTitle{
-        margin-right:10px;
-    }
-
-    .userCastTitle h3{
-        font-size:20px;
-        letter-spacing: 1px;
-    }
-
-}
-
-@media screen and (max-width: 667px){
-    .userCastTitle{
-        margin-right:20px;
-    }
-    
-    .userCastTitle img{
-        width: 150px;
-        height: 250px;
-    }
-    
-    .userCastTitle h3{
-        max-width: 160px;   
-    }
-
-}
-
-@media screen and (max-width: 620px){
-    .userTvCast{
-        width:80%;
-        margin:0 auto;
-    }
-
-    .userCastTitle{
-        margin-right:30px;
-    }
-
 }
 
 /******************/
