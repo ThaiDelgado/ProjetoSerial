@@ -9,20 +9,18 @@ body{
     background: black;
 }
 
-#background{
+video{
     object-fit: cover;
     width: 100vw;
     height: 100vh;
-    top: 0;
-    left: 0;    
 }
 
 .logo{
     position: absolute;
     width: 120px;
-    height: 40px;
     top: 2%;
     left: 5%;
+    object-fit: cover;
 }
 
 /*.iconMenu{
