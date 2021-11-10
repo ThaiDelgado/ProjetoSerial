@@ -6,10 +6,6 @@ span.addEventListener("click", function(){
     list.classList.add("active")
 })
 
-/*close.addEventListener("click", function(){
-    list.classList.remove("active")
-})
-*/
 
 
 

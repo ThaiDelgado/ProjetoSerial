@@ -74,8 +74,8 @@ ul{
 
 span{
     background-color: #ffffff20;
-    cursor: pointer;
-    position: inherit;  
+    cursor: pointer; 
+    position: fixed;  
 }
 
 /* ==== listMenu ====*/
