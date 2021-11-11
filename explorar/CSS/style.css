@@ -318,7 +318,6 @@ main .seguidores h2{
     justify-content: left;
     flex-direction: row;
     padding: 0 5%;
-    padding-bottom: 5%;
 }
 
 .follower {
@@ -348,10 +347,6 @@ main .seguidores h2{
     object-fit: cover;
 }
 
-h4:hover {
-    color: #6741B9;
-}
-
 /******************/
 
 /*Media Queries*/
@@ -359,7 +354,7 @@ h4:hover {
 @media screen and (max-width: 576px){
     header #divSearchUser{
         width: 10%;
-        text-align: center;
+        text-align: center; 
     }
 
     header #txtBusca{
@@ -375,7 +370,7 @@ h4:hover {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        justify-content: left;
+        justify-content: right;
         flex-direction: row;
         padding: 0 5%;
     }
