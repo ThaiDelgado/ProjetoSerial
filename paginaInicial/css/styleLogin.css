@@ -50,7 +50,14 @@ input{
     display: block;
     color: #B5B5B5;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
+
+#forgot-pass:hover{
+    color: #8A2BE2;
+}
+
+
 
 input[type="submit"] {
     font-size: 20px;

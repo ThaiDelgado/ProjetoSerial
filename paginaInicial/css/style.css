@@ -23,16 +23,6 @@ video{
     object-fit: cover;
 }
 
-/*.iconMenu{
-    background-color: #ffffff20;
-    position: fixed;
-    width: 70px;
-    height: 60px;
-    border-radius: 10px;
-    right: 3%;
-    top: 2%;
-} */
-
 header{
     position: fixed;
 }
@@ -67,13 +57,6 @@ ul{
     text-align: center;
     margin-top: 2%;
     list-style: none;
-    
-}
-
-span{
-    background-color: #ffffff20;
-    cursor: pointer; 
-    position: fixed;  
 }
 
 /* ==== listMenu ====*/
@@ -86,15 +69,10 @@ span{
     border-radius: 10px;
     right: 3%;
     top: 2%;
-    visibility: hidden;
+    z-index: 100;
 }
 
-/* --- active ----*/
 
-.listMenu.active {
-    opacity: 1;
-    visibility: visible;
-}
 
 
 
