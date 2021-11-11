@@ -40,8 +40,10 @@ h1{
     padding-left: 5%;
     padding-right: 50%;
     padding-top: 10%;
-    letter-spacing: 20px
-}
+    letter-spacing: 20px;
+    position: absolute;
+    color: #ffffff;
+} 
 
 a{
     text-decoration: none;
@@ -50,7 +52,6 @@ a{
     line-height: 250%;
     color: black;
     font-weight: bold;
-    
 }
 
 ul{
