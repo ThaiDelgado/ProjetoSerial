@@ -16,16 +16,6 @@ img{
     object-fit: cover;
 }
 
-a{
-    font-size: .8rem;
-    padding-top: 5px;
-    transition: .5s;
-}
-
-a:hover{
-    color: #8A2BE2
-}
-
 section{
     background: #ffffff20;
     width: 400px;
@@ -52,13 +42,20 @@ input{
     letter-spacing: 60%;
     line-height: 40px;
     font-size: 16px;
+    padding-bottom: 2px;
 }
 
 #forgot-pass{
+    font-size: 16px;
     text-align: right;
     display: block;
     color: #B5B5B5;
-    transition: .5s #8A2BE2;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#forgot-pass:hover{
+    color: #8A2BE2;
 }
 
 input[type="submit"] {
@@ -71,7 +68,7 @@ input[type="submit"] {
     background: #8A2BE230;
     margin-top: 40px;
     padding-top: 1px;
-    color: #B5B5B5;
+    color: #9b9b9b;
     cursor: pointer;
     letter-spacing: 60%;
 }
