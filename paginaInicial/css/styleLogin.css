@@ -7,8 +7,23 @@
     border: none;
 }
 
-body{
-    background: black;
+video{
+    position: fixed;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.form{
+    position: fixed;
+    z-index: 3;
+    margin-left: 40%;
+    background: #ffffff40;
+    width: 400px;
+    text-align: center;
+    padding: 20px 30px;
+    margin-top: 10vh;
+    border-radius: 10px;
 }
 
 img{
@@ -16,18 +31,7 @@ img{
     object-fit: cover;
 }
 
-section{
-    background: #ffffff20;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    padding: 20px 30px;
-    margin-top: 10vh;
-    border-radius: 10px;
-}
-
-form{
+.meuLogin{
     margin-top: 30px;
     margin-bottom: 40px;
 }
@@ -49,13 +53,14 @@ input{
     font-size: 16px;
     text-align: right;
     display: block;
-    color: #9b9b9b;
+    color: black;
     text-decoration: none;
     transition: all 0.3s ease;
+    font-weight: bold;
 }
 
 #forgot-pass:hover{
-    color: #8A2BE2;
+    color: rgb(146, 142, 142);
 }
 
 input[type="submit"] {
@@ -65,15 +70,22 @@ input[type="submit"] {
     border: none;
     height: 40px;
     border-radius: 20px;
-    background: #8A2BE230;
+    background: black;
+    opacity: 0.5;
     margin-top: 40px;
     padding-top: 1px;
-    color: #9b9b9b;
+    color:white;
     cursor: pointer;
     letter-spacing: 60%;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover{
+    color: blueviolet
 }
 
 textarea:focus, input:focus{
     outline: none;
 }
+
 

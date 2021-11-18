@@ -7,13 +7,21 @@
     border: none;
 }
 
-body{
-    background: black;
-}
-
 img{
     width: 120px;
     object-fit: cover;
+    margin-bottom: 7%;
+}
+
+video{
+    position: fixed;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+body{
+    background: black;
 }
 
 a{
@@ -26,18 +34,21 @@ a:hover{
     color: #8A2BE2
 }
 
-section{
-    background: #ffffff20;
+.form{
+    position: fixed;
+    z-index: 3;
+    margin-left: 40%;
+    background: #ffffff40;
     width: 400px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
     padding: 20px 30px;
     margin-top: 10vh;
     border-radius: 10px;
 }
 
-form{
+.meuLogin{
+    position: fixed;
+    z-index: 3;
     margin-top: 30px;
     margin-bottom: 40px;
 }
@@ -68,14 +79,37 @@ input[type="submit"] {
     border: none;
     height: 40px;
     border-radius: 20px;
-    background: #8A2BE230;
+    background: black;
+    opacity: 0.5;
     margin-top: 40px;
     padding-top: 1px;
     color: #B5B5B5;
     cursor: pointer;
     letter-spacing: 60%;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover{
+    color: blueviolet
 }
 
 textarea:focus, input:focus{
     outline: none;
 }
+
+div{
+    margin-top: 5%;
+}
+
+.login-return{
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.login-return:hover{
+    color:#9b9b9b
+}
+

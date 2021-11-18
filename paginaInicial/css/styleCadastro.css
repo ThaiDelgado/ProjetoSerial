@@ -14,20 +14,22 @@ body{
 img{
     width: 120px;
     object-fit: cover;
+    margin-bottom: 7%;
 }
 
-section{
-    background: #ffffff20;
+.form{
+    position: fixed;
+    z-index: 3;
+    margin-left: 40%;
+    background: #ffffff40;
     width: 400px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
     padding: 20px 30px;
     margin-top: 10vh;
     border-radius: 10px;
 }
 
-form{
+.meuLogin{
     margin-top: 30px;
     margin-bottom: 40px;
 }
@@ -39,10 +41,11 @@ input{
     border-bottom: 2px solid black;
     padding: 10px;
     background: none;
-    letter-spacing: 60%;
-    line-height: 40px;
+    letter-spacing: 90%;
+    line-height: 30px;
     font-size: 16px;
-    padding-bottom: 2px;
+    padding-bottom: 5px;
+    margin-bottom: 5%;
 }
 
 #forgot-pass{
@@ -65,12 +68,17 @@ input[type="submit"] {
     border: none;
     height: 40px;
     border-radius: 20px;
-    background: #8A2BE230;
+    background: black;
+    opacity: 0.5;
     margin-top: 40px;
     padding-top: 1px;
     color: #9b9b9b;
     cursor: pointer;
     letter-spacing: 60%;
+}
+
+input[type="submit"]:hover{
+    color: blueviolet
 }
 
 textarea:focus, input:focus{
