@@ -11,66 +11,16 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="icon" type="imagem/png" href="../../public/images/imgUsuarioPerfil/icones/icon.png" />
 
-        <link href="CSS/style.css" rel="stylesheet">
+        <link href="../../public/css/usuarioPerfil.css" rel="stylesheet">        
         
-        <link rel="icon" type="imagem/png" href="images/icones/icon.png" />
         <title>Serial - Perfil</title>
     </head>
     <body>
-        <header>
-            <div class="container">
-                <img class="logo" src="images/Logo.png"> 
-                    
-                <nav class="menu-desktop">            
-                    <ul>                
-                        <li><a href="">PERFIL</a></li>
-                        <li><a href="">CALENDÁRIO</a></li>
-                        <li><a href="">EXPLORAR</a></li>
-                    </ul>
-                </nav><!--menu-desktop-->
+        <%- include('./partials/header')%>
 
-                <nav class="menu-mobile">            
-                    <ul>                
-                        <li><a href=""><img src="images/icones/iconesMenu/iconePerfil.png" alt="icone Perfil"></a></li>
-                        <li><a href=""><img src="images/icones/iconesMenu/iconeCalendario.png" alt="icone Calendario"></a></li>
-                        <li><a href=""><img src="images/icones/iconesMenu/iconeExplorar.png" alt="icone Explorar"></a></li>
-                    </ul>
-                </nav><!--menu-mobile-->
-
-                <div id="divSearchUser">
-                    <input type="text" id="txtBusca" placeholder="PESQUISAR USUÁRIO"/>
-                    <img src="images/icones/iconePesquisa.png" id="btnBusca" alt="Buscar"/>
-                </div><!--divSearchUser-->
-            </div><!--container--> 
-        </header>
-
-        <div class="background-user">
-            <div class="container">
-                <div class="blockUser">
-                    <div id="profilePicture"></div>
-                        
-                    <div id="userName">
-                        <h1>Harry Potter</h1>
-                        <div id="userFollows">
-                            <h4>300<br>seguindo</h4>
-                            <img src="images/icones/iconeConexão.png"/>
-                            <h4>100000<br>seguidores</h4>
-                        </div> <!--userFollows-->               
-                    </div><!--userName-->
-                </div><!--background-user-->
-        
-                <nav class="menu-perfil-desktop">
-                    <ul>
-                        <li class="select"><a href="">PERFIL</a></li>
-                        <li><a href="">FEED</a></li>
-                        <li><a href="">CONEXÕES</a></li>
-                        <li><a href="">PIPOCANDO</a></li>
-                    </ul>
-                </nav><!--menu-perfil-desktop-->
-
-            </div><!--container--> 
-        </div> 
+        <%- include('./partials/userInfo')%>        
 
         <main>
             <section class="favoritesUser">
