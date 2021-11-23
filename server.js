@@ -1,7 +1,7 @@
 //Insere o módulo de express
 const express = require('express');
 
-//Coleta os métodos do express
+//Variável responsável pela execução do Express
 const app = express();
 
 //Insere estrutura rotas
