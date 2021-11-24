@@ -1,0 +1,137 @@
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="icon" type="imagem/png" href="../../public/images/icons/icon.png" />
+
+        <link href="../../public/css/style.css" rel="stylesheet">     
+        <link href="../../public/css/usuarioPipocando.css" rel="stylesheet">     
+        
+        <title>Serial - Perfil</title>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <img class="logo" src="../../public/images/Logo/Logo.png"> 
+                    
+                <nav class="menu-desktop">            
+                    <ul>                
+                        <li><a href="">PERFIL</a></li>
+                        <li><a href="">CALENDÁRIO</a></li>
+                        <li><a href="">EXPLORAR</a></li>
+                    </ul>
+                </nav><!--menu-desktop-->
+        
+                <nav class="menu-mobile">            
+                    <ul>                
+                        <li><a href=""><img src="../../public/images/icons/iconesMenu/iconePerfil.png" alt="icone Perfil"></a></li>
+                        <li><a href=""><img src="../../public/images/icons/iconesMenu/iconeCalendario.png" alt="icone Calendario"></a></li>
+                        <li><a href=""><img src="../../public/images/icons/iconesMenu/iconeExplorar.png" alt="icone Explorar"></a></li>
+                    </ul>
+                </nav><!--menu-mobile-->
+        
+                <div id="divSearchUser">
+                    <input type="text" id="txtBusca" placeholder="PESQUISAR USUÁRIO"/>
+                    <img src="../../public/images/icons/iconePesquisa.png" id="btnBusca" alt="Buscar"/>
+                </div><!--divSearchUser-->
+            </div><!--container--> 
+        </header>
+
+        <div class="background-user">
+            <div class="container">
+                <div class="blockUser">
+                    <div id="profilePicture"></div>
+                        
+                    <div id="userName">
+                        <h1>Harry Potter</h1>
+                        <div id="userFollows">
+                            <h4>300<br>seguindo</h4>
+                            <img src="../../public/images/icons/iconeConexão.png"/>
+                            <h4>100000<br>seguidores</h4>
+                        </div> <!--userFollows-->               
+                    </div><!--userName-->
+                </div><!--background-user-->
+        
+                <nav class="menu-perfil-desktop">
+                    <ul>
+                        <li><a href="">PERFIL</a></li>
+                        <li><a href="">FEED</a></li>
+                        <li><a href="">CONEXÕES</a></li>
+                        <li class="select"><a href="">PIPOCANDO</a></li>
+                    </ul>
+                </nav><!--menu-perfil-desktop-->
+        
+            </div><!--container--> 
+        </div> 
+
+        <section class="pipocando">
+            <div class="container">
+                <div class="title">
+                    <img src="../../public/images/icons/iconePipocando.png" alt="ícone pipocando">
+                    <h1>PIPOCANDO</h1>
+                </div><!--title-->
+
+                <div class="episodesUpdated">
+                    <div class="title">
+                        <h1>Tá em dia!</h1>
+                    </div>
+                    <div class="watchedEpisodes">
+                        <div class="imgEpisode">
+                            <img src="../../public/images/imgUsuarioPerfil/Cast/lock.jpg" alt="poster Lock&Key">
+                        </div>                        
+                        <div class="infoEpisode">
+                            <h1>Locke & Key</h1>
+                            <p><span class="seasonEpisode">S02|E04</span> "Memórias"</p>
+                            <p>Restam + 6 episódios <span class="premiere">Estreia</span></p>
+                        </div>
+                        <div class="watched">
+                            <img src="../../public/images/icons/iconeAssistiu.png" alt="">
+                        </div>
+                    </div>
+                    <div class="watchedEpisodes">
+                        <div class="imgEpisode">
+                            <img src="../../public/images/imgUsuarioPerfil/Cast/lock.jpg" alt="poster Lock&Key">
+                        </div>                        
+                        <div class="infoEpisode">
+                            <h1>Locke & Key</h1>
+                            <p><span class="seasonEpisode">S02|E05</span> "O passado é um prólogo"</p>
+                            <p>Restam + 5 episódios <span class="premiere">Estreia</span></p>
+                        </div>
+                        <div class="watched">
+                            <img src="../../public/images/icons/iconeAssistiu.png" alt="">
+                        </div>
+                    </div>
+                </div><!--WatchedEpisodes-->
+                
+                <div class="episodesToUpdate">
+                    <div class="title">
+                        <h1>Vem me ver!</h1>
+                    </div>
+                    <div class="toWatchEpisodes">
+                        <div class="imgEpisode">
+                            <img src="../../public/images/imgUsuarioPerfil/Cast/lock.jpg" alt="poster Locke & Key">
+                        </div>                        
+                        <div class="infoEpisode">
+                            <h1>Locke & Key</h1>
+                            <p><span class="seasonEpisode">S02|E06</span> "O Labirinto"</p>
+                            <p>Restam + 4 episódios <span class="premiere">Estreia</span></p>
+                        </div>
+                        <div class="watched">
+                            <img src="../../public/images/icons/iconeNaoAssistiu.png" alt="">
+                        </div>
+                    </div>
+                </div><!--toWatchEpisodes-->
+            </div><!--container-->
+        </section>
+
+    </body>
+</html>
