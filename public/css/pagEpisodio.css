@@ -1,173 +1,209 @@
-.background {
-    background-color: black;
-    color: white;
-    max-width: 100%;
-
-}
-.voltar {
-	font-family: Athiti;
-	font-size: 20px;
-	position: relative;
-	left: 35%;
-	top: 30px;
-	
-}
-.descricao {
-    color:rgba(255, 255, 255, 1);
-	width:60vh;
-	height:40vw;
-	font-family:Athiti;
-	text-align:right;
-	position: relative;
-	top: 10vh;
-	left: 5%;
-	font-size:30px;
-	letter-spacing:0;
-	background-position: right top;
-	box-sizing: content-box;
+.body {
+  background-color: #000000;
 }
 
-.tituloEp {
-    color:rgba(100.00000163912773, 63.000000044703484, 181.0000044107437, 1);
-	width:259px;
-	height:62px;
-	font-family:League Gothic;
-	text-align:justified;
-	font-size:50px;
-	letter-spacing:0;
-	background-position: right top;
+.botaoVoltar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 90%;
+  width: 820px;
+  height: 240px;
+  font-family: Athiti;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 135.94%;
+  text-align: justify;
+  letter-spacing: 0.2em;
+  color: white;
+}
+.tituloDoEp {
+  position: absolute;
+  width: 259px;
+  height: 62px;
+  top: 5%;
+  right: 0;
+  left: 79%;
 
+  font-family: League Gothic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 135.94%;
+  text-align: justify;
+  color: #643fb5;
 }
 
-.top {
-    display: flex;
+.textoDoEp {
+  color: white;
+  position: absolute;
+  top: 15%;
+  right: 0;
+  left: 55%;
+  width: 614px;
+  height: 439px;
+  font-family: Athiti;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 135.94%;
+  text-align: right;
 }
 
-img {
-	width: 80%;
-	height: 80%;
+.dadosEp {
+  position: absolute;
+  top: 72%;
+  right: 0;
+  left: 80%;
+  width: 164px;
+  height: 27px;
+  font-family: marvel;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 135.94%;
+  text-align: justify;
+  color: #ffffff;
 }
 
-.tituloEp {
-    display: start-end;
+.avaliacao {
+  position: absolute;
+  width: 88px;
+  height: 9px;
+  top: 95%;
+  right: 0;
+  left: 80%;
+  font-family: Marvel;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 135.94%;
+  text-align: justify;
+  color: #ffffff;
 }
-.middle {
-	align-items: center;
-	position: relative;
-	bottom: 5vh;
 
-	height: 100%;
-	margin-top: auto;
-	margin-left: 25%;
-	margin-right: auto;
-	margin-bottom: auto;
-    display: flex;
-
+.bolinha1{
+	position: absolute;
+  top: 34px;	
+  right: 0;	
+  left: 85%;
+width: 15px;
+height: 16px;
+border-radius: 10px;
+background: #C4C4C4;
+}
+.bolinha2{
+	position: absolute;
+  top: 34px;	
+  right: 0;	
+  left: 115%;
+width: 15px;
+height: 16px;
+border-radius: 10px;
+background: #C4C4C4;
+}
+.bolinha3{
+	position: absolute;
+  top: 34px;	
+  right: 0;	
+  left: 95%;
+width: 15px;
+height: 16px;
+border-radius: 10px;
+background: #C4C4C4;
+}
+.bolinha4{
+	position: absolute;
+  top: 34px;	
+  right: 0;	
+  left: 100%;
+width: 15px;
+height: 16px;
+border-radius: 10px;
+background: #C4C4C4;
+}
+.bolinha5{
+	position: absolute;
+  top: 34px;	
+  right: 0;	
+  left: 75%;
+width: 15px;
+height: 16px;
+border-radius: 10px;
+background: #C4C4C4;
 }
 .nComentarios {
-    color:rgba(255, 255, 255, 1);
-	width:173px;
-	height:116px;
-	font-family:Bebas Neue;
-	text-align:justified;
-	font-size:100px;
-	letter-spacing:0;
+	position: absolute;
+width: 173px;
+height: 116px;
+left: 452px;
+top: 907px;
+font-family: Bebas Neue;
+font-style: normal;
+font-weight: normal;
+font-size: 100px;
+line-height: 135.94%;
+text-align: justify;
+color: #FFFFFF;
+}
+.comentarios{
+	position: absolute;
+width: 150px;
+height: 34px;
+left: 468px;
+top: 160%;
+color: white;
+font-family: Athiti;
+font-style: normal;
+font-weight: normal;
+font-size: 25px;
+line-height: 135.94%;
+}
+.barra {
+	position: absolute;
+width: 200px;
+height: 0px;
+left: 600px;
+top: 1091px;
+
+border: 5px solid #FFFFFF;
+transform: rotate(90deg);
 }	
-.traco {
-    transform: rotate(90deg);
-	width:200px;
-	height:0px;
-    border:5px solid rgba(255, 255, 255, 1);
-    
-}
-.nReacoes {
-    color:rgba(255, 255, 255, 1);
-	width:173px;
-	height:116px;
-	font-family:Bebas Neue;
-	text-align:justified;
-	font-size:100px;
-	letter-spacing:0;
-}
-.session {
-    color:rgba(103.1602768599987, 64.70625668764114, 184.87500607967377, 1);
-	width:533px;
-	height:82px;
-	font-family:Bebas Neue;
-	text-align:justified;
-	font-size:60px;
-	letter-spacing:30;
-	margin-top: auto;
-	margin-left: 42%;
-	margin-right: center;
-	margin-bottom: center;
-	position: relative;
-	top: 25vh;
 
-}
-.privateSession {
-    color:rgba(255, 255, 255, 1);
-	width:1066px;
-	height:82px;
-	font-family:Marvel;
-	text-align:justified;
-	font-size:30px;
-	letter-spacing:0;
-	margin-top: auto;
-	margin-left: 12%;
-	margin-right: center;
-	margin-bottom: center;
-	position: relative;
-	top: 30vh
-}
+.nReacoes{
+	position: absolute;
+width: 173px;
+height: 116px;
+left: 774px;
+top: 907px;
 
+font-family: Bebas Neue;
+font-style: normal;
+font-weight: normal;
+font-size: 100px;
+line-height: 135.94%;
+/* or 136px */
 
-.numeroEpisodio{
-	color:rgba(80.00000283122063, 46.000001057982445, 152.0000061392784, 1);
-	width:197px;
-	height:106px;
-	font-family:League Gothic;
-	text-align:justified;
-	font-size:100px;
-	letter-spacing:0;
-	position:relative;
-	left: 15vh;
-	bottom: 25vh;
-	
+text-align: justify;
 
+color: #FFFFFF;
 }
-.box1 {
-	background-color:rgba(80.04575997591019, 46.214328557252884, 151.93750709295273, 1);
-	width:179px;
-	height:52px;
-	border-radius:10px;
-	position:relative;
-	right: 80vh;
-	top: 65vh;
-	color:rgba(0, 0, 0, 1);
-	font-family:Marvel;
-	text-align:justified;
-	font-size:30px;
-	letter-spacing:0;
-	
-	
-}
-.box2 {
-	width:32px;
-	height:27px;
-	background-image:url(images/iconedesmarcado.png);
-	background-repeat:no-repeat;
-	background-size:cover;
-	position:relative;
-	right: 20vh;
-}
-.lançamento {
-	position: relative; 
-	top: 70vh;
-	right: 5vh;
-}
-.duracao{
-	position: relative; 
-	top: 75vh;
-	right: 15vh;
+.reacoes{
+	position: absolute;
+width: 97px;
+height: 34px;
+left: 812px;
+top: 1120px;	
+font-family: Athiti;
+font-style: normal;
+font-weight: normal;
+font-size: 25px;
+line-height: 135.94%;
+/* identical to box height, or 34px */
+
+text-align: justify;
+
+color: #FFFFFF;
+
 }
