@@ -197,10 +197,10 @@ header #btnBusca{
 
 /******************/
 
-/*Sessão Conexões*/
+/*Sessão Explorar*/
 
 
-.conexoes{
+.explorar{
     background-color: #000000;
     display: flex;
     flex-direction: column;
@@ -238,7 +238,7 @@ color: #6741B9;
 
 .seguindo{
     background-color: #000000;
-    text-align: left;
+    text-align: right;
     padding: 0 5%;
     padding-top: 70px;
     padding-bottom: 25px;
@@ -247,7 +247,7 @@ color: #6741B9;
 main .seguindo h2{
     font-family: Bebas Neue;
     font-weight: 200;
-    font-size: 35px;
+    font-size: 45px;
     letter-spacing: 0.6em;
     color: #6741B9;
 }
@@ -281,8 +281,8 @@ main .seguindo h2{
 
 
 .follower .followerPicture {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 450px;
     border-radius: 10px;
     background-repeat: no-repeat;
     background-position: center;
@@ -296,7 +296,7 @@ main .seguindo h2{
 
 .seguidores{
     background-color: #000000;
-    text-align: right;
+    text-align: left;
     padding: 0 4%;
     padding-top: 70px;
     padding-bottom: 25px;
@@ -305,7 +305,7 @@ main .seguindo h2{
 main .seguidores h2{
     font-family: Bebas Neue;
     font-weight: 200;
-    font-size: 35px;
+    font-size: 45px;
     letter-spacing: 0.6em;
     color: #6741B9;
 }
@@ -346,6 +346,7 @@ main .seguidores h2{
     background-position: center;
     object-fit: cover;
 }
+
 
 /******************/
 
