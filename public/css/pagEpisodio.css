@@ -87,7 +87,7 @@
 	position: absolute;
   top: 34px;	
   right: 0;	
-  left: 85%;
+  left: 80%;
 width: 15px;
 height: 16px;
 border-radius: 10px;
@@ -97,7 +97,7 @@ background: #C4C4C4;
 	position: absolute;
   top: 34px;	
   right: 0;	
-  left: 115%;
+  left: 100%;
 width: 15px;
 height: 16px;
 border-radius: 10px;
@@ -107,7 +107,7 @@ background: #C4C4C4;
 	position: absolute;
   top: 34px;	
   right: 0;	
-  left: 95%;
+  left: 120%;
 width: 15px;
 height: 16px;
 border-radius: 10px;
@@ -117,7 +117,7 @@ background: #C4C4C4;
 	position: absolute;
   top: 34px;	
   right: 0;	
-  left: 100%;
+  left: 140%;
 width: 15px;
 height: 16px;
 border-radius: 10px;
@@ -127,7 +127,7 @@ background: #C4C4C4;
 	position: absolute;
   top: 34px;	
   right: 0;	
-  left: 75%;
+  left: 160%;
 width: 15px;
 height: 16px;
 border-radius: 10px;
@@ -183,8 +183,6 @@ font-style: normal;
 font-weight: normal;
 font-size: 100px;
 line-height: 135.94%;
-/* or 136px */
-
 text-align: justify;
 
 color: #FFFFFF;
@@ -200,10 +198,54 @@ font-style: normal;
 font-weight: normal;
 font-size: 25px;
 line-height: 135.94%;
-/* identical to box height, or 34px */
-
 text-align: justify;
-
 color: #FFFFFF;
 
+}
+.sessaoPrivada{
+  position: absolute;
+width: 533px;
+height: 100px;
+left: 490px;
+top: 1260px;
+
+font-family: Bebas Neue;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 135.94%;
+text-align: justify;
+letter-spacing: 0.3em;
+
+color: #6741B9;
+}
+
+.textoSessao{
+position: absolute;
+width: 1066px;
+height: 82px;
+left: 167px;
+top: 1409px;
+font-family: Marvel;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 135.94%;
+text-align: justify;
+color: #FFFFFF;
+}
+
+.btnPrivate{
+  position: absolute;
+width: 229px;
+height: 43px;
+left: 585px;
+top: 1569px;
+background: #502E98;
+border-radius: 10px;
+color: white;
+font-family: Marvel;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
 }
