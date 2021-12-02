@@ -4,12 +4,19 @@ const routes = express.Router();
 
 const serialController = require('../controller/serialController')
 const userControler = require('../controller/userController')
+const pgSerieController = require('../controller/pgSerieController')
 
 //Rota inicial
 routes.get('/login', serialController.login);
 
 //Rota usuário
 routes.get('/usuario', userControler.usuario);
+
+//Rota Episodio
+routes.get('/')
+
+//Rota Serie
+routes.get('/serie', pgSerieController.serie)
 
 // // rota da página de episodios
 // app.get('/series/episodios/id:', (req, res) => {
