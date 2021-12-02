@@ -6,10 +6,10 @@ const serialController = require('../controller/serialController')
 const userControler = require('../controller/userController')
 
 //Rota inicial
-routes.get('/', serialController.initial);
+routes.get('/login', serialController.login);
 
 //Rota usuário
-routes.get('/usuario', userControler.initial);
+routes.get('/usuario', userControler.usuario);
 
 // // rota da página de episodios
 // app.get('/series/episodios/id:', (req, res) => {

@@ -1,7 +1,6 @@
-const Serie = require('../model/serie');
 
 module.exports = {
-    initial(req,res){
+    login(req,res){
         res.render('login');
     },
 };

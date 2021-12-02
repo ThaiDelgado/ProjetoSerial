@@ -1,7 +1,7 @@
 const user = require('../model/user');
 
 module.exports = {
-    initial(req,res){
+    usuario(req,res){
         res.render('usuarioPerfil');
     },
 };
