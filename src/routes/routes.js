@@ -20,7 +20,7 @@ routes.get('/episodio', episodeController.index);
 //Rota Serie
 routes.get('/serie', serieController.index);
 
-//Rota Explorar
+//Rota Explorar (rota keppe)
 routes.get('/explorar', explorarController.index);
 
 //Rota Conexoes
