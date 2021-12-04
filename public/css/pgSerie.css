@@ -1,3 +1,235 @@
-body {
+
+html, body {
     background-color:black;
+    width:100%;
+    height:100%;
+  
+}
+
+.btnVoltar {
+    position: absolute;
+    width: 82px;
+    height: 24px;
+    top: 10px;
+    right: 90px;
+    font-family: Athiti;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 135.94%;
+    text-align: justify;
+    letter-spacing: 0.2em;
+    color: #FFFFFF;
+}
+.imgEsquerda img{
+    
+    -webkit-clip-path: polygon(0 0, 0 700px, 700px 600px, 100px 0);
+    clip-path: polygon(0 0, 0 1650px, 700px 80px, 900px 0);
+    
+    
+}
+.logo img{
+position: absolute;
+width: auto;
+height: auto;
+left: 10px;
+max-width: 210px;
+max-height: 110px;
+}
+.title {
+position: absolute;
+width: 425px;
+height: 58px;
+top: 20px;
+right: 90px;
+font-family: League Gothic;
+font-style: normal;
+font-weight: normal;
+font-size: 50px;
+line-height: 135.94%;
+text-align: justify;
+
+color: #6741B9;
+}
+
+.notaImdb{
+    position: absolute;
+    width: 115px;
+    height: 24px;
+    top: 150px;
+    right: 90px;
+    font-family: Marvel;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 135.94%;
+    text-align: justify;
+    color: #FFFFFF;   
+}
+.texto{
+position: absolute;
+width: 465px;
+height: 346px;
+top: 35%;
+right: 120px;
+font-family: Athsiti;
+font-style: normal;
+font-weight: normal;
+font-size: 26px;
+line-height: 135.94%;
+text-align: right;
+color: #FFFFFF;
+}
+
+.informacoes{
+    position: absolute;
+width: 984px;
+height: 41px;
+right: 195px;
+font-family: Marvel;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 135.94%;
+text-align: justify;
+color: #6741B9;
+}
+.logoTv img {
+    position: absolute;
+width: 89px;
+height: 88px;
+display: flex;
+justify-content: center;
+align-items: center;
+left: 50%;
+top: 1200px;
+
+}
+.episodios {
+    position: absolute;
+width: 330px;
+height: 82px;
+left: 42%;
+top: 1250px;
+font-family: Bebas Neue;
+font-style: normal;
+font-weight: normal;
+font-size: 60px;
+line-height: 135.94%;
+text-align: center;
+letter-spacing: 0.3em;
+color: #6741B9;
+
+}
+.imagemLado img {
+    position: absolute;
+    top: 205%;
+    left: 10%;
+width: 297px;
+height: 392px;
+border-radius: 10px;
+}
+.lista{
+    position: absolute;
+    top: 210%;
+    left: 43%;
+    color: white; 
+    width: 789px; 
+    height: 333.4px;
+}
+.listaSeasons{
+    position: absolute;
+width: 103px;
+height: 59px;
+top: 235%;
+left: 80%;
+color: white;
+background: #6741B9;
+border-radius: 20px;
+font-family: Marvel;
+font-style: normal;
+font-weight: bold;
+font-size: 10px;
+line-height: 135.94%;
+text-align: justify;
+
+color: #FFFFFF;
+
+}
+/* 
+.elenco {
+position: absolute;
+width: 1400px;
+height: 277px;
+top: 2100px;
+background: #6741B9;
+border-radius: 20px;
+margin: 10%;
+} */
+.jaViu{
+    position: absolute;
+    width: 520px;
+    height: 49px;
+    top: 265%;
+    font-family: Marvel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 135.94%;
+    
+    text-align: justify;
+    
+    color: #FFFFFF;
+    
+}
+
+.spoilers{
+    
+position: absolute;
+width: 211px;
+height: 33px;
+top: 275%;
+font-family: Marvel;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 135.94%;
+
+
+text-align: justify;
+
+color: #6741B9;
+}
+
+.comment {
+    position: absolute;
+width: 1400px;
+height: 280px;
+top: 285%;
+background: #FFFFFF;
+opacity: 0.2;
+border-radius: 10px;
+margin: 3%;	
+}
+.comment2 {
+    position: absolute;
+width: 1400px;
+height: 280px;
+top: 335%;
+background: #FFFFFF;
+opacity: 0.2;
+border-radius: 10px;
+margin: 3%;
+
+
+}
+.comment3 {
+    position: absolute;
+width: 1400px;
+height: 280px;
+top: 385%;
+background: #FFFFFF;
+opacity: 0.2;
+border-radius: 10px;
+margin: 3%;
 }
