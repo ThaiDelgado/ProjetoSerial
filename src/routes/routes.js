@@ -11,10 +11,14 @@ const serieController = require('../controller/serieController');
 const explorarController = require('../controller/explorarController');
 const conexoesController = require('../controller/conexoesController');
 const feedController = require('../controller/feedController');
+const loginController = require('../controller/loginController');
 
 
 //Rota inicial
 routes.get('/', homeController.home);
+
+//Rota Login
+routes.get('/login', loginController.index);
 
 //Rota usuário
 routes.get('/usuario', userControler.index);
@@ -33,6 +37,7 @@ routes.get('/conexoes', conexoesController.index);
 
 //Rota Feed
 routes.get('/feed', feedController.index);
+
 
 // // rota da página de episodios
 // app.get('/series/episodios/id:', (req, res) => {
