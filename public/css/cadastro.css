@@ -21,11 +21,11 @@ img{
     position: fixed;
     z-index: 3;
     margin-left: 40%;
-    background: #ffffff40;
+    background: #ffffff30;
     width: 400px;
     text-align: center;
     padding: 20px 30px;
-    margin-top: 10vh;
+    margin-top: 20vh;
     border-radius: 10px;
 }
 
