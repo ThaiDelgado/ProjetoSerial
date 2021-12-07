@@ -1,25 +1,20 @@
 //Rota geral
 const express = require("express");
 
-<<<<<<< HEAD
-const homeController = require('../controller/homeController')
-const userControler = require('../controller/userController')
-const pgSerieController = require('../controller/pgSerieController')
-const pgEpisodioController = require('../controller/pgEpisodioController')
-
-//Rota inicial
-routes.get('/', homeController.home);
-=======
 //Responsável por escutar a rota e redirecionar para o método do controller
 const routes = express.Router();
 
+const homeController = require('../controller/homeController')
 const userControler = require('../controller/userController');
 const episodeController = require('../controller/episodeController');
 const serieController = require('../controller/serieController');
 const explorarController = require('../controller/explorarController');
 const conexoesController = require('../controller/conexoesController');
 const feedController = require('../controller/feedController');
->>>>>>> 2ae412c241e78b19cf2fb6646dac40d686ab4651
+
+
+//Rota inicial
+routes.get('/', homeController.home);
 
 //Rota usuário
 routes.get('/usuario', userControler.index);
