@@ -12,6 +12,7 @@ const explorarController = require('../controller/explorarController');
 const conexoesController = require('../controller/conexoesController');
 const feedController = require('../controller/feedController');
 const loginController = require('../controller/loginController');
+const cadastroController = require("../controller/cadastroController");
 
 
 //Rota inicial
@@ -19,6 +20,9 @@ routes.get('/', homeController.home);
 
 //Rota Login
 routes.get('/login', loginController.index);
+
+//Rota Cadastro
+routes.get('/cadastro', cadastroController.cadastro)
 
 //Rota usuário
 routes.get('/usuario', userControler.index);
