@@ -2,13 +2,13 @@
 const express = require("express");
 const routes = express.Router();
 
-const serialController = require('../controller/serialController')
+const homeController = require('../controller/homeController')
 const userControler = require('../controller/userController')
 const pgSerieController = require('../controller/pgSerieController')
 const pgEpisodioController = require('../controller/pgEpisodioController')
 
 //Rota inicial
-routes.get('/login', serialController.login);
+routes.get('/', homeController.home);
 
 //Rota usuário
 routes.get('/usuario', userControler.usuario);
