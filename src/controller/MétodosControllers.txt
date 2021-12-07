@@ -1,0 +1,5 @@
+show: GET - Buscar um recurso
+index: GET - Buscar todos recursos
+create: POST - Criar um recurso
+update: PUT - Atualizar um recurso
+delete: DELETE - Deletar um recurso

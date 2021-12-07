@@ -1,7 +1,9 @@
 const serie = require('../model/serie');
 
 module.exports = {
-    episodio(req,res){
+
+    index(req,res){
         res.render('pagEpisodio');
     },
+    
 };

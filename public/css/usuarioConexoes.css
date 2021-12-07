@@ -95,7 +95,7 @@ header #btnBusca{
 .background-user{
     width: 100%;
     height: 50%;
-    background-image:url('../images/background-user.jpg');
+    background-image:url('/images/imgUsuarioPerfil/background-user.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
@@ -110,7 +110,7 @@ header #btnBusca{
 .background-user #profilePicture{
     width: 100px;
     height: 100px;
-    background-image: url('../images/user-profile.jpg');
+    background-image: url('/images/imgUsuarioPerfil/user-profile.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

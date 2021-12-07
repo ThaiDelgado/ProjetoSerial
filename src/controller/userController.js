@@ -1,7 +1,11 @@
+//Criar cadastro usuário
+
 const user = require('../model/user');
 
 module.exports = {
-    usuario(req,res){
+
+    index(req,res){
         res.render('usuarioPerfil');
     },
+    
 };
