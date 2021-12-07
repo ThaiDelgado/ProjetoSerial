@@ -5,14 +5,16 @@ const express = require("express");
 const routes = express.Router();
 
 const homeController = require('../controller/homeController')
+const loginController = require('../controller/loginController');
+const recuperaSenhaController = require('../controller/recuperaSenhaController')
+const cadastroController = require("../controller/cadastroController");
 const userControler = require('../controller/userController');
 const episodeController = require('../controller/episodeController');
 const serieController = require('../controller/serieController');
 const explorarController = require('../controller/explorarController');
 const conexoesController = require('../controller/conexoesController');
 const feedController = require('../controller/feedController');
-const loginController = require('../controller/loginController');
-const cadastroController = require("../controller/cadastroController");
+
 
 
 //Rota inicial
@@ -21,8 +23,11 @@ routes.get('/', homeController.home);
 //Rota Login
 routes.get('/login', loginController.index);
 
+//Rota Recuperação de Senha
+routes.get('/recuperaSenha', recuperaSenhaController.index);
+
 //Rota Cadastro
-routes.get('/cadastro', cadastroController.cadastro)
+routes.get('/cadastro', cadastroController.cadastro);
 
 //Rota usuário
 routes.get('/usuario', userControler.index);
