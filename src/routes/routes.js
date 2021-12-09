@@ -14,6 +14,7 @@ const serieController = require('../controller/serieController');
 const explorarController = require('../controller/explorarController');
 const conexoesController = require('../controller/conexoesController');
 const feedController = require('../controller/feedController');
+const callendarController = require('../controller/callendarController')
 
 
 
@@ -46,6 +47,9 @@ routes.get('/conexoes', conexoesController.index);
 
 //Rota Feed
 routes.get('/feed', feedController.index);
+
+//Rota Calendário
+routes.get('/calendario', callendarController.index)
 
 
 // // rota da página de episodios
