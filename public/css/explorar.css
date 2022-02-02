@@ -211,6 +211,11 @@ header #btnBusca{
     height: 300px;
 }
 
+.explorar img{
+    width: 85px;
+    height: 85px;
+}
+
 .conexoes img {
     max-width: 100px;
 }
@@ -266,7 +271,7 @@ main .seguindo h2{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    margin: 50px;
 }
 
 .follower h4{
@@ -281,9 +286,9 @@ main .seguindo h2{
 
 
 .follower .followerPicture {
-    width: 250px;
-    height: 450px;
-    border-radius: 10px;
+    width: 350px;
+    height: 500px;
+    border-radius: 7px;
     background-repeat: no-repeat;
     background-position: center;
     object-fit: cover;
