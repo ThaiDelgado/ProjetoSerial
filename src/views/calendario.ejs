@@ -13,30 +13,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../public/css/calendario.css">
+    <link rel="stylesheet" href="./css/calendario.css">
 
     <title>Calendário</title>
 </head>
 <body>
-   <header>
-            <div class="container">
-                <img class="logo" src="imagens/Logo.png"> 
-                    
-                <nav class="menu-desktop">            
-                    <ul>                
-                        <li><a href="">PERFIL</a></li>
-                        <li><a href="">CALENDÁRIO</a></li>
-                        <li><a href="">EXPLORAR</a></li>
-                    </ul>
-                </nav><!--menu-desktop-->
-
-
-                <div id="divSearchUser">
-                    <input type="text" id="txtBusca" placeholder="PESQUISAR USUÁRIO"/>
-                    <img class="busca" src="imagens/iconePesquisa.png" id="btnBusca" alt="Buscar"/>
-                </div><!--divSearchUser-->
-            </div><!--container--> 
-        </header> 
+  
+    <%- include ('./partials/header')  %> 
 
     <div class="geral">
         
@@ -45,11 +28,11 @@
             <div><h1>CALENDÁRIO</h1></div>
         
             <div class="infocal">
-                <img width="100" height="120" src="imagens/the.jpg" >
+                <img width="100" height="120" src="./images/the.jpg" >
                 <a href="#">Episódios | Temporadas | Canal | Duração | Avaliações </a>
             </div>
             <div class="infocal">
-                <img width="100" height="120" src="imagens/filmes.jpg" >
+                <img width="100" height="120" src="./imagens/filmes.jpg" >
                 <a href="#">Episódios | Temporadas | Canal | Duração | Avaliações</a>
             </div>
         </div>
