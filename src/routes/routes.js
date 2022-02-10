@@ -5,9 +5,10 @@ const express = require("express");
 const routes = express.Router();
 
 const homeController = require('../controller/homeController')
-const loginController = require('../controller/loginController');
+const loginController = require('../controller/loginController')
 const recuperaSenhaController = require('../controller/recuperaSenhaController')
 const cadastroController = require("../controller/cadastroController");
+const emailConfirmacao = require('../controller/emailConfirmacao')
 const userControler = require('../controller/userController');
 const episodeController = require('../controller/episodeController');
 const serieController = require('../controller/serieController');
@@ -18,8 +19,9 @@ const callendarController = require('../controller/callendarController')
 
 
 
+
 //Rota inicial
-routes.get('/', homeController.home);
+routes.get('/', homeController.index);
 
 //Rota Login
 routes.get('/login', loginController.index);
@@ -28,7 +30,9 @@ routes.get('/login', loginController.index);
 routes.get('/recuperaSenha', recuperaSenhaController.index);
 
 //Rota Cadastro
-routes.get('/cadastro', cadastroController.cadastro);
+routes.get('/cadastro', cadastroController.index);
+
+routes.post('/emailConfirmacao', emailConfirmacao.index);
 
 //Rota usuário
 routes.get('/usuario', userControler.index);

@@ -2,6 +2,6 @@
 module.exports = {
 
     index(req, res){
-        res.render('cadastro')
+        res.send('confirmaEmail')
     }
-}
+};

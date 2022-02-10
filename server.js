@@ -2,13 +2,13 @@
 const express = require("express");
 
 //Implementa o package cors para utilizar HTTP
-const cors = require("cors");
+const cors = require("cors"); //entender melhor
 
 //Variável responsável pela execução do Express
 const app = express();
 
 //Permite o express entender as requisições JSON da API
-app.use(express.json());
+app.use(express.json()); //JSON arquivo utilizado para transferir informações entre sistemas.
 
 //Permite a comunicação entre aplicações por HTTP
 app.use(cors());

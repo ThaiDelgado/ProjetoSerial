@@ -1,7 +1,5 @@
-
-
 module.exports = {
-    home(req,res){
+    index(req,res){
         res.render('home');
     },
 };
