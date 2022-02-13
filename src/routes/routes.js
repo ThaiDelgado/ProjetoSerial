@@ -13,7 +13,7 @@ const episodeController = require('../controller/episodeController');
 const serieController = require('../controller/serieController');
 const explorarController = require('../controller/explorarController');
 const callendarController = require('../controller/callendarController')
-const userControler = require('../controller/userController');
+const userController = require('../controller/userController');
 
 
 
@@ -32,16 +32,18 @@ routes.get('/cadastro', cadastroController.index);
 routes.post('/emailConfirmacao', emailConfirmacao.index);
 
 //Rota usuário
-routes.get('/usuario', userControler.perfil);
+routes.get('/usuario', userController.perfil);
 
 //Rota Conexoes
-routes.get('/conexoes', userControler.conexoes);
+routes.get('/conexoes', userController.conexoes);
+
+routes.get('/usuario/:id', userController.perfilSeguir)
 
 //Rota Feed
-routes.get('/feed', userControler.feed);
+routes.get('/feed', userController.feed);
 
 //Rota Pipocando
-routes.get('/pipocando', userControler.pipocando)
+routes.get('/pipocando', userController.pipocando)
 
 //Rota Episodio
 routes.get('/episodio', episodeController.index);

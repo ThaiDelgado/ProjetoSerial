@@ -2,9 +2,10 @@
   "name": "projetointegrador",
   "version": "1.0.0",
   "description": "Projeto Integrador",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
   },
   "author": "Thaissa Delgado, Humberto Galdino, Felipe Ogata, Filipe Keppe, Mariana Bezerra, Roberto Menezes",
   "license": "ISC",

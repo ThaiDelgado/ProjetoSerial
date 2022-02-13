@@ -16,6 +16,10 @@
     height: 300px;
 }
 
+a {
+    text-decoration: none;
+}
+
 .conexoes img {
     max-width: 100px;
 }

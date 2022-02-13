@@ -1,76 +1,15 @@
 <html lang="pt-br">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <%- include('./partials/head')%>
+        <link href="/css/stylePadrao.css" rel="stylesheet">
+        <link href="/css/usuarioSeguir.css" rel="stylesheet">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700" rel="stylesheet">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-        <link href="../../public/css/usuarioSeguir.css" rel="stylesheet">
-
-        <link rel="icon" type="imagem/png" href="images/icones/icon.png" />
         <title>Serial - Hermione Granger</title>
     </head>
     <body>
-        <header>
-            <div class="container">
-                <img class="logo" src="images/Logo.png"> 
-                    
-                <nav class="menu-desktop">            
-                    <ul>                
-                        <li><a href="">PERFIL</a></li>
-                        <li><a href="">CALENDÁRIO</a></li>
-                        <li><a href="">EXPLORAR</a></li>
-                    </ul>
-                </nav><!--menu-desktop-->
+        <%- include('./partials/header')%>
 
-                <nav class="menu-mobile">            
-                    <ul>                
-                        <li><a href=""><img src="images/icones/iconesMenu/iconePerfil.png" alt="icone Perfil"></a></li>
-                        <li><a href=""><img src="images/icones/iconesMenu/iconeCalendario.png" alt="icone Calendario"></a></li>
-                        <li><a href=""><img src="images/icones/iconesMenu/iconeExplorar.png" alt="icone Explorar"></a></li>
-                    </ul>
-                </nav><!--menu-mobile-->
-
-                <div id="divSearchUser">
-                    <input type="text" id="txtBusca" placeholder="PESQUISAR USUÁRIO"/>
-                    <img src="images/icones/iconePesquisa.png" id="btnBusca" alt="Buscar"/>
-                </div><!--divSearchUser-->
-            </div><!--container--> 
-        </header>
-
-        <div class="background-user">
-            <div class="container">
-                <div class="blockUser">
-                    <div id="profilePicture"></div>
-                        
-                    <div id="userName">
-                        <h1>Hermione Granger</h1>
-                        <div id="userFollows">
-                            <h4>580<br>seguindo</h4>
-                            <img src="images/icones/iconeConexão.png"/>
-                            <h4>1756933<br>seguidores</h4>
-                        </div> <!--userFollows-->               
-                    </div><!--userName-->
-
-                    <div class="btn">Seguir</div>
-                </div><!--background-user-->
-        
-                <nav class="menu-perfil-desktop">
-                    <ul>
-                        <li class="select"><a href="">PERFIL</a></li>
-                        <li><a href="">CONEXÕES</a></li>
-                    </ul>
-                </nav><!--menu-perfil-desktop-->
-
-            </div><!--container--> 
-        </div> 
+        <%- include('./partials/userInfo')%> 
 
         <main>
             <section class="favoritesUser">
@@ -81,32 +20,32 @@
                     <div class="favoritesCast">
                         <div class="favoritesCastTitlesWrap">
                             <div class="favoritesCastTitle">
-                                <img src="images/Cast/hoc.jpg" alt="">
+                                <img src="/images/imgUsuarioSeguir/Cast/hoc.jpg" alt="">
                                 <h3>House Of Cards</h3>
                                 <h4>2013</h4>
                             </div>
                             <div class="favoritesCastTitle">
-                                <img src="images/Cast/hand.jpg" alt="">
+                                <img src="/images/imgUsuarioSeguir/Cast/hand.jpg" alt="">
                                 <h3>the handmaid's tale</h3>
                                 <h4>2017</h4>
                             </div>
                             <div class="favoritesCastTitle">
-                                <img src="images/Cast/haven.jpg" alt="">
+                                <img src="/images/imgUsuarioSeguir/Cast/haven.jpg" alt="">
                                 <h3>Haven</h3>
                                 <h4>2010</h4>
                             </div>
                             <div class="favoritesCastTitle">
-                                <img src="images/Cast/discovery.jpg" alt="">
+                                <img src="/images/imgUsuarioSeguir/Cast/discovery.jpg" alt="">
                                 <h3>The Discovery of Witches</h3>
                                 <h4>2018</h4>
                             </div>
                             <div class="favoritesCastTitle">
-                                <img src="images/Cast/dark.jpg" alt="">
+                                <img src="/images/imgUsuarioSeguir/Cast/dark.jpg" alt="">
                                 <h3>Dark</h3>
                                 <h4>2018</h4>
                             </div>
                             <div class="favoritesCastTitle">
-                                <img src="images/Cast/100.jpg" alt="">
+                                <img src="/images/imgUsuarioSeguir/Cast/100.jpg" alt="">
                                 <h3>The 100</h3>
                                 <h4>2014</h4>
                             </div>
@@ -203,82 +142,82 @@
                     </nav>
                     <div class="userTvCast">
                         <div class="userCastTitle">
-                            <img src="images/Cast/htgw.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/htgw.jpg" alt="">
                             <h3>How to get away with a murder</h3>
                             <h4>2014</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/umbrella.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/umbrella.jpg" alt="">
                             <h3>The Umbrella Academy</h3>
                             <h4>2019</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/haven.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/haven.jpg" alt="">
                             <h3>Haven</h3>
                             <h4>2010</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/discovery.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/discovery.jpg" alt="">
                             <h3>The Discovery of Witches</h3>
                             <h4>2018</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/13.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/13.jpg" alt="">
                             <h3>13 Reasons Why</h3>
                             <h4>2017</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/100.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/100.jpg" alt="">
                             <h3>The 100</h3>
                             <h4>2014</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/extra.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/extra.jpg" alt="">
                             <h3>Extracurricular</h3>
                             <h4>2020</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/legion.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/legion.jpg" alt="">
                             <h3>Legion</h3>
                             <h4>2017</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/castl.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/castl.jpg" alt="">
                             <h3>Castle Rock</h3>
                             <h4>2018</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/big.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/big.jpg" alt="">
                             <h3>The Big Bang Theory</h3>
                             <h4>2007</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/how.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/how.jpg" alt="">
                             <h3>How I Met Your Mother</h3>
                             <h4>2005</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/home.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/home.jpg" alt="">
                             <h3>Home Before Dark</h3>
                             <h4>2020</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/friends.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/friends.jpg" alt="">
                             <h3>Friends</h3>
                             <h4>1994</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/snow.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/snow.jpg" alt="">
                             <h3>Expresso do Amanhã</h3>
                             <h4>2020</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/hunt.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/hunt.jpg" alt="">
                             <h3>Hunters</h3>
                             <h4>2020</h4>
                         </div>
                         <div class="userCastTitle">
-                            <img src="images/Cast/lock.jpg" alt="">
+                            <img src="/images/imgUsuarioSeguir/Cast/lock.jpg" alt="">
                             <h3>locke and key</h3>
                             <h4>2020</h4>
                         </div>
