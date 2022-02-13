@@ -102,62 +102,7 @@ main .titleGenre h2{
     line-height: 18px;
     color: #FFFFFF;
     text-align: center;
-    margin
-
-/******************/
-
-/*Media Queries*/
-
-@media screen and (max-width: 576px){
-   
-    header #divSearchUser{
-        width: 10%;
-        text-align: center; 
-    }
-
-    header #txtBusca{
-        display: none;
-    }
-
-    .menu-desktop{
-        display: none;
-    }
-
-    .titleGenrePessoas {
-        background-color: #000000;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: right;
-        flex-direction: row;
-        padding: 0 5%;
-    }
-
-    .seguidoresPessoas {
-        background-color: #000000;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: right;
-        flex-direction: row;
-        padding: 0 5%;
-    }
-
-    .follower .followerPicture {
-        width: 128px;
-        height: 128px;
-        border-radius: 10px;
-        background-repeat: no-repeat;
-        background-position: center;
-        object-fit: cover;
-    }
-
-    .titleGenre{
-        background-color: #000000;
-        text-align: center;
-        padding: 0 5%;
-        padding-top: 70px;
-        padding-bottom: 25px;
-    }
+    margin-top: 5px;
 }
-/******************/
+
+/******************
