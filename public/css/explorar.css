@@ -38,76 +38,18 @@ color: #6741B9;
 
 /******************/
 
-/*Sessão Conexões Seguindo*/
+/*Sessão Conexões titleGenre*/
 
 
-.seguindo{
-    background-color: #000000;
-    text-align: right;
-    padding: 0 5%;
-    padding-top: 70px;
-    padding-bottom: 25px;
-}
-
-main .seguindo h2{
-    font-family: Bebas Neue;
-    font-weight: 200;
-    font-size: 45px;
-    letter-spacing: 0.6em;
-    color: #6741B9;
-}
-
-.seguindoPessoas {
-    background-color: #000000;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    flex-direction: row;
-    padding: 0 5%;
-}
-
-.follower {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 50px;
-}
-
-.follower h4{
-    color:#FFFFFF;
-    font-size: 18px;
-    text-align: center;
-    text-transform: uppercase;
-    margin-top: 5px;
-    line-height: 95%;
-    font-weight: normal;
-}
-
-
-.follower .followerPicture {
-    width: 350px;
-    height: 500px;
-    border-radius: 7px;
-    background-repeat: no-repeat;
-    background-position: center;
-    object-fit: cover;
-}
-
-/******************/
-
-/*Sessão Conexões Seguidores*/
-
-
-.seguidores{
+.titleGenre{
     background-color: #000000;
     text-align: left;
-    padding: 0 4%;
+    padding: 0 5%;
     padding-top: 70px;
     padding-bottom: 25px;
 }
 
-main .seguidores h2{
+main .titleGenre h2{
     font-family: Bebas Neue;
     font-weight: 200;
     font-size: 45px;
@@ -115,7 +57,7 @@ main .seguidores h2{
     color: #6741B9;
 }
 
-.seguidoresPessoas {
+.casting {
     background-color: #000000;
     width: 100%;
     display: flex;
@@ -125,39 +67,49 @@ main .seguidores h2{
     padding: 0 5%;
 }
 
-.follower {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
+.userCastTitle{
+    margin-right: 2%;
+    margin-bottom: 4%;
 }
 
-.follower h4{
-    color:#FFFFFF;
-    font-size: 18px;
-    text-align: center;
-    text-transform: uppercase;
-    margin-top: 5px;
-    line-height: 95%;
-    font-weight: normal;
-}
-
-
-.follower .followerPicture {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    background-repeat: no-repeat;
+.userCastTitle img{
+    width: 180px;
+    height: 280px;
     background-position: center;
     object-fit: cover;
+    border-radius: 10px;
 }
 
+.userCastTitle h3{
+    font-family: 'Bebas Neue', cursive;
+    height: 40px;
+    max-width: 180px;
+    font-size: 25px;
+    text-transform: uppercase;
+    line-height: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+.userCastTitle h4{
+    font-family: 'Athiti', sans-serif;
+    max-width: 180px;
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 18px;
+    color: #FFFFFF;
+    text-align: center;
+    margin
 
 /******************/
 
 /*Media Queries*/
 
 @media screen and (max-width: 576px){
+   
     header #divSearchUser{
         width: 10%;
         text-align: center; 
@@ -171,7 +123,7 @@ main .seguidores h2{
         display: none;
     }
 
-    .seguindoPessoas {
+    .titleGenrePessoas {
         background-color: #000000;
         width: 100%;
         display: flex;
@@ -200,14 +152,12 @@ main .seguidores h2{
         object-fit: cover;
     }
 
-    .seguindo{
+    .titleGenre{
         background-color: #000000;
         text-align: center;
         padding: 0 5%;
         padding-top: 70px;
         padding-bottom: 25px;
     }
-
 }
-
 /******************/
