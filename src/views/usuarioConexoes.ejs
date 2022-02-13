@@ -1,83 +1,16 @@
 <html lang="pt-br">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700" rel="stylesheet">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
+        <%- include('./partials/head')%>
+        <link href="/css/stylePadrao.css" rel="stylesheet">
         <link href="/css/usuarioConexoes.css" rel="stylesheet">
-        <title>Serial - Perfil</title>
+
+        <link rel="icon" type="imagem/png" href="images/icones/icon.png" />
+        <title>Serial - Conexões</title>
     </head>
     <body>
-        <header>   
-            <img src="/images/Logo/Logo.png"> 
-                
-            <nav class="menu-desktop">            
-                <ul>                
-                    <li><a href="">PERFIL</a></li>
-                    <li><a href="">CALENDÁRIO</a></li>
-                    <li><a href="">PARA ASSISTIR</a></li>
-                    <li><a href="">NO RADAR</a></li>
-                    <li><a href="">EXPLORAR</a></li>
-                </ul>
-            </nav>
+        <%- include('./partials/header')%>
 
-            <nav class="menu-mobile">            
-                <ul>                
-                    <li><a href="">PERFIL</a></li>
-                    <li><a href="">CALENDÁRIO</a></li>
-                    <li><a href="">PARA ASSISTIR</a></li>
-                    <li><a href="">NO RADAR</a></li>
-                    <li><a href="">EXPLORAR</a></li>
-                </ul>
-            </nav>
-
-            <div id="divSearchUser">
-                <input type="text" id="txtBusca" placeholder="PESQUISAR USUÁRIO"/>
-                <img src="/images/icons/iconePesquisa.png" id="btnBusca" alt="Buscar"/>
-            </div>
-        </header>
-
-        <div class="background-user">
-            
-            <div class="blockUser">
-                <div id="profilePicture"></div>
-                    
-                <div id="userName">
-                    <h1>Nome Usuário</h1>
-                    <div id="userFollows">
-                        <h4>300<br>seguindo</h4>
-                        <img src="/images/imgConexoes/iconesUsuarioConexao/iconeConexão.png"/>
-                        <h4>100000<br>seguidores</h4>
-                    </div>                
-                </div>
-            </div>
-    
-            <nav class="menu-perfil-desktop">
-                <ul>
-                    <li><a href="">PERFIL</a></li>
-                    <li><a href="">FEED</a></li>
-                    <li class="select"><a href="">CONEXÕES</a></li>
-                    <li><a href="">PIPOCANDO</a></li>
-                </ul>
-            </nav>
-
-            <nav class="menu-perfil-mobile">
-                <ul>
-                    <li class="select"><a href=""></a></li>
-                    <li><a href="">FEED</a></li>
-                    <li><a href="">CONEXÕES</a></li>
-                    <li><a href="">PIPOCANDO</a></li>
-                </ul> 
-            </nav>
-        </div> 
+        <%- include('./partials/userInfo')%> 
 
         <main>
                 <div class="conexoes">

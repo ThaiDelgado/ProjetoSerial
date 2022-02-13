@@ -9,14 +9,11 @@ const loginController = require('../controller/loginController')
 const recuperaSenhaController = require('../controller/recuperaSenhaController')
 const cadastroController = require("../controller/cadastroController");
 const emailConfirmacao = require('../controller/emailConfirmacao')
-const userControler = require('../controller/userController');
 const episodeController = require('../controller/episodeController');
 const serieController = require('../controller/serieController');
 const explorarController = require('../controller/explorarController');
-const conexoesController = require('../controller/conexoesController');
-const feedController = require('../controller/feedController');
 const callendarController = require('../controller/callendarController')
-
+const userControler = require('../controller/userController');
 
 
 
@@ -35,7 +32,16 @@ routes.get('/cadastro', cadastroController.index);
 routes.post('/emailConfirmacao', emailConfirmacao.index);
 
 //Rota usuário
-routes.get('/usuario', userControler.index);
+routes.get('/usuario', userControler.perfil);
+
+//Rota Conexoes
+routes.get('/conexoes', userControler.conexoes);
+
+//Rota Feed
+routes.get('/feed', userControler.feed);
+
+//Rota Pipocando
+routes.get('/pipocando', userControler.pipocando)
 
 //Rota Episodio
 routes.get('/episodio', episodeController.index);
@@ -45,12 +51,6 @@ routes.get('/serie', serieController.index);
 
 //Rota Explorar -
 routes.get('/explorar', explorarController.index);
-
-//Rota Conexoes
-routes.get('/conexoes', conexoesController.index);
-
-//Rota Feed
-routes.get('/feed', feedController.index);
 
 //Rota Calendário
 routes.get('/calendario', callendarController.index)
