@@ -2,7 +2,7 @@ const Serie = require('../model/serie');
 
 module.exports = {
     
-    index(req,res){
+    serieById(req,res){
         res.render('pgSerie');
     },
 

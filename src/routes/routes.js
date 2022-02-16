@@ -49,7 +49,7 @@ routes.get('/pipocando', userController.pipocando)
 routes.get('/episodio', episodeController.index);
 
 //Rota Serie
-routes.get('/serie', serieController.index);
+routes.get('/serie/:id', serieController.serieById);
 
 //Rota Explorar -
 routes.get('/explorar', explorarController.index);

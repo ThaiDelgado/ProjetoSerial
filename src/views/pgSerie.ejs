@@ -1,117 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Episodio</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/pgSerie.css">
- <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Athiti&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Marvel&display=swap" rel="stylesheet">
-
+    <%- include('./partials/head') %>
+    <link href="/css/stylePadrao.css" rel="stylesheet">
+    <link href="/css/pgSerie.css" rel="stylesheet">
+    
+    <title>Serial - How To get Away With Murder </title>
 </head>
 <body>
-  
-  <div>
-    <header>
-        <span class="imgEsquerda">
-            <img src="/images/imgExemplo.jpg" alt="">
-            
-        </span>
-        <span class="logo">
-          <img src="/images/logo/logo.png" alt="">
-        </span>
-        <span>
-            <h3 class="btnVoltar"><a href="pagInicial.ejs">Voltar</a></h3>
-            <br>
-            <h2 class="title">"How to get away with murder"</h2>
-            <br>
-            <h4 class="notaImdb">Nota IMDB: 8.1</h4>
-            <p class="texto">A professora de direito penal e brilhante advogada criminal Annalise Keating (Viola Davis) recruta cinco alunos para estagiar em sua firma. Logo na primeira temporada, o quinteto se envolve em um assassinato que acaba criando um l... - Leia mais em https://noticiasdatv.uol.com.br/recomenda/how-get-away-murder-40?cpid=txt. Lorem ipsum Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium excepturi corrupti hic earum, laboriosam, dolor sed magni qui expedita blanditiis, deleniti recusandae eligendi temporibus cum dolorum necessitatibus eos commodi. Magnam?
-              
-            </p>
-            <br>
-        </span>
-        
-
-    </header>
-
-  </div>
-<div class="informacoes">
-  <span>NETFLIX</span>
-  |
-  <span>6 Temporadas</span>
-  |
-  <span>Finalizadas</span>
-  |
-  <span>13123132 pessoas já viram</span>
-  |
-</div>
-<div>
-  <span class="logoTv"><img src="/images/logo/iconeTv 1.png" alt=""></span>
-  <br>
-  <span><h3 class="episodios">EPISÓDIOS</h3></span>
-</div>
-<div>
-  <span class="imagemLado"><img src="/images/pgSeriesEp/image.jpg " alt= ""></span>
-  
-  <ol class="lista">
-    <li>Episodio 1</li> <img src="" alt="">
-    <li>Episodio 2</li> <img src="" alt="">
-    <li>Episodio 3</li> <img src="" alt="">
-    <li>Episodio 4</li> <img src="" alt="">
-    <li>Episodio 5</li> <img src="" alt="">
-    <li>Episodio 6</li> <img src="" alt="">
-    <li>Episodio 7</li> <img src="" alt="">
-    <li>Episodio 8</li> <img src="" alt="">
-  </ol>
-
-</div>
-<div>
-  <ol class="listaSeasons">
-    <li>Season 1</li>
-    <li>Season 2</li>
-    <li>Season 3</li>
-    <li>Season 4</li>
-  </ol>
-
-</div>
-<div class="elenco">
-  <div class="atriz"></div>
-  <div class="atriz2"></div>
-  <div class="ator1"></div>
-  <div class="ator2"></div>
-</div>
-<div>
-  <h4 class="jaViu">Já assistiu? Dê sua crítica sobre a série</h4>
-  <p class="spoilers">Modere nos spoilers</p>
-</div>
-<div>
-  <form class="comment">
-
+    <%- include('./partials/header') %>
+    <!-- <div class="container"> -->
+        <div class="info-wrapper">
+            <div class="poster" style="background-image: url('/images/pgSerie/htgw.jpg');">
+                <button>ADICIONAR</button>
+            </div><!--poster-->
+            <div class="infoTvShow">
+                <h1>How to get away with a murder</h1>
+                <span>Nota no IMDB: 8,1</span>
+                <p>How to Get Away With Murder é uma série de TV americana transmitida originalmente pelo canal American Broadcasting Company (ABC). A história acompanha a brilhante professora e advogada, Annalise Keating, e seu grupo de estudantes de direito que se envolvem em trama de assassinatos que vai agitar toda a universidade e mudar o curso de suas vidas.</p>
+                <p>A série é produzida por Shonda Rhimes, criadora das séries, Grey's Anatomy e Scandal.</p>
+                <button>PRIVATE</button>
+            </div><!--infoTvShow-->
+        </div><!--info-wrapper-->
+    <!-- </div>container -->
     
-  </form>
-</div>
-<br>
-<div>
-  <form class="comment2">
-    <p>lorem lorem ipsum lorem ipsum</p>
-    <p>lorem lorem ipsum lorem ipsum</p>
-    
-  </form>
-</div>
-<div>
-  <form class="comment3">
-    <p>lorem lorem ipsum lorem ipsum</p>
-    <p>lorem lorem ipsum lorem ipsum</p>
-    
-  </form>
-</div>
-    
-  
-
 </body>
 </html>
