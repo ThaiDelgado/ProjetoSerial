@@ -11,7 +11,7 @@ body {
 }
 
 .poster{
-    width: 55%;
+    width: 50%;
     height: 100%;
     clip-path: polygon(0 0, 100% 0, 72% 100%, 0% 100%);
     object-fit: cover;
