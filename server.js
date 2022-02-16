@@ -16,6 +16,9 @@ app.use(cors());
 //Insere estrutura rotas
 app.use("/", require("./src/routes/routes"));
 
+//Insere estrutura rotas usuário
+app.use("/usuario", require("./src/routes/user.routes"));
+
 //Insere estrutura EJS
 app.set("view engine", "ejs");
 
