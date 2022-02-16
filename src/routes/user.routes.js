@@ -14,4 +14,8 @@ routes.get('/:nomeUsuario/:id', userController.perfilSeguir);
 //Rota Pipocando
 routes.get('/pipocando', userController.pipocando);
 
+//Rota Conexões
+routes.get('/conexoes', userController.conexoes);
+
+
 module.exports = routes;
