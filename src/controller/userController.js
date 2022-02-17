@@ -4,24 +4,15 @@ const User = require('../model/user');
 module.exports = {
 
     perfil(req,res){
-        const users = ['aron', 'guilherme', 'keppe', 'ogata'];
-        
-        const nameToFilter = req.query["name"];
-
-        if (!nameToFilter) return res.render('usuarioPerfil', { users })
-        
-        const foundUsers = users.filter(name => name.includes(nameToFilter));
-
-        res.render('usuarioPerfil', { users: foundUsers });
+        res.render('usuarioPerfil');
     },
     
-    perfil2(req,res){
+    perfilComPesquisa(req,res){
         const searchTerm = req.query["name"];
         const users = User.filterByName(searchTerm)
-
         res.render('usuarioPerfil', { users });
     },
-
+    
     feed(req,res){
         res.render('usuarioFeed');
     },

@@ -12,8 +12,4 @@ module.exports = class User {
     const users = this.getUsers()
     return users.filter(n => n.name.includes(searchTerm))
   }
-
-  greet() {
-    console.log(`Oi meu nome é ${this.name} e meu email é ${this.email}`)
-  }
 }
