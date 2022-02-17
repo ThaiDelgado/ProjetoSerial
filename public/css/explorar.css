@@ -105,4 +105,8 @@ main .titleGenre h2{
     margin-top: 5px;
 }
 
+a {
+    text-decoration: none;
+}
+
 /******************
