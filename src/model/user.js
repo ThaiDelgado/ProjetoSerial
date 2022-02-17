@@ -7,7 +7,7 @@ module.exports = class User {
   }
 
   static getUsers() {
-    return [{ name: 'aron'}, { name: 'ogata' }, { name: 'keppe' }, { name: 'guilherme' }]
+    return [{ name: 'Humberto'}, { name: 'ogata' }, { name: 'keppe' }, { name: 'Thaissa' }, {name: "roberto"}, {name: "maria"}, {name: "jose"}, {name: "joao"}, {name: "Gabriel"}]
   }
   
   static filterByName(searchTerm) {
