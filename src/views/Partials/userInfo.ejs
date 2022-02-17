@@ -4,7 +4,9 @@
             <div id="profilePicture"><img src="/images/imgUsuarioPerfil/user-profile.jpg" /></div>
                 
             <div id="userName">
-                <h1>Harry Potter</h1>
+                <% users.map(user => { %>
+                    <h1><%= user %></h1>
+                <% }) %>
                 <div id="userFollows">
                     <h4>300<br>seguindo</h4>
                     <img src="/images/icons/iconeConexão.png"/>

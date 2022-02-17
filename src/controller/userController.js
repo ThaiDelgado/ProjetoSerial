@@ -1,19 +1,33 @@
 //Criar cadastro usuário
-
-const user = require('../model/user');
+const User = require('../model/user');
 
 module.exports = {
 
     perfil(req,res){
-        res.render('usuarioPerfil');
+        const users = ['aron', 'guilherme', 'keppe', 'ogata'];
+        
+        const nameToFilter = req.query["name"];
+
+        if (!nameToFilter) return res.render('usuarioPerfil', { users })
+        
+        const foundUsers = users.filter(name => name.includes(nameToFilter));
+
+        res.render('usuarioPerfil', { users: foundUsers });
+    },
+    
+    perfil2(req,res){
+        const searchTerm = req.query["name"];
+        const users = User.filterByName(searchTerm)
+
+        res.render('usuarioPerfil', { users });
     },
 
     feed(req,res){
         res.render('usuarioFeed');
     },
 
-    conexoes(req,res){
-        res.render('usuarioConexoes');
+    conexoes(req, res){
+        res.render('usuarioConexoes')
     },
     
     pipocando(req,res){

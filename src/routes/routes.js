@@ -11,7 +11,6 @@ const cadastroController = require("../controller/cadastroController");
 const emailConfirmacao = require('../controller/emailConfirmacao')
 const episodeController = require('../controller/episodeController');
 const serieController = require('../controller/serieController');
-const explorarController = require('../controller/explorarController');
 const callendarController = require('../controller/callendarController')
 const userController = require('../controller/userController'); 
 
@@ -31,8 +30,6 @@ routes.get('/cadastro', cadastroController.index);
 
 routes.post('/emailConfirmacao', emailConfirmacao.index);
 
-//Rota Conexoes
-routes.get('/conexoes', userController.conexoes);
 
 //Rota Feed
 routes.get('/feed', userController.feed);
@@ -43,9 +40,6 @@ routes.get('/episodio', episodeController.index);
 
 //Rota Serie
 routes.get('/serie/:id', serieController.serieById);
-
-//Rota Explorar -
-routes.get('/explorar', explorarController.index);
 
 //Rota Calendário
 routes.get('/calendario', callendarController.index)
