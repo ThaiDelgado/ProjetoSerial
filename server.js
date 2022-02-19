@@ -14,7 +14,7 @@ app.use(express.json()); //JSON arquivo utilizado para transferir informações 
 app.use(cors());
 
 //Insere estrutura rotas
-app.use("/", require("./src/routes/routes"));
+app.use("/", require("./src/routes/homePage.routes"));
 
 //Insere estrutura rotas usuário
 app.use("/usuario", require("./src/routes/user.routes"));
