@@ -4,31 +4,13 @@ const express = require("express");
 //Responsável por escutar a rota e redirecionar para o método do controller
 const routes = express.Router();
 
-const homeController = require('../controller/homeController')
-const loginController = require('../controller/loginController')
-const recuperaSenhaController = require('../controller/recuperaSenhaController')
-const cadastroController = require("../controller/cadastroController");
-const emailConfirmacao = require('../controller/emailConfirmacao')
+
 const episodeController = require('../controller/episodeController');
 const serieController = require('../controller/serieController');
 const callendarController = require('../controller/callendarController')
 const userController = require('../controller/userController'); 
 
 
-
-//Rota inicial
-routes.get('/', homeController.index);
-
-//Rota Login
-routes.get('/login', loginController.index);
-
-//Rota Recuperação de Senha
-routes.get('/recuperaSenha', recuperaSenhaController.index);
-
-//Rota Cadastro
-routes.get('/cadastro', cadastroController.index);
-
-routes.post('/emailConfirmacao', emailConfirmacao.index);
 
 
 //Rota Feed
