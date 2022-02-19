@@ -14,6 +14,24 @@
                     <img src="/images/imgExplorar/icones/iconeExplorar.png" alt="">
                     <h1>EXPLORAR</h1>
                 </div>
+
+                <div class="titleGenre">
+                    <h2>DESCUBRA</h2>
+                </div>
+                <div class="casting">
+                    <%if(discoverSeries){%>
+                    <%discoverSeries.forEach(({}, index)=> {%>
+                        <div class="userCastTitle">
+                            <a href="">
+                                <img src="<%=`https://image.tmdb.org/t/p/w500/${discoverSeries[index].poster_path}`%>" alt="">
+                                <h3 style="color:white;"><%=discoverSeries[index].original_name%></h3>
+                                <h4 style="color:white;"><%=discoverSeries[index].first_air_date%></h4>
+                            </a>
+                        </div>
+                    <%})}%>;
+                </div>
+
+                <!--
                 <div class="titleGenre">
                     <h2>LANÇAMENTO</h2>
                 </div>
@@ -347,7 +365,7 @@
                         </a>
                     </div>
 
-                </div>
+                </div>-->
         </main>
 
     </body>

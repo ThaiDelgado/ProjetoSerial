@@ -2,8 +2,9 @@ const serie = require('../model/serie');
 
 module.exports = {
 
-    index(req,res){
-        res.render('explorar');
+    async index(req,res){
+        const discoverSeries = await serie.discover();
+        res.render('explorar', {discoverSeries});
     },
     
 };

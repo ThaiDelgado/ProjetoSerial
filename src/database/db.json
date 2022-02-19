@@ -1,0 +1,10 @@
+{
+    "usuarios":[
+        {
+            "nome": "Humberto Galdino",
+            "email": "humberto.galdino@live.com",
+            "castFavoritos": [],
+            "castTvShows": []
+        }
+    ]
+}
