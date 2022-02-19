@@ -1,10 +1,17 @@
 //Criar cadastro usuário
 const User = require('../model/user');
 
+
 module.exports = {
 
     perfil(req,res){
-        res.render('usuarioPerfil');
+        const email = "humberto.galdino@live.com";
+        let userProfile = User.getUser(email);     
+        if(userProfile){
+            res.render('usuarioPerfil', {userProfile});
+        }else{
+            res.send('Usuário Inexistente!');
+        };        
     },
     
     perfilComPesquisa(req,res){

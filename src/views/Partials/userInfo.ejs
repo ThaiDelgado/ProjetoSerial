@@ -1,14 +1,14 @@
-<div class="background-user" style="background-image:url('/images/imgUsuarioPerfil/background-user.jpg');">
+<div class="background-user" style="background-image:url('<%=userProfile.imgBackground%>');">
     <div class="container">
         <div class="blockUser">
-            <div id="profilePicture"><img src="/images/imgUsuarioPerfil/user-profile.jpg" /></div>
+            <div id="profilePicture"><img src="<%=userProfile.imgProfile%>" /></div>
                 
             <div id="userName">
-                <h1>Harry Potter</h1>
+                <h1><%=userProfile.name%></h1>
                 <div id="userFollows">
-                    <h4>300<br>seguindo</h4>
+                    <h4><%=userProfile.following%><br>seguindo</h4>
                     <img src="/images/icons/iconeConexão.png"/>
-                    <h4>100000<br>seguidores</h4>
+                    <h4><%=userProfile.followers%><br>seguidores</h4>
                 </div> <!--userFollows-->               
             </div><!--userName-->
         </div><!--background-user-->

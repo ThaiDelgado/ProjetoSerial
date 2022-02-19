@@ -1,4 +1,6 @@
 // puxa a classe user do model e exporta para o controller. Além do mais, gera um método para a página de perfil, no mecanismo de busca.
+const { json } = require('express/lib/response');
+const db = require('../database/db.json');
 
 module.exports = class User {
   constructor(name, email) {
@@ -6,8 +8,9 @@ module.exports = class User {
     this.email = email;
   }
 
-  static getUsers() {
-    return [{ name: 'Humberto'}, { name: 'ogata' }, { name: 'keppe' }, { name: 'Thaissa' }, {name: "roberto"}, {name: "maria"}, {name: "jose"}, {name: "joao"}, {name: "Gabriel"}]
+  static getUser(emailReq) {
+    const user = db.users.find(user => user.email === emailReq);
+    return user;
   }
   
   static filterByName(searchTerm) {
