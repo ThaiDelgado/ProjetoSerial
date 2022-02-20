@@ -22,7 +22,7 @@
                     <%if(discoverSeries){%>
                     <%discoverSeries.forEach(({}, index)=> {%>
                         <div class="userCastTitle">
-                            <a href="">
+                            <a href="<%=`/serie/${discoverSeries[index].id}`%>">
                                 <img src="<%=`https://image.tmdb.org/t/p/w500/${discoverSeries[index].poster_path}`%>" alt="">
                                 <h3><%=discoverSeries[index].original_name%></h3>
                                 <h4><%=discoverSeries[index].first_air_date%></h4>

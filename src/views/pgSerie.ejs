@@ -5,20 +5,19 @@
     <link href="/css/stylePadrao.css" rel="stylesheet">
     <link href="/css/pgSerie.css" rel="stylesheet">
     
-    <title>Serial - How To get Away With Murder </title>
+    <title><%=`Serie - ${serie.original_name}`%></title>
 </head>
 <body>
     <%- include('./partials/header') %>
     <div class="container">
         <div class="info-wrapper">
-            <div class="poster" style="background-image: url('/images/pgSerie/htgw.jpg');">
+            <div class="poster" style="background-image: url('<%=`https://image.tmdb.org/t/p/w500/${serie.poster_path}`%>');">
                 <button>ADICIONAR</button>
             </div><!--poster-->
             <div class="infoTvShow">
-                <h1>How to get away with a murder</h1>
-                <span>Nota no IMDB: 8,1</span>
-                <p>How to Get Away With Murder é uma série de TV americana transmitida originalmente pelo canal American Broadcasting Company (ABC). A história acompanha a brilhante professora e advogada, Annalise Keating, e seu grupo de estudantes de direito que se envolvem em trama de assassinatos que vai agitar toda a universidade e mudar o curso de suas vidas.</p>
-                <p>A série é produzida por Shonda Rhimes, criadora das séries, Grey's Anatomy e Scandal.</p>
+                <h1><%=serie.original_name%></h1>
+                <span>Nota dos Usuários: <%=serie.vote_average%></span>
+                <p><%=serie.overview%></p>
                 <button>PRIVATE</button>
                 <button>FAVORITAR</button>
             </div><!--infoTvShow-->
