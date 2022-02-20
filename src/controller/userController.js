@@ -21,15 +21,33 @@ module.exports = {
     },
     
     feed(req,res){
-        res.render('usuarioFeed');
+        const email = "humberto.galdino@live.com";
+        let userProfile = User.getUser(email);     
+        if(userProfile){
+            res.render('usuarioFeed', {userProfile});
+        }else{
+            res.send('Usuário Inexistente!');
+        }; 
     },
 
     conexoes(req, res){
-        res.render('usuarioConexoes')
+        const email = "humberto.galdino@live.com";
+        let userProfile = User.getUser(email);     
+        if(userProfile){
+            res.render('usuarioConexoes', {userProfile});
+        }else{
+            res.send('Usuário Inexistente!');
+        };
     },
     
     pipocando(req,res){
-        res.render('usuarioPipocando');
+        const email = "humberto.galdino@live.com";
+        let userProfile = User.getUser(email);     
+        if(userProfile){
+            res.render('usuarioPipocando', {userProfile});
+        }else{
+            res.send('Usuário Inexistente!');
+        };
     },
 
     perfilSeguir(req,res){

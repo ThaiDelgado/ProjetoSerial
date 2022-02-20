@@ -9,17 +9,22 @@
 </head>
 <body>
     <%- include('./partials/header') %>
-    <div class="container">
+    <div class="container" style="background-image: url('<%=`https://image.tmdb.org/t/p/original${serie.backdrop_path}`%>');">
         <div class="info-wrapper">
-            <div class="poster" style="background-image: url('<%=`https://image.tmdb.org/t/p/w500/${serie.poster_path}`%>');">
+            <div class="poster" style="background-image: url('<%=`https://image.tmdb.org/t/p/original${serie.poster_path}`%>');">
                 <button>ADICIONAR</button>
             </div><!--poster-->
             <div class="infoTvShow">
                 <h1><%=serie.original_name%></h1>
                 <span>Nota dos Usuários: <%=serie.vote_average%></span>
-                <p><%=serie.overview%></p>
-                <button>PRIVATE</button>
-                <button>FAVORITAR</button>
+                <br>
+                <span style="color:#6741B9; font-weight:bold"><%=(serie.number_of_seasons != '1')?`${serie.number_of_seasons} TEMPORADAS`:`${serie.number_of_seasons} TEMPORADA`%> </span>           
+                <p><%=serie.overview?serie.overview:'Não temos uma sinopse para esta série.'%></p>
+                <div>
+                    <button>PRIVATE</button>
+                    <button>FAVORITAR</button>
+                </div>
+                
             </div><!--infoTvShow-->
         </div><!--info-wrapper-->
     </div><!--container-->

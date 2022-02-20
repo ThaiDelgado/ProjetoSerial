@@ -25,7 +25,7 @@
                             <%userProfile.castFavoritos.forEach(({},index)=> {%>
                                 <div class="favoritesCastTitle">
                                     <a href="<%=`/serie/${userProfile.castFavoritos[index].id}`%>">
-                                        <img src="<%=`https://image.tmdb.org/t/p/w500/${userProfile.castFavoritos[index].poster_path}`%>" alt="">
+                                        <img src="<%=`https://image.tmdb.org/t/p/w500${userProfile.castFavoritos[index].poster_path}`%>" alt="">
                                         <h3><%=userProfile.castFavoritos[index].original_name%></h3>
                                         <h4><%=userProfile.castFavoritos[index].first_air_date.substring(0,4)%></h4>
                                     </a>
