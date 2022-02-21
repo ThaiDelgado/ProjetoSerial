@@ -33,7 +33,7 @@ body {
    
 }
 
-.poster button{
+.poster input[type=button]{
     width: 200px;
     background-color: #6741B9;
     color:white;
@@ -68,7 +68,7 @@ body {
     font-size: 20px;
 }
 
-.infoTvShow button{
+.infoTvShow input[type=button]{
     width: 100px;
     margin-top: 20px;
     font-weight: bold;

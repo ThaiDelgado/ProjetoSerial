@@ -12,6 +12,23 @@ module.exports = class User {
     const user = db.users.find(user => user.email === emailReq);
     return user;
   }
+
+  static putSerieFavorite(serie, emailReq) {
+    const index = db.users.indexOf(user => user.email === emailReq);
+    let serieFavorite = {
+      id: serie.id,
+      original_name: serie.original_name,
+      poster_path: serie.poster_path,
+      first_air_date: serie.first_air_date
+    };
+
+    if(index === -1){
+      return "Usuário Inexistente!"
+    } else {
+      db.users[index].castFavoritos.push(serieFavorite);
+      return "Série adicionada aos Favoritos!"
+    };    
+  }
   
   static filterByName(searchTerm) {
     const users = this.getUsers()

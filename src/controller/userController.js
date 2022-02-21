@@ -13,10 +13,10 @@ module.exports = {
             res.send('Usuário Inexistente!');
         };        
     },
-    
+
     perfilComPesquisa(req,res){
         const searchTerm = req.query["name"];
-        const users = User.filterByName(searchTerm)
+        const users = User.filterByName(searchTerm);
         res.render('usuarioPerfil', { users });
     },
     

@@ -4,7 +4,7 @@
     <%- include('./partials/head') %>
     <link href="/css/stylePadrao.css" rel="stylesheet">
     <link href="/css/pgSerie.css" rel="stylesheet">
-    
+  
     <title><%=`Serie - ${serie.original_name}`%></title>
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div class="container" style="background-image: url('<%=`https://image.tmdb.org/t/p/original${serie.backdrop_path}`%>');">
         <div class="info-wrapper">
             <div class="poster" style="background-image: url('<%=`https://image.tmdb.org/t/p/original${serie.poster_path}`%>');">
-                <button>ADICIONAR</button>
+                <input type="button" name="button" value="ADICIONAR" onclick="alert('Série adicionada com sucesso!')">
             </div><!--poster-->
             <div class="infoTvShow">
                 <h1><%=serie.original_name%></h1>
@@ -20,14 +20,14 @@
                 <br>
                 <span style="color:#6741B9; font-weight:bold"><%=(serie.number_of_seasons != '1')?`${serie.number_of_seasons} TEMPORADAS`:`${serie.number_of_seasons} TEMPORADA`%> </span>           
                 <p><%=serie.overview?serie.overview:'Não temos uma sinopse para esta série.'%></p>
-                <div>
-                    <button>PRIVATE</button>
-                    <button>FAVORITAR</button>
-                </div>
-                
+                <form>
+                    <input type="button" id="buttonPrivate" name="buttonPrivate" value="PRIVATE" onclick="">
+                    <input type="button" id="buttonFavorite" name="buttonFavorite" value="FAVORITO" onclick="">
+                </form>                
             </div><!--infoTvShow-->
         </div><!--info-wrapper-->
     </div><!--container-->
+
     
 </body>
 </html>
