@@ -106,10 +106,6 @@ ol {
     
 }
 
-h1{
-    color: #6741B9; 
-}
-
 .esquerda{
     display: flex;
     flex-wrap: wrap;  
@@ -118,32 +114,6 @@ h1{
     width: 500px;
     margin: 50px;
     margin-left: 300px;
-}
-
-.infocal{
-    width: 400px;
-    height: 150px;
-    background-color: #3C4451;
-    margin-top: 10px;
-    margin-bottom: 10px; 
-   
-}
-
-.infocal > img{
-    margin-top: 15px;
-    object-fit: contain;
-    margin-left: 10px;
-   
-}
-
-.infocal > a{
-    color:#AAB1B9;
-    width: 100px;
-    height: 120px;
-    display: inline-block;
-    margin-top: 15px;
-    margin-left: 10px;
-
 }
 
 .first{
@@ -155,16 +125,96 @@ h1{
     align-content: center;
 }
 
-button, p{
-    text-align: center;
-    background-color: #6741B9;
-    width: 300px;
-    color: white;
-    align-content: center;
+.pipocando .container .episodesUpdated{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.geral{
+.pipocando .episodesUpdated .title h1{
+    font-size: 40px;
+    letter-spacing: 0.3em;
+    position: relative;
+    left: 0.2em;
+    color: #6741B9;
+    justify-content: center;
+}
+
+.pipocando .container .watchedEpisodes{
+    width: 800px;
+    height: 200px;
+    border-radius: 10px;
+    background: rgba(170, 177, 185, 0.2); 
+    padding: 1%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    opacity: 50%;
+}
+
+.pipocando .container .watchedEpisodes .imgEpisode{
+    width: 20%;
+}
+
+.pipocando .container .watchedEpisodes .imgEpisode img{
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.pipocando .container .watchedEpisodes .infoEpisode{
+    width: 70%;
+    padding: 0 5%;
+}
+
+.pipocando .container .watchedEpisodes .infoEpisode h1{
+    width: fit-content;
+    height: max-content;
+    color: #222325;
+    background-color:#6741B9;
+    padding:0 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.pipocando .container .watchedEpisodes .infoEpisode p{
+    color: white;
+    font-size: 30px;
+}
+
+.pipocando .container .watchedEpisodes .infoEpisode span.seasonEpisode{
+    font-family: Bebas Neue;
+    font-style: normal;
+    font-weight: normal;    
+}
+
+.pipocando .container .watchedEpisodes .infoEpisode span.premiere{
+    font-family: Bebas Neue;
+    font-style: normal;
+    font-weight: normal;
+    width: fit-content;
+    height: max-content;
+    color: #222325;
+    background-color:#6741B9;
+    padding:0 10px;
+    border-radius: 5px;
+}
+
+.pipocando .container .watchedEpisodes .watched{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pipocando .container .watchedEpisodes .watched img{
+    width: 50px;
 }
 
 
