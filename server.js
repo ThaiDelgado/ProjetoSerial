@@ -7,6 +7,11 @@ const cors = require("cors"); //entender melhor
 //Variável responsável pela execução do Express
 const app = express();
 
+//Adicona method-override
+const methodOverride = require('method-override');
+
+app.use(methodOverride('_method'));
+
 //Permite o express entender as requisições JSON da API
 app.use(express.json()); //JSON arquivo utilizado para transferir informações entre sistemas.
 
@@ -21,6 +26,8 @@ app.use("/usuario", require("./src/routes/user.routes"));
 
 //Insere estrutura rotas explorar 
 app.use("/explorar", require("./src/routes/explorar.routes"));
+
+app.use("/serie", require("./src/routes/serie.routes"));
 
 //Insere estrutura rotas de calendario 
 app.use("/calendario", require("./src/routes/callendar.routes"));

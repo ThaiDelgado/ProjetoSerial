@@ -14,8 +14,8 @@ module.exports = {
         return serie;
     },
 
-    async discover(){
-        const {data: {results}} = await axios.get(`${url}discover/tv/?api_key=${apiKey}&language=pt-BR`);
+    async discover(page){
+        const {data: {results}} = await axios.get(`${url}discover/tv/?api_key=${apiKey}&language=pt-BR&page=${page}`);
         return results;
     }
 };

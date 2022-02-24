@@ -6,7 +6,6 @@ const routes = express.Router();
 
 
 const episodeController = require('../controller/episodeController');
-const serieController = require('../controller/serieController');
 const callendarController = require('../controller/callendarController')
 const userController = require('../controller/userController'); 
 
@@ -16,12 +15,8 @@ const userController = require('../controller/userController');
 //Rota Feed
 routes.get('/feed', userController.feed);
 
-
 //Rota Episodio
 routes.get('/episodio', episodeController.index);
-
-//Rota Serie
-routes.get('/serie/:id', serieController.serieById);
 
 //Rota Calendário
 routes.get('/calendario', callendarController.index)

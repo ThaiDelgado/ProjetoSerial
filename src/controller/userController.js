@@ -1,28 +1,53 @@
 //Criar cadastro usuário
 const User = require('../model/user');
 
+
 module.exports = {
 
     perfil(req,res){
-        res.render('usuarioPerfil');
+        const email = "humberto.galdino@live.com";
+        let userProfile = User.getUser(email);     
+        if(userProfile){
+            res.render('usuarioPerfil', {userProfile});
+        }else{
+            res.send('Usuário Inexistente!');
+        };        
     },
-    
+
     perfilComPesquisa(req,res){
         const searchTerm = req.query["name"];
-        const users = User.filterByName(searchTerm)
+        const users = User.filterByName(searchTerm);
         res.render('usuarioPerfil', { users });
     },
     
     feed(req,res){
-        res.render('usuarioFeed');
+        const email = "humberto.galdino@live.com";
+        let userProfile = User.getUser(email);     
+        if(userProfile){
+            res.render('usuarioFeed', {userProfile});
+        }else{
+            res.send('Usuário Inexistente!');
+        }; 
     },
 
     conexoes(req, res){
-        res.render('usuarioConexoes')
+        const email = "humberto.galdino@live.com";
+        let userProfile = User.getUser(email);     
+        if(userProfile){
+            res.render('usuarioConexoes', {userProfile});
+        }else{
+            res.send('Usuário Inexistente!');
+        };
     },
     
     pipocando(req,res){
-        res.render('usuarioPipocando');
+        const email = "humberto.galdino@live.com";
+        let userProfile = User.getUser(email);     
+        if(userProfile){
+            res.render('usuarioPipocando', {userProfile});
+        }else{
+            res.send('Usuário Inexistente!');
+        };
     },
 
     perfilSeguir(req,res){

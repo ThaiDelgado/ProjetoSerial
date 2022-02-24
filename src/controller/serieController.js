@@ -1,14 +1,25 @@
+const res = require('express/lib/response');
 const Serie = require('../model/serie');
+const User = require('../model/user');
 
 module.exports = {
     
-    serieById(req,res){
-        res.render('pgSerie');
+    async serieById(req,res){
+        const serie = await Serie.findByID(req.params.id);
+        res.render('pgSerie', { serie });
     },
 
-    async show(req, res) {
-        const serie = await Serie.findByID(req.params.id);
-        return res.json(serie);
+    addFavoriteTvShow(req,res){
+        let addSerie = User.putSerieFavorite(req.params.id);
+        res.redirect('/serie/'+ req.params.id);
+    },
+
+    addTvShowToCast(serie, userEmail){
+    
+    },
+
+    addPrivateTagToTvShow(serie, userEmail){
+    
     },
     
 };

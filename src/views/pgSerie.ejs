@@ -4,26 +4,34 @@
     <%- include('./partials/head') %>
     <link href="/css/stylePadrao.css" rel="stylesheet">
     <link href="/css/pgSerie.css" rel="stylesheet">
-    
-    <title>Serial - How To get Away With Murder </title>
+  
+    <title><%=`Serie - ${serie.original_name}`%></title>
 </head>
 <body>
     <%- include('./partials/header') %>
-    <div class="container">
+    <div class="container" style="background-image: url('<%=`https://image.tmdb.org/t/p/original${serie.backdrop_path}`%>');">
         <div class="info-wrapper">
-            <div class="poster" style="background-image: url('/images/pgSerie/htgw.jpg');">
-                <button>ADICIONAR</button>
+            <div class="poster" style="background-image: url('<%=`https://image.tmdb.org/t/p/original${serie.poster_path}`%>');">
+                <form>
+                    <input type="submit" name="buttonAdd" value="ADICIONAR" onclick="alert('Série adicionada com sucesso!')">
+                </form>
             </div><!--poster-->
             <div class="infoTvShow">
-                <h1>How to get away with a murder</h1>
-                <span>Nota no IMDB: 8,1</span>
-                <p>How to Get Away With Murder é uma série de TV americana transmitida originalmente pelo canal American Broadcasting Company (ABC). A história acompanha a brilhante professora e advogada, Annalise Keating, e seu grupo de estudantes de direito que se envolvem em trama de assassinatos que vai agitar toda a universidade e mudar o curso de suas vidas.</p>
-                <p>A série é produzida por Shonda Rhimes, criadora das séries, Grey's Anatomy e Scandal.</p>
-                <button>PRIVATE</button>
-                <button>FAVORITAR</button>
+                <h1><%=serie.original_name%></h1>
+                <span>Nota dos Usuários: <%=serie.vote_average%></span>
+                <br>
+                <span style="color:#6741B9; font-weight:bold"><%=(serie.number_of_seasons != '1')?`${serie.number_of_seasons} TEMPORADAS`:`${serie.number_of_seasons} TEMPORADA`%> </span>           
+                <p><%=serie.overview?serie.overview:'Não temos uma sinopse para esta série.'%></p>
+                <form>
+                    <input type="submit" id="buttonPrivate" name="buttonPrivate" value="PRIVATE">
+                </form>
+                <form method="POST" action="<%=`/serie/${serie.id}/favorite?_method=PUT`%>">
+                    <input type="submit" id="buttonFavorite" name="buttonFavorite" value="FAVORITO">
+                </form>                
             </div><!--infoTvShow-->
         </div><!--info-wrapper-->
     </div><!--container-->
+
     
 </body>
 </html>

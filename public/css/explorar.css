@@ -21,18 +21,18 @@
 }
 
 main div h1 {
-width: 658px;
-height: 91px;
-left: 492px;
-top: 706px;
-font-family: Bebas Neue;
-font-style: normal;
-font-weight: normal;
-font-size: 90px;
-line-height: 122px;
-text-align: justify;
-letter-spacing: 0.6em;
-color: #6741B9;
+    width: 658px;
+    height: 91px;
+    left: 492px;
+    top: 706px;
+    font-family: Bebas Neue;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 90px;
+    line-height: 122px;
+    text-align: justify;
+    letter-spacing: 0.6em;
+    color: #6741B9;
 }
 
 
@@ -67,12 +67,12 @@ main .titleGenre h2{
     padding: 0 5%;
 }
 
-.userCastTitle{
-    margin-right: 20px;
-    margin-bottom: 20px;
+.CastTitle{
+    margin-right: 1%;
+    margin-bottom: 30px;
 }
 
-.userCastTitle img{
+.CastTitle img{
     width: 180px;
     height: 280px;
     background-position: center;
@@ -80,9 +80,9 @@ main .titleGenre h2{
     border-radius: 10px;
 }
 
-.userCastTitle h3{
+.CastTitle h3{
     font-family: 'Bebas Neue', cursive;
-    height: 40px;
+    height: auto;
     max-width: 180px;
     font-size: 25px;
     text-transform: uppercase;
@@ -93,7 +93,7 @@ main .titleGenre h2{
     letter-spacing: 2px;
 }
 
-.userCastTitle h4{
+.CastTitle h4{
     font-family: 'Athiti', sans-serif;
     max-width: 180px;
     font-size: 20px;
