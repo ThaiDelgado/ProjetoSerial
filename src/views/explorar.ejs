@@ -21,15 +21,21 @@
                 <div class="casting">
                     <%if(discoverSeries){%>
                     <%discoverSeries.forEach(({}, index)=> {%>
-                        <div class="userCastTitle">
+                        <%if(discoverSeries[index].poster_path != null){%>
+                        <div class="CastTitle">
                             <a href="<%=`/serie/${discoverSeries[index].id}`%>">
                                 <img src="<%=`https://image.tmdb.org/t/p/w500${discoverSeries[index].poster_path}`%>" alt="">                              
                                 <h3><%=discoverSeries[index].original_name%></h3>
                                 <h4><%=discoverSeries[index].first_air_date.substring(0,4)%></h4>
                             </a>
-                        </div><!--userCastTitle-->>
+                        </div><!--CastTitle-->>
+                        <%}%>
                     <%})}%>;
                 </div><!--casting-->
-        </main>
+                <%if(page != 1){%>
+                    <a href="<%=`/explorar/${page-1}`%>">ANTERIOR</a>
+                <%}%>                
+                <a href="<%=`/explorar/${page+1}`%>">PRÓXIMA</a>
+            </main>
     </body>
 </html>

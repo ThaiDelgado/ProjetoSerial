@@ -67,12 +67,12 @@ main .titleGenre h2{
     padding: 0 5%;
 }
 
-.userCastTitle{
+.CastTitle{
     margin-right: 1%;
     margin-bottom: 30px;
 }
 
-.userCastTitle img{
+.CastTitle img{
     width: 180px;
     height: 280px;
     background-position: center;
@@ -80,7 +80,7 @@ main .titleGenre h2{
     border-radius: 10px;
 }
 
-.userCastTitle h3{
+.CastTitle h3{
     font-family: 'Bebas Neue', cursive;
     height: auto;
     max-width: 180px;
@@ -93,7 +93,7 @@ main .titleGenre h2{
     letter-spacing: 2px;
 }
 
-.userCastTitle h4{
+.CastTitle h4{
     font-family: 'Athiti', sans-serif;
     max-width: 180px;
     font-size: 20px;

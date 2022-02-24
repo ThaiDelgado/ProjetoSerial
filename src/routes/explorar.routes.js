@@ -5,6 +5,6 @@ const routes = express.Router();
 const explorarController = require('../controller/explorarController');
 
 //Rota Explorar -
-routes.get('/', explorarController.index);
+routes.get('/:page', explorarController.index);
 
 module.exports = routes;

@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const Serie = require('../model/serie');
 const User = require('../model/user');
 
@@ -8,9 +9,9 @@ module.exports = {
         res.render('pgSerie', { serie });
     },
 
-    addFavoriteTvShow(serie, userEmail){
-        let addSerie = User.putSerieFavorite(serie, userEmail);
-        return addSerie;
+    addFavoriteTvShow(req,res){
+        let addSerie = User.putSerieFavorite(req.params.id);
+        res.redirect('/serie/'+ req.params.id);
     },
 
     addTvShowToCast(serie, userEmail){

@@ -1,10 +1,10 @@
 {
-    "users":[
+    "users": [
         {
             "id": 1,
             "name": "Humberto Galdino",
             "email": "humberto.galdino@live.com",
-            "password":"12345678",
+            "password": "12345678",
             "castFavoritos": [
                 {
                     "id": 61056,
@@ -35,12 +35,18 @@
                     "original_name": "13 Reasons Why",
                     "poster_path": "/8eUJQK8wRiBvGqiqMKEcYmAnESQ.jpg",
                     "first_air_date": "2017-03-31"
-                }, 
+                },
                 {
                     "id": 48866,
                     "original_name": "The 100",
                     "poster_path": "/cfhfcEt4bOXuVZkTC0nNBpqqiWb.jpg",
                     "first_air_date": "2014-03-19"
+                },
+                {
+                    "id": 85552,
+                    "original_name": "Euphoria",
+                    "poster_path": "/288q0JefZUuTfqUG2qzPTCZYuAL.jpg",
+                    "first_air_date": "2019-06-16"
                 }
             ],
             "castTvShows": [
@@ -73,7 +79,7 @@
                     "original_name": "13 Reasons Why",
                     "poster_path": "/8eUJQK8wRiBvGqiqMKEcYmAnESQ.jpg",
                     "first_air_date": "2017-03-31"
-                }, 
+                },
                 {
                     "id": 48866,
                     "original_name": "The 100",
@@ -82,17 +88,17 @@
                 }
             ],
             "genresTvShows": [
-                "Crime", 
+                "Crime",
                 "Action & Adventure",
-                "Sci-Fi & Fantasy", 
-                "Drama", 
+                "Sci-Fi & Fantasy",
+                "Drama",
                 "Mistério"
             ],
             "timekepper": 0,
             "followers": [],
             "following": [],
             "imgProfile": "/images/imgUsuarioPerfil/user-profile.jpg",
-            "imgBackground": "/images/imgUsuarioPerfil/background-user.jpg"    
+            "imgBackground": "/images/imgUsuarioPerfil/background-user.jpg"
         }
     ]
 }
