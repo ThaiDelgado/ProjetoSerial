@@ -12,4 +12,7 @@ routes.get('/:id', serieController.serieById);
 //Rota Insere Série Favorita
 routes.put('/:id/favorite', serieController.addFavoriteTvShow);
 
+//Rota Insere Série no cast do usuário
+routes.put('/:id/adicionar', serieController.addTvShowToCast);
+
 module.exports = routes;

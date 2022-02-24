@@ -14,8 +14,9 @@ module.exports = {
         res.redirect('/serie/'+ req.params.id);
     },
 
-    addTvShowToCast(serie, userEmail){
-    
+    addTvShowToCast(req,res){
+        let addSerie = User.putSerieToCast(req.params.id);
+        res.redirect('/serie/'+ req.params.id);
     },
 
     addPrivateTagToTvShow(serie, userEmail){

@@ -32,6 +32,30 @@ const User = {
       return "Série adicionada aos Favoritos!";
     };    
   },
+
+  putSerieToCast: async (id) => {
+    let tvShow = await serie.findByID(id);
+    const index = db.users.findIndex(user => user.id == 1);
+    
+    let serieToCast = {
+      id: tvShow.id,
+      original_name: tvShow.original_name,
+      poster_path: tvShow.poster_path,
+      first_air_date: tvShow.first_air_date
+    };
+
+
+    if(index == -1){
+      console.log("Usuário Inexistente!");
+      return "Usuário Inexistente!";
+    } else {
+      db.users[index].castTvShows.push(serieToCast)
+      const json = JSON.stringify(db);
+      fs.writeFileSync( 'src/database/db.json', json);
+      console.log("Série adicionada!");
+      return "Série adicionada!";
+    };
+  },
   
   filterByName: (searchTerm) => {
     const users = this.getUsers()
