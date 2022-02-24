@@ -27,6 +27,10 @@ app.use("/usuario", require("./src/routes/user.routes"));
 //Insere estrutura rotas explorar 
 app.use("/explorar", require("./src/routes/explorar.routes"));
 
+//Insere estrutura rotas de pesquisa 
+app.use("/search", require("./src/routes/search.routes"));
+
+//Insere estrutura rotas de serie
 app.use("/serie", require("./src/routes/serie.routes"));
 
 //Insere estrutura rotas de calendario 

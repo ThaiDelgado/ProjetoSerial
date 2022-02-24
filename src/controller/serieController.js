@@ -9,18 +9,14 @@ module.exports = {
         res.render('pgSerie', { serie });
     },
 
-    addFavoriteTvShow(req,res){
-        let addSerie = User.putSerieFavorite(req.params.id);
+    async addFavoriteTvShow(req,res){
+        let addSerie = await User.putSerieFavorite(req.params.id);
         res.redirect('/serie/'+ req.params.id);
     },
 
-    addTvShowToCast(req,res){
-        let addSerie = User.putSerieToCast(req.params.id);
+    async addTvShowToCast(req,res){
+        let addSerie = await User.putSerieToCast(req.params.id);
         res.redirect('/serie/'+ req.params.id);
-    },
-
-    addPrivateTagToTvShow(serie, userEmail){
-    
     },
     
 };

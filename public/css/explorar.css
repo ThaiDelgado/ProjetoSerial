@@ -62,13 +62,13 @@ main .titleGenre h2{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
     flex-direction: row;
     padding: 0 5%;
 }
 
 .CastTitle{
-    margin-right: 1%;
+    margin-right: 2%;
     margin-bottom: 30px;
 }
 
@@ -110,3 +110,27 @@ a {
 }
 
 /******************
+
+/**SEARCH**/
+
+form.search{
+    background-color: #000000;
+    text-align: center;
+}
+
+form.search input[type=text]{
+    width: 400px;
+    border-radius: 20px;
+    background-color:#6741B9 ;
+}
+
+form.search input[type=submit]{
+    width: 80px;
+    border-radius: 20px;
+    background-color:#6741B9 ;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+/*****************/

@@ -5,8 +5,10 @@ const apiKey = '3a00ae3e8eac3b5e60f644383ee7c942';
 
 module.exports = {
     async findByName(name){
-        const {data: serie} = await axios.get(`${url}search/tv?api_key=${apiKey}&language=pt-BR&query=${name}`);
-        return serie;
+        const {data: {page, results}} = await axios.get(`${url}search/tv?api_key=${apiKey}&query=${name}`);
+        console.log(results);
+        console.log(page);
+        return results;
     },
 
     async findByID(id){
