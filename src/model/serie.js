@@ -34,11 +34,13 @@ const Serie = {
                 ...comments,
                 {
                     id_user: 1,
-                    comentário: comment
+                    comment: comment
                 }
             ]
         }
-        db.series[index] = serie;
+        index >= 0 ? db.series[index] = serie : db.series.push(serie);        
+        const json = JSON.stringify(db);
+        fs.writeFileSync( 'src/database/db.json', json);
     },
 
     async findComments(idSerie){
