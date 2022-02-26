@@ -114,7 +114,52 @@
                 {
                     "id_user": 1,
                     "comment": "teste"
-                }             
+                }
+            ]
+        },
+        {
+            "id_serie": "156568",
+            "comments": [
+                {
+                    "id_user": 1,
+                    "comment": "Excelente !!"
+                }
+            ]
+        },
+        {
+            "id_serie": "156568",
+            "comments": [
+                {
+                    "id_user": 1,
+                    "comment": "Eu sou louco !!!"
+                }
+            ]
+        },
+        {
+            "id_serie": "156568",
+            "comments": [
+                {
+                    "id_user": 1,
+                    "comment": ""
+                }
+            ]
+        },
+        {
+            "id_serie": "99966",
+            "comments": [
+                {
+                    "id_user": 1,
+                    "comment": "Boa !"
+                }
+            ]
+        },
+        {
+            "id_serie": "1396",
+            "comments": [
+                {
+                    "id_user": 1,
+                    "comment": "Excelente !!"
+                }
             ]
         }
     ]

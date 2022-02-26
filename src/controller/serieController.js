@@ -46,7 +46,7 @@ module.exports = {
         let idSerie = req.params.id;
         let comment = req.body.comment;
         await Serie.postComment(idSerie,comment);
-        res.redirect(`/serie/${idSerie}`);        
+        res.redirect(`/serie/${idSerie}/1`);        
     }
     
 };

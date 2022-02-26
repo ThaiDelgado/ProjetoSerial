@@ -165,6 +165,14 @@ body {
     background-color: rgba(170, 177, 185, 0.2);
     border-radius: 10px;
     color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+.usersPosts a{
+    float: right;
+    text-decoration: none;
+    color: #6741B9;
+    font-weight: bold;
 }
 
 .titlePost{
@@ -184,3 +192,4 @@ body {
     margin-left: 15px;
     font-size: 20px;
 }
+

@@ -61,8 +61,9 @@
         </form>
 
         <%if(comments != []){%>
-            <%comments.forEach(comment => {%>
-                <section class="usersPosts">
+            
+                <%comments.forEach(comment => {%>
+                    <section class="usersPosts">
                     <div class="titlePost">
                         <img src="<%=comment.user.imgProfile%>" alt="">
                         <h3><%=comment.user.name%></h3>
@@ -71,9 +72,10 @@
                         <p><%=comment.comment%></p>
                     </div>
                     <a href="">Delete</a>
+                    </section>
                 <%})%>
-                </section>
-            <%}%>
+            
+        <%}%>
         
     </div>    
 </body>

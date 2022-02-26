@@ -1,5 +1,6 @@
 const axios = require('axios');
 const db = require('../database/db.json');
+const fs = require('fs');
 
 const url = 'https://api.themoviedb.org/3/';
 const apiKey = '3a00ae3e8eac3b5e60f644383ee7c942';
@@ -26,7 +27,7 @@ const Serie = {
     },
 
     async postComment(idSerie, comment){        
-        const index = db.series.findIndex(serie => serie.id === idSerie);
+        const index = db.series.findIndex(serie => serie.id_serie === idSerie);
         const comments = index >= 0 ? db.series[index].comments : [];
         let serie = {
             id_serie: idSerie,
