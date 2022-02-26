@@ -15,6 +15,11 @@ const Serie = {
         return serie;
     },
 
+    async findSeason(id, season){
+        const {data: serie} = await axios.get(`${url}tv/${id}/season/${season}?api_key=${apiKey}&language=pt-BR`);
+        return serie;
+    },
+
     async discover(pageOfDiscover){
         const {data: {page, results}} = await axios.get(`${url}discover/tv/?api_key=${apiKey}&language=pt-BR&page=${pageOfDiscover}`);
         return {page, results};

@@ -8,23 +8,26 @@ module.exports = {
     
     async serieById(req,res){
         const serie = await Serie.findByID(req.params.id);
+        const season = await Serie.findSeason(req.params.id, req.params.season);
         const serieComments = await Serie.findComments(req.params.id);
 
         const joinComments = [];
 
-        serieComments.comments.forEach(comment => {
-            const userComment = User.getUserById(comment.id_user);
-            joinComments.push({
-                user: {
-                    id: userComment.id,
-                    name: userComment.name,
-                    imgProfile: userComment.imgProfile
-                },
-                comment: comment.comment
-            })
-        });
+        if(serieComments){
+            serieComments.comments.forEach(comment => {
+                const userComment = User.getUserById(comment.id_user);
+                joinComments.push({
+                    user: {
+                        id: userComment.id,
+                        name: userComment.name,
+                        imgProfile: userComment.imgProfile
+                    },
+                    comment: comment.comment
+                })
+            });
+        }
         
-        res.render('pgSerie', { serie, comments: joinComments });
+        res.render('pgSerie', { serie, season, comments: joinComments });
     },
 
     async addFavoriteTvShow(req,res){

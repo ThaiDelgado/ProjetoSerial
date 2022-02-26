@@ -3,6 +3,10 @@ body {
     background-color: #000000;
 }
 
+.clear{
+    clear: both;
+}
+
 .container{
     width: 100%;
     height: auto;
@@ -81,28 +85,86 @@ body {
     padding: 5px;
 }
 
+.infoTvShowSeason{
+    width: 90%;
+    text-align: right;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.infoTvShowSeason .infoDatasheet{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.infoTvShowSeason .infoDatasheet h3{
+    font-family: 50px;
+    color: #FFFFFF;
+}
+
+.episodesWrapper img{
+    width: 180px;
+    height: 280px;
+    background-position: center;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.episodesWrapper ul{
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.episodesWrapper ul li:nth-child(even){
+    background-color: rgba(170, 177, 185, 0.1);
+}
+
+.commentWrapper{
+    width: 60%;
+    padding-bottom: 30px;
+    margin: 0 auto;
+}
+
 .commentForm{
     margin: 20px auto;
     text-align: center;
 }
 
 .commentForm input[type=text]{
-    width: 60%;
-    height: auto;
+    width: 100%;
+    height: 100px;
     min-height: 30px;
     padding: 10px;
     background-color: rgba(170, 177, 185, 0.2);
     border-radius: 8px;
     border: none;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.commentForm button{
+    width: 80px;
+    background-color: #6741B9;
+    color:white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 5px;
+    float: right;
 }
 
 .usersPosts{
-    width: 60%;
+    width: 100%;
     padding: 2%;
     background-color: rgba(170, 177, 185, 0.2);
     border-radius: 10px;
     color: #FFFFFF;
-    margin: 40px auto;
 }
 
 .titlePost{
@@ -115,9 +177,10 @@ body {
     width: 50px;
     height: 50px;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .titlePost h3{
-    margin-left: 30px;
+    margin-left: 15px;
     font-size: 20px;
 }

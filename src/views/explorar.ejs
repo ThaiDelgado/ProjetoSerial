@@ -28,7 +28,7 @@
                     <%discoverSeries.results.forEach(({}, index)=> {%>
                         <%if(discoverSeries.results[index].poster_path != null){%>
                         <div class="CastTitle">
-                            <a href="<%=`/serie/${discoverSeries.results[index].id}`%>">
+                            <a href="<%=`/serie/${discoverSeries.results[index].id}/1`%>">
                                 <img src="<%=`https://image.tmdb.org/t/p/w500${discoverSeries.results[index].poster_path}`%>" alt="">                              
                                 <h3><%=discoverSeries.results[index].original_name%></h3>
                                 <h4><%=discoverSeries.results[index].first_air_date.substring(0,4)%></h4>

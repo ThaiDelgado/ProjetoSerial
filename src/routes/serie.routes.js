@@ -7,9 +7,9 @@ const routes = express.Router();
 const serieController = require('../controller/serieController');
 
 //Rota Serie
-routes.get('/:id', serieController.serieById);
+routes.get('/:id/:season', serieController.serieById);
 
-routes.post('/:id', serieController.postComment);
+routes.post('/:id/:season', serieController.postComment);
 
 //Rota Insere Série Favorita
 routes.put('/:id/favorite', serieController.addFavoriteTvShow);

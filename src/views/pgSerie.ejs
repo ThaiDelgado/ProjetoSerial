@@ -23,7 +23,7 @@
                 <span style="color:#6741B9; font-weight:bold"><%=(serie.number_of_seasons != '1')?`${serie.number_of_seasons} TEMPORADAS`:`${serie.number_of_seasons} TEMPORADA`%> </span>           
                 <p><%=serie.overview?serie.overview:'Não temos uma sinopse para esta série.'%></p>
                 <!-- <form>
-                    <input type="submit" id="buttonPrivate" name="buttonPrivate" value="PRIVATE">
+                    <input type="submit" id="buttonPrivate" name="buttonPrivate" value="Tornar Privado?">
                 </form> -->
                 <form method="POST" action="<%=`/serie/${serie.id}/favorite?_method=PUT`%>">
                     <input type="submit" id="buttonFavorite" name="buttonFavorite" value="FAVORITO">
@@ -32,15 +32,37 @@
         </div><!--info-wrapper-->
     </div><!--container-->
 
-    <div class="container">
+    <section class="infoTvShowSeason">
+        <div class="infoDatasheet">
+            <h3 style="color: #6741B9;"><%=serie.networks[0].name%></h3>
+            <h3>|</h3>
+            <h3><%=serie.in_production ? 'Em Andamento' : 'Finalizada'%></h3>
+            <h3>|</h3>
+            <h3 style="color: #6741B9;"><%=`${serie.popularity} pessoas já assistiram!`%></h3>
+        </div>
+        <div class="titleInfoTvShowSeason">
+            <h2></h2>
+        </div>
+        <div class="episodesWrapper">
+            <img src="<%=`https://image.tmdb.org/t/p/w500${season.poster_path}`%>" alt="">
+            <ul>
+                <%season.episodes.forEach( ({}, index) => {%>
+                    <li><%=`${season.episodes[index].episode_number} - ${season.episodes[index].name}`%></li>
+                <%})%>
+            </ul>
+        </div>        
+    </section>
+
+    <div class="commentWrapper">
         <form class="commentForm" method="POST" action="<%`/serie/${serie.id}`%>">
             <input type="text" name="comment"><br>
             <button>POST</button>
+            <div class="clear"></div>
         </form>
 
-        <section class="usersPosts">
-            <%if(comments){%>
-                <%comments.forEach(comment => {%>
+        <%if(comments != []){%>
+            <%comments.forEach(comment => {%>
+                <section class="usersPosts">
                     <div class="titlePost">
                         <img src="<%=comment.user.imgProfile%>" alt="">
                         <h3><%=comment.user.name%></h3>
@@ -50,12 +72,9 @@
                     </div>
                     <a href="">Delete</a>
                 <%})%>
-            <%} else {%>
-                <p>Não há comentários!</p>
+                </section>
             <%}%>
-        </section>
-    </div>
-
-    
+        
+    </div>    
 </body>
 </html>
