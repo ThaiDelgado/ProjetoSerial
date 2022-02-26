@@ -85,6 +85,12 @@
                     "original_name": "Euphoria",
                     "poster_path": "/288q0JefZUuTfqUG2qzPTCZYuAL.jpg",
                     "first_air_date": "2019-06-16"
+                },
+                {
+                    "id": 60574,
+                    "original_name": "Peaky Blinders",
+                    "poster_path": "/i0uajcHH9yogXMfDHpOXexIukG9.jpg",
+                    "first_air_date": "2013-09-12"
                 }
             ],
             "genresTvShows": [
@@ -99,6 +105,17 @@
             "following": [],
             "imgProfile": "/images/imgUsuarioPerfil/user-profile.jpg",
             "imgBackground": "/images/imgUsuarioPerfil/background-user.jpg"
+        }
+    ],
+    "series": [
+        {
+            "id_serie": 61056,
+            "comments": [
+                {
+                    "id_user": 1,
+                    "comment": "teste"
+                }             
+            ]
         }
     ]
 }

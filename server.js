@@ -4,11 +4,13 @@ const express = require("express");
 //Implementa o package cors para utilizar HTTP
 const cors = require("cors"); //entender melhor
 
+//Adicona method-override
+const methodOverride = require('method-override');
+
 //Variável responsável pela execução do Express
 const app = express();
 
-//Adicona method-override
-const methodOverride = require('method-override');
+app.use(express.urlencoded({ extended: false }));
 
 app.use(methodOverride('_method'));
 
@@ -26,9 +28,6 @@ app.use("/usuario", require("./src/routes/user.routes"));
 
 //Insere estrutura rotas explorar 
 app.use("/explorar", require("./src/routes/explorar.routes"));
-
-//Insere estrutura rotas de pesquisa 
-app.use("/search", require("./src/routes/search.routes"));
 
 //Insere estrutura rotas de serie
 app.use("/serie", require("./src/routes/serie.routes"));

@@ -7,6 +7,6 @@ const explorarController = require('../controller/explorarController');
 //Rota Explorar -
 routes.get('/:page', explorarController.index);
 
-routes.get('/:page/:search', explorarController.search);
+routes.get('/', explorarController.search);
 
 module.exports = routes;
