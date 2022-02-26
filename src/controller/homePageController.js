@@ -1,4 +1,4 @@
-
+const {check, validationResult, body} = require('express-validator'); // check, validationResult, body
 
 module.exports = {
     home(req,res){
@@ -15,6 +15,14 @@ module.exports = {
 
     passwordDiscovery(req, res){
         res.render('passwordDiscovery')
+    }, 
+
+    salvarFormulario(req, res){
+        const errors = validationResult(req);
+        if(errors.isEmpty()){
+            res.send('Formulário enviado com sucesso');
+        }
+        res.redirect('/');
     }
 
 };
