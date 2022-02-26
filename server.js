@@ -20,6 +20,8 @@ app.use(express.json()); //JSON arquivo utilizado para transferir informações 
 //Permite a comunicação entre aplicações por HTTP
 app.use(cors());
 
+
+
 //Insere estrutura rotas
 app.use("/", require("./src/routes/homePage.routes"));
 

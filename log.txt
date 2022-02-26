@@ -1,0 +1,7 @@
+O usuário entrou na url: /video/video/videoBackground.mp4 às Sat Feb 26 2022 15:21:35 GMT-0300 (Horário Padrão de Brasília)
+O usuário entrou na url: /login às Sat Feb 26 2022 15:21:38 GMT-0300 (Horário Padrão de Brasília)
+O usuário entrou na url: /login às Sat Feb 26 2022 15:21:43 GMT-0300 (Horário Padrão de Brasília)
+O usuário entrou na url: / às Sat Feb 26 2022 15:21:48 GMT-0300 (Horário Padrão de Brasília)
+O usuário entrou na url: / às Sat Feb 26 2022 15:23:31 GMT-0300 (Horário Padrão de Brasília)
+O usuário entrou na url: / às Sat Feb 26 2022 15:23:38 GMT-0300 (Horário Padrão de Brasília)
+Foi criado um registor na url: /cadastro na data: Sat Feb 26 2022 15:45:27 GMT-0300 (Horário Padrão de Brasília)

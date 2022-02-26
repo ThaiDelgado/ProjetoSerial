@@ -17,12 +17,15 @@ module.exports = {
         res.render('passwordDiscovery')
     }, 
 
-    salvarFormulario(req, res){
+    verificarLogin(req, res){
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            res.send('Formulário enviado com sucesso');
+            res.redirect('usuarioPerfil');
+        } else{
+            res.redirect('/explorar/1'); // 
         }
-        res.redirect('/');
+        
+        
     }
 
 };
