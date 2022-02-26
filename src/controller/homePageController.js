@@ -20,9 +20,9 @@ module.exports = {
     verificarLogin(req, res){
         const errors = validationResult(req);
         if(!errors.isEmpty()){
-            res.redirect('/usuario');
+            res.redirect('/');
         } else{
-            res.redirect('/'); // 
+            res.redirect('/usuario'); // 
         }
         
         
