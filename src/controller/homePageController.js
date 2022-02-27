@@ -1,4 +1,6 @@
 const {check, validationResult, body} = require('express-validator'); // check, validationResult, body
+const fs = require('fs');
+const path = require('path');
 
 module.exports = {
     home(req,res){
@@ -6,7 +8,7 @@ module.exports = {
     },
 
     cadastro(req, res){
-        res.render('cadastro')
+        res.render('cadastro');
     },
 
     login(req,res){

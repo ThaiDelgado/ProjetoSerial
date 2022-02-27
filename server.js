@@ -10,6 +10,7 @@ const methodOverride = require('method-override');
 //Variável responsável pela execução do Express
 const app = express();
 
+
 app.use(express.urlencoded({ extended: false }));
 
 app.use(methodOverride('_method'));
@@ -66,5 +67,5 @@ app.listen(3000, () => console.log("Servidor Funcionando!"));
 // });
 
 // para criar e relacionar caminhos (padrão)
-var path = require("path");
+const path = require('path');
 
