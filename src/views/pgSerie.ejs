@@ -41,29 +41,40 @@
             <h3 style="color: #6741B9;"><%=`${serie.popularity} pessoas já assistiram!`%></h3>
         </div>
         <div class="titleInfoTvShowSeason">
-            <h2></h2>
+            <h2><%=season.name%></h2>
         </div>
         <div class="episodesWrapper">
             <img src="<%=`https://image.tmdb.org/t/p/w500${season.poster_path}`%>" alt="">
             <ul>
                 <%season.episodes.forEach( ({}, index) => {%>
-                    <li><%=`${season.episodes[index].episode_number} - ${season.episodes[index].name}`%></li>
+                    <form method="POST" action="<%`/serie/${serie.id}/${season.season_number}/${season.episodes[index].episode_number}?_method=PUT`%>">
+                        <li>
+                            <%=`${season.episodes[index].episode_number} - ${season.episodes[index].name}`%>
+                            <input type="submit" value="+">
+                        </li>
+                    </form>
                 <%})%>
             </ul>
+            <form action="<%`/serie/${serie.id}/1`%>" method="POST">
+                <select name="season" id="season">
+                    <%for(let index = 1; serie.number_of_seasons >= index; index++){ %>
+                        <option value="<%index%>"><%=`Temporada ${index}`%></option>
+                    <%}%>
+                </select>
+            </form>
         </div>        
     </section>
 
-    <div class="commentWrapper">
-        <form class="commentForm" method="POST" action="<%`/serie/${serie.id}`%>">
+    <section class="commentWrapper">
+        <form class="commentForm" method="POST" action="<%`/serie/${serie.id}/1`%>">
             <input type="text" name="comment"><br>
             <button>POST</button>
             <div class="clear"></div>
         </form>
 
         <%if(comments != []){%>
-            
-                <%comments.forEach(comment => {%>
-                    <section class="usersPosts">
+            <%comments.forEach(comment => {%>
+                <section class="usersPosts">
                     <div class="titlePost">
                         <img src="<%=comment.user.imgProfile%>" alt="">
                         <h3><%=comment.user.name%></h3>
@@ -72,11 +83,10 @@
                         <p><%=comment.comment%></p>
                     </div>
                     <a href="">Delete</a>
-                    </section>
                 <%})%>
-            
-        <%}%>
+                </section>
+            <%}%>
         
-    </div>    
+    </section>    
 </body>
 </html>

@@ -17,6 +17,7 @@ routes.put('/:id/favorite', serieController.addFavoriteTvShow);
 //Rota Insere Série no cast do usuário
 routes.put('/:id/adicionar', serieController.addTvShowToCast);
 
-
+//Rota Insere Episódio
+routes.put('/:id/:season/:episode_number', serieController.addEpisode);
 
 module.exports = routes;

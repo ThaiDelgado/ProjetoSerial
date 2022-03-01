@@ -31,22 +31,28 @@ module.exports = {
     },
 
     async addFavoriteTvShow(req,res){
-        let favorite = await serie.findByID(id);
+        let favorite = await Serie.findByID(req.params.id);
         let addSerie = await User.putSerieFavorite(favorite);
-        res.redirect('/serie/'+ req.params.id);
+        res.redirect(`/serie/${req.params.id}/1`);
     },
 
     async addTvShowToCast(req,res){        
-        let tvShow = await serie.findByID(id);
+        let tvShow = await serie.findByID(req.params.id);
         let addSerie = await User.putSerieToCast(tvShow);
-        res.redirect('/serie/'+ req.params.id);
+        res.redirect(`/serie/${req.params.id}/1`);
+    },
+
+    async addEpisode(req,res){
+        console.log('entrou no controller')
+        let tvShow = await serie.findByID(req.params.id);
+        let addEpisode = await User.addEpisode(tvShow, req.params.episode_number);
+
+        // res.redirect(`/serie/${req.params.id}/1`);
     },
 
     async postComment(req,res){
-        let idSerie = req.params.id;
-        let comment = req.body.comment;
-        await Serie.postComment(idSerie,comment);
-        res.redirect(`/serie/${idSerie}/1`);        
+        await Serie.postComment(req.params.id, req.body.comment);
+        res.redirect(`/serie/${req.params.id}/1`);        
     }
     
 };

@@ -36,6 +36,22 @@ const User = {
     };    
   },
 
+  addEpisode: async (tvShow, episode_number) => {
+    const index = db.users.findIndex(user => user.id == 1);
+    const tvShowIndex = db.users[index].castTvShows.findIndex();
+
+    if(tvShowIndex != -1){
+      let timekepper = db.users[index].timekepper + tvShow.episode_run_time[0];
+      db.users[index].castTvShows[tvShowIndex].episodes.push(episode_number);
+      db.users[index].timekepper = timekepper;
+      const json = JSON.stringify(db);
+      fs.writeFileSync( 'src/database/db.json', json);
+      return "Episódio adicionado!";
+    }
+
+    return "Adicione o episódio após inserir ele ao Cast!";
+  },
+
   putSerieToCast: async (tvShow) => {
     const index = db.users.findIndex(user => user.id == 1);
     

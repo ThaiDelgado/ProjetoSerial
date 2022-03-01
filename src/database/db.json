@@ -1,1 +1,224 @@
-{"users":[{"id":1,"name":"Humberto Galdino","email":"humberto.galdino@live.com","password":"12345678","castFavoritos":[{"id":61056,"original_name":"How to Get Away with Murder","poster_path":"/bJs8Y6T88NcgksxA8UaVl4YX8p8.jpg","first_air_date":"2014-09-25"},{"id":75006,"original_name":"The Umbrella Academy","poster_path":"/uYHdIs5O8tiU5p6MvUPd2jElOH6.jpg","first_air_date":"2019-02-15"},{"id":33001,"original_name":"Haven","poster_path":"/hvAex9f31tzcA9eNhseHYVR8bsZ.jpg","first_air_date":"2010-07-09"},{"id":77236,"original_name":"A Discovery of Witches","poster_path":"/vCPIAUuxcPBgBBBdDz7rzfLelMD.jpg","first_air_date":"2018-09-14"},{"id":66788,"original_name":"13 Reasons Why","poster_path":"/8eUJQK8wRiBvGqiqMKEcYmAnESQ.jpg","first_air_date":"2017-03-31"},{"id":48866,"original_name":"The 100","poster_path":"/cfhfcEt4bOXuVZkTC0nNBpqqiWb.jpg","first_air_date":"2014-03-19"}],"castTvShows":[{"id":61056,"original_name":"How to Get Away with Murder","poster_path":"/bJs8Y6T88NcgksxA8UaVl4YX8p8.jpg","first_air_date":"2014-09-25"},{"id":75006,"original_name":"The Umbrella Academy","poster_path":"/uYHdIs5O8tiU5p6MvUPd2jElOH6.jpg","first_air_date":"2019-02-15"},{"id":33001,"original_name":"Haven","poster_path":"/hvAex9f31tzcA9eNhseHYVR8bsZ.jpg","first_air_date":"2010-07-09"},{"id":77236,"original_name":"A Discovery of Witches","poster_path":"/vCPIAUuxcPBgBBBdDz7rzfLelMD.jpg","first_air_date":"2018-09-14"},{"id":66788,"original_name":"13 Reasons Why","poster_path":"/8eUJQK8wRiBvGqiqMKEcYmAnESQ.jpg","first_air_date":"2017-03-31"},{"id":48866,"original_name":"The 100","poster_path":"/cfhfcEt4bOXuVZkTC0nNBpqqiWb.jpg","first_air_date":"2014-03-19"},{"id":85552,"original_name":"Euphoria","poster_path":"/288q0JefZUuTfqUG2qzPTCZYuAL.jpg","first_air_date":"2019-06-16"},{"id":60574,"original_name":"Peaky Blinders","poster_path":"/i0uajcHH9yogXMfDHpOXexIukG9.jpg","first_air_date":"2013-09-12"}],"genresTvShows":["Crime","Action & Adventure","Sci-Fi & Fantasy","Drama","Mistério"],"timekepper":0,"followers":[],"following":[],"imgProfile":"/images/imgUsuarioPerfil/user-profile.jpg","imgBackground":"/images/imgUsuarioPerfil/background-user.jpg"},{"email":"asda@asdas","password":["asd","asd"],"eh_admin":false},{"email":"keppe@keppe.keppe.keppe","password":["keppe","keppe"],"eh_admin":false},{"email":"keppe@keppe.com.br","password":["kasd","asd"],"eh_admin":false},{"email":"ogata@ogata.com","password":["serial","serial"],"eh_admin":false},{"email":"ogata@ogata.com","password":["ogata","ogata"],"eh_admin":false},{"email":"mariana@mariana.com","password":["mariana","mariana"],"eh_admin":false},{"email":"roberto@marinho.com","password":["haha","haha"],"eh_admin":false},{"email":"roberto@marinho.com","password":["haha","haha"],"eh_admin":false},{"email":"viking@cu.com.br","password":["lalala","lalala"],"eh_admin":false},{"email":"vitoria@ladi.com.br","password":["rus","rus"],"eh_admin":false},{"email":"catioro@loko.kom","password":["12341234","12341234"],"eh_admin":false},{"email":"catioro@loko.kom","password":["12341234","12341234"],"eh_admin":false},{"email":"asdas@das.com.br","password":["asd","asd"],"eh_admin":false}],"series":[{"id_serie":61056,"comments":[{"id_user":1,"comment":"teste"}]},{"id_serie":"156568","comments":[{"id_user":1,"comment":"Excelente !!"}]},{"id_serie":"156568","comments":[{"id_user":1,"comment":"Eu sou louco !!!"}]},{"id_serie":"156568","comments":[{"id_user":1,"comment":""}]},{"id_serie":"99966","comments":[{"id_user":1,"comment":"Boa !"}]},{"id_serie":"1396","comments":[{"id_user":1,"comment":"Excelente !!"}]}]}
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Humberto Galdino",
+      "email": "humberto.galdino@live.com",
+      "password": "12345678",
+      "castFavoritos": [
+        {
+          "id": 61056,
+          "original_name": "How to Get Away with Murder",
+          "poster_path": "/bJs8Y6T88NcgksxA8UaVl4YX8p8.jpg",
+          "first_air_date": "2014-09-25"
+        },
+        {
+          "id": 75006,
+          "original_name": "The Umbrella Academy",
+          "poster_path": "/uYHdIs5O8tiU5p6MvUPd2jElOH6.jpg",
+          "first_air_date": "2019-02-15"
+        },
+        {
+          "id": 33001,
+          "original_name": "Haven",
+          "poster_path": "/hvAex9f31tzcA9eNhseHYVR8bsZ.jpg",
+          "first_air_date": "2010-07-09"
+        },
+        {
+          "id": 77236,
+          "original_name": "A Discovery of Witches",
+          "poster_path": "/vCPIAUuxcPBgBBBdDz7rzfLelMD.jpg",
+          "first_air_date": "2018-09-14"
+        },
+        {
+          "id": 66788,
+          "original_name": "13 Reasons Why",
+          "poster_path": "/8eUJQK8wRiBvGqiqMKEcYmAnESQ.jpg",
+          "first_air_date": "2017-03-31"
+        },
+        {
+          "id": 48866,
+          "original_name": "The 100",
+          "poster_path": "/cfhfcEt4bOXuVZkTC0nNBpqqiWb.jpg",
+          "first_air_date": "2014-03-19"
+        }
+      ],
+      "castTvShows": [
+        {
+          "id": 61056,
+          "original_name": "How to Get Away with Murder",
+          "poster_path": "/bJs8Y6T88NcgksxA8UaVl4YX8p8.jpg",
+          "first_air_date": "2014-09-25"
+        },
+        {
+          "id": 75006,
+          "original_name": "The Umbrella Academy",
+          "poster_path": "/uYHdIs5O8tiU5p6MvUPd2jElOH6.jpg",
+          "first_air_date": "2019-02-15"
+        },
+        {
+          "id": 33001,
+          "original_name": "Haven",
+          "poster_path": "/hvAex9f31tzcA9eNhseHYVR8bsZ.jpg",
+          "first_air_date": "2010-07-09"
+        },
+        {
+          "id": 77236,
+          "original_name": "A Discovery of Witches",
+          "poster_path": "/vCPIAUuxcPBgBBBdDz7rzfLelMD.jpg",
+          "first_air_date": "2018-09-14"
+        },
+        {
+          "id": 66788,
+          "original_name": "13 Reasons Why",
+          "poster_path": "/8eUJQK8wRiBvGqiqMKEcYmAnESQ.jpg",
+          "first_air_date": "2017-03-31"
+        },
+        {
+          "id": 48866,
+          "original_name": "The 100",
+          "poster_path": "/cfhfcEt4bOXuVZkTC0nNBpqqiWb.jpg",
+          "first_air_date": "2014-03-19"
+        },
+        {
+          "id": 85552,
+          "original_name": "Euphoria",
+          "poster_path": "/288q0JefZUuTfqUG2qzPTCZYuAL.jpg",
+          "first_air_date": "2019-06-16"
+        },
+        {
+          "id": 60574,
+          "original_name": "Peaky Blinders",
+          "poster_path": "/i0uajcHH9yogXMfDHpOXexIukG9.jpg",
+          "first_air_date": "2013-09-12"
+        }
+      ],
+      "genresTvShows": [
+        "Crime",
+        "Action & Adventure",
+        "Sci-Fi & Fantasy",
+        "Drama",
+        "Mistério"
+      ],
+      "timekepper": 0,
+      "followers": [],
+      "following": [],
+      "imgProfile": "/images/imgUsuarioPerfil/user-profile.jpg",
+      "imgBackground": "/images/imgUsuarioPerfil/background-user.jpg"
+    },
+    { "email": "asda@asdas", "password": ["asd", "asd"], "eh_admin": false },
+    {
+      "email": "keppe@keppe.keppe.keppe",
+      "password": ["keppe", "keppe"],
+      "eh_admin": false
+    },
+    {
+      "email": "keppe@keppe.com.br",
+      "password": ["kasd", "asd"],
+      "eh_admin": false
+    },
+    {
+      "email": "ogata@ogata.com",
+      "password": ["serial", "serial"],
+      "eh_admin": false
+    },
+    {
+      "email": "ogata@ogata.com",
+      "password": ["ogata", "ogata"],
+      "eh_admin": false
+    },
+    {
+      "email": "mariana@mariana.com",
+      "password": ["mariana", "mariana"],
+      "eh_admin": false
+    },
+    {
+      "email": "roberto@marinho.com",
+      "password": ["haha", "haha"],
+      "eh_admin": false
+    },
+    {
+      "email": "roberto@marinho.com",
+      "password": ["haha", "haha"],
+      "eh_admin": false
+    },
+    {
+      "email": "viking@cu.com.br",
+      "password": ["lalala", "lalala"],
+      "eh_admin": false
+    },
+    {
+      "email": "vitoria@ladi.com.br",
+      "password": ["rus", "rus"],
+      "eh_admin": false
+    },
+    {
+      "email": "catioro@loko.kom",
+      "password": ["12341234", "12341234"],
+      "eh_admin": false
+    },
+    {
+      "email": "catioro@loko.kom",
+      "password": ["12341234", "12341234"],
+      "eh_admin": false
+    },
+    {
+      "email": "asdas@das.com.br",
+      "password": ["asd", "asd"],
+      "eh_admin": false
+    },
+    { "email": "chule@humberto.com", "password": ["", ""], "eh_admin": false },
+    {
+      "email": "fcku@fcckkkkk.com",
+      "password": ["dffusdhjdasjksdajk", "hldhjkdskjasdgdasgsdah"],
+      "eh_admin": false
+    },
+    {
+      "nome": "joy ",
+      "email": "joy@exogata.com",
+      "password": ["jsahhas", "hgashjsa"],
+      "eh_admin": false
+    },
+    {
+      "nome": "renato",
+      "email": "renato@renato.com.br",
+      "password": ["asd", "asd"],
+      "eh_admin": false
+    },
+    {
+      "nome": "asda",
+      "email": "keppe@keppe.com.br",
+      "password": ["123", "123"],
+      "eh_admin": false
+    },
+    {
+      "nome": "asda",
+      "email": "keppe@keppe.com.br",
+      "password": "$2b$10$9MYuVpoyCFS1k21igyYbG.S8xfAWYgiRjtNiHsBzyIrBPD/ngGqWe",
+      "eh_admin": false
+    },
+    {
+      "nome": "teste",
+      "email": "teste@teste.com.br",
+      "password": "$2b$10$si7ATUOnR0dZ7FtFjYfnpeu6zVDHbDY6XmdSljf/o6z2JNQOqy17y",
+      "eh_admin": false
+    }
+  ],
+  "series": [
+    { "id_serie": 61056, "comments": [{ "id_user": 1, "comment": "teste" }] },
+    {
+      "id_serie": "156568",
+      "comments": [{ "id_user": 1, "comment": "Excelente !!" }]
+    },
+    {
+      "id_serie": "156568",
+      "comments": [{ "id_user": 1, "comment": "Eu sou louco !!!" }]
+    },
+    { "id_serie": "156568", "comments": [{ "id_user": 1, "comment": "" }] },
+    { "id_serie": "99966", "comments": [{ "id_user": 1, "comment": "Boa !" }] },
+    {
+      "id_serie": "1396",
+      "comments": [{ "id_user": 1, "comment": "Excelente !!" }]
+    }
+  ]
+}
