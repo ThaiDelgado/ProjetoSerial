@@ -1,8 +1,8 @@
 //Insere o módulo de express
 const express = require("express");
 
-//Implementação Branch Mariana
-const session = require('express-session') 
+// //Implementação Branch Mariana
+// const session = require('express-session') 
 
 //Implementa o package cors para utilizar HTTP
 const cors = require("cors"); //entender melhor
@@ -24,13 +24,13 @@ app.use(express.json()); //JSON arquivo utilizado para transferir informações 
 //Permite a comunicação entre aplicações por HTTP
 app.use(cors());
 
-app.use(session({
-    secret: process.env.BOLO,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: false
-}}));
+// app.use(session({
+//     secret: process.env.BOLO,
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       secure: false
+// }}));
 
 
 //Insere estrutura rotas
