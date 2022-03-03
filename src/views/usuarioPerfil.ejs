@@ -41,23 +41,19 @@
                     <h1>Temporizador</h1>
                     <div id="timeclock">
                         <div class="timer">
-                            <h2>00</h2>
-                            <h4>ANOS</h4>
+                            <h2><%=timekeeper.timeMonths < 10 ? '0' + timekeeper.timeMonths : timekeeper.timeMonths%></h2>
+                            <h4><%=timekeeper.timeMonths > 1 ? 'MESES' : 'MÊS'%></h4>                        
                         </div>
                         <div class="timer">
-                            <h2>03</h2>
-                            <h4>MESES</h4>                        
+                            <h2><%=timekeeper.timeDays < 10 ? '0' + timekeeper.timeDays : timekeeper.timeDays%></h2>
+                            <h4><%=timekeeper.timeDays > 1 ? 'DIAS' : 'DIA'%></h4>                       
                         </div>
                         <div class="timer">
-                            <h2>11</h2>
-                            <h4>DIAS</h4>                       
+                            <h2><%=timekeeper.timeHours < 10 ? '0' + timekeeper.timeHours : timekeeper.timeHours%></h2>
+                            <h4><%=timekeeper.timeHours > 1 ? 'HORAS' : 'HORA'%></h4>                
                         </div>
                         <div class="timer">
-                            <h2>02</h2>
-                            <h4>HORAS</h4>                
-                        </div>
-                        <div class="timer">
-                            <h2>39</h2>
+                            <h2><%=timekeeper.timeMinutes < 10 ? '0' + timekeeper.timeMinutes : timekeeper.timeMinutes%></h2>
                             <h4>MIN</h4>                           
                         </div>
                     </div>
@@ -70,43 +66,13 @@
                         <div class="episodesGenders">
                             <h2>Gêneros</h2>
                             <ul>
-                                <li>Comédia</li>
-                                <li>Policial</li>
-                                <li>Drama</li>
-                                <li>Minissérie</li>
-                                <li>Comédia</li>
-                                <li>Policial</li>
-                                <li>Drama</li>
-                                <li>Minissérie</li>
-                                <li>Comédia</li>
-                                <li>Policial</li>
-                                <li>Drama</li>
-                                <li>Minissérie</li>
-                                <li>Comédia</li>
-                                <li>Policial</li>
-                                <li>Drama</li>
-                                <li>Minissérie</li>
-                                <li>Comédia</li>
-                                <li>Policial</li>
-                                <li>Drama</li>
-                                <li>Minissérie</li>
-                                <li>Comédia</li>
-                                <li>Policial</li>
-                                <li>Drama</li>
-                                <li>Minissérie</li>
-                                <li>Minissérie</li>
-                                <li>Comédia</li>
-                                <li>Policial</li>
-                                <li>Drama</li>
-                                <li>Minissérie</li>
-                                <li>Comédia</li>
-                                <li>Policial</li>
-                                <li>Drama</li>
-                                <li>Minissérie</li>
-                                <li>Comédia</li>
-                                <li>Policial</li>
-                                <li>Drama</li>
-                                <li>Minissérie</li>
+                                <%if(userProfile.genresTvShows == null || userProfile.genresTvShows.length == 0){%>
+                                    <p>Não há favoritos adicionados!</p>
+                                <%} else {%>
+                                    <%userProfile.genresTvShows.forEach(({},index)=> {%>
+                                        <li><%=userProfile.genresTvShows[index]%></li>
+                                    <%})%>
+                                <%}%>
                             </ul>
                         </div>
                     </section>
@@ -115,18 +81,12 @@
 
             <section class="userTvShows">
                 <div class="container">
-                    <nav>
-                        <ul>
-                            <li class="select">Todas</li>
-                            <li>Já Assistiu</li>
-                            <li>Quero Ver</li>
-                        </ul>
-                    </nav>
+                    <h2>CAST SÉRIES</h2>
                     <div class='userTvCastWrap'>
                         
                         <div class="userTvCast">
                             <%if(userProfile.castTvShows == null || userProfile.castTvShows.length == 0){%>
-                                <p>Não há favoritos adicionado!</p>
+                                <p>Não há séries adicionadas!</p>
                             <%}%>
                             <%userProfile.castTvShows.forEach(({},index)=> {%>
                                 <div class="userCastTitle">

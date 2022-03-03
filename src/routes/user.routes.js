@@ -17,5 +17,8 @@ routes.get('/pipocando', userController.pipocando);
 //Rota Conexões
 routes.get('/conexoes', userController.conexoes);
 
+//Rota Feed
+routes.get('/feed', userController.feed);
+
 
 module.exports = routes;

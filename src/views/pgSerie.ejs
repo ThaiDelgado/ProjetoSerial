@@ -12,9 +12,6 @@
     <div class="container" style="background-image: url('<%=`https://image.tmdb.org/t/p/original${serie.backdrop_path}`%>');">
         <div class="info-wrapper">
             <div class="poster" style="background-image: url('<%=`https://image.tmdb.org/t/p/original${serie.poster_path}`%>');">
-                <form method="POST" action="<%=`/serie/${serie.id}/adicionar?_method=PUT`%>">
-                    <input type="submit" name="buttonAdd" value="ADICIONAR" onclick="alert('Série adicionada com sucesso!')">
-                </form>
             </div><!--poster-->
             <div class="infoTvShow">
                 <h1><%=serie.original_name%></h1>
@@ -22,12 +19,17 @@
                 <br>
                 <span style="color:#6741B9; font-weight:bold"><%=(serie.number_of_seasons != '1')?`${serie.number_of_seasons} TEMPORADAS`:`${serie.number_of_seasons} TEMPORADA`%> </span>           
                 <p><%=serie.overview?serie.overview:'Não temos uma sinopse para esta série.'%></p>
-                <!-- <form>
-                    <input type="submit" id="buttonPrivate" name="buttonPrivate" value="Tornar Privado?">
-                </form> -->
-                <form method="POST" action="<%=`/serie/${serie.id}/favorite?_method=PUT`%>">
-                    <input type="submit" id="buttonFavorite" name="buttonFavorite" value="FAVORITO">
-                </form>                
+                <div class="actions">
+                <!--<form>
+                        <input type="submit" id="buttonPrivate" name="buttonPrivate" value="Tornar Privado?">
+                    </form> -->
+                    <form method="POST" action="<%=`/serie/${serie.id}/favorite?_method=PUT`%>">
+                        <input type="submit" id="buttonFavorite" name="buttonFavorite" value="FAVORITA">
+                    </form>
+                    <form method="POST" action="<%=`/serie/${serie.id}/adicionar?_method=PUT`%>">
+                        <input type="submit" name="buttonAdd" value="ADICIONAR" onclick="alert('Série adicionada com sucesso!')">
+                    </form>  
+                </div>                              
             </div><!--infoTvShow-->
         </div><!--info-wrapper-->
     </div><!--container-->
@@ -44,7 +46,7 @@
             <h2><%=season.name%></h2>
         </div>
         <div class="episodesWrapper">
-            <img src="<%=`https://image.tmdb.org/t/p/w500${season.poster_path}`%>" alt="">
+            <img src="<%=`https://image.tmdb.org/t/p/w500${season.poster_path ? season.poster_path : serie.poster_path}`%>" alt="">
             <ul>
                 <%season.episodes.forEach( ({}, index) => {%>
                     <form method="POST" action="<%`/serie/${serie.id}/${season.season_number}/${season.episodes[index].episode_number}?_method=PUT`%>">

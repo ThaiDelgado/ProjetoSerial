@@ -121,7 +121,9 @@ form.search{
 form.search input[type=text]{
     width: 400px;
     border-radius: 20px;
-    background-color:#6741B9 ;
+    background-color:#6741B9;
+    padding-left: 10px;
+    color: #FFFFFF;
 }
 
 form.search input[type=submit]{
@@ -131,6 +133,31 @@ form.search input[type=submit]{
     font-weight: bold;
     color: #ffffff;
     letter-spacing: 2px;
+    margin-left: 5px;
 }
 
 /*****************/
+
+/*****PAGES******/
+
+.pages{
+    background-color: #000000;
+    text-align: center;
+    padding: 30px;
+}
+
+.pages a{
+    color: #6741B9;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.pages a:hover{
+    color: #FFFFFF;
+}
+
+.pages a:first-child{
+    padding-right: 20px;
+}
