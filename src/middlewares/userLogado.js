@@ -3,3 +3,5 @@ function userLogado(req, res, next){
         return res.redirect('homepage')
     } next()
 }
+
+module.exports = userLogado;
