@@ -1,14 +1,25 @@
 //Criar cadastro usuário
 const User = require('../model/user');
 
-
 module.exports = {
 
     perfil(req,res){
         const email = "humberto.galdino@live.com";
-        let userProfile = User.getUser(email);     
+        let userProfile = User.getUser(email); 
+        let timeMonths = parseInt(((userProfile.timekeeper / 60) / 24) / 30);
+        let timeDays = parseInt(((userProfile.timekeeper / 60) / 24) > 30 ? ((userProfile.timekeeper / 60) / 24) % 30 : (userProfile.timekeeper / 60) / 24);
+        let timeHours = parseInt((userProfile.timekeeper / 60) % 24);
+        let timeMinutes = userProfile.timekeeper % 60;
+
+        const timekeeper = {
+            timeMonths: timeMonths,
+            timeDays: timeDays,
+            timeHours: timeHours,
+            timeMinutes: timeMinutes
+        }
+  
         if(userProfile){
-            res.render('usuarioPerfil', {userProfile});
+            res.render('usuarioPerfil', { userProfile, timekeeper });
         }else{
             res.send('Usuário Inexistente!');
         };        

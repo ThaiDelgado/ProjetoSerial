@@ -37,10 +37,12 @@
                         <%}%>
                     <%})}%>;
                 </div><!--casting-->
-                <%if(discoverSeries.page != 1){%>
-                    <a href="<%=`/explorar/${discoverSeries.page-1}`%>">ANTERIOR</a>
-                <%}%>                
-                <a href="<%=`/explorar/${discoverSeries.page+1}`%>">PRÓXIMA</a>
+                <div class="pages">
+                    <%if(discoverSeries.page != 1){%>
+                        <a href="<%=`/explorar/${discoverSeries.page-1}`%>">ANTERIOR</a>
+                    <%}%>                
+                    <a href="<%=`/explorar/${discoverSeries.page+1}`%>">PRÓXIMA</a>
+                </div>
 
             </main>
     </body>

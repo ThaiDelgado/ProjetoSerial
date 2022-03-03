@@ -10,11 +10,6 @@ const callendarController = require('../controller/callendarController')
 const userController = require('../controller/userController'); 
 
 
-
-
-//Rota Feed
-routes.get('/feed', userController.feed);
-
 //Rota Episodio
 routes.get('/episodio', episodeController.index);
 
