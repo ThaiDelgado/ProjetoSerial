@@ -23,7 +23,7 @@ module.exports = {
               nome: req.body.nome,
               email: req.body.email, 
               password: hash,
-              eh_admin: false
+              
             }
             users.push(novoUsuario);
             objeto.users = users;
