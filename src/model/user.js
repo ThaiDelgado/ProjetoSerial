@@ -12,7 +12,12 @@ const User = {
     const user = db.users.find(user => user.id === idUser);
     return user;
   },
-
+  createUser:(user) => {
+      db.users.push(user);
+      const  objetoEmString  = JSON.stringify(objeto)
+        fs.writeFileSync(path.join(__dirname, '..', 'database', 'db.json'),objetoEmString);
+  },
+   
 
   putSerieFavorite: async (favorite) => {
     const index = db.users.findIndex(user => user.id == 1);

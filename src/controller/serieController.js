@@ -27,7 +27,9 @@ module.exports = {
             });
         }
         
-        res.render('pgSerie', { serie, season, comments: joinComments });
+        res.render('pgSerie', {serie, season, comments: joinComments });
+
+        // res.render('pgSerie', { user: req.session.user,serie, season, comments: joinComments });
     },
 
     async addFavoriteTvShow(req,res){

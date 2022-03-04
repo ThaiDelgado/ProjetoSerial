@@ -2,6 +2,7 @@ const {check, validationResult, body} = require('express-validator'); // check, 
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
+const User = require('../model/user');
 
 module.exports = {
     home(req,res){
@@ -14,23 +15,15 @@ module.exports = {
 
     cadastrar(req, res){
         const saltRounds = 10;
-        const arquivo = fs.readFileSync(path.join(__dirname, '..', 'database', 'db.json'), {
-            enconding: 'utf-8'}) // essa parte, ao fazer o cadastro ele vai escrever no nosso banco de dados.
-            const objeto = JSON.parse(arquivo)
             const hash = bcrypt.hashSync(req.body.password, saltRounds);
-            const {users} = objeto // esse usuarios tem que estar no banco de dados. Certificar qual o nome esta no banco de dados.
             const novoUsuario = {
               nome: req.body.nome,
               email: req.body.email, 
-              password: hash,
-              
+              password: hash, 
+              castFavoritos: [],
             }
-            users.push(novoUsuario);
-            objeto.users = users;
-            const  objetoEmString  = JSON.stringify(objeto)
-            fs.writeFileSync(path.join(__dirname, '..', 'database', 'db.json'),objetoEmString);
+            User.createUser(novoUsuario);
             res.send('Cadastro realizado com sucesso!');
-    
 
     },
 
@@ -63,16 +56,9 @@ module.exports = {
           req.session.users = meuUsuario;
       
           res.redirect('/');
-    }
+    },
 
-    // verificarLogin(req, res){
-    //     const errors = validationResult(req);
-    //     if(!errors.isEmpty()){
-    //         res.redirect('/');
-    //     } else{
-    //         res.redirect('/usuario'); // 
-    //     }
-        
+ 
         
     // }
 
