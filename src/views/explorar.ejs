@@ -15,7 +15,7 @@
                     <h1>EXPLORAR</h1>
                 </div>
 
-                <form class="search" method="GET" action="/explorar">
+                <form class="search" method="GET" action="/explorar/search/1">
                     <input type="text" name="search">
                     <input type="submit" value="BUSCAR">
                 </form>
@@ -31,17 +31,28 @@
                             <a href="<%=`/serie/${discoverSeries.results[index].id}/1`%>">
                                 <img src="<%=`https://image.tmdb.org/t/p/w500${discoverSeries.results[index].poster_path}`%>" alt="">                              
                                 <h3><%=discoverSeries.results[index].original_name%></h3>
-                                <h4><%=discoverSeries.results[index].first_air_date.substring(0,4)%></h4>
+                                <h4><%=discoverSeries.results[index].first_air_date ? discoverSeries.results[index].first_air_date.substring(0,4) : ''%></h4>
                             </a>
                         </div><!--CastTitle-->>
                         <%}%>
                     <%})}%>;
                 </div><!--casting-->
                 <div class="pages">
-                    <%if(discoverSeries.page != 1){%>
-                        <a href="<%=`/explorar/${discoverSeries.page-1}`%>">ANTERIOR</a>
-                    <%}%>                
-                    <a href="<%=`/explorar/${discoverSeries.page+1}`%>">PRÓXIMA</a>
+                    <% if(isSearch) {%>
+                        <% console.log(discoverSeries.page) %>
+                        <% console.log(total_pages >= discoverSeries.page) %>
+                        <%if(discoverSeries.page > 1){%>
+                            <a href="<%=`/explorar/search/${discoverSeries.page-1}?search=${search}`%>">ANTERIOR</a>
+                        <%}%>
+                        <%if(total_pages > discoverSeries.page) {%>
+                            <a href="<%=`/explorar/search/${discoverSeries.page+1}?search=${search}`%>">PRÓXIMA</a>
+                        <%}%>
+                    <%} else {%> 
+                        <%if(discoverSeries.page > 1){%>                       
+                            <a href="<%=`/explorar/${discoverSeries.page-1}`%>">ANTERIOR</a>
+                        <%}%>           
+                        <a href="<%=`/explorar/${discoverSeries.page+1}`%>">PRÓXIMA</a>
+                    <%}%>
                 </div>
 
             </main>
