@@ -22,6 +22,6 @@ routes.put('/:id/adicionar', serieController.addTvShowToCast);
 routes.put('/:id/:season/:episode_number/:episode_id', serieController.addEpisode);
 
 //Rota Remove Episódio
-routes.delete('/:id/:season/:episode_number/:episode_id', serieController.removeEpisode);
+routes.delete('/:id/:season/:episode_number/:episode_id', serieController.removeEpisode);   
 
 module.exports = routes;

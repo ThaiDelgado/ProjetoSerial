@@ -22,7 +22,7 @@ const Serie = {
     },
 
     async discover(pageOfDiscover){
-        const {data: {page, results, total_pages}} = await axios.get(`${url}discover/tv/?api_key=${apiKey}&language=pt-BR&page=${pageOfDiscover}&include_adult=false`);
+        const {data: {page, results, total_pages}} = await axios.get(`${url}discover/tv/?api_key=${apiKey}&language=pt-BR&page=${pageOfDiscover}`);
         return {page, results, total_pages};
     },
 

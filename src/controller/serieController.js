@@ -33,7 +33,7 @@ module.exports = {
             });
         }
         
-        res.render('pgSerie', { serie, season, itIsOnFavorite, itIsOnCast, comments: joinComments, episodes});
+         res.render('pgSerie', { serie, season, itIsOnFavorite, itIsOnCast, comments: joinComments, episodes});    
     },
 
     async addFavoriteTvShow(req,res){
