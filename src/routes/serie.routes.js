@@ -9,6 +9,7 @@ const serieController = require('../controller/serieController');
 //Rota Serie
 routes.get('/:id/:season', serieController.serieById);
 
+//Rota Comentário Série
 routes.post('/:id/:season', serieController.postComment);
 
 //Rota Insere Série Favorita
@@ -18,6 +19,9 @@ routes.put('/:id/favorite', serieController.addFavoriteTvShow);
 routes.put('/:id/adicionar', serieController.addTvShowToCast);
 
 //Rota Insere Episódio
-routes.put('/:id/:season/:episode_number', serieController.addEpisode);
+routes.put('/:id/:season/:episode_number/:episode_id', serieController.addEpisode);
+
+//Rota Remove Episódio
+routes.delete('/:id/:season/:episode_number/:episode_id', serieController.removeEpisode);
 
 module.exports = routes;

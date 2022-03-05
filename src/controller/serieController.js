@@ -10,6 +10,12 @@ module.exports = {
         const serie = await Serie.findByID(req.params.id);
         const season = await Serie.findSeason(req.params.id, req.params.season);
         const serieComments = await Serie.findComments(req.params.id);
+        const email = "humberto.galdino@live.com";
+        const userProfile = User.getUser(email);
+        const episodes = userProfile.castTvShows.find(tvShow => tvShow.id == req.params.id);
+
+        const itIsOnFavorite = (userProfile.castFavoritos.findIndex(tvShow => tvShow.id == req.params.id)) === -1 ? false : true;
+        const itIsOnCast = (userProfile.castTvShows.findIndex(tvShow => tvShow.id == req.params.id)) === -1 ? false : true;
 
         const joinComments = [];
 
@@ -27,7 +33,7 @@ module.exports = {
             });
         }
         
-        res.render('pgSerie', { serie, season, comments: joinComments });
+        res.render('pgSerie', { serie, season, itIsOnFavorite, itIsOnCast, comments: joinComments, episodes});
     },
 
     async addFavoriteTvShow(req,res){
@@ -37,17 +43,21 @@ module.exports = {
     },
 
     async addTvShowToCast(req,res){        
-        let tvShow = await serie.findByID(req.params.id);
+        let tvShow = await Serie.findByID(req.params.id);
         let addSerie = await User.putSerieToCast(tvShow);
         res.redirect(`/serie/${req.params.id}/1`);
     },
 
     async addEpisode(req,res){
-        console.log('entrou no controller')
-        let tvShow = await serie.findByID(req.params.id);
-        let addEpisode = await User.addEpisode(tvShow, req.params.episode_number);
+        let tvShow = await Serie.findByID(req.params.id);
+        let addEpisode = await User.addEpisode(tvShow,req.params.season, req.params.episode_number, req.params.episode_id);
+        res.redirect(`/serie/${req.params.id}/${req.params.season}`);
+    },
 
-        // res.redirect(`/serie/${req.params.id}/1`);
+    async removeEpisode(req,res){
+        let tvShow = await Serie.findByID(req.params.id);
+        let removeEpisode = await User.removeEpisode(tvShow, req.params.season, req.params.episode_number, req.params.episode_id);
+        res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
     async postComment(req,res){

@@ -23,12 +23,24 @@
                 <!--<form>
                         <input type="submit" id="buttonPrivate" name="buttonPrivate" value="Tornar Privado?">
                     </form> -->
-                    <form method="POST" action="<%=`/serie/${serie.id}/favorite?_method=PUT`%>">
-                        <input type="submit" id="buttonFavorite" name="buttonFavorite" value="FAVORITA">
-                    </form>
-                    <form method="POST" action="<%=`/serie/${serie.id}/adicionar?_method=PUT`%>">
-                        <input type="submit" name="buttonAdd" value="ADICIONAR" onclick="alert('Série adicionada com sucesso!')">
-                    </form>  
+                    <% if(!itIsOnFavorite && itIsOnCast) { %>
+                        <form method="POST" action="<%=`/serie/${serie.id}/favorite?_method=PUT`%>">
+                            <input type="submit" id="buttonFavorite" name="buttonFavorite" value="FAVORITA">
+                        </form>
+                    <%} else if (itIsOnFavorite && itIsOnCast) {%>
+                        <form method="POST" action="<%=`/serie/${serie.id}/favorite?_method=PUT`%>">
+                            <input type="submit" id="buttonFavorite" name="buttonFavorite" value="REMOVER DOS FAVORITOS" style="background-color: red">
+                        </form>
+                    <%}%>
+                    <% if(!itIsOnCast) { %>
+                        <form method="POST" action="<%=`/serie/${serie.id}/adicionar?_method=PUT`%>">
+                            <input type="submit" name="buttonAdd" value="ADICIONAR" onclick="alert('Série adicionada com sucesso!')">
+                        </form>
+                    <%} else {%>
+                        <form method="POST" action="<%=`/serie/${serie.id}/adicionar?_method=DELETE`%>">
+                            <input type="submit" name="buttonAdd" value="REMOVER DA LISTA" style="background-color: red">
+                        </form>
+                    <%}%>
                 </div>                              
             </div><!--infoTvShow-->
         </div><!--info-wrapper-->
@@ -36,7 +48,7 @@
 
     <section class="infoTvShowSeason">
         <div class="infoDatasheet">
-            <h3 style="color: #6741B9;"><%=serie.networks[0].name%></h3>
+            <h3 style="color: #6741B9;"><%= serie.networks.length == 0 ? '' : serie.networks[0].name%></h3>
             <h3>|</h3>
             <h3><%=serie.in_production ? 'Em Andamento' : 'Finalizada'%></h3>
             <h3>|</h3>
@@ -49,27 +61,39 @@
             <img src="<%=`https://image.tmdb.org/t/p/w500${season.poster_path ? season.poster_path : serie.poster_path}`%>" alt="">
             <ul>
                 <%season.episodes.forEach( ({}, index) => {%>
-                    <form method="POST" action="<%`/serie/${serie.id}/${season.season_number}/${season.episodes[index].episode_number}?_method=PUT`%>">
-                        <li>
-                            <%=`${season.episodes[index].episode_number} - ${season.episodes[index].name}`%>
-                            <input type="submit" value="+">
-                        </li>
-                    </form>
+                    <% 
+                        let isWatched = undefined
+                        episodes === undefined ? isWatched = false : isWatched = (episodes.episodes.findIndex(episode => episode.episode_id == season.episodes[index].id)) === -1 ? false : true;
+                    %>
+                    <% if(!isWatched){ %>
+                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/${season.episodes[index].episode_number}/${season.episodes[index].id}?_method=PUT`%>">
+                            <li>
+                                <%=`${season.episodes[index].episode_number} - ${season.episodes[index].name}`%>
+                                <input type="submit" value="+">
+                            </li>
+                        </form>
+                    <% } else { %>
+                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/${season.episodes[index].episode_number}/${season.episodes[index].id}?_method=DELETE`%>">
+                            <li>
+                                <%=`${season.episodes[index].episode_number} - ${season.episodes[index].name}`%>
+                                <input type="submit" value="-" style="padding-right: 7px;">
+                            </li>
+                        </form>
+                    <%}%>
                 <%})%>
             </ul>
-            <form action="<%`/serie/${serie.id}/1`%>" method="POST">
-                <select name="season" id="season">
-                    <%for(let index = 1; serie.number_of_seasons >= index; index++){ %>
-                        <option value="<%index%>"><%=`Temporada ${index}`%></option>
-                    <%}%>
-                </select>
-            </form>
+            <select name="season" class="season" onchange="location.href=this.value">
+                <option value="#">Selecione a Temporada</option>
+                <%for(let index = 1; serie.number_of_seasons >= index; index++){ %>
+                    <option value="<%=`/serie/${serie.id}/${index}`%>"><%=`Temporada ${index}`%></option>
+                <%}%>
+            </select>
         </div>        
     </section>
 
     <section class="commentWrapper">
         <form class="commentForm" method="POST" action="<%`/serie/${serie.id}/1`%>">
-            <input type="text" name="comment"><br>
+            <textarea rows="4" name="comment"></textarea><br>
             <button>POST</button>
             <div class="clear"></div>
         </form>

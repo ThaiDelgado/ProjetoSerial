@@ -6,9 +6,9 @@ const url = 'https://api.themoviedb.org/3/';
 const apiKey = '3a00ae3e8eac3b5e60f644383ee7c942';
 
 const Serie = {
-    async findByName(name){
-        const {data: {page, results}} = await axios.get(`${url}search/tv?api_key=${apiKey}&query=${name}`);
-        return {page, results};
+    async findByName(name, pageSearch){
+        const {data: {page, results, total_pages}} = await axios.get(`${url}search/tv?api_key=${apiKey}&query=${name}&page=${pageSearch}&include_adult=false`);
+        return {page, results, total_pages};
     },
 
     async findByID(id){
@@ -22,8 +22,8 @@ const Serie = {
     },
 
     async discover(pageOfDiscover){
-        const {data: {page, results}} = await axios.get(`${url}discover/tv/?api_key=${apiKey}&language=pt-BR&page=${pageOfDiscover}`);
-        return {page, results};
+        const {data: {page, results, total_pages}} = await axios.get(`${url}discover/tv/?api_key=${apiKey}&language=pt-BR&page=${pageOfDiscover}&include_adult=false`);
+        return {page, results, total_pages};
     },
 
     async postComment(idSerie, comment){        
