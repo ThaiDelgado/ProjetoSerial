@@ -36,7 +36,7 @@ main{
 }
 
 h1{ 
-    font-size: 500%;
+    font-size: 300%;
     padding-left: 5%;
     padding-right: 50%;
     padding-top: 15%;
@@ -45,6 +45,8 @@ h1{
     color: #ffffff;
 } 
 
+/* ==== listMenu ====*/
+    
 a{
     text-decoration: none;
     font-size: 25px;
@@ -60,17 +62,8 @@ ul{
     list-style: none;
 }
 
-/* ==== listMenu ====*/
-    
 .listMenu{
-    background-color: #ffffff20;
-    position: fixed;
-    width: 300px;
-    height: 160px;
-    border-radius: 10px;
-    right: 3%;
-    top: 3%;
-    z-index: 100;
+
 }
 
 

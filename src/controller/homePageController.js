@@ -3,28 +3,39 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const User = require('../model/user');
+const uniqId = require('uniqid')
+const alert = require('alert');
 
 module.exports = {
     home(req,res){
         res.render('homePage');
     },
 
-    cadastro(req, res){
-        res.render('cadastro'); // renderiza a página do cadastro 
+    registerPage(req, res){
+      const isResponseRegister = false;
+      res.render('cadastro', { isResponseRegister, alert }); // renderiza a página do cadastro 
     },
 
-    cadastrar(req, res){
+    registerUser(req, res){
         const saltRounds = 10;
-            const hash = bcrypt.hashSync(req.body.password, saltRounds);
-            const novoUsuario = {
-              nome: req.body.nome,
-              email: req.body.email, 
-              password: hash, 
-              castFavoritos: [],
-            }
-            User.createUser(novoUsuario);
-            res.send('Cadastro realizado com sucesso!');
-
+        const hash = bcrypt.hashSync(req.body.password, saltRounds);
+        const newUser = {
+          id: uniqId(),
+          name: req.body.nome,
+          email: req.body.email, 
+          password: hash, 
+          castFavorites: [],
+          castTvShows: [],
+          genresTvShows:[],
+          timekeeper: 0,
+          episodes: 0,
+          followers: [],
+          following:[],
+          imgProfile: '',
+          imgBackground:''
+        }
+        const isResponseRegister = User.createUser(newUser);
+        res.send(isResponseRegister);
     },
 
     login(req,res){

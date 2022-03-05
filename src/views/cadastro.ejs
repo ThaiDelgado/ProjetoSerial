@@ -11,7 +11,6 @@
     <title>Document</title>
 </head>
 <body>
-
     <section class="form">
         <img src="/images/imgPagInicial/Logo.png" alt="">
 
@@ -28,7 +27,11 @@
     <video id="bakground" src="/video/video/videoBackground.mp4" autoplay="true" muted loop></video>  
    
 
-
+    <%
+        if(isResponseRegister === 'Usuário cadastrado com sucesso!' || isResponseRegister === 'Usuário existente!') {
+            alert(isResponseRegister);
+        }
+    %>
     
 </body>
 </html>

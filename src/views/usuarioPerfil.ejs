@@ -19,15 +19,15 @@
                     </div>                
                     <div class="favoritesCast">
                         <div class="favoritesCastTitlesWrap">
-                            <%if(userProfile.castFavoritos == null || userProfile.castFavoritos.length == 0){%>
+                            <%if(userProfile.castFavorites == null || userProfile.castFavorites.length == 0){%>
                                 <p>Não há favoritos adicionados!</p>
                             <%}%>
-                            <%userProfile.castFavoritos.forEach(({},index)=> {%>
+                            <%userProfile.castFavorites.forEach(({},index)=> {%>
                                 <div class="favoritesCastTitle">
-                                    <a href="<%=`/serie/${userProfile.castFavoritos[index].id}/1`%>">
-                                        <img src="<%=`https://image.tmdb.org/t/p/w500${userProfile.castFavoritos[index].poster_path}`%>" alt="">
-                                        <h3><%=userProfile.castFavoritos[index].original_name%></h3>
-                                        <h4><%=userProfile.castFavoritos[index].first_air_date.substring(0,4)%></h4>
+                                    <a href="<%=`/serie/${userProfile.castFavorites[index].id}/1`%>">
+                                        <img src="<%=`https://image.tmdb.org/t/p/w500${userProfile.castFavorites[index].poster_path}`%>" alt="">
+                                        <h3><%=userProfile.castFavorites[index].original_name%></h3>
+                                        <h4><%=userProfile.castFavorites[index].first_air_date.substring(0,4)%></h4>
                                     </a>
                                 </div>
                             <%})%>

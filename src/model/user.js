@@ -14,10 +14,17 @@ const User = {
     return user;
   },
   
-  createUser:(user) => {
-      db.users.push(user);
-      const objetoEmString  = JSON.stringify(user)
-        fs.writeFileSync(path.join(__dirname, '..', 'database', 'db.json'),objetoEmString);
+  createUser:(newUser) => {
+      const userExists = db.users.findIndex(user => user.email == newUser.email);
+      
+      if(userExists == -1){
+        db.users.push(newUser);
+        const json  = JSON.stringify(db);
+        fs.writeFileSync('src/database/db.json', json);
+        console.log("MODEL - Usuário cadastrado com sucesso!");
+        return "Usuário cadastrado com sucesso!"
+      } 
+      return "Usuário existente!"    
   },
    
 
