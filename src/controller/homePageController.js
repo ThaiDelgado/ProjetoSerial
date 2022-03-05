@@ -47,30 +47,21 @@ module.exports = {
     }, 
 
     fazerLogin(req, res){
-        const arquivo = fs.readFileSync(path.join(__dirname, '..', 'database', 'db.json'), {
-            encoding: 'utf-8'
-          });
-          const objeto = JSON.parse(arquivo)
-          const meuUsuario = objeto.users.find(usuario => usuario.email === req.body.users)
+          const meuUsuario = User.getUser(req.body.email);
       
           if (!meuUsuario) {
-            return res.send('Usuário ou senha inválidos');
+            return res.send('Usuário inválido!');
           }
       
           const senhaEstaCorreta = bcrypt.compareSync(req.body.password, meuUsuario.password)
       
           if (!senhaEstaCorreta) {
-            return res.send('Usuário ou senha inválidos');
+            return res.send('Senha inválida!');
           }
       
           delete meuUsuario.senha;
           req.session.users = meuUsuario;
       
-          res.redirect('/');
-    },
-
- 
-        
-    // }
-
+          res.redirect('/usuario');
+    }
 };

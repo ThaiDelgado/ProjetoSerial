@@ -7,63 +7,69 @@ body{
     margin: 0;
     font-family: "Athiti";
     background: black;
+    position: relative;
 }
+
+.logo{
+    width: 120px;
+    object-fit: cover;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+
+h1{ 
+    max-width: 800px;
+    font-size: 50px;
+    letter-spacing: 20px;
+    color: #ffffff;
+    padding-left: 5%;
+    padding-top: 150px;
+} 
 
 video{
     object-fit: cover;
     width: 100vw;
     height: 100vh;
-}
-
-.logo{
     position: absolute;
-    width: 120px;
-    top: 3%;
-    left: 5%;
-    object-fit: cover;
+    left: 0;
+    top: 0;
+    z-index: -1;
 }
-
-header{
-    position: fixed;
-}
-
-main{
-    position: fixed;
-    top: 20px;
-    padding: 30px;
-    color: #fff ;
-    text-shadow: #000 2px 2px 2px
-}
-
-h1{ 
-    font-size: 300%;
-    padding-left: 5%;
-    padding-right: 50%;
-    padding-top: 15%;
-    letter-spacing: 20px;
-    position: absolute;
-    color: #ffffff;
-} 
 
 /* ==== listMenu ====*/
     
 a{
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     letter-spacing: 60%;
     line-height: 250%;
     color: #ffffffe1;
     font-weight: bold;
 }
 
-ul{
-    text-align: center;
-    margin-top: 3%;
-    list-style: none;
+a:hover{
+    color: #643fb5;
 }
 
-.listMenu{
+ul{
+    width: auto;
+    list-style: none;    
+}
 
+li{
+    display: inline;
+    font-size: 20px;
+    letter-spacing: 60%;
+    line-height: 250%;
+    color: #ffffffe1;
+    font-weight: bold;
+    margin-right: 15px;    
+}
+
+nav{
+    float: right;
+    margin-top: 2%;
+    margin-right: 5%;
 }
 
 

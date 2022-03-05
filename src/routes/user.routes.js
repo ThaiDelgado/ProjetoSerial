@@ -1,12 +1,15 @@
 const express = require("express");
 
-//Responsável por escutar a rota e redirecionar para o método do controller
-const routes = express.Router();
+const verificarLogin = require('../middlewares/verificarLogin');
 
 const userController = require('../controller/userController');
 
+//Responsável por escutar a rota e redirecionar para o método do controller
+const routes = express.Router();
+
+
 //Rota usuário
-routes.get('/', userController.perfil);
+routes.get('/', verificarLogin, userController.perfil);
 
 //Rota usuário seguir
 routes.get('/:nomeUsuario/:id', userController.perfilSeguir);

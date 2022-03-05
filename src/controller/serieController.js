@@ -13,8 +13,8 @@ module.exports = {
         const email = "humberto.galdino@live.com";
         const userProfile = User.getUser(email);
         const episodes = userProfile.castTvShows.find(tvShow => tvShow.id == req.params.id);
-
-        const itIsOnFavorite = (userProfile.castFavoritos.findIndex(tvShow => tvShow.id == req.params.id)) === -1 ? false : true;
+        
+        const itIsOnFavorite = (userProfile.castFavorites.findIndex(tvShow => tvShow.id == req.params.id)) === -1 ? false : true;
         const itIsOnCast = (userProfile.castTvShows.findIndex(tvShow => tvShow.id == req.params.id)) === -1 ? false : true;
 
         const joinComments = [];
