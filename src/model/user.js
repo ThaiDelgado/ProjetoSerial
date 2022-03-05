@@ -1,6 +1,7 @@
 // puxa a classe user do model e exporta para o controller. Além do mais, gera um método para a página de perfil, no mecanismo de busca.
 const db = require('../database/db.json');
 const fs = require('fs');
+const path = require('path');
 
 const User = {
   getUser: (emailReq) => {
@@ -14,7 +15,7 @@ const User = {
   },
   createUser:(user) => {
       db.users.push(user);
-      const  objetoEmString  = JSON.stringify(objeto)
+      const objetoEmString  = JSON.stringify(user)
         fs.writeFileSync(path.join(__dirname, '..', 'database', 'db.json'),objetoEmString);
   },
    
