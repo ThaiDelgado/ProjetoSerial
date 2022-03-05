@@ -61,7 +61,7 @@
                     <section class="episodeInfo">
                         <div class="episodesCount">
                             <h2>Episódios</h2>
-                            <h3>4697</h3>
+                            <h3><%=userProfile.episodes%></h3>
                         </div>
                         <div class="episodesGenders">
                             <h2>Gêneros</h2>
@@ -70,7 +70,7 @@
                                     <p>Não há favoritos adicionados!</p>
                                 <%} else {%>
                                     <%userProfile.genresTvShows.forEach(({},index)=> {%>
-                                        <li><%=userProfile.genresTvShows[index]%></li>
+                                        <li><%=userProfile.genresTvShows[index].name%></li>
                                     <%})%>
                                 <%}%>
                             </ul>
@@ -90,7 +90,7 @@
                             <%}%>
                             <%userProfile.castTvShows.forEach(({},index)=> {%>
                                 <div class="userCastTitle">
-                                    <a href="<%=`/serie/${userProfile.castTvShows[index].id}`%>">
+                                    <a href="<%=`/serie/${userProfile.castTvShows[index].id}/1`%>">
                                         <img src="<%=`https://image.tmdb.org/t/p/w500/${userProfile.castTvShows[index].poster_path}`%>" alt="">
                                         <h3><%=userProfile.castTvShows[index].original_name%></h3>
                                         <h4><%=userProfile.castTvShows[index].first_air_date.substring(0,4)%></h4>
