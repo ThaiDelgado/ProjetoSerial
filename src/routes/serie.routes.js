@@ -4,24 +4,27 @@ const express = require("express");
 //Responsável por escutar a rota e redirecionar para o método do controller
 const routes = express.Router();
 
+//Válida sessão usuário
+const auth = require('../middlewares/auth');
+
 const serieController = require('../controller/serieController');
 
 //Rota Serie
-routes.get('/:id/:season', serieController.serieById);
+routes.get('/:id/:season', auth, serieController.serieById);
 
 //Rota Comentário Série
-routes.post('/:id/:season', serieController.postComment);
+routes.post('/:id/:season', auth, serieController.postComment);
 
 //Rota Insere Série Favorita
-routes.put('/:id/favorite', serieController.addFavoriteTvShow);
+routes.put('/:id/:season/favorite', auth, serieController.addFavoriteTvShow);
 
 //Rota Insere Série no cast do usuário
-routes.put('/:id/adicionar', serieController.addTvShowToCast);
+routes.put('/:id/:season/adicionar', auth, serieController.addTvShowToCast);
 
 //Rota Insere Episódio
-routes.put('/:id/:season/:episode_number/:episode_id', serieController.addEpisode);
+routes.put('/:id/:season/:episode_number/:episode_id', auth, serieController.addEpisode);
 
 //Rota Remove Episódio
-routes.delete('/:id/:season/:episode_number/:episode_id', serieController.removeEpisode);   
+routes.delete('/:id/:season/:episode_number/:episode_id', auth, serieController.removeEpisode);   
 
 module.exports = routes;

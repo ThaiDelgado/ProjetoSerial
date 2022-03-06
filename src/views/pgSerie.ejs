@@ -24,20 +24,20 @@
                         <input type="submit" id="buttonPrivate" name="buttonPrivate" value="Tornar Privado?">
                     </form> -->
                     <% if(!itIsOnFavorite && itIsOnCast) { %>
-                        <form method="POST" action="<%=`/serie/${serie.id}/favorite?_method=PUT`%>">
+                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/favorite?_method=PUT`%>">
                             <input type="submit" id="buttonFavorite" name="buttonFavorite" value="FAVORITA">
                         </form>
                     <%} else if (itIsOnFavorite && itIsOnCast) {%>
-                        <form method="POST" action="<%=`/serie/${serie.id}/favorite?_method=PUT`%>">
+                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/favorite?_method=PUT`%>">
                             <input type="submit" id="buttonFavorite" name="buttonFavorite" value="REMOVER DOS FAVORITOS" style="background-color: red">
                         </form>
                     <%}%>
                     <% if(!itIsOnCast) { %>
-                        <form method="POST" action="<%=`/serie/${serie.id}/adicionar?_method=PUT`%>">
+                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/adicionar?_method=PUT`%>">
                             <input type="submit" name="buttonAdd" value="ADICIONAR" onclick="alert('Série adicionada com sucesso!')">
                         </form>
                     <%} else {%>
-                        <form method="POST" action="<%=`/serie/${serie.id}/adicionar?_method=DELETE`%>">
+                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/adicionar?_method=DELETE`%>">
                             <input type="submit" name="buttonAdd" value="REMOVER DA LISTA" style="background-color: red">
                         </form>
                     <%}%>
@@ -92,7 +92,7 @@
     </section>
 
     <section class="commentWrapper">
-        <form class="commentForm" method="POST" action="<%`/serie/${serie.id}/1`%>">
+        <form class="commentForm" method="POST" action="<%`/serie/${serie.id}/${season.season_number}`%>">
             <textarea rows="4" name="comment"></textarea><br>
             <button>POST</button>
             <div class="clear"></div>
@@ -100,18 +100,20 @@
 
         <%if(comments != []){%>
             <%comments.forEach(comment => {%>
-                <section class="usersPosts">
-                    <div class="titlePost">
-                        <img src="<%=comment.user.imgProfile%>" alt="">
-                        <h3><%=comment.user.name%></h3>
-                    </div>
-                    <div class="commentPost">
-                        <p><%=comment.comment%></p>
-                    </div>
-                    <a href="">Delete</a>
-                <%})%>
-                </section>
-            <%}%>
+                <% if(comment.season == season.season_number) {%>
+                    <section class="usersPosts">
+                        <div class="titlePost">
+                            <img src="<%=comment.user.imgProfile%>" alt="">
+                            <h3><%=comment.user.name%></h3>
+                        </div>
+                        <div class="commentPost">
+                            <p><%=comment.comment%></p>
+                        </div>
+                        <a href="">Delete</a>
+                    </section>
+                <%}%>
+            <%})%>
+        <%}%>
         
     </section>    
 </body>

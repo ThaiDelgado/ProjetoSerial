@@ -20,16 +20,19 @@
             <input type="email" name="email" id="email" placeholder="Digite seu email">
             <input type="password" name="password" id="password" placeholder="Digite sua senha">
             <a href="/recuperaSenha" id="forgot-pass">Esqueceu a senha?</a>
+
+            <% if(locals.errors && errors.email) { %>
+                <p class="feedback"><%= errors.email.msg %></p>
+            <% } %>
+            <% if(locals.errors && errors.password) { %>
+                <p class="feedback"><%= errors.password.msg %></p>
+            <% } %>
             
             <input type="submit" value="Entrar">
         </form>
     </section>
 
     <video id="bakground" src="/video/video/videoBackground.mp4" autoplay="true" muted loop></video>  
-
-   
-
-
     
 </body>
 </html>

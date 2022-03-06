@@ -4,9 +4,12 @@ const routes = express.Router();
 
 const explorarController = require('../controller/explorarController');
 
-//Rota Explorar -
-routes.get('/:page', explorarController.index);
+//Válida sessão usuário
+const auth = require('../middlewares/auth');
 
-routes.get('/search/:page', explorarController.search);
+//Rota Explorar -
+routes.get('/:page', auth, explorarController.index);
+
+routes.get('/search/:page', auth, explorarController.search);
 
 module.exports = routes;

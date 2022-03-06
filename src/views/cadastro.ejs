@@ -15,23 +15,26 @@
     <section class="form">
         <img src="/images/imgPagInicial/Logo.png" alt="">
 
-        <form class="menuLogin"  method="POST">
-            <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
-            <input type="email" name="email" id="email" placeholder="Digite seu email">
+        <form class="menuLogin" action="/cadastro" method="POST">
+            <input type="text" name="name" id="name" value="<%= locals.old && old.name %>" placeholder="Digite seu nome">
+            <input type="email" name="email" id="email" value="<%= locals.old && old.email %>" placeholder="Digite seu email">
             <input type="password" name="password" id="password" placeholder="Digite sua senha">
-            
+
+            <% if(locals.errors && errors.name) { %>
+                <p class="feedback"><%= errors.name.msg %></p>
+            <% } %>
+            <% if(locals.errors && errors.email) { %>
+                <p class="feedback"><%= errors.email.msg %></p>
+            <% } %>
+            <% if(locals.errors && errors.password) { %>
+                <p class="feedback"><%= errors.password.msg %></p>
+            <% } %>
+
             <input type="submit" value="Cadastrar">
         </form>
     </section>
 
     <video id="bakground" src="/video/video/videoBackground.mp4" autoplay="true" muted loop></video>  
-   
 
-    <%
-        if(isResponseRegister === 'Usuário cadastrado com sucesso!' || isResponseRegister === 'Usuário existente!') {
-            alert(isResponseRegister);
-        }
-    %>
-    
 </body>
 </html>

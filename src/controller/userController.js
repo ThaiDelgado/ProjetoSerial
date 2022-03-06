@@ -4,12 +4,12 @@ const User = require('../model/user');
 module.exports = {
 
     perfil(req,res){
-        const email = "humberto.galdino@live.com";
-        let userProfile = User.getUser(email); 
-        let timeMonths = parseInt(((userProfile.timekeeper / 60) / 24) / 30);
-        let timeDays = parseInt(((userProfile.timekeeper / 60) / 24) > 30 ? ((userProfile.timekeeper / 60) / 24) % 30 : (userProfile.timekeeper / 60) / 24);
-        let timeHours = parseInt((userProfile.timekeeper / 60) % 24);
-        let timeMinutes = userProfile.timekeeper % 60;
+        const userProfile = req.session.user;
+        const timekeeperAndEpisodes = User.getTimekeeperAndEpisodes(userProfile.castTvShows); 
+        const timeMonths = parseInt(((timekeeperAndEpisodes.timekeeper / 60) / 24) / 30);
+        const timeDays = parseInt(((timekeeperAndEpisodes.timekeeper / 60) / 24) > 30 ? ((timekeeperAndEpisodes.timekeeper / 60) / 24) % 30 : (timekeeperAndEpisodes.timekeeper / 60) / 24);
+        const timeHours = parseInt((timekeeperAndEpisodes.timekeeper / 60) % 24);
+        const timeMinutes = timekeeperAndEpisodes.timekeeper % 60;
 
         const timekeeper = {
             timeMonths: timeMonths,
@@ -17,12 +17,10 @@ module.exports = {
             timeHours: timeHours,
             timeMinutes: timeMinutes
         }
+
+        const episodes = timekeeperAndEpisodes.episodes;
   
-        if(userProfile){
-            res.render('usuarioPerfil', { userProfile, timekeeper });
-        }else{
-            res.send('Usuário Inexistente!');
-        };        
+        res.render('usuarioPerfil', { user: req.session.user, timekeeper, episodes });       
     },
 
     perfilComPesquisa(req,res){
@@ -31,40 +29,19 @@ module.exports = {
         res.render('usuarioPerfil', { users });
     },
     
-    feed(req,res){
-        const email = "humberto.galdino@live.com";
-        let userProfile = User.getUser(email);     
-        if(userProfile){
-            res.render('usuarioFeed', {userProfile});
-        }else{
-            res.send('Usuário Inexistente!');
-        }; 
+    feed(req,res){    
+        res.render('usuarioFeed', { user: req.session.user });
     },
 
-    conexoes(req, res){
-        const email = "humberto.galdino@live.com";
-        let userProfile = User.getUser(email);     
-        if(userProfile){
-            res.render('usuarioConexoes', {userProfile});
-        }else{
-            res.send('Usuário Inexistente!');
-        };
+    conexoes(req, res){    
+        res.render('usuarioConexoes', {user: req.session.user});
     },
     
     pipocando(req,res){
-        const email = "humberto.galdino@live.com";
-        let userProfile = User.getUser(email);     
-        if(userProfile){
-            res.render('usuarioPipocando', {userProfile});
-        }else{
-            res.send('Usuário Inexistente!');
-        };
+        res.render('usuarioPipocando', {user: req.session.user});
     },
 
     perfilSeguir(req,res){
         res.render('usuarioSeguir');
     }
-    
-    //criar função para coletar as séries favoritas do usuário
-    //criar no ejs uma função para percorrer o array do objeto e gerar as imagens
 };

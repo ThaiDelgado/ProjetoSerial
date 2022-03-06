@@ -25,33 +25,58 @@ const User = {
         return "Usuário cadastrado com sucesso!"
       } 
       return "Usuário existente!"    
-  },
-   
+  },   
 
-  putSerieFavorite: async (favorite) => {
-    const index = db.users.findIndex(user => user.id == 1);
-    
-    let serieFavorite = {
+  putSerieFavorite: (favorite, userSession) => {
+    const serieFavorite = {
       id: favorite.id,
       original_name: favorite.original_name,
       poster_path: favorite.poster_path,
       first_air_date: favorite.first_air_date
     };
 
-    if(index == -1){
-      console.log("MODEL - Usuário Inexistente!");
-      return "Usuário Inexistente!";
-    } else {
-      db.users[index].castFavoritos.push(serieFavorite);
-      const json = JSON.stringify(db);
-      fs.writeFileSync( 'src/database/db.json', json);
-      console.log("MODEL - Série adicionada aos Favoritos!");
-      return "Série adicionada aos Favoritos!";
-    };    
+    const index = db.users.findIndex(user => user.id == userSession.id);
+
+    db.users[index].castFavoritos.push(serieFavorite);
+    const json = JSON.stringify(db);
+    fs.writeFileSync( 'src/database/db.json', json);
+    console.log("MODEL - Série adicionada aos Favoritos!");
+    return "Série adicionada aos Favoritos!";    
   },
 
-  addEpisode: async (tvShow,season, episode_number, episode_id) => {
-    const index = db.users.findIndex(user => user.id == 1);
+  putSerieToCast: (tvShow, userSession) => {
+    const genresTvShow = tvShow.genres;
+    
+    const serieToCast = {
+      id: tvShow.id,
+      original_name: tvShow.original_name,
+      poster_path: tvShow.poster_path,
+      first_air_date: tvShow.first_air_date,
+      episode_run_time: tvShow.episode_run_time[0],
+      episodes: []
+    };
+
+    const index = db.users.findIndex(user => user.id == userSession.id);
+
+    genresTvShow.forEach(({}, indexB) =>{
+      let indexGenre = db.users[index].genresTvShows.findIndex(genre => genre.id == genresTvShow[indexB].id);
+      if(indexGenre == -1){
+        db.users[index].genresTvShows.push({
+          id: genresTvShow[indexB].id,
+          name: genresTvShow[indexB].name
+        });
+      }
+    });
+
+    db.users[index].castTvShows.push(serieToCast)
+    const json = JSON.stringify(db);
+    fs.writeFileSync( 'src/database/db.json', json);
+    console.log("MODEL - Série adicionada!");
+    return "Série adicionada!";
+  },
+
+  addEpisode: (tvShow,season, episode_number, episode_id, userSession) => {
+    const index = db.users.findIndex(user => user.id == userSession.id);
     const tvShowIndex = db.users[index].castTvShows.findIndex(serie => serie.id = tvShow.id);
     
     if(tvShowIndex != -1){
@@ -80,59 +105,37 @@ const User = {
     return "Adicione o episódio após inserir a série ao Cast!";
   },
 
-  removeEpisode: async(tvShow, season, episode_number, episode_id) => {
-    const index = db.users.findIndex(user => user.id == 1);
-    const tvShowIndex = db.users[index].castTvShows.findIndex(serie => serie.id = tvShow.id);
+  removeEpisode: (tvShowId, season, episode_number, episode_id, userSession) => {
+    const index = db.users.findIndex(user => user.id == userSession.id);
+    const tvShowIndex = db.users[index].castTvShows.findIndex(serie => serie.id = tvShowId);
     const episodeIndex = db.users[index].castTvShows[tvShowIndex].episodes.findIndex(episode => episode.episode_id == episode_id);
-    const timekeeper = db.users[index].timekeeper - tvShow.episode_run_time[0];
-    const episodes = db.users[index].episodes - 1;
     
     db.users[index].castTvShows[tvShowIndex].episodes.splice(episodeIndex, 1);
-    db.users[index].episodes = episodes;
-    db.users[index].timekeeper = timekeeper;
     const json = JSON.stringify(db);
     fs.writeFileSync( 'src/database/db.json', json);
     console.log('MODEL - Episódio removido!');
     return "Episódio removido!";
   },
 
-  putSerieToCast: async (tvShow) => {
-    const index = db.users.findIndex(user => user.id == 1);
-    const genresTvShow = tvShow.genres;
+  getTimekeeperAndEpisodes: (castTvShows) => {
+    let timekeeper = 0;
+    let episodes = 0;
     
-    let serieToCast = {
-      id: tvShow.id,
-      original_name: tvShow.original_name,
-      poster_path: tvShow.poster_path,
-      first_air_date: tvShow.first_air_date,
-      episodes: []
-    };
+    castTvShows.forEach(({}, index) => {
+      episodes = episodes + castTvShows[index].episodes.length;
+      timekeeper = timekeeper + (castTvShows[index].episodes.length * castTvShows[index].episode_run_time);
+    });
 
+    episodes = parseInt(episodes);
+    timekeeper = parseInt(timekeeper);
 
-    if(index == -1){
-      console.log('MODEL - Usuário Inexistente!');
-      return "Usuário Inexistente!";
-    } else {
-      genresTvShow.forEach(({}, index) =>{
-        let indexGenre = db.users[index].genresTvShows.findIndex(genre => genre.id == genresTvShow[index].id);
-        if(indexGenre == -1){
-          db.users[index].genresTvShows.push({
-            "id": genresTvShow[index].id,
-            "name": genresTvShow[index].name
-          });
-        }
-      });
-      db.users[index].castTvShows.push(serieToCast)
-      const json = JSON.stringify(db);
-      fs.writeFileSync( 'src/database/db.json', json);
-      console.log("MODEL - Série adicionada!");
-      return "Série adicionada!";
-    };
+    console.log('MODEL - Coletou ' + episodes + ' episódios e ' + timekeeper + ' minutos!');
+    return { episodes, timekeeper };
   },
   
   filterByName: (searchTerm) => {
-    const users = this.getUsers()
-    return users.filter(n => n.name.includes(searchTerm))
+    const users = this.getUsers();
+    return users.filter(n => n.name.includes(searchTerm));
   }
 };
 

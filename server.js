@@ -1,8 +1,8 @@
 //Insere o módulo de express
 const express = require("express");
 
-// //Implementação Branch Mariana
-const session = require('express-session') 
+//Implementa Session
+const session = require('express-session');
 
 //Implementa o package cors para utilizar HTTP
 const cors = require("cors"); //entender melhor
@@ -13,24 +13,29 @@ const methodOverride = require('method-override');
 //Variável responsável pela execução do Express
 const app = express();
 
-
-app.use(express.urlencoded({ extended: false }));
-
-app.use(methodOverride('_method'));
+app.use(session({
+    secret: "Serial's Project - Secrete Phrase",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { 
+      secure: false 
+    }
+}));
 
 //Permite o express entender as requisições JSON da API
 app.use(express.json()); //JSON arquivo utilizado para transferir informações entre sistemas.
 
+app.use(express.urlencoded({ extended: false }));
+
+//Insere estrutura pasta public
+app.use(express.static("public"));
+
+app.use(methodOverride('_method'));
+
+// app.use(cookieMiddleware);
+
 //Permite a comunicação entre aplicações por HTTP
 app.use(cors());
-
-app.use(session({
-    secret: "renasdasd asd asd asd ads q wdq we 123123 45 6 6 ",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: false
-}}));
 
 
 //Insere estrutura rotas
@@ -54,8 +59,6 @@ app.set("view engine", "ejs");
 //Insere estrutura pasta views
 app.set("views", "./src/views");
 
-//Insere estrutura pasta public
-app.use(express.static("public"));
 
 //Define a porta que servidor irá funcionar
 app.listen(3000, () => console.log("Servidor Funcionando!"));
@@ -75,7 +78,3 @@ app.listen(3000, () => console.log("Servidor Funcionando!"));
 //   res.status(err.status || 500);
 //   res.render("error");
 // });
-
-// para criar e relacionar caminhos (padrão)
-const path = require('path');
-

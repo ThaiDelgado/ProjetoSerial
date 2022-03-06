@@ -4,19 +4,20 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const User = require('../model/user');
 const uniqId = require('uniqid')
-const alert = require('alert');
 
 module.exports = {
     home(req,res){
-        res.render('homePage');
+      res.render('homePage');
     },
 
     registerPage(req, res){
       const isResponseRegister = false;
-      res.render('cadastro', { isResponseRegister, alert }); // renderiza a página do cadastro 
+      res.render('cadastro', { isResponseRegister }); // renderiza a página do cadastro 
     },
 
     registerUser(req, res){
+      const errors = validationResult(req);
+      if(errors.isEmpty()){
         const saltRounds = 10;
         const hash = bcrypt.hashSync(req.body.password, saltRounds);
         const newUser = {
@@ -27,41 +28,44 @@ module.exports = {
           castFavorites: [],
           castTvShows: [],
           genresTvShows:[],
-          timekeeper: 0,
-          episodes: 0,
           followers: [],
           following:[],
           imgProfile: '',
           imgBackground:''
         }
-        const isResponseRegister = User.createUser(newUser);
-        res.send(isResponseRegister);
-    },
-
-    login(req,res){
-        res.render('login')
+        const responseRegister = User.createUser(newUser);
+        res.send(responseRegister);
+      } else {
+        res.render('cadastro', { errors: errors.mapped(), old: req.body });
+      }      
     },
 
     passwordDiscovery(req, res){
         res.render('passwordDiscovery')
     }, 
 
-    fazerLogin(req, res){
-          const meuUsuario = User.getUser(req.body.email);
-      
-          if (!meuUsuario) {
-            return res.send('Usuário inválido!');
-          }
-      
-          const senhaEstaCorreta = bcrypt.compareSync(req.body.password, meuUsuario.password)
-      
-          if (!senhaEstaCorreta) {
-            return res.send('Senha inválida!');
-          }
-      
-          delete meuUsuario.senha;
-          req.session.users = meuUsuario;
-      
-          res.redirect('/usuario');
+    pageLogin(req,res){
+      res.render('login')
+    },
+
+    login(req, res){
+
+      const { email, password } = req.body;
+
+      const user = User.getUser(email);
+
+      if(!user){
+        return res.send("Usuário ou senha inválidos!");
+      }
+
+      const isPasswordCorrect = bcrypt.compareSync(password, user.password);
+
+      if(!isPasswordCorrect){
+        return res.send("Usuário ou senha inválidos!");
+      }
+
+      req.session.user = user;
+
+      return res.redirect('/usuario');
     }
 };

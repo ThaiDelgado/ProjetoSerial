@@ -1,6 +1,7 @@
 const axios = require('axios');
 const db = require('../database/db.json');
 const fs = require('fs');
+const { userInfo } = require('os');
 
 const url = 'https://api.themoviedb.org/3/';
 const apiKey = '3a00ae3e8eac3b5e60f644383ee7c942';
@@ -26,30 +27,40 @@ const Serie = {
         return {page, results, total_pages};
     },
 
-    async postComment(idSerie, comment){        
-        const index = db.series.findIndex(serie => serie.id_serie === idSerie);
-        const comments = index >= 0 ? db.series[index].comments : [];
-        let serie = {
+    async postComment(idSerie, season, comment, userSession){        
+        const index = db.seriesComments.findIndex(serieComment => serieComment.id_serie === idSerie);
+        const serie = await this.findByID(idSerie);
+        console.log(serie);        
+        const comments = index >= 0 ? db.seriesComments[index].comments : [];
+        console.log(comments);
+        let serieComment = {
             id_serie: idSerie,
+            name_serie: serie.original_name,
             comments: [
                 ...comments,
                 {
-                    id_user: 1,
+                    id_user: userSession.id,
+                    user_name: userSession.name,
+                    user_img: userSession.imgProfile,
+                    season: season,
                     comment: comment
                 }
             ]
         }
-        index >= 0 ? db.series[index] = serie : db.series.push(serie);        
+        console.log(serieComment);
+
+        index >= 0 ? db.seriesComments[index] = serie : db.seriesComments.push(serieComment);
+        console.log(db);        
         const json = JSON.stringify(db);
         fs.writeFileSync( 'src/database/db.json', json);
+        console.log('MODEL - Comentário feito com sucesso!');
+        return "Comentário feito com sucesso!"
     },
 
     async findComments(idSerie){
-        let serie = db.series.find(serie => serie.id_serie == idSerie);
+        let serie = db.seriesComments.find(serie => serie.id_serie == idSerie);
         return serie
     }
-
-
 };
 
 module.exports = Serie;

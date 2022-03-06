@@ -39,8 +39,6 @@
                 </div><!--casting-->
                 <div class="pages">
                     <% if(isSearch) {%>
-                        <% console.log(discoverSeries.page) %>
-                        <% console.log(total_pages >= discoverSeries.page) %>
                         <%if(discoverSeries.page > 1){%>
                             <a href="<%=`/explorar/search/${discoverSeries.page-1}?search=${search}`%>">ANTERIOR</a>
                         <%}%>
