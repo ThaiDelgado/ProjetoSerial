@@ -27,21 +27,32 @@ const User = {
       return "Usuário existente!"    
   },   
 
-  putSerieFavorite: (favorite, userSession) => {
+  putSerieFavorite: (tvShow, userSession) => {
     const serieFavorite = {
-      id: favorite.id,
-      original_name: favorite.original_name,
-      poster_path: favorite.poster_path,
-      first_air_date: favorite.first_air_date
+      id: tvShow.id,
+      original_name: tvShow.original_name,
+      poster_path: tvShow.poster_path,
+      first_air_date: tvShow.first_air_date
     };
 
     const index = db.users.findIndex(user => user.id == userSession.id);
 
-    db.users[index].castFavoritos.push(serieFavorite);
+    db.users[index].castFavorites.push(serieFavorite);
     const json = JSON.stringify(db);
     fs.writeFileSync( 'src/database/db.json', json);
     console.log("MODEL - Série adicionada aos Favoritos!");
     return "Série adicionada aos Favoritos!";    
+  },
+
+  removeSerieFavorite: (tvShowId, userSession) => {
+    const index = db.users.findIndex(user => user.id == userSession.id);
+    const indexTvShowFavorite = db.users[index].castFavorites.findIndex(serieFavorite => serieFavorite.id == tvShowId);
+
+    db.users[index].castFavorites.splice(indexTvShowFavorite, 1);
+    const json = JSON.stringify(db);
+    fs.writeFileSync('src/database/db.json', json);
+    console.log('MODEL - Série removida dos favoritos!');
+    return "Série removida dos Favoritos!";
   },
 
   putSerieToCast: (tvShow, userSession) => {
@@ -77,21 +88,17 @@ const User = {
 
   addEpisode: (tvShow,season, episode_number, episode_id, userSession) => {
     const index = db.users.findIndex(user => user.id == userSession.id);
-    const tvShowIndex = db.users[index].castTvShows.findIndex(serie => serie.id = tvShow.id);
+    const tvShowIndex = db.users[index].castTvShows.findIndex(serie => serie.id == tvShow.id);
     
     if(tvShowIndex != -1){
       const episodeIsWatched = db.users[index].castTvShows[tvShowIndex].episodes.findIndex(episode => episode.episode_id == episode_id);
       if(episodeIsWatched == -1){
-        const timekeeper = db.users[index].timekeeper + tvShow.episode_run_time[0];
-        const episodes = db.users[index].episodes + 1;
         const episode = {
           episode_id: episode_id,
           season: season,
           episode_number: episode_number
         }
         db.users[index].castTvShows[tvShowIndex].episodes.push(episode);
-        db.users[index].timekeeper = timekeeper;
-        db.users[index].episodes = episodes;
         const json = JSON.stringify(db);
         fs.writeFileSync( 'src/database/db.json', json);
         console.log("MODEL - Episódio adicionado com sucesso!");

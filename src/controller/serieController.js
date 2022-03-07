@@ -40,8 +40,16 @@ module.exports = {
 
     async addFavoriteTvShow(req,res){
         let user = req.session.user;
-        let favorite = await Serie.findByID(req.params.id);
-        let addSerie = User.putSerieFavorite(favorite, user);
+        let tvShow = await Serie.findByID(req.params.id);
+        let addSerieFavorite = User.putSerieFavorite(tvShow, user);
+        res.redirect(`/serie/${tvShowId}/${season}`);
+    },
+
+    removeFavoriteTvShow(req,res){
+        let user = req.session.user;
+        let tvShowId = req.params.id;
+        let season = req.params.season;
+        let removeSerie = User.removeSerieFavorite(tvShowId, user);
         res.redirect(`/serie/${tvShowId}/${season}`);
     },
 
