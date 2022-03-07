@@ -28,7 +28,7 @@
                             <input type="submit" id="buttonFavorite" name="buttonFavorite" value="FAVORITA">
                         </form>
                     <%} else if (itIsOnFavorite && itIsOnCast) {%>
-                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/favorite?_method=DELETE`%>">
+                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/Deletefavorite?_method=DELETE`%>">
                             <input type="submit" id="buttonFavorite" name="buttonFavorite" value="REMOVER DOS FAVORITOS" style="background-color: red">
                         </form>
                     <%}%>
@@ -37,7 +37,7 @@
                             <input type="submit" name="buttonAdd" value="ADICIONAR" onclick="alert('Série adicionada com sucesso!')">
                         </form>
                     <%} else {%>
-                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/adicionar?_method=DELETE`%>">
+                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/remover?_method=DELETE`%>">
                             <input type="submit" name="buttonAdd" value="REMOVER DA LISTA" style="background-color: red">
                         </form>
                     <%}%>
