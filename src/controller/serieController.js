@@ -1,4 +1,5 @@
 const res = require('express/lib/response');
+const { deleteComment } = require('../model/serie');
 const Serie = require('../model/serie');
 const User = require('../model/user');
 
@@ -28,12 +29,13 @@ module.exports = {
                         imgProfile: userComment.imgProfile
                     },
                     season: comment.season,
-                    comment: comment.comment
+                    comment: comment.comment,
+                    comment_id: comment.id_comment
                 })
             });
         }
         
-         res.render('pgSerie', { user: req.session.user, serie, season, itIsOnFavorite, itIsOnCast, comments: joinComments, episodes});    
+        res.render('pgSerie', { user: req.session.user, serie, season, itIsOnFavorite, itIsOnCast, comments: joinComments, episodes});    
     },
 
     async addFavoriteTvShow(req,res){
@@ -77,6 +79,14 @@ module.exports = {
         let comment = req.body.comment;
         await Serie.postComment(tvShowId, season, comment, user);
         res.redirect(`/serie/${tvShowId}/${season}`);        
+    },
+
+    deleteComment(req,res){
+        let season = req.params.season; 
+        let tvShowId = req.params.id;
+        let idComment = req.body.idComment;
+        Serie.deleteComment(tvShowId, season, idComment);
+        res.redirect(`/serie/${tvShowId}/${season}`);
     }
     
 };

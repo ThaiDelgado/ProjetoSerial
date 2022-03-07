@@ -169,15 +169,7 @@
         {
             "id_serie": "61056",
             "name_serie": "How to Get Away with Murder",
-            "comments": [
-                {
-                    "id_user": "1lvc08j8l0dviifi",
-                    "user_name": "Humberto Galdino",
-                    "user_img": "/images/imgUsuarioPerfil/user-profile.jpg",
-                    "season": "1",
-                    "comment": "teste"
-                }
-            ]
+            "comments": []
         }
     ]
 }

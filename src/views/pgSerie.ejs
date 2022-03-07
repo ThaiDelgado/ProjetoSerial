@@ -28,7 +28,7 @@
                             <input type="submit" id="buttonFavorite" name="buttonFavorite" value="FAVORITA">
                         </form>
                     <%} else if (itIsOnFavorite && itIsOnCast) {%>
-                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/favorite?_method=PUT`%>">
+                        <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/favorite?_method=DELETE`%>">
                             <input type="submit" id="buttonFavorite" name="buttonFavorite" value="REMOVER DOS FAVORITOS" style="background-color: red">
                         </form>
                     <%}%>
@@ -92,7 +92,7 @@
     </section>
 
     <section class="commentWrapper">
-        <form class="commentForm" method="POST" action="<%`/serie/${serie.id}/${season.season_number}`%>">
+        <form class="commentForm" method="POST" action="<%=`/serie/${serie.id}/${season.season_number}`%>">
             <textarea rows="4" name="comment"></textarea><br>
             <button>POST</button>
             <div class="clear"></div>
@@ -109,7 +109,13 @@
                         <div class="commentPost">
                             <p><%=comment.comment%></p>
                         </div>
-                        <a href="">Delete</a>
+
+                        <% if(comment.user.id == user.id) {%>
+                            <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/deleteComment/${comment.id}?_method=DELETE`%>">
+                                <input type="submit" value="DELETE">
+                                <div class="clear"></div>
+                            </form>
+                        <%}%>
                     </section>
                 <%}%>
             <%})%>

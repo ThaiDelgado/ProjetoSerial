@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const User = require('../model/user');
-const uniqId = require('uniqid')
+const uniqId = require('uniqid');
 
 module.exports = {
     home(req,res){

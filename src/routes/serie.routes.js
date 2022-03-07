@@ -15,6 +15,9 @@ routes.get('/:id/:season', auth, serieController.serieById);
 //Rota Comentário Série
 routes.post('/:id/:season', auth, serieController.postComment);
 
+//Roda Delete Comentário
+routes.delete('/:id/:season/deleteComment/:idComment', auth, serieController.deleteComment);
+
 //Rota Insere Série Favorita
 routes.put('/:id/:season/favorite', auth, serieController.addFavoriteTvShow);
 
