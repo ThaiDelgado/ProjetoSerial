@@ -22,7 +22,7 @@ module.exports = {
         const hash = bcrypt.hashSync(req.body.password, saltRounds);
         const newUser = {
           id: uniqId(),
-          name: req.body.nome,
+          name: req.body.name,
           email: req.body.email, 
           password: hash, 
           castFavorites: [],
@@ -30,11 +30,11 @@ module.exports = {
           genresTvShows:[],
           followers: [],
           following:[],
-          imgProfile: '',
-          imgBackground:''
+          imgProfile: '/images/imgUsuarioPerfil/newUser-img-profile.png',
+          imgBackground:'/images/imgUsuarioPerfil/newUser-background.jpg'
         }
         const responseRegister = User.createUser(newUser);
-        res.send(responseRegister);
+        res.redirect('/login');
       } else {
         res.render('cadastro', { errors: errors.mapped(), old: req.body });
       }      

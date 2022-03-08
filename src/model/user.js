@@ -11,7 +11,6 @@ const User = {
 
   getUserById: (idUser) => {
     const user = db.users.find(user => user.id === idUser);
-    console.log(user);
     return user;
   },
   
@@ -86,6 +85,18 @@ const User = {
     console.log("MODEL - Série adicionada!");
     return "Série adicionada!";
   },
+
+  removeTvShowFromCast: (tvShowId, userSession) => {
+    const index = db.users.findIndex(user => user.id == userSession.id);
+    const tvShowIndex = db.users[index].castTvShows.findIndex(serie => serie.id == tvShowId);
+
+    db.users[index].castTvShows.splice(tvShowIndex, 1);
+    const json = JSON.stringify(db);
+    fs.writeFileSync( 'src/database/db.json', json);
+    console.log('MODEL - Série removida do cast!');
+    return "Série removida do cast!";
+  },
+
 
   addEpisode: (tvShow,season, episode_number, episode_id, userSession) => {
     const index = db.users.findIndex(user => user.id == userSession.id);

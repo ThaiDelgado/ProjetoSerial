@@ -47,7 +47,7 @@ module.exports = {
 
     removeFavoriteTvShow(req,res){
         let user = User.getUserById(req.session.userId);;
-        let removeSerie = User.removeSerieFavorite(req.params.id, user);
+        let removeFavorite = User.removeSerieFavorite(req.params.id, user);
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
@@ -55,6 +55,12 @@ module.exports = {
         let user = User.getUserById(req.session.userId);
         let tvShow = await Serie.findByID(req.params.id);
         let addSerie = User.putSerieToCast(tvShow, user);
+        res.redirect(`/serie/${req.params.id}/${req.params.season}`);
+    },
+
+    removeTvShowToCast(req, res){
+        let user = User.getUserById(req.session.userId);
+        let removeTvShow = User.removeTvShowFromCast(req.params.id, user);
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 

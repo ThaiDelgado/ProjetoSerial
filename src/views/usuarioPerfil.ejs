@@ -20,7 +20,7 @@
                     <div class="favoritesCast">
                         <div class="favoritesCastTitlesWrap">
                             <%if(user.castFavorites == null || user.castFavorites.length == 0){%>
-                                <p>Não há favoritos adicionados!</p>
+                                <p style="color:#FFFFFF; font-size:20px;">Não há favoritos adicionados!</p>
                             <%}%>
                             <%user.castFavorites.forEach(({},index)=> {%>
                                 <div class="favoritesCastTitle">
@@ -67,7 +67,7 @@
                             <h2>Gêneros</h2>
                             <ul>
                                 <%if(user.genresTvShows == null || user.genresTvShows.length == 0){%>
-                                    <p>Não há favoritos adicionados!</p>
+                                    <p style="color: #FFFFFF;">Não há gêneros adicionados!</p>
                                 <%} else {%>
                                     <%user.genresTvShows.forEach(({},index)=> {%>
                                         <li><%=user.genresTvShows[index].name%></li>
@@ -86,7 +86,7 @@
                         
                         <div class="userTvCast">
                             <%if(user.castTvShows == null || user.castTvShows.length == 0){%>
-                                <p>Não há séries adicionadas!</p>
+                                <p style="color:#FFFFFF; font-size:20px; margin: 0 auto; position: relative; left: -8px;">Não há séries adicionadas!</p>
                             <%}%>
                             <%user.castTvShows.forEach(({},index)=> {%>
                                 <div class="userCastTitle">

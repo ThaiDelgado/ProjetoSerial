@@ -27,8 +27,8 @@ routes.delete('/:id/:season/deletefavorite', auth, serieController.removeFavorit
 //Rota Insere Série no cast do usuário
 routes.put('/:id/:season/adicionar', auth, serieController.addTvShowToCast);
 
-// //Rota Remove Série do cast do usuário
-// routes.delete('/:id/:season/remover', auth, serieController.removeTvShowToCast);
+//Rota Remove Série do cast do usuário
+routes.delete('/:id/:season/remover', auth, serieController.removeTvShowToCast);
 
 //Rota Insere Episódio
 routes.put('/:id/:season/:episode_number/:episode_id', auth, serieController.addEpisode);

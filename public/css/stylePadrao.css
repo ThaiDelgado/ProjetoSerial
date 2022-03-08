@@ -21,7 +21,7 @@ html,body{
 }
   
 *::-webkit-scrollbar-thumb {
-    background-color:#6741B9;    
+    background-color:#733FBE;    
     border-radius: 20px;
 }
 
@@ -140,7 +140,7 @@ header .container #btnBusca{
 .background-user .container #userName{
     width: 310px;
     height: 80px;
-    background-color: #6741B9;
+    background-color: #733FBE;
     margin: 20px auto;
     border-radius:10px;
     text-align: center;
