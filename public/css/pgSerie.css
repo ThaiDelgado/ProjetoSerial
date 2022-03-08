@@ -69,13 +69,18 @@ body {
 .infoTvShow input[type=submit]{
     margin-top: 20px;
     margin-right:5px;
-    font-weight: bold;
-    background-color: #6741B9;
+    font-weight: 500;
+    background-color: rgba(103, 65, 185, 0.1);
     color:white;
-    font-size: 16px;
-    padding: 5px;
-    border-radius: 5px;
-    padding: 5px;
+    font-size: 15px;
+    border-radius: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.infoTvShow input[type=submit]:hover{
+    background-color: rgba(103, 65, 185, 0.5);
 }
 
 .infoTvShowSeason{
@@ -114,6 +119,7 @@ select.season {
     background-color: #6741B9;
     color: #FFFFFF;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .episodesWrapper{
@@ -195,10 +201,11 @@ select.season {
     background-color: #6741B9;
     color:white;
     font-size: 15px;
-    font-weight: bold;
-    padding: 2px;
-    border-radius: 5px;
+    font-weight: 500;
+    padding:0 10px;
+    border-radius: 50px;
     float: right;
+    cursor: pointer;
 }
 
 .usersPosts{
@@ -234,4 +241,5 @@ select.season {
     font-weight: 600;
     border: none;
     float: right;
+    cursor: pointer;
 }
