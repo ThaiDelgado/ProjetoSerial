@@ -63,6 +63,7 @@
                 <%season.episodes.forEach( ({}, index) => {%>
                     <% 
                         let isWatched = undefined
+                        console.log(episodes);
                         episodes === undefined ? isWatched = false : isWatched = (episodes.episodes.findIndex(episode => episode.episode_id == season.episodes[index].id)) === -1 ? false : true;
                     %>
                     <% if(!isWatched){ %>

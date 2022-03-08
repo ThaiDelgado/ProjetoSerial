@@ -11,7 +11,7 @@ module.exports = {
         const serie = await Serie.findByID(req.params.id);
         const season = await Serie.findSeason(req.params.id, req.params.season);
         const serieComments = await Serie.findComments(req.params.id);
-        const userProfile = req.session.user;
+        const userProfile = User.getUserById(req.session.userId);
         const episodes = userProfile.castTvShows.find(tvShow => tvShow.id == req.params.id);
         
         const itIsOnFavorite = (userProfile.castFavorites.findIndex(tvShow => tvShow.id == req.params.id)) === -1 ? false : true;
@@ -35,66 +35,51 @@ module.exports = {
             });
         }
         
-        res.render('pgSerie', { user: req.session.user, serie, season, itIsOnFavorite, itIsOnCast, comments: joinComments, episodes});    
+        res.render('pgSerie', { user: userProfile, serie, season, itIsOnFavorite, itIsOnCast, comments: joinComments, episodes});    
     },
 
     async addFavoriteTvShow(req,res){
-        let user = req.session.user;
+        let user = User.getUserById(req.session.userId);
         let tvShow = await Serie.findByID(req.params.id);
         let addSerieFavorite = User.putSerieFavorite(tvShow, user);
-        res.redirect(`/serie/${tvShowId}/${season}`);
+        res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
     removeFavoriteTvShow(req,res){
-        let user = req.session.user;
-        let tvShowId = req.params.id;
-        let season = req.params.season;
-        let removeSerie = User.removeSerieFavorite(tvShowId, user);
-        res.redirect(`/serie/${tvShowId}/${season}`);
+        let user = User.getUserById(req.session.userId);;
+        let removeSerie = User.removeSerieFavorite(req.params.id, user);
+        res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
     async addTvShowToCast(req,res){
-        let user = req.session.user;        
+        let user = User.getUserById(req.session.userId);
         let tvShow = await Serie.findByID(req.params.id);
         let addSerie = User.putSerieToCast(tvShow, user);
-        res.redirect(`/serie/${tvShow.Id}/${season}`);
+        res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
     async addEpisode(req,res){
-        let user = req.session.user;
-        let season = req.params.season;
-        let episode_number = req.params.episode_number
-        let episode_id = req.params.episode_id;
+        let user = User.getUserById(req.session.userId);
         let tvShow = await Serie.findByID(req.params.id);
-        let addEpisode = User.addEpisode(tvShow, season, episode_number, episode_id, user);
-        res.redirect(`/serie/${tvShow.Id}/${season}`);
+        let addEpisode = User.addEpisode(tvShow, req.params.season, req.params.episode_number, req.params.episode_id, user);
+        res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
     async removeEpisode(req,res){
-        let user = req.session.user;
-        let season = req.params.season;
-        let episode_number = req.params.episode_number
-        let episode_id = req.params.episode_id;
-        let tvShowId = req.params.id;
-        let removeEpisode = User.removeEpisode(tvShowId, season, episode_number, episode_id, user);
-        res.redirect(`/serie/${tvShowId}/${season}`);
+        let user = User.getUserById(req.session.userId);
+        let removeEpisode = User.removeEpisode(req.params.id, req.params.season, req.params.episode_number, req.params.episode_id, user);
+        res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
     async postComment(req,res){
-        let user = req.session.user;
-        let season = req.params.season; 
-        let tvShowId = req.params.id;
-        let comment = req.body.comment;
-        await Serie.postComment(tvShowId, season, comment, user);
-        res.redirect(`/serie/${tvShowId}/${season}`);        
+        let user = User.getUserById(req.session.userId);;
+        await Serie.postComment(req.params.id, req.params.season, req.body.comment, user);
+        res.redirect(`/serie/${req.params.id}/${req.params.season}`);        
     },
 
     deleteComment(req,res){
-        let season = req.params.season; 
-        let tvShowId = req.params.id;
-        let idComment = req.body.idComment;
-        Serie.deleteComment(tvShowId, season, idComment);
-        res.redirect(`/serie/${tvShowId}/${season}`);
+        Serie.deleteComment(req.params.id, req.params.season, req.body.idComment);
+        res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     }
     
 };

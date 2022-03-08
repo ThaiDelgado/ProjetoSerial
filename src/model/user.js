@@ -11,6 +11,7 @@ const User = {
 
   getUserById: (idUser) => {
     const user = db.users.find(user => user.id === idUser);
+    console.log(user);
     return user;
   },
   
@@ -114,7 +115,7 @@ const User = {
 
   removeEpisode: (tvShowId, season, episode_number, episode_id, userSession) => {
     const index = db.users.findIndex(user => user.id == userSession.id);
-    const tvShowIndex = db.users[index].castTvShows.findIndex(serie => serie.id = tvShowId);
+    const tvShowIndex = db.users[index].castTvShows.findIndex(serie => serie.id == tvShowId);
     const episodeIndex = db.users[index].castTvShows[tvShowIndex].episodes.findIndex(episode => episode.episode_id == episode_id);
     
     db.users[index].castTvShows[tvShowIndex].episodes.splice(episodeIndex, 1);

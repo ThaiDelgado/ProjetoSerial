@@ -49,7 +49,7 @@ const Serie = {
             ]
         }
 
-        index >= 0 ? db.seriesComments[index] = serie : db.seriesComments.push(serieComment);
+        index >= 0 ? db.seriesComments[index] = serieComment : db.seriesComments.push(serieComment);
       
         const json = JSON.stringify(db);
         fs.writeFileSync( 'src/database/db.json', json);

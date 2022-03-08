@@ -1,5 +1,5 @@
 function auth(req, res, next){
-    if (typeof req.session.user === "undefined"){
+    if (typeof req.session.userId === "undefined"){
         return res.redirect('/login');
     } next()
 }

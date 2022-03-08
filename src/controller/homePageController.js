@@ -64,7 +64,7 @@ module.exports = {
         return res.send("Usuário ou senha inválidos!");
       }
 
-      req.session.user = user;
+      req.session.userId = user.id;
 
       return res.redirect('/usuario');
     }

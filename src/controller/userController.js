@@ -4,7 +4,7 @@ const User = require('../model/user');
 module.exports = {
 
     perfil(req,res){
-        const userProfile = req.session.user;
+        const userProfile = User.getUserById(req.session.userId);
         const timekeeperAndEpisodes = User.getTimekeeperAndEpisodes(userProfile.castTvShows); 
         const timeMonths = parseInt(((timekeeperAndEpisodes.timekeeper / 60) / 24) / 30);
         const timeDays = parseInt(((timekeeperAndEpisodes.timekeeper / 60) / 24) > 30 ? ((timekeeperAndEpisodes.timekeeper / 60) / 24) % 30 : (timekeeperAndEpisodes.timekeeper / 60) / 24);
@@ -20,7 +20,7 @@ module.exports = {
 
         const episodes = timekeeperAndEpisodes.episodes;
   
-        res.render('usuarioPerfil', { user: req.session.user, timekeeper, episodes });       
+        res.render('usuarioPerfil', { user: userProfile, timekeeper, episodes });       
     },
 
     perfilComPesquisa(req,res){
