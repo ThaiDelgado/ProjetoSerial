@@ -77,6 +77,7 @@ body {
     padding-left: 15px;
     padding-right: 15px;
     cursor: pointer;
+    border: none;
 }
 
 .infoTvShow input[type=submit]:hover{
@@ -206,6 +207,7 @@ select.season {
     border-radius: 50px;
     float: right;
     cursor: pointer;
+    border: none;
 }
 
 .usersPosts{

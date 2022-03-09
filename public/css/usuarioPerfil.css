@@ -6,11 +6,11 @@
 
 .favoritesUser{
     background-color: #000000;
-    height: 80vh;
+    height: 90vh;
 }
 
 .favoritesUser .container{
-    height: 80vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@
 
 .favoritesTitle{
     width: 20%;
-    height: 80vh;
+    height: 90vh;
     position: relative;
 }
 
@@ -35,7 +35,7 @@
 
 .favoritesCast{
     width: 80%;
-    height: 80vh;
+    height: 90vh;
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
