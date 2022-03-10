@@ -1,7 +1,4 @@
 const express = require("express");
-
-const multer  = require('multer')
-const upload = multer({ dest: 'uploads/data' })
 const verificarLogin = require('../middlewares/verificarLogin');
 
 const userController = require('../controller/userController');

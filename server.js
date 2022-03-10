@@ -22,6 +22,9 @@ app.use(session({
     }
 }));
 
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/data' })
+
 //Permite o express entender as requisições JSON da API
 app.use(express.json()); //JSON arquivo utilizado para transferir informações entre sistemas.
 
