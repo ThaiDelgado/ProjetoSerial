@@ -30,9 +30,6 @@ routes.get('/feed', auth, userController.feed);
 
 routes.get('/multer')
 
-app.post('/multer', upload.single('avatarFile'), (req, res) => {
-    console.log(req.file) // Irá devolver um objeto com as informações do arquivo
-    res.send('Upload feito com sucesso!')
-  })
+
 
 module.exports = routes;
