@@ -43,5 +43,8 @@ module.exports = {
 
     perfilSeguir(req,res){
         res.render('usuarioSeguir');
+    }, 
+    multer(req, res){
+        res.render('multer');
     }
 };

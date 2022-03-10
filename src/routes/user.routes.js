@@ -25,7 +25,7 @@ routes.get('/conexoes', auth, userController.conexoes);
 //Rota Feed
 routes.get('/feed', auth, userController.feed);
 
-// routes.get('/multer', auth, userController.multer)
+routes.get('/multer', userController.multer)
 
 
 
