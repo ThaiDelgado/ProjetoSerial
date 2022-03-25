@@ -1,5 +1,4 @@
 const express = require("express");
-
 const verificarLogin = require('../middlewares/verificarLogin');
 
 const userController = require('../controller/userController');
@@ -25,6 +24,9 @@ routes.get('/conexoes', auth, userController.conexoes);
 
 //Rota Feed
 routes.get('/feed', auth, userController.feed);
+
+routes.get('/multer', userController.multer)
+
 
 
 module.exports = routes;
