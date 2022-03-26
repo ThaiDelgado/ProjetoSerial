@@ -8,6 +8,7 @@ const url = 'https://api.themoviedb.org/3/';
 const apiKey = '3a00ae3e8eac3b5e60f644383ee7c942';
 
 const Serie = {
+    //passar para controller consumo API
     async findByName(name, pageSearch){
         const {data: {page, results, total_pages}} = await axios.get(`${url}search/tv?api_key=${apiKey}&query=${name}&page=${pageSearch}&include_adult=false`);
         return {page, results, total_pages};
