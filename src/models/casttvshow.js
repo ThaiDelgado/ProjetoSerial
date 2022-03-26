@@ -5,15 +5,43 @@ const {
 const User = require('./User');
 module.exports = (sequelize, DataTypes) => {
   class castTvShow extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+
     static associate(models) {
-      // define association here
+
+      //USER
+      castTvShow.belongsTo(models.User, {
+        as: 'user',
+        foreignKey: 'id_user_cast_fk',
+        onDelete: 'RESTRICT',
+        onUpdate: 'NO ACTION'
+      });
+
+      //EPISODES
+      castTvShow.hasMany(models.Episode, {
+        as: 'episodes',
+        foreignKey: 'id_tvshow_episodes_fk',
+        onDelete: 'RESTRICT',
+        onUpdate: 'NO ACTION'
+      });
+
+      //GENRES
+      castTvShow.hasMany(models.Genre, {
+        as: 'genres',
+        foreignKey: 'id_tvshow_genre',
+        onDelete: 'RESTRICT',
+        onUpdate: 'NO ACTION'
+      });
+
+      //COMMENTS
+      castTvShow.belongsTo(models.SeriesComment, {
+        as: 'comment',
+        foreignKey: 'id_tvshow_comments_fk',
+        onDelete: 'RESTRICT',
+        onUpdate: 'NO ACTION'
+      });
     }
   }
+
   castTvShow.init({
     idTvShow: DataTypes.INTEGER,
     id_user_cast_fk: {

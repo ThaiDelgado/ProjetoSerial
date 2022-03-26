@@ -4,15 +4,27 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Connection extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+
     static associate(models) {
-      // define association here
+
+      //MAIN
+      Connection.belongsTo(models.User, {
+        as: 'user_main',
+        foreignKey: 'id_main_user',
+        onDelete: 'RESTRICT',
+        onUpdate: 'NO ACTION'
+      });
+
+      //SECONDARY
+      Connection.belongsTo(models.User, {
+        as: 'secondary_user',
+        foreignKey: 'id_secondary_user',
+        onDelete: 'RESTRICT',
+        onUpdate: 'NO ACTION'
+      });
     }
   }
+
   Connection.init({
     id_main_user: {
       type: DataTypes.INTEGER,
