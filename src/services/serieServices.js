@@ -1,4 +1,4 @@
-const {api, apiKey} = require('./api');
+const { api, apiKey } = require('./api');
 
 const findByName = async (name, pageSearch) =>{
     const {data: {page, results, total_pages}} = await api.get(`search/tv?api_key=${apiKey}&query=${name}&page=${pageSearch}&include_adult=false`);

@@ -1,5 +1,4 @@
 const axios = require('axios');
-const db = require('../database/db.json');
 const fs = require('fs');
 const { userInfo } = require('os');
 const uniqId = require('uniqid');

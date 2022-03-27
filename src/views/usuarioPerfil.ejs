@@ -19,15 +19,15 @@
                     </div>                
                     <div class="favoritesCast">
                         <div class="favoritesCastTitlesWrap">
-                            <%if(user.castFavorites == null || user.castFavorites.length == 0){%>
+                            <%if(favoritesCast == null || favoritesCast.length == 0){%>
                                 <p style="color:#FFFFFF; font-size:20px;">Não há favoritos adicionados!</p>
                             <%}%>
-                            <%user.castFavorites.forEach(({},index)=> {%>
+                            <%favoritesCast.forEach(({},index)=> {%>
                                 <div class="favoritesCastTitle">
-                                    <a href="<%=`/serie/${user.castFavorites[index].id}/1`%>">
-                                        <img src="<%=`https://image.tmdb.org/t/p/w500${user.castFavorites[index].poster_path}`%>" alt="">
-                                        <h3><%=user.castFavorites[index].original_name%></h3>
-                                        <h4><%=user.castFavorites[index].first_air_date.substring(0,4)%></h4>
+                                    <a href="<%=`/serie/${favoritesCast[index].id}/1`%>">
+                                        <img src="<%=`https://image.tmdb.org/t/p/w500${favoritesCast[index].poster_path}`%>" alt="">
+                                        <h3><%=favoritesCast[index].original_name%></h3>
+                                        <h4><%=favoritesCast[index].first_air_date.substring(0,4)%></h4>
                                     </a>
                                 </div>
                             <%})%>
@@ -66,11 +66,11 @@
                         <div class="episodesGenders">
                             <h2>Gêneros</h2>
                             <ul>
-                                <%if(user.genresTvShows == null || user.genresTvShows.length == 0){%>
+                                <%if(genres == null || genres.length == 0){%>
                                     <p style="color: #FFFFFF;">Não há gêneros adicionados!</p>
                                 <%} else {%>
-                                    <%user.genresTvShows.forEach(({},index)=> {%>
-                                        <li><%=user.genresTvShows[index].name%></li>
+                                    <%genres.forEach(({},index)=> {%>
+                                        <li><%=genres[index].name%></li>
                                     <%})%>
                                 <%}%>
                             </ul>
@@ -85,15 +85,15 @@
                     <div class='userTvCastWrap'>
                         
                         <div class="userTvCast">
-                            <%if(user.castTvShows == null || user.castTvShows.length == 0){%>
+                            <%if(cast == null || cast.length == 0){%>
                                 <p style="color:#FFFFFF; font-size:20px; margin: 0 auto; position: relative; left: -8px;">Não há séries adicionadas!</p>
                             <%}%>
-                            <%user.castTvShows.forEach(({},index)=> {%>
+                            <%cast.forEach(({},index)=> {%>
                                 <div class="userCastTitle">
-                                    <a href="<%=`/serie/${user.castTvShows[index].id}/1`%>">
-                                        <img src="<%=`https://image.tmdb.org/t/p/w500/${user.castTvShows[index].poster_path}`%>" alt="">
-                                        <h3><%=user.castTvShows[index].original_name%></h3>
-                                        <h4><%=user.castTvShows[index].first_air_date.substring(0,4)%></h4>
+                                    <a href="<%=`/serie/${cast[index].id}/1`%>">
+                                        <img src="<%=`https://image.tmdb.org/t/p/w500/${cast[index].poster_path}`%>" alt="">
+                                        <h3><%=cast[index].original_name%></h3>
+                                        <h4><%=cast[index].first_air_date.substring(0,4)%></h4>
                                     </a>
                                 </div><!--userCastTitle-->
                             <%})%>

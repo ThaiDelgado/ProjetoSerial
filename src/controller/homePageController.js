@@ -2,8 +2,7 @@ const {check, validationResult, body} = require('express-validator'); // check, 
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const User = require('../model/user');
-const uniqId = require('uniqid');
+const { User } = require('../models');
 
 module.exports = {
     home(req,res){
@@ -20,20 +19,13 @@ module.exports = {
       if(errors.isEmpty()){
         const saltRounds = 10;
         const hash = bcrypt.hashSync(req.body.password, saltRounds);
-        const newUser = {
-          id: uniqId(),
+        User.create({
           name: req.body.name,
           email: req.body.email, 
           password: hash, 
-          castFavorites: [],
-          castTvShows: [],
-          genresTvShows:[],
-          followers: [],
-          following:[],
           imgProfile: '/images/imgUsuarioPerfil/newUser-img-profile.png',
           imgBackground:'/images/imgUsuarioPerfil/newUser-background.jpg'
-        }
-        const responseRegister = User.createUser(newUser);
+        });
         res.redirect('/login');
       } else {
         res.render('cadastro', { errors: errors.mapped(), old: req.body });
@@ -48,11 +40,16 @@ module.exports = {
       res.render('login')
     },
 
-    login(req, res){
+    async login(req, res){
 
       const { email, password } = req.body;
 
-      const user = User.getUser(email);
+      const user = await User.findOne({ 
+          raw: true, 
+          where: { 
+            email: email 
+          } 
+        })
 
       if(!user){
         return res.send("Usuário ou senha inválidos!");
