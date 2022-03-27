@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
 
       //MAIN
       Connection.belongsTo(models.User, {
-        as: 'user_main',
+        as: 'user_main_connection',
         foreignKey: 'id_main_user',
         onDelete: 'RESTRICT',
         onUpdate: 'NO ACTION'
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
       //SECONDARY
       Connection.belongsTo(models.User, {
-        as: 'secondary_user',
+        as: 'secondary_user_connection',
         foreignKey: 'id_secondary_user',
         onDelete: 'RESTRICT',
         onUpdate: 'NO ACTION'

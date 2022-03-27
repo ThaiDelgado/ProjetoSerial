@@ -1,4 +1,9 @@
 const { User } = require('./models');
+const { Genre } = require('./models');
+const { Episode } = require('./models');
+const { Connection } = require('./models');
+const { castTvShow } = require('./models');
+const { SeriesComment } = require('./models');
 
 // User.create({
 //     name: 'Humberto Galdino' , 
@@ -90,3 +95,10 @@ const { User } = require('./models');
 //     }
 // })
 //     .then(console.log)
+
+
+castTvShow.findAll({
+    raw: true,
+    include: 'episodes_tvShow'
+})
+    .then(console.log);

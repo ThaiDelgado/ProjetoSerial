@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       //USER
       SeriesComment.belongsTo(models.User, {
-        as: 'user',
+        as: 'user_comment',
         foreignKey: 'id_user_comments_fk',
         onDelete: 'RESTRICT',
         onUpdate: 'NO ACTION'
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 
       //CASTTVSHOW
       SeriesComment.belongsTo(models.castTvShow, {
-        as: 'tvShow',
+        as: 'tvShow_comment',
         foreignKey: 'id_tvshow_comments_fk',
         onDelete: 'RESTRICT',
         onUpdate: 'NO ACTION'

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       
       //CASTTVSHOW
       User.hasMany(models.castTvShow, {
-        as:'tvShows',
+        as:'tvShows_user',
         foreignKey: 'id_user_cast_fk',
         onDelete: 'RESTRICT',
         onUpdate: 'NO ACTION'
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
       //EPISODES
       User.hasMany(models.Episode, {
-        as: 'episodes',
+        as: 'episodes_user',
         foreignKey: 'id_user_episodes_fk',
         onDelete: 'RESTRICT',
         onUpdate: 'NO ACTION'
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
 
       //GENRES
       User.hasMany(models.Genre,{
-        as: 'genres',
+        as: 'genres_user',
         foreignKey: 'id_user_genre',
         onDelete: 'RESTRICT',
         onUpdate: 'NO ACTION'
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
 
       //SERIESCOMMENTS
       User.hasMany(models.SeriesComment, {
-        as: 'comment',
+        as: 'comments_user',
         foreignKey: 'id_user_comments_fk',
         onDelete: 'RESTRICT',
         onUpdate: 'NO ACTION'
