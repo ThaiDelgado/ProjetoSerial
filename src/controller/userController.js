@@ -20,7 +20,6 @@ module.exports = {
         console.log(userProfile.imgBackground);
 
         const times = await Episode.sum('tvShow_episode.episode_run_time',{
-            raw:true,
             include: 'tvShow_episode',
             where:{
                 id_user_episodes_fk: req.session.userId
@@ -46,7 +45,6 @@ module.exports = {
         });
 
         const favoritesCast = await castTvShow.findAll({
-            raw:true,
             include:'user_tvShow',
             where:{
                 id_user_cast_fk: req.session.userId,
@@ -55,7 +53,6 @@ module.exports = {
         });
 
         const cast = await castTvShow.findAll({
-            raw:true,
             include:'user_tvShow',
             where:{
                 id_user_cast_fk: req.session.userId

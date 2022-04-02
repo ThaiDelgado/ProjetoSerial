@@ -44,8 +44,7 @@ module.exports = {
 
       const { email, password } = req.body;
 
-      const user = await User.findOne({ 
-          raw: true, 
+      const user = await User.findOne({  
           where: { 
             email: email 
           } 

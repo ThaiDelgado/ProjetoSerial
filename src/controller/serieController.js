@@ -12,21 +12,18 @@ module.exports = {
         const serie = await findByID(req.params.id);
         const season = await findSeason(req.params.id, req.params.season);
         const serieComments = await SeriesComment.findAll({
-            raw: true,
             where: {
                 id_tvshow_comments_fk: serie.id
             }
         });
 
         const episodes = await Episode.findAll({
-            raw:true,
             where:{
                 id_tvshow_episodes_fk: serie.id
             }
         });
         
         const itIsOnFavorite = (await castTvShow.findOne({
-            raw: true,
             where: {
                 id_user_cast_fk: req.session.userId,
                 isFavorite: 1
@@ -36,7 +33,6 @@ module.exports = {
         console.log(itIsOnFavorite);
         
         const itIsOnCast = (await castTvShow.findOne({
-            raw: true,
             where: {
                 id_user_cast_fk: req.session.userId
             }
@@ -67,7 +63,6 @@ module.exports = {
 
     async getUserComment(commentUserId) {
         await User.findOne({
-            raw: true,
             where: {
                 id: commentUserId
             }
@@ -88,9 +83,17 @@ module.exports = {
     },
 
     async addTvShowToCast(req,res){
-        let user = User.getUserById(req.session.userId);
-        let tvShow = await Serie.findByID(req.params.id);
-        let addSerie = User.putSerieToCast(tvShow, user);
+        let tvShow = await findByID(req.params.id);
+        castTvShow.create({
+            idTvShow: tvShow.id,
+            id_user_cast_fk: req.session.userId,
+            original_name: tvShow.original_name,
+            poster_path: tvShow.poster_path,
+            first_air_date: tvShow.first_air_date,
+            isFavorite: false,
+            episode_run_time: tvShow.episode_run_time
+        });        
+        
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
