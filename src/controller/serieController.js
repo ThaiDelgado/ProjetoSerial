@@ -73,15 +73,29 @@ module.exports = {
     },
 
     async addFavoriteTvShow(req,res){
-        let user = User.getUserById(req.session.userId);
-        let tvShow = await Serie.findByID(req.params.id);
-        let addSerieFavorite = User.putSerieFavorite(tvShow, user);
+        castTvShow.update({
+            isFavorite: true
+        },
+        {            
+            where:{
+                idTvShow: req.params.id,
+                id_user_cast_fk: req.session.userId
+            }
+        });
+        
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
     removeFavoriteTvShow(req,res){
-        let user = User.getUserById(req.session.userId);;
-        let removeFavorite = User.removeSerieFavorite(req.params.id, user);
+        castTvShow.update({
+            isFavorite: false
+        },
+        {            
+            where:{
+                idTvShow: req.params.id,
+                id_user_cast_fk: req.session.userId
+            }
+        });
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
