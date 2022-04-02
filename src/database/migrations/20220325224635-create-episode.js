@@ -32,6 +32,10 @@ module.exports = {
           key: 'id' 
         }
       },
+      idTvShow: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       season: {
         allowNull: false,
         type: Sequelize.INTEGER

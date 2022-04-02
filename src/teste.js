@@ -97,8 +97,16 @@ const { SeriesComment } = require('./models');
 //     .then(console.log)
 
 
-castTvShow.findAll({
-    raw: true,
-    include: 'episodes_tvShow'
-})
-    .then(console.log);
+// castTvShow.findAll({
+//     raw: true,
+//     include: 'episodes_tvShow'
+// })
+//     .then(console.log);
+
+Episode.create({
+    idEpisodes: 996909,
+    id_tvshow_episodes_fk: 3,
+    id_user_episodes_fk: 2,
+    season: 1,
+    episode_number: 1
+});

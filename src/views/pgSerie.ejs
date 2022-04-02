@@ -63,7 +63,7 @@
                 <%season.episodes.forEach( ({}, index) => {%>
                     <% 
                         let isWatched = undefined
-                        episodes === undefined ? isWatched = false : isWatched = (episodes.findIndex(episode => episode.episode_id == season.episodes[index].id)) === -1 ? false : true;
+                        episodes === undefined ? isWatched = false : isWatched = (episodes.findIndex(episode => episode.idEpisodes == season.episodes[index].id)) === -1 ? false : true;
                     %>
                     <% if(!isWatched){ %>
                         <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/${season.episodes[index].episode_number}/${season.episodes[index].id}?_method=PUT`%>">

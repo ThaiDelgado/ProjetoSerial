@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       references: { model: 'User', key: 'id' }
     },
+    idTvShow: DataTypes.INTEGER,
     season: DataTypes.INTEGER,
     episode_number: DataTypes.INTEGER
   }, {

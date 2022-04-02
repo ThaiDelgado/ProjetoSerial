@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       castTvShow.hasMany(models.Episode, {
         as: 'episodes_tvShow',
         foreignKey: 'id_tvshow_episodes_fk',
-        onDelete: 'RESTRICT',
+        onDelete: 'CASCADE',
         onUpdate: 'NO ACTION'
       });
 
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       castTvShow.hasMany(models.Genre, {
         as: 'genres_tvShow',
         foreignKey: 'id_tvshow_genre',
-        onDelete: 'RESTRICT',
+        onDelete: 'CASCADE',
         onUpdate: 'NO ACTION'
       });
 

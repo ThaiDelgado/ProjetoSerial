@@ -18,8 +18,10 @@ module.exports = {
         });
 
         const episodes = await Episode.findAll({
-            where:{
-                id_tvshow_episodes_fk: serie.id
+            raw:true,
+            where:{                
+                idTvShow: serie.id,
+                id_user_episodes_fk: req.session.userId
             }
         });
         
@@ -34,6 +36,7 @@ module.exports = {
         
         const itIsOnCast = (await castTvShow.findOne({
             where: {
+                idTvShow: req.params.id,
                 id_user_cast_fk: req.session.userId
             }
         })) === null ? false : true;
@@ -84,7 +87,7 @@ module.exports = {
 
     async addTvShowToCast(req,res){
         let tvShow = await findByID(req.params.id);
-        castTvShow.create({
+        await castTvShow.create({
             idTvShow: tvShow.id,
             id_user_cast_fk: req.session.userId,
             original_name: tvShow.original_name,
@@ -92,27 +95,68 @@ module.exports = {
             first_air_date: tvShow.first_air_date,
             isFavorite: false,
             episode_run_time: tvShow.episode_run_time
+        });
+
+        const castInfo = await castTvShow.findOne({
+            raw: true,
+            where:{
+                idTvShow: tvShow.id,
+                id_user_cast_fk: req.session.userId
+            }
+        });
+
+        tvShow.genres.forEach(genre => {
+            Genre.create({
+                idGenre: genre.id,
+                id_user_genre: req.session.userId,
+                id_tvshow_genre: castInfo.id,
+                name: genre.name
+            });
         });        
         
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
     removeTvShowToCast(req, res){
-        let user = User.getUserById(req.session.userId);
-        let removeTvShow = User.removeTvShowFromCast(req.params.id, user);
+        castTvShow.destroy({
+            where: {
+                idTvShow: req.params.id,
+                id_user_cast_fk: req.session.userId
+            }
+        });        
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
     async addEpisode(req,res){
-        let user = User.getUserById(req.session.userId);
-        let tvShow = await Serie.findByID(req.params.id);
-        let addEpisode = User.addEpisode(tvShow, req.params.season, req.params.episode_number, req.params.episode_id, user);
+
+        const itIsOnCast =await castTvShow.findOne({
+            where: {
+                idTvShow: req.params.id,
+                id_user_cast_fk: req.session.userId
+            }
+        });
+
+        if(itIsOnCast){
+            Episode.create({
+                idEpisodes: req.params.episode_id,
+                id_tvshow_episodes_fk: itIsOnCast.id,
+                id_user_episodes_fk: req.session.userId,
+                idTvShow: req.params.id,
+                season: req.params.season,
+                episode_number: req.params.episode_number
+            })
+        }
+
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
     async removeEpisode(req,res){
-        let user = User.getUserById(req.session.userId);
-        let removeEpisode = User.removeEpisode(req.params.id, req.params.season, req.params.episode_number, req.params.episode_id, user);
+        Episode.destroy({
+            where: {
+                idEpisodes: req.params.episode_id,
+                id_user_episodes_fk: req.session.userId
+            }
+        })
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
