@@ -14,25 +14,15 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'NO ACTION'
       });
 
-      //CASTTVSHOW
-      SeriesComment.belongsTo(models.castTvShow, {
-        as: 'tvShow_comment',
-        foreignKey: 'id_tvshow_comments_fk',
-        onDelete: 'RESTRICT',
-        onUpdate: 'NO ACTION'
-      });
     }
   }
   
   SeriesComment.init({
-    id_tvshow_comments_fk: {
-      type: DataTypes.INTEGER,
-      references: { model: 'castTvShow', key: 'id' }
-    },
     id_user_comments_fk: {
       type: DataTypes.INTEGER,
       references: { model: 'User', key: 'id' }
     },
+    idTvShow: DataTypes.INTEGER,
     season: DataTypes.INTEGER,
     comment: DataTypes.TEXT
   }, {

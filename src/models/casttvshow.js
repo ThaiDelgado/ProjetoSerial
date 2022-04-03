@@ -32,13 +32,6 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'NO ACTION'
       });
 
-      //COMMENTS
-      castTvShow.hasMany(models.SeriesComment, {
-        as: 'comment_tvShow',
-        foreignKey: 'id_tvshow_comments_fk',
-        onDelete: 'RESTRICT',
-        onUpdate: 'NO ACTION'
-      });
     }
   }
 

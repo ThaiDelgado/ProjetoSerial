@@ -24,7 +24,7 @@
                             <%}%>
                             <%favoritesCast.forEach(({},index)=> {%>
                                 <div class="favoritesCastTitle">
-                                    <a href="<%=`/serie/${favoritesCast[index].id}/1`%>">
+                                    <a href="<%=`/serie/${favoritesCast[index].idTvShow}/1`%>">
                                         <img src="<%=`https://image.tmdb.org/t/p/w500${favoritesCast[index].poster_path}`%>" alt="">
                                         <h3><%=favoritesCast[index].original_name%></h3>
                                         <h4><%=favoritesCast[index].first_air_date.substring(0,4)%></h4>
@@ -90,7 +90,7 @@
                             <%}%>
                             <%cast.forEach(({},index)=> {%>
                                 <div class="userCastTitle">
-                                    <a href="<%=`/serie/${cast[index].id}/1`%>">
+                                    <a href="<%=`/serie/${cast[index].idTvShow}/1`%>">
                                         <img src="<%=`https://image.tmdb.org/t/p/w500/${cast[index].poster_path}`%>" alt="">
                                         <h3><%=cast[index].original_name%></h3>
                                         <h4><%=cast[index].first_air_date.substring(0,4)%></h4>

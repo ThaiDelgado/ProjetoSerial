@@ -13,8 +13,9 @@ module.exports = {
         const season = await findSeason(req.params.id, req.params.season);
         const serieComments = await SeriesComment.findAll({
             where: {
-                id_tvshow_comments_fk: serie.id
-            }
+                idTvShow: req.params.id
+            },
+            include: 'user_comment'
         });
 
         const episodes = await Episode.findAll({
@@ -31,9 +32,7 @@ module.exports = {
                 isFavorite: 1
             }
         })) === null ? false : true;
-
-        console.log(itIsOnFavorite);
-        
+     
         const itIsOnCast = (await castTvShow.findOne({
             where: {
                 idTvShow: req.params.id,
@@ -41,27 +40,9 @@ module.exports = {
             }
         })) === null ? false : true;
 
-        console.log(itIsOnCast);
-
-        const joinComments = [];
-
-        if(serieComments){
-            serieComments.forEach(comment => {
-                const userComment = getUserComment(comment.id_user_comments_fk);
-                joinComments.push({
-                    user: {
-                        id: userComment.id,
-                        name: userComment.name,
-                        imgProfile: userComment.imgProfile
-                    },
-                    season: comment.season,
-                    comment: comment.comment,
-                    comment_id: comment.id_comment
-                })
-            });
-        }
+        const user = req.session.userId;
         
-        res.render('pgSerie', { serie, season, itIsOnFavorite, itIsOnCast, comments: joinComments, episodes});    
+        res.render('pgSerie', { user, serie, season, itIsOnFavorite, itIsOnCast, comments: serieComments, episodes});    
     },
 
     async getUserComment(commentUserId) {
@@ -175,13 +156,24 @@ module.exports = {
     },
 
     async postComment(req,res){
-        let user = User.getUserById(req.session.userId);;
-        await Serie.postComment(req.params.id, req.params.season, req.body.comment, user);
+
+        SeriesComment.create({
+            id_user_comments_fk: req.session.userId,
+            idTvShow: req.params.id,
+            season: req.params.season,
+            comment: req.body.comment
+        });
+
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);        
     },
 
     deleteComment(req,res){
-        Serie.deleteComment(req.params.id, req.params.season, req.body.idComment);
+        SeriesComment.destroy({
+            where: {
+                id: req.params.idComment,
+                id_user_comments_fk: req.session.userId
+            }
+        });
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     }
     

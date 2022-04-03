@@ -103,14 +103,14 @@
                 <% if(comment.season == season.season_number) {%>
                     <section class="usersPosts">
                         <div class="titlePost">
-                            <img src="<%=comment.user.imgProfile%>" alt="">
-                            <h3><%=comment.user.name%></h3>
+                            <img src="<%=comment.user_comment.imgProfile%>" alt="">
+                            <h3><%=comment.user_comment.name%></h3>
                         </div>
                         <div class="commentPost">
                             <p><%=comment.comment%></p>
                         </div>
 
-                        <% if(comment.user.id == user.id) {%>
+                        <% if(comment.user_comment.id == user) {%>
                             <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/deleteComment/${comment.id}?_method=DELETE`%>">
                                 <input type="submit" value="DELETE">
                                 <div class="clear"></div>

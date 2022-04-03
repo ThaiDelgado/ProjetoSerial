@@ -8,16 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_tvshow_comments_fk: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { 
-          model: {
-            tableName:'castTvShows'
-          }, 
-          key: 'id' 
-        }
-      },
       id_user_comments_fk: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -27,6 +17,10 @@ module.exports = {
           }, 
           key: 'id' 
         }
+      },
+      idTvShow: {
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       season: {
         allowNull: false,
