@@ -1,0 +1,220 @@
+
+/*Sessão Conexões*/
+
+.users{
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    padding-left: 2%;
+    padding-right:2%;
+    height: 300px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.users img {
+    max-width: 100px;
+}
+
+body{
+    background-color: #000000;
+}
+
+main div h1 {
+    width: 658px;
+    height: 91px;
+    font-family: Bebas Neue;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 122px;
+    text-align: center;
+    letter-spacing: 0.6em;
+    padding-left: 0.6em;
+    color: #6741B9;
+}
+
+
+/******************/
+
+/*Sessão Conexões Seguindo*/
+
+
+.seguindo{
+    background-color: #000000;
+    text-align: left;
+    padding: 0 5%;
+    padding-top: 70px;
+    padding-bottom: 25px;
+}
+
+main .seguindo h2{
+    font-family: Bebas Neue;
+    font-weight: 200;
+    font-size: 35px;
+    letter-spacing: 0.6em;
+    color: #6741B9;
+}
+
+.seguindoPessoas {
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    flex-direction: row;
+    padding: 0 5%;
+}
+
+.follower {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.follower h4{
+    color:#FFFFFF;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 5px;
+    line-height: 95%;
+    font-weight: normal;
+}
+
+
+.follower .followerPicture {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+}
+
+/******************/
+
+/*Sessão Conexões Seguidores*/
+
+
+.seguidores{
+    background-color: #000000;
+    text-align: right;
+    padding: 0 4%;
+    padding-top: 70px;
+    padding-bottom: 25px;
+}
+
+main .seguidores h2{
+    font-family: Bebas Neue;
+    font-weight: 200;
+    font-size: 35px;
+    letter-spacing: 0.6em;
+    color: #6741B9;
+}
+
+.seguidoresPessoas {
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    flex-direction: row;
+    padding: 0 5%;
+    padding-bottom: 5%;
+}
+
+.follower {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.follower h4{
+    color:#FFFFFF;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 5px;
+    line-height: 95%;
+    font-weight: normal;
+}
+
+
+.follower .followerPicture {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+}
+
+h4:hover {
+    color: #6741B9;
+}
+
+/******************/
+
+/*Media Queries*/
+
+@media screen and (max-width: 576px){
+    header #divSearchUser{
+        width: 10%;
+        text-align: center;
+    }
+
+    header #txtBusca{
+        display: none;
+    }
+
+    .menu-desktop{
+        display: none;
+    }
+
+    .seguindoPessoas {
+        background-color: #000000;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        flex-direction: row;
+        padding: 0 5%;
+    }
+
+    .seguidoresPessoas {
+        background-color: #000000;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: right;
+        flex-direction: row;
+        padding: 0 5%;
+    }
+
+    .follower .followerPicture {
+        width: 128px;
+        height: 128px;
+        border-radius: 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+        object-fit: cover;
+    }
+
+    .seguindo{
+        background-color: #000000;
+        text-align: center;
+        padding: 0 5%;
+        padding-top: 70px;
+        padding-bottom: 25px;
+    }
+
+}
+
+/******************/

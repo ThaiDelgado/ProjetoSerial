@@ -16,12 +16,17 @@
                 <li><a href="/usuario"><img src="/images/icons/iconesMenu/iconePerfil.png" alt="icone Perfil"></a></li>
                 <li><a href="/calendario"><img src="/public/images/icons/iconesMenu/iconeCalendario.png" alt="icone Calendario"></a></li>
                 <li><a href="/explorar/1"><img src="/public/images/icons/iconesMenu/iconeExplorar.png" alt="icone Explorar"></a></li>
+                <li><a href="/logoff">LOGOFF</a></li>
             </ul>
         </nav><!--menu-mobile-->
 
         <div id="divSearchUser">
-            <input type="text" id="txtBusca" placeholder="PESQUISAR USUÁRIO"/>
-            <img src="/images/icons/iconePesquisa.png" id="btnBusca" alt="Buscar"/>
+            <form class="search" method="GET" action="/usuario/search">
+                <input type="text" id="txtBusca" name="txtBusca" placeholder="PESQUISAR USUÁRIO"/>
+                <input type="submit" value="Buscar">
+                <!-- <img src="/images/icons/iconePesquisa.png" id="btnBusca" alt="Buscar"/> -->
+            </form>
+            
         </div><!--divSearchUser-->
     </div><!--container--> 
 </header>

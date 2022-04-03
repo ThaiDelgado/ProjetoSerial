@@ -69,10 +69,19 @@ module.exports = {
         res.render('usuarioPerfil', { user: userProfile, timekeeper, episodes, favoritesCast, cast, genres });       
     },
 
-    perfilComPesquisa(req,res){
-        const searchTerm = req.query["name"];
-        const users = User.filterByName(searchTerm);
-        res.render('usuarioPerfil', { users });
+    async search(req,res){
+        const searchTerm = req.query.txtBusca;
+        console.log(searchTerm);
+        const users = await User.findAll({
+            where: {
+                name: {
+                    [Op.like]: `%${searchTerm}%`
+                }
+            }
+        });
+        console.log(users);
+        
+        res.render('SearchUsers', { users });
     },
     
     feed(req,res){    

@@ -1,0 +1,33 @@
+<html lang="pt-br">
+    <head>
+        <%- include('./partials/head')%>
+        <link href="/css/stylePadrao.css" rel="stylesheet">
+        <link href="/css/SearchUsers.css" rel="stylesheet">
+
+        <link rel="icon" type="imagem/png" href="images/icones/icon.png" />
+        <title>Serial - Usuários</title>
+    </head>
+    <body>
+        <%- include('./partials/header')%>
+
+        <main>
+            <div class="users">
+                <img src="/images/imgConexoes/iconesUsuarioConexao/iconeConexão.png" alt="">
+                <h1>USUÁRIOS</h1>
+            </div>
+            <div class="seguindoPessoas">
+                <%if(users){%>
+                    <%users.forEach(({}, index) => {%>
+                        <div class="follower">
+                            <a href ="<%=``%>">
+                                <img class="followerPicture" src="<%=users[index].imgProfile%>" alt=""/>
+                                <h4><%=users[index].name%></h4>
+                            </a> 
+                        </div> 
+                    <%})%>
+                <%}%>                        
+            </div>
+        </main>
+
+    </body>
+</html>

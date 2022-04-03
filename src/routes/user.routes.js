@@ -13,6 +13,9 @@ const auth = require('../middlewares/auth');
 //Rota usuário
 routes.get('/', verificarLogin, auth, userController.perfil);
 
+//Pesquisa usuário
+routes.get('/search', verificarLogin, auth, userController.search);
+
 //Rota usuário seguir
 routes.get('/:nomeUsuario/:id', auth, userController.perfilSeguir);
 
