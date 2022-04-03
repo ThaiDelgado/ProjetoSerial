@@ -63,5 +63,10 @@ module.exports = {
       req.session.userId = user.id;
 
       return res.redirect('/usuario');
+    },
+
+    async logoff(req,res){
+      req.session.userId = 0;
+      return res.redirect('/');
     }
 };

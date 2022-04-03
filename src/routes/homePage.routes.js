@@ -50,5 +50,7 @@ routes.post('/login', validateLogin, homePageController.login);
 
 routes.get('/recuperaSenha', homePageController.passwordDiscovery);
 
+routes.get('/logoff', homePageController.logoff);
+
 
 module.exports = routes;
