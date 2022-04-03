@@ -88,7 +88,7 @@ module.exports = {
         res.render('usuarioFeed', { user: req.session.user });
     },
 
-    conexoes(req, res){    
+    conexoes(req, res){ 
         res.render('usuarioConexoes', {user: req.session.user});
     },
     
