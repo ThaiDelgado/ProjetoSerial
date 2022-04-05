@@ -1,0 +1,47 @@
+.selectPerfil{
+    background-color: black;
+}
+
+/******************/
+
+/*Media Queries*/
+
+@media screen and (max-width: 768px){
+    header .container #divSearchUser{
+        width:40%;
+    }
+
+    header .container img.logo{
+        width: 20%;
+        max-width: 100px;
+    }
+
+    header .container nav.menu-desktop{
+        display: none;
+    }
+
+    header .container nav.menu-mobile{
+        width: 40%;
+        display: block;
+    }
+    
+    header .container nav.menu-mobile ul{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    header .container nav.menu-mobile ul li{
+        margin: 0;
+        display: block;
+    }
+
+    header .container nav.menu-mobile img{
+        width: 20px;
+    }  
+    
+}
+
+a {
+    text-decoration: none;
+}
+/******************/
