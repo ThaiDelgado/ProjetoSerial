@@ -124,7 +124,7 @@ module.exports = {
 
     async addEpisode(req,res){
 
-        const itIsOnCast =await castTvShow.findOne({
+        const itIsOnCast = await castTvShow.findOne({
             where: {
                 idTvShow: req.params.id,
                 id_user_cast_fk: req.session.userId

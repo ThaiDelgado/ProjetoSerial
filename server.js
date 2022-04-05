@@ -53,9 +53,6 @@ app.use("/explorar", require("./src/routes/explorar.routes"));
 //Insere estrutura rotas de serie
 app.use("/serie", require("./src/routes/serie.routes"));
 
-//Insere estrutura rotas de calendario 
-app.use("/calendario", require("./src/routes/callendar.routes"));
-
 //Insere estrutura EJS
 app.set("view engine", "ejs");
 

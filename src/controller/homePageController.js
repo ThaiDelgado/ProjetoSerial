@@ -66,7 +66,7 @@ module.exports = {
     },
 
     async logoff(req,res){
-      req.session.userId = 0;
+      delete req.session.userId
       return res.redirect('/');
     }
 };

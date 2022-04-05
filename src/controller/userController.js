@@ -3,6 +3,7 @@ const { User } = require('../models');
 const { castTvShow } = require('../models');
 const { Episode } = require('../models');
 const { Genre } = require('../models');
+const { Connections } = require('../models');
 const { Op } = require('sequelize');
 const { Result } = require('express-validator');
 
@@ -88,7 +89,7 @@ module.exports = {
         res.render('usuarioFeed', { user: req.session.user });
     },
 
-    conexoes(req, res){ 
+    conexoes(req, res){
         res.render('usuarioConexoes', {user: req.session.user});
     },
     
@@ -99,6 +100,7 @@ module.exports = {
     perfilSeguir(req,res){
         res.render('usuarioSeguir');
     }, 
+    
     multer(req, res){
         res.render('multer');
     }
