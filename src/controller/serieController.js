@@ -82,33 +82,26 @@ module.exports = {
 
     async addTvShowToCast(req,res){
         let tvShow = await findByID(req.params.id);
-        await castTvShow.create({
+        
+        const genresTvShow = tvShow.genres.map(genre => ({
+            idGenre: genre.id,
+            id_user_genre: req.session.userId,
+            name: genre.name
+        })); 
+        
+        const tvShowDB = await castTvShow.create({
             idTvShow: tvShow.id,
             id_user_cast_fk: req.session.userId,
             original_name: tvShow.original_name,
             poster_path: tvShow.poster_path,
             first_air_date: tvShow.first_air_date,
             isFavorite: false,
-            episode_run_time: tvShow.episode_run_time
+            episode_run_time: tvShow.episode_run_time,
+            genres_tvShow: genresTvShow
+        },{
+            include: 'genres_tvShow'
         });
 
-        const castInfo = await castTvShow.findOne({
-            raw: true,
-            where:{
-                idTvShow: tvShow.id,
-                id_user_cast_fk: req.session.userId
-            }
-        });
-
-        tvShow.genres.forEach(genre => {
-            Genre.create({
-                idGenre: genre.id,
-                id_user_genre: req.session.userId,
-                id_tvshow_genre: castInfo.id,
-                name: genre.name
-            });
-        });        
-        
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
@@ -124,22 +117,94 @@ module.exports = {
 
     async addEpisode(req,res){
 
+        const episodeNumberToAdd = req.params.episode_number;
+        const episodeTvShowIdToAdd = req.params.id;
+        const episodeIdToAdd = req.params.episode_id;
+        const episodeSeasonToAdd = req.params.season;
+        const userId = req.session.userId;
+
         const itIsOnCast = await castTvShow.findOne({
             where: {
-                idTvShow: req.params.id,
-                id_user_cast_fk: req.session.userId
+                idTvShow: episodeTvShowIdToAdd,
+                id_user_cast_fk: userId
             }
         });
+        
+        if(!itIsOnCast){
+            let tvShow = await findByID(req.params.id);
+        
+            const genresTvShow = tvShow.genres.map(genre => ({
+                idGenre: genre.id,
+                id_user_genre: req.session.userId,
+                name: genre.name
+            })); 
+            
+            const tvShowDB = await castTvShow.create({
+                idTvShow: tvShow.id,
+                id_user_cast_fk: req.session.userId,
+                original_name: tvShow.original_name,
+                poster_path: tvShow.poster_path,
+                first_air_date: tvShow.first_air_date,
+                isFavorite: false,
+                episode_run_time: tvShow.episode_run_time,
+                genres_tvShow: genresTvShow
+            },{
+                include: 'genres_tvShow'
+            });
 
-        if(itIsOnCast){
+        };
+
+        const episodesOnDB = await Episode.findAll({
+            where:{
+                idTvShow: episodeTvShowIdToAdd,
+                id_user_episodes_fk: userId
+            },
+            order:[
+                ['episode_number', 'ASC'],
+                ['season','ASC']
+            ]
+        });
+
+        if(episodesOnDB == [] && episodeSeasonToAdd === 1 && episodeNumberToAdd === 1){
             Episode.create({
-                idEpisodes: req.params.episode_id,
+                idEpisodes: episodeIdToAdd,
                 id_tvshow_episodes_fk: itIsOnCast.id,
-                id_user_episodes_fk: req.session.userId,
-                idTvShow: req.params.id,
-                season: req.params.season,
-                episode_number: req.params.episode_number
-            })
+                id_user_episodes_fk: userId,
+                idTvShow: episodeTvShowIdToAdd,
+                season: episodeSeasonToAdd,
+                episode_number: episodeNumberToAdd
+            });
+        } else if(episodeSeasonToAdd >= 1 || episodeNumberToAdd > 1){
+            
+            let episodesSeasons = [];
+            
+            for(let index = 1; episodeSeasonToAdd >= index; index++){
+                const { episodes } = await findSeason(episodeTvShowIdToAdd,index);
+                episodesSeasons = [...episodesSeasons, ...episodes];
+            };
+            
+            console.log(episodesSeasons);
+            console.log(episodeIdToAdd);
+
+            const episodeIndexToAdd = episodesSeasons.findIndex(episode => episode.id == episodeIdToAdd);
+            
+            const episodesToAdd = episodesSeasons.slice(0, (episodeIndexToAdd + 1));
+
+            console.log(episodesToAdd);
+            
+            episodesToAdd.forEach(episode => {
+                const episodeIsOnDB = episodesOnDB.findIndex(episodeDB => episodeDB.idEpisodes === episode.id);
+                if(episodeIsOnDB == -1){
+                    Episode.create({
+                        idEpisodes: episode.id,
+                        id_tvshow_episodes_fk: itIsOnCast.id,
+                        id_user_episodes_fk: userId,
+                        idTvShow: episodeTvShowIdToAdd,
+                        season: episode.season_number,
+                        episode_number: episode.episode_number
+                    });
+                };
+            });                  
         }
 
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
