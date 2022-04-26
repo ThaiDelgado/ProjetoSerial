@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 function auth(req, res, next){
-    if (typeof req.session.userId === "undefined"){
+    if (typeof req.session.user === "undefined"){
         return res.redirect('/login');
     } next()
 

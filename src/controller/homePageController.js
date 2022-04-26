@@ -24,6 +24,7 @@ module.exports = {
         User.create({
           name: req.body.name,
           email: req.body.email, 
+          username: req.body.username,
           password: hash, 
           imgProfile: '/images/imgUsuarioPerfil/newUser-img-profile.png',
           imgBackground:'/images/imgUsuarioPerfil/newUser-background.jpg'
@@ -66,14 +67,14 @@ module.exports = {
 
       user.password = null;
 
-      req.session.userId = user.id;
+      req.session.user = user;
 
       //secret na base 64
       const token = jwt.sign({ data: user }, 'c2VyaWFsV2ViVG9rZW4=',{
         expiresIn: '30m'
       });
 
-      return res.redirect('/usuario');
+      return res.redirect(`/usuario/${user.username}/${user.id}`);
     },
 
     async logoff(req,res){

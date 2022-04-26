@@ -6,7 +6,8 @@ const Explorar = {
         const pageOfDiscover = parseInt(req.params.page);
         const discoverSeries = await discover(pageOfDiscover);
         const isSearch = false;
-        res.render('explorar', {discoverSeries, isSearch});
+        const user = req.session.user;
+        res.render('explorar', {discoverSeries, isSearch, user});
     },
 
     async search(req,res){
@@ -14,8 +15,9 @@ const Explorar = {
         const pageOfSearch = parseInt(req.params.page);
         const discoverSeries = await findByName(search, pageOfSearch);
         const isSearch = true;
-        const total_pages = discoverSeries.total_pages
-        res.render('explorar', {discoverSeries, isSearch, search, total_pages});
+        const total_pages = discoverSeries.total_pages;
+        const user = req.session.user;
+        res.render('explorar', {discoverSeries, isSearch, search, total_pages, user});
     }
     
 };

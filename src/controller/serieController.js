@@ -22,14 +22,14 @@ module.exports = {
             raw:true,
             where:{                
                 idTvShow: serie.id,
-                id_user_episodes_fk: req.session.userId
+                id_user_episodes_fk: req.session.user.id
             }
         });
         
         const itIsOnFavorite = (await castTvShow.findOne({
             where: {
                 idTvShow: req.params.id,
-                id_user_cast_fk: req.session.userId,
+                id_user_cast_fk: req.session.user.id,
                 isFavorite: 1
             }
         })) === null ? false : true;
@@ -38,11 +38,11 @@ module.exports = {
         const itIsOnCast = (await castTvShow.findOne({
             where: {
                 idTvShow: req.params.id,
-                id_user_cast_fk: req.session.userId
+                id_user_cast_fk: req.session.user.id
             }
         })) === null ? false : true;
 
-        const user = req.session.userId;
+        const user = req.session.user;
         
         res.render('pgSerie', { user, serie, season, itIsOnFavorite, itIsOnCast, comments: serieComments, episodes});    
     },
@@ -62,7 +62,7 @@ module.exports = {
         {            
             where:{
                 idTvShow: req.params.id,
-                id_user_cast_fk: req.session.userId
+                id_user_cast_fk: req.session.user.id
             }
         });
         
@@ -76,7 +76,7 @@ module.exports = {
         {            
             where:{
                 idTvShow: req.params.id,
-                id_user_cast_fk: req.session.userId
+                id_user_cast_fk: req.session.user.id
             }
         });
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
@@ -87,13 +87,13 @@ module.exports = {
         
         const genresTvShow = tvShow.genres.map(genre => ({
             idGenre: genre.id,
-            id_user_genre: req.session.userId,
+            id_user_genre: req.session.user.id,
             name: genre.name
         })); 
         
         const tvShowDB = await castTvShow.create({
             idTvShow: tvShow.id,
-            id_user_cast_fk: req.session.userId,
+            id_user_cast_fk: req.session.user.id,
             original_name: tvShow.original_name,
             poster_path: tvShow.poster_path,
             first_air_date: tvShow.first_air_date,
@@ -111,7 +111,7 @@ module.exports = {
         castTvShow.destroy({
             where: {
                 idTvShow: req.params.id,
-                id_user_cast_fk: req.session.userId
+                id_user_cast_fk: req.session.user.id
             }
         });        
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
@@ -123,7 +123,7 @@ module.exports = {
         const episodeTvShowIdToAdd = req.params.id;
         const episodeIdToAdd = req.params.episode_id;
         const episodeSeasonToAdd = req.params.season;
-        const userId = req.session.userId;
+        const userId = req.session.user.id;
 
         let itIsOnCast = await castTvShow.findOne({
             where: {
@@ -139,13 +139,13 @@ module.exports = {
         
             const genresTvShow = tvShow.genres.map(genre => ({
                 idGenre: genre.id,
-                id_user_genre: req.session.userId,
+                id_user_genre: req.session.user.id,
                 name: genre.name
             })); 
             
             itIsOnCast = await castTvShow.create({
                 idTvShow: tvShow.id,
-                id_user_cast_fk: req.session.userId,
+                id_user_cast_fk: req.session.user.id,
                 original_name: tvShow.original_name,
                 poster_path: tvShow.poster_path,
                 first_air_date: tvShow.first_air_date,
@@ -214,7 +214,7 @@ module.exports = {
         Episode.destroy({
             where: {
                 idEpisodes: req.params.episode_id,
-                id_user_episodes_fk: req.session.userId
+                id_user_episodes_fk: req.session.user.id
             }
         })
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
@@ -223,7 +223,7 @@ module.exports = {
     async postComment(req,res){
 
         SeriesComment.create({
-            id_user_comments_fk: req.session.userId,
+            id_user_comments_fk: req.session.user.id,
             idTvShow: req.params.id,
             season: req.params.season,
             comment: req.body.comment
@@ -236,7 +236,7 @@ module.exports = {
         SeriesComment.destroy({
             where: {
                 id: req.params.idComment,
-                id_user_comments_fk: req.session.userId
+                id_user_comments_fk: req.session.user.id
             }
         });
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);

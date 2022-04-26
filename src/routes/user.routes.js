@@ -11,13 +11,10 @@ const auth = require('../middlewares/auth');
 
 
 //Rota usuário
-routes.get('/', verificarLogin, auth, userController.perfil);
+routes.get('/:nomeUsuario/:id', verificarLogin, auth, userController.perfil);
 
 //Pesquisa usuário
 routes.get('/search', verificarLogin, auth, userController.search);
-
-//Rota usuário seguir
-routes.get('/:nomeUsuario/:id', auth, userController.perfilSeguir);
 
 //Rota Pipocando
 routes.get('/pipocando', auth, userController.pipocando);
