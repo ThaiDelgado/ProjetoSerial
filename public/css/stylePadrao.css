@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('/fonts/BebasNeue-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Athiti';
+    src: url('/fonts/Athiti-Regular.ttf') format('truetype');
+}
+
 *{
 	margin: 0;
 	padding: 0;

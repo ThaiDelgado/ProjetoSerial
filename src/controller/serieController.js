@@ -28,10 +28,12 @@ module.exports = {
         
         const itIsOnFavorite = (await castTvShow.findOne({
             where: {
+                idTvShow: req.params.id,
                 id_user_cast_fk: req.session.userId,
                 isFavorite: 1
             }
         })) === null ? false : true;
+
      
         const itIsOnCast = (await castTvShow.findOne({
             where: {
