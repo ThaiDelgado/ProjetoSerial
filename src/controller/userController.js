@@ -60,13 +60,31 @@ module.exports = {
             }
         });
 
-        const genres = await Genre.findAll({
+        let genres = await Genre.findAll({
             raw: true,
             where: {
                 id_user_genre: req.session.userId
             }
         })
-  
+
+        genres.forEach(genre => {
+            delete genre.id;
+            delete genre.id_tvshow_genre;
+            delete genre.createdAt;
+            delete genre.updatedAt;            
+        });
+
+        const uniqueGenres = new Map();
+
+        genres.forEach(genre => {
+            if(!uniqueGenres.has(genre.name)){
+                uniqueGenres.set(genre.name, genre);
+            }
+        });
+
+        genres = [...uniqueGenres.values()];
+
+
         res.render('usuarioPerfil', { user: userProfile, timekeeper, episodes, favoritesCast, cast, genres });       
     },
 

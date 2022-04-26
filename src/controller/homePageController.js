@@ -1,8 +1,10 @@
 const {check, validationResult, body} = require('express-validator'); // check, validationResult, body
+const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const { User } = require('../models');
+
 
 module.exports = {
     home(req,res){
@@ -57,10 +59,19 @@ module.exports = {
       const isPasswordCorrect = bcrypt.compareSync(password, user.password);
 
       if(!isPasswordCorrect){
-        return res.send("Usuário ou senha inválidos!");
+        return res
+          .status(401)
+          .render('login', {mesage: "Usuário ou senha inválidos!"});
       }
 
+      user.password = null;
+
       req.session.userId = user.id;
+
+      //secret na base 64
+      const token = jwt.sign({ data: user }, 'c2VyaWFsV2ViVG9rZW4=',{
+        expiresIn: '30m'
+      });
 
       return res.redirect('/usuario');
     },

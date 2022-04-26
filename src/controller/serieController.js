@@ -123,12 +123,14 @@ module.exports = {
         const episodeSeasonToAdd = req.params.season;
         const userId = req.session.userId;
 
-        const itIsOnCast = await castTvShow.findOne({
+        let itIsOnCast = await castTvShow.findOne({
             where: {
                 idTvShow: episodeTvShowIdToAdd,
                 id_user_cast_fk: userId
             }
         });
+
+        console.log(itIsOnCast);
         
         if(!itIsOnCast){
             let tvShow = await findByID(req.params.id);
@@ -139,7 +141,7 @@ module.exports = {
                 name: genre.name
             })); 
             
-            const tvShowDB = await castTvShow.create({
+            itIsOnCast = await castTvShow.create({
                 idTvShow: tvShow.id,
                 id_user_cast_fk: req.session.userId,
                 original_name: tvShow.original_name,
@@ -183,14 +185,10 @@ module.exports = {
                 episodesSeasons = [...episodesSeasons, ...episodes];
             };
             
-            console.log(episodesSeasons);
-            console.log(episodeIdToAdd);
 
             const episodeIndexToAdd = episodesSeasons.findIndex(episode => episode.id == episodeIdToAdd);
             
             const episodesToAdd = episodesSeasons.slice(0, (episodeIndexToAdd + 1));
-
-            console.log(episodesToAdd);
             
             episodesToAdd.forEach(episode => {
                 const episodeIsOnDB = episodesOnDB.findIndex(episodeDB => episodeDB.idEpisodes === episode.id);
