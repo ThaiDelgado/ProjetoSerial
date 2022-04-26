@@ -22,8 +22,8 @@ app.use(session({
     }
 }));
 
-const multer  = require('multer')
-const upload = multer({ dest: 'uploads/data' })
+// const multer  = require('multer')
+// const upload = multer({ dest: 'uploads/data' })
 
 //Permite o express entender as requisições JSON da API
 app.use(express.json()); //JSON arquivo utilizado para transferir informações entre sistemas.
@@ -78,10 +78,10 @@ app.listen(3000, () => console.log("Servidor Funcionando!"));
 //   res.status(err.status || 500);
 //   res.render("error");
 // });
-app.post('/multer', upload.single('avatarFile'), (req, res) => {
-  console.log(req.file) // Irá devolver um objeto com as informações do arquivo
-  res.send('Upload feito com sucesso!')
-})
+// app.post('/multer', upload.single('avatarFile'), (req, res) => {
+//   console.log(req.file) // Irá devolver um objeto com as informações do arquivo
+//   res.send('Upload feito com sucesso!')
+// })
 
 
 app.use((req, res) => {

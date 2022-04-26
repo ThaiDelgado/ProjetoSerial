@@ -39,8 +39,6 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'NO ACTION'
       });
 
-      //CONNECTIONS
-
       //MAIN
       User.hasMany(models.Connection, {
         as: 'main_connection',
