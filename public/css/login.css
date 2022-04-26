@@ -89,6 +89,10 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+input::placeholder {
+    color: #00000050;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,

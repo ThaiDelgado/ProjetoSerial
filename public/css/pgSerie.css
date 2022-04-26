@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Athiti-Medium';
+    src: url('/fonts/Athiti-Medium.ttf') format('truetype');
+}
+
 body {
     background-color: #000000;
 }
@@ -54,6 +59,7 @@ body {
     color: #6741B9;
     font-size: 50px;
     line-height: 50px;
+    font-family: Athiti-Medium;
 }
 
 .infoTvShow p{

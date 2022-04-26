@@ -13,17 +13,14 @@ module.exports = {
         const userProfile = await User.findOne({
             raw: true,
             where:{
-                id: req.session.userId
+                id: req.session.user.id
             }
         })
-
-        console.log(userProfile.imgProfile);
-        console.log(userProfile.imgBackground);
 
         const times = await Episode.sum('tvShow_episode.episode_run_time',{
             include: 'tvShow_episode',
             where:{
-                id_user_episodes_fk: req.session.userId
+                id_user_episodes_fk: req.session.user.id
             }
         });
 
@@ -41,14 +38,14 @@ module.exports = {
 
         const episodes = await Episode.count({
             where: {
-                id_user_episodes_fk: req.session.userId
+                id_user_episodes_fk: req.session.user.id
             }
         });
 
         const favoritesCast = await castTvShow.findAll({
             include:'user_tvShow',
             where:{
-                id_user_cast_fk: req.session.userId,
+                id_user_cast_fk: req.session.user.id,
                 isFavorite: 1
             }
         });
@@ -56,14 +53,14 @@ module.exports = {
         const cast = await castTvShow.findAll({
             include:'user_tvShow',
             where:{
-                id_user_cast_fk: req.session.userId
+                id_user_cast_fk: req.session.user.id
             }
         });
 
         let genres = await Genre.findAll({
             raw: true,
             where: {
-                id_user_genre: req.session.userId
+                id_user_genre: req.session.user.id
             }
         })
 
@@ -98,9 +95,10 @@ module.exports = {
                 }
             }
         });
-        console.log(users);
         
-        res.render('SearchUsers', { users });
+        const user = req.session.user
+        
+        res.render('SearchUsers', { user, users });
     },
     
     feed(req,res){    
