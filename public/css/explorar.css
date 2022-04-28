@@ -78,6 +78,13 @@ main .titleGenre h2{
     background-position: center;
     object-fit: cover;
     border-radius: 10px;
+    position: relative;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.CastTitle img:hover{
+    transform: translateY(-15px);
 }
 
 .CastTitle h3{

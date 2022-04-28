@@ -24,6 +24,10 @@ video{
     padding: 20px 30px;
     margin-top: 20vh;
     border-radius: 10px;
+    animation-name: move;
+    animation-duration: 500ms;
+    animation-delay: 250ms;
+    animation-fill-mode: backwards;
 }
 
 img{
@@ -105,4 +109,49 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: white;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+
+@keyframes move {
+    from{
+        opacity: 0;
+        transform: translateX(-35%);
+    } to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+.form-hide{
+    animation: down 500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+@keyframes down {
+    from{
+        transform: translateY(0);
+    } to {
+        transform: translateY(100vh);
+    }
+}
+
+.validate-error{
+    animation: vibrate 150ms linear, move paused;
+    animation-iteration-count: 2;
+}
+
+@keyframes vibrate{
+    0% {
+        transform: translateX(0);
+    }
+    35%{
+        transform: translateX(-10%);
+    }
+    70%{
+        transform: translateX(10%);
+    }
+    100%{
+        transform: translateX(0);
+    }
 }
