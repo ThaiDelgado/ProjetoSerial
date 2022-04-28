@@ -69,11 +69,6 @@ module.exports = {
 
       req.session.user = user;
 
-      //secret na base 64
-      const token = jwt.sign({ data: user }, 'c2VyaWFsV2ViVG9rZW4=',{
-        expiresIn: '30m'
-      });
-
       return res.redirect(`/usuario/${user.username}/${user.id}`);
     },
 

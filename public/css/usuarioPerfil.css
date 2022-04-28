@@ -75,6 +75,13 @@
     background-position: center;
     object-fit: cover;
     border-radius: 10px;
+    position: relative;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.favoritesCastTitle img:hover{
+    transform: translateY(-15px);
 }
 
 .favoritesCastTitle h3{
@@ -288,6 +295,13 @@
     background-position: center;
     object-fit: cover;
     border-radius: 10px;
+    position: relative;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.userCastTitle img:hover{
+    transform: translateY(-15px);
 }
 
 .userCastTitle h3{
