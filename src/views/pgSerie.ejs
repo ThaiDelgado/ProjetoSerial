@@ -34,7 +34,7 @@
                     <%}%>
                     <% if(!itIsOnCast) { %>
                         <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/adicionar?_method=PUT`%>">
-                            <input type="submit" name="buttonAdd" value="ADICIONAR" onclick="alert('Série adicionada com sucesso!')">
+                            <input type="submit" name="buttonAdd" value="ADICIONAR">
                         </form>
                     <%} else {%>
                         <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/remover?_method=DELETE`%>">

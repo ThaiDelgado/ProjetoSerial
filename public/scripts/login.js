@@ -1,5 +1,6 @@
 const btnSubmit = document.querySelector(".submit");
-const form = document.querySelector(".form");
+const formClass = document.querySelector(".form");
+const form = document.querySelector("form");
 
 btnSubmit.addEventListener("click", (event) => {
     event.preventDefault();
@@ -7,7 +8,7 @@ btnSubmit.addEventListener("click", (event) => {
     const fields = [...document.querySelectorAll("input")];
 
     fields.forEach(field => {
-        if(field.value === "") form.classList.add("validate-error");
+        if(field.value === "") formClass.classList.add("validate-error");
     })
 
     const formError = document.querySelector(".validate-error");
@@ -19,8 +20,8 @@ btnSubmit.addEventListener("click", (event) => {
             }
         })
     } else {
-        form.classList.add("form-hide");
-        event.target.submit();
+        formClass.classList.add("form-hide");
+        form.submit();
     }
 })
 
