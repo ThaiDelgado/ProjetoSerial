@@ -3,7 +3,7 @@ const { User } = require('../models');
 const { castTvShow } = require('../models');
 const { Episode } = require('../models');
 const { Genre } = require('../models');
-const { Connections } = require('../models');
+const { Connection } = require('../models');
 const { Op } = require('sequelize');
 const { Result } = require('express-validator');
 
@@ -105,8 +105,20 @@ module.exports = {
         res.render('usuarioFeed', { user: req.session.user });
     },
 
-    conexoes(req, res){
-        res.render('usuarioConexoes', {user: req.session.user});
+    async conexoes(req, res){
+        const userFollowing = await Connection.findAll({
+            include: "user_main_connection",
+            where: {
+                id_main_user: req.session.user.id
+            }
+        });
+        const userFollowers = await Connection.findAll({
+            include: "secondary_user_connection",
+            where: {
+                id_secondary_user: req.session.user.id
+            }
+        });
+        res.render('usuarioConexoes', {user: req.session.user, userFollowing, userFollowers});
     },
     
     pipocando(req,res){
