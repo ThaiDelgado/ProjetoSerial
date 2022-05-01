@@ -19,7 +19,7 @@
                 <%if(users){%>
                     <%users.forEach(({}, index) => {%>
                         <div class="follower">
-                            <a href ="<%=``%>">
+                            <a href ="<%=`/usuario/${users[index].username}/${users[index].id}`%>">
                                 <img class="followerPicture" src="<%=users[index].imgProfile%>" alt=""/>
                                 <h4><%=users[index].name%></h4>
                             </a> 

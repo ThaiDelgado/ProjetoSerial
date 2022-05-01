@@ -1,7 +1,14 @@
 <div class="background-user" style="background-image:url('<%=user.imgBackground%>');">
     <div class="container">
         <div class="blockUser">
-            <div id="profilePicture"><img src="<%=user.imgProfile%>" /></div>
+            <div id="profilePicture">
+                <img src="<%=user.imgProfile%>" />
+                <%if(user.id != userSession.id){%>
+                    <form method="POST" action="<%=`/usuario/${user.username}/${user.id}?_method=PUT`%>">
+                    <input type="submit" value="+"> 
+                    </form>
+                <%}%>
+            </div>            
                 
             <div id="userName">
                 <h1><%=user.name%></h1>
@@ -14,12 +21,19 @@
         </div><!--background-user-->
 
         <nav class="menu-perfil-desktop">
-            <ul>
-                <li class="selectPerfil"><a href="/usuario">PERFIL</a></li>
-                <li class="selectFeed"><a href="/usuario/feed">FEED</a></li>
-                <li class="selectConexoes"><a href="/usuario/conexoes">CONEXÕES</a></li>
-                <li class="selectPipocando"><a href="/usuario/pipocando">PIPOCANDO</a></li>
-            </ul>
+            <%if(user.id === userSession.id){%>
+                <ul>
+                    <li class="selectPerfil"><a href="<%=`/usuario/${userSession.username}/${userSession.id}`%>">PERFIL</a></li>
+                    <li class="selectFeed"><a href="<%=`/usuario/${userSession.username}/${user.id}/feed`%>">FEED</a></li>
+                    <li class="selectConexoes"><a href="<%=`/usuario/${userSession.username}/${userSession.id}/conexoes`%>">CONEXÕES</a></li>
+                    <li class="selectPipocando"><a href="<%=`/usuario/${userSession.username}/${userSession.id}/pipocando`%>">PIPOCANDO</a></li>
+                </ul>
+            <%} else {%>
+                <ul>
+                    <li class="selectPerfil"><a href="<%=`/usuario/${user.username}/${user.id}`%>">PERFIL</a></li>
+                    <li class="selectConexoes"><a href="<%=`/usuario/${user.username}/${user.id}/conexoes`%>">CONEXÕES</a></li>
+                </ul>
+            <%}%>
         </nav><!--menu-perfil-desktop-->
 
     </div><!--container--> 

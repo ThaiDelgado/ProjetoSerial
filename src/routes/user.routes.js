@@ -13,17 +13,19 @@ const auth = require('../middlewares/auth');
 //Rota usuário
 routes.get('/:nomeUsuario/:id', verificarLogin, auth, userController.perfil);
 
+routes.put('/:nomeUsuario/:id', verificarLogin, auth, userController.follow);
+
 //Pesquisa usuário
 routes.get('/search', verificarLogin, auth, userController.search);
 
 //Rota Pipocando
-routes.get('/pipocando', auth, userController.pipocando);
+routes.get('/:nomeUsuario/:id/pipocando', auth, userController.pipocando);
 
 //Rota Conexões
-routes.get('/conexoes', auth, userController.conexoes);
+routes.get('/:nomeUsuario/:id/conexoes', auth, userController.conexoes);
 
 //Rota Feed
-routes.get('/feed', auth, userController.feed);
+routes.get('/:nomeUsuario/:id/feed', auth, userController.feed);
 
 routes.get('/multer', userController.multer)
 
