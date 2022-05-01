@@ -110,7 +110,7 @@
                             <p><%=comment.comment%></p>
                         </div>
 
-                        <% if(comment.user_comment.id == user) {%>
+                        <% if(comment.user_comment.id == userSession.id) {%>
                             <form method="POST" action="<%=`/serie/${serie.id}/${season.season_number}/deleteComment/${comment.id}?_method=DELETE`%>">
                                 <input type="submit" value="DELETE">
                                 <div class="clear"></div>

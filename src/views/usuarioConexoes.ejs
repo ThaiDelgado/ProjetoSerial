@@ -22,13 +22,17 @@
                 </div>
                 <div class="following">
                     <%if(userFollowing == null || userFollowing.length == 0){%>
-                        <p style="color:#FFFFFF; font-size:20px;">Você ainda não segue ninguém!</p>
+                        <%if(userSession.id === user.id){%>
+                            <p style="color:#FFFFFF; font-size:20px;">Você ainda não segue ninguém!</p>
+                        <%} else {%>
+                            <p style="color:#FFFFFF; font-size:20px;">O usuário ainda não segue ninguém!</p>
+                        <%}%>
                     <%}%>
                     <%userFollowing.forEach(({},index)=> {%>
                         <div class="follower">
-                            <a href="<%=`/usuario/${userFollowing[index].username}/${userFollowing[index].id}`%>">
-                                <img src="<%=`${userFollowing[index].imgProfile}`%>" alt="">
-                                <h4><%=userFollowing[index].name%></h4>
+                            <a href="<%=`/usuario/${userFollowing[index].secondary_user_connection.username}/${userFollowing[index].secondary_user_connection.id}`%>">
+                                <img src="<%=`${userFollowing[index].secondary_user_connection.imgProfile}`%>" alt="">
+                                <h4><%=userFollowing[index].secondary_user_connection.name%></h4>
                             </a>
                         </div>
                     <%})%>
@@ -38,13 +42,17 @@
                 </div>
                 <div class="followers">
                     <%if(userFollowers == null || userFollowers.length == 0){%>
-                        <p style="color:#FFFFFF; font-size:20px;">Você ainda não possui seguidores!</p>
+                        <%if(userSession.id === user.id){%>
+                            <p style="color:#FFFFFF; font-size:20px;">Você ainda não possui seguidores!</p>
+                        <%} else {%>
+                            <p style="color:#FFFFFF; font-size:20px;">O usuário ainda não possui seguidores!</p>
+                        <%}%>                            
                     <%}%>
                     <%userFollowers.forEach(({},index)=> {%>
                         <div class="follower">
-                            <a href="<%=`/usuario/${userFollowers[index].username}/${userFollowers[index].id}`%>">
-                                <img src="<%=`${userFollowers[index].imgProfile}`%>" alt="">
-                                <h4><%=userFollowers[index].name%></h4>
+                            <a href="<%=`/usuario/${userFollowers[index].user_main_connection.username}/${userFollowers[index].user_main_connection.id}`%>">
+                                <img src="<%=`${userFollowers[index].user_main_connection.imgProfile}`%>" alt="">
+                                <h4><%=userFollowers[index].user_main_connection.name%></h4>
                             </a>
                         </div>
                     <%})%>

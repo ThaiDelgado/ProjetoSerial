@@ -41,10 +41,8 @@ module.exports = {
                 id_user_cast_fk: req.session.user.id
             }
         })) === null ? false : true;
-
-        const user = req.session.user;
         
-        res.render('pgSerie', { user, serie, season, itIsOnFavorite, itIsOnCast, comments: serieComments, episodes});    
+        res.render('pgSerie', { userSession: req.session.user, serie, season, itIsOnFavorite, itIsOnCast, comments: serieComments, episodes});    
     },
 
     async getUserComment(commentUserId) {
@@ -56,24 +54,24 @@ module.exports = {
     },
 
     async addFavoriteTvShow(req,res){
-        castTvShow.update({
-            isFavorite: true
-        },
-        {            
-            where:{
-                idTvShow: req.params.id,
-                id_user_cast_fk: req.session.user.id
-            }
+        await castTvShow.update({
+                isFavorite: true
+            },
+            {            
+                where:{
+                    idTvShow: req.params.id,
+                    id_user_cast_fk: req.session.user.id
+                }
         });
         
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
-    removeFavoriteTvShow(req,res){
-        castTvShow.update({
+    async removeFavoriteTvShow(req,res){
+        await castTvShow.update({
             isFavorite: false
-        },
-        {            
+            },
+            {            
             where:{
                 idTvShow: req.params.id,
                 id_user_cast_fk: req.session.user.id

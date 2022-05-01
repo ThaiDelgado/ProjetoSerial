@@ -13,14 +13,14 @@ module.exports = {
         const userProfile = await User.findOne({
             raw: true,
             where:{
-                id: req.session.user.id
+                id: req.params.id
             }
         })
 
         const times = await Episode.sum('tvShow_episode.episode_run_time',{
             include: 'tvShow_episode',
             where:{
-                id_user_episodes_fk: req.session.user.id
+                id_user_episodes_fk: req.params.id
             }
         });
 
@@ -38,14 +38,14 @@ module.exports = {
 
         const episodes = await Episode.count({
             where: {
-                id_user_episodes_fk: req.session.user.id
+                id_user_episodes_fk: req.params.id
             }
         });
 
         const favoritesCast = await castTvShow.findAll({
             include:'user_tvShow',
             where:{
-                id_user_cast_fk: req.session.user.id,
+                id_user_cast_fk: req.params.id,
                 isFavorite: 1
             }
         });
@@ -53,14 +53,14 @@ module.exports = {
         const cast = await castTvShow.findAll({
             include:'user_tvShow',
             where:{
-                id_user_cast_fk: req.session.user.id
+                id_user_cast_fk: req.params.id
             }
         });
 
         let genres = await Genre.findAll({
             raw: true,
             where: {
-                id_user_genre: req.session.user.id
+                id_user_genre: req.params.id
             }
         })
 
@@ -82,7 +82,7 @@ module.exports = {
         genres = [...uniqueGenres.values()];
 
 
-        res.render('usuarioPerfil', { user: userProfile, timekeeper, episodes, favoritesCast, cast, genres });       
+        res.render('usuarioPerfil', { user: userProfile, userSession: req.session.user, timekeeper, episodes, favoritesCast, cast, genres });       
     },
 
     async search(req,res){
@@ -96,40 +96,58 @@ module.exports = {
             }
         });
         
-        const user = req.session.user
-        
-        res.render('SearchUsers', { user, users });
+        res.render('SearchUsers', { userSession: req.session.user, users });
     },
     
     feed(req,res){    
-        res.render('usuarioFeed', { user: req.session.user });
+        res.render('usuarioFeed', { user: req.session.user, userSession: req.session.user });
     },
 
     async conexoes(req, res){
-        const userFollowing = await Connection.findAll({
-            include: "user_main_connection",
-            where: {
-                id_main_user: req.session.user.id
+        const userProfile = await User.findOne({
+            raw: true,
+            where:{
+                id: req.params.id
             }
         });
-        const userFollowers = await Connection.findAll({
+
+        const userFollowing = await Connection.findAll({
             include: "secondary_user_connection",
             where: {
-                id_secondary_user: req.session.user.id
+                id_main_user: req.params.id
             }
         });
-        res.render('usuarioConexoes', {user: req.session.user, userFollowing, userFollowers});
+
+        const userFollowers = await Connection.findAll({
+            include: "user_main_connection",
+            where: {
+                id_secondary_user: req.params.id
+            }
+        });
+
+        console.log(userFollowers);
+        res.render('usuarioConexoes', {user: userProfile, userSession: req.session.user, userFollowing, userFollowers});
     },
     
     pipocando(req,res){
         res.render('usuarioPipocando', {user: req.session.user});
     },
 
-    perfilSeguir(req,res){
-        res.render('usuarioSeguir');
-    }, 
+    async follow(req,res){
+        const idMainUser = req.session.user.id;
+        const idSecondaryUser = req.params.id;
+        const usernameSecondaryUser = req.params.nomeUsuario;
+
+        await Connection.create({
+            id_main_user: idMainUser,
+            id_secondary_user: idSecondaryUser
+        });
+
+        return res.redirect(`/usuario/${usernameSecondaryUser}/${idSecondaryUser}`);
+    },
     
     multer(req, res){
         res.render('multer');
     }
+
 };
