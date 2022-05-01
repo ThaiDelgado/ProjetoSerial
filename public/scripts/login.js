@@ -8,7 +8,11 @@ btnSubmit.addEventListener("click", (event) => {
     const fields = [...document.querySelectorAll("input")];
 
     fields.forEach(field => {
-        if(field.value === "") formClass.classList.add("validate-error");
+        if(field.value === ""){
+            formClass.classList.add("validate-error");
+            field.style.borderBottom = "2px solid #733FBE"
+        } 
+
     })
 
     const formError = document.querySelector(".validate-error");

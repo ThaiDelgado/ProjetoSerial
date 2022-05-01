@@ -5,24 +5,28 @@
     font-family: "Athiti";
     color: #ffffffe1;
     border: none;
+    overflow: hidden;
 }
 
 video{
     position: fixed;
+    top: 0;
+    left: 0;
     object-fit: cover;
     width: 100vw;
     height: 100vh;
 }
 
 .form{
-    position: fixed;
+    position: relative;
     z-index: 3;
-    margin-left: 40%;
-    background: #ffffff30;
+    background: #00000099;
     width: 400px;
     text-align: center;
+    margin-top: 25vh;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px 30px;
-    margin-top: 20vh;
     border-radius: 10px;
     animation-name: move;
     animation-duration: 500ms;
@@ -44,7 +48,7 @@ input{
     display: block;
     width: 100%;
     padding-top: 5px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #ffffff50;
     padding: 10px;
     background: none;
     letter-spacing: 60%;
@@ -58,14 +62,14 @@ input{
     font-size: 16px;
     text-align: right;
     display: block;
-    color: black;
+    color: white;
     text-decoration: none;
     transition: all 0.3s ease;
     font-weight: bold;
 }
 
 #forgot-pass:hover{
-    color: rgb(146, 142, 142);
+    color: blueviolet;
 }
 
 input[type="submit"] {
@@ -75,8 +79,7 @@ input[type="submit"] {
     border: none;
     height: 40px;
     border-radius: 20px;
-    background: black;
-    opacity: 0.5;
+    background:#1A1A1A;
     margin-top: 40px;
     padding-top: 1px;
     color:white;
@@ -94,7 +97,7 @@ textarea:focus, input:focus{
 }
 
 input::placeholder {
-    color: #00000050;
+    color: #ffffff50;
 }
 
 input:-webkit-autofill,
