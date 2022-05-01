@@ -15,79 +15,39 @@
         <main>
                 <div class="conexoes">
                     <img src="/images/imgConexoes/iconesUsuarioConexao/iconeConexão.png" alt="">
-                    <h1>CONEXÕES</h1>
+                    <h1 style="margin-right: -0.6em;">CONEXÕES</h1>
                 </div>
-                <div class="seguindo">
+                <div class="followingTitle">
                     <h2>SEGUINDO</h2>
                 </div>
-                <div class="seguindoPessoas">
+                <div class="following">
+                    <%if(userFollowing == null || userFollowing.length == 0){%>
+                        <p style="color:#FFFFFF; font-size:20px;">Você ainda não segue ninguém!</p>
+                    <%}%>
+                    <%userFollowing.forEach(({},index)=> {%>
                         <div class="follower">
-                            <a href ="/usuario/hermione-granger/2">
-                                <img class="followerPicture" src="/images/imgConexoes/Hermione.jpg" alt=""/>
-                                <h4>Hermione<br>Granger</h4>
-                            </a> 
+                            <a href="<%=`/usuario/${userFollowing[index].username}/${userFollowing[index].id}`%>">
+                                <img src="<%=`${userFollowing[index].imgProfile}`%>" alt="">
+                                <h4><%=userFollowing[index].name%></h4>
+                            </a>
                         </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 858.png" alt=""/>
-                            <h4>Neville<br>Longbottom</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 859.png" alt=""/>
-                            <h4>Rony<br>Wesley</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 860.png" alt=""/>
-                            <h4>Gina<br>Wesley</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 861.png" alt=""/>
-                            <h4>Luna<br>Lovegood</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 868.png" alt=""/>
-                            <h4>Belatrix<br>Lestrange</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 870.png" alt=""/>
-                            <h4>Rita<br>Skeeter</h4>
-                        </div>
+                    <%})%>
                 </div>
-                <div class="seguidores">
-                    <h2>SEGUIDORES</h2>
+                <div class="followersTitle">
+                    <h2 style="margin-right: -15px;">SEGUIDORES</h2>
                 </div>
-                <div class="seguidoresPessoas">
+                <div class="followers">
+                    <%if(userFollowers == null || userFollowers.length == 0){%>
+                        <p style="color:#FFFFFF; font-size:20px;">Você ainda não possui seguidores!</p>
+                    <%}%>
+                    <%userFollowers.forEach(({},index)=> {%>
                         <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 871.png" alt=""/>
-                            <h4>Lucius<br>Malfoy</h4>
+                            <a href="<%=`/usuario/${userFollowers[index].username}/${userFollowers[index].id}`%>">
+                                <img src="<%=`${userFollowers[index].imgProfile}`%>" alt="">
+                                <h4><%=userFollowers[index].name%></h4>
+                            </a>
                         </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 872.png" alt=""/>
-                            <h4>Alastor<br>Moody</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 873.png" alt=""/>
-                            <h4>Remo<br>Lupin</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 874.png" alt=""/>
-                            <h4>Neville<br>Longbottom</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 858.png" alt=""/>
-                            <h4>Neville<br>Longbottom</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 859.png" alt=""/>
-                            <h4>Rony<br>Wesley</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Hermione.jpg" alt=""/>
-                            <h4>Hermione<br>Granger</h4>
-                        </div>
-                        <div class="follower">
-                            <img class="followerPicture" src="/images/imgConexoes/Rectangle 860.png" alt=""/>
-                            <h4>Gina<br>Wesley</h4>
-                        </div>
+                    <%})%>
                 </div>
         </main>
 
