@@ -10,13 +10,18 @@ body{
 }
 
 .error-text h1{
-    color: white;
+    color: black;
+    font-family: "Bebas Neue";
     font-size: 100px;
 }
 
 .error-text h3{
-    color: white;
-    font-size: 50px;
+    color: black;
+    font-family: "Athiti";
+    font-weight: 200;
+    margin-top: -20px;
+    margin-bottom: 70px;
+    font-size: 38px;
 }
 
 .error{
@@ -24,4 +29,20 @@ body{
     height: 100%;    
     background-size: 100%;
     text-align: center;
+}
+
+a{
+    color: black;
+    font-size: 50px;
+    font-weight: 500;
+    font-family: "Bebas Neue";
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+}
+
+a:link {
+    text-decoration:none;
 }
