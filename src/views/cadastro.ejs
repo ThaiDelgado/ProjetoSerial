@@ -7,11 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@400;600&family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/stylePadrao.css">
     <link rel="stylesheet" href="/css/cadastro.css">
     <link rel="icon" type="imagem/png" href="/images/icons/icon.png" />
     <title>Document</title>
 </head>
 <body>
+    <a href="/login">| Login</a>
     <section class="form">
         <img src="/images/imgPagInicial/Logo.png" alt="">
 
@@ -20,22 +22,12 @@
             <input type="email" name="email" id="email" value="<%= locals.old && old.email %>" placeholder="Digite seu email">
             <input type="text" name="username" id=username value="<%= locals.old && old.name %>" placeholder="Digite um nome de usuário">
             <input type="password" name="password" id="password" placeholder="Digite sua senha">
-
-            <% if(locals.errors && errors.name) { %>
-                <p class="feedback"><%= errors.name.msg %></p>
-            <% } %>
-            <% if(locals.errors && errors.email) { %>
-                <p class="feedback"><%= errors.email.msg %></p>
-            <% } %>
-            <% if(locals.errors && errors.password) { %>
-                <p class="feedback"><%= errors.password.msg %></p>
-            <% } %>
-
-            <input type="submit" value="Cadastrar">
+            <input type="submit" class="submit" value="Cadastrar">
         </form>
     </section>
 
-    <video id="bakground" src="/video/video/videoBackground.mp4" autoplay="true" muted loop></video>  
+    <video id="bakground" src="/video/video/videoBackground3.mp4" autoplay="true" muted loop></video>  
 
 </body>
+<script src="/scripts/cadastro.js"></script>
 </html>
