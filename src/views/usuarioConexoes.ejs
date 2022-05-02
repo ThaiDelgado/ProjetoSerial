@@ -31,7 +31,7 @@
                     <%userFollowing.forEach(({},index)=> {%>
                         <div class="follower">
                             <a href="<%=`/usuario/${userFollowing[index].secondary_user_connection.username}/${userFollowing[index].secondary_user_connection.id}`%>">
-                                <img src="<%=`${userFollowing[index].secondary_user_connection.imgProfile}`%>" alt="">
+                                <img class="followerPicture" src="<%=`${userFollowing[index].secondary_user_connection.imgProfile}`%>" alt="">
                                 <h4><%=userFollowing[index].secondary_user_connection.name%></h4>
                             </a>
                         </div>
@@ -51,7 +51,7 @@
                     <%userFollowers.forEach(({},index)=> {%>
                         <div class="follower">
                             <a href="<%=`/usuario/${userFollowers[index].user_main_connection.username}/${userFollowers[index].user_main_connection.id}`%>">
-                                <img src="<%=`${userFollowers[index].user_main_connection.imgProfile}`%>" alt="">
+                                <img class="followerPicture" src="<%=`${userFollowers[index].user_main_connection.imgProfile}`%>" alt="">
                                 <h4><%=userFollowers[index].user_main_connection.name%></h4>
                             </a>
                         </div>

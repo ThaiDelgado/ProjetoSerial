@@ -39,28 +39,7 @@ main div h1 {
 }
 
 
-/******************/
-
-/*Sessão Conexões Seguindo*/
-
-
-.seguindo{
-    background-color: #000000;
-    text-align: left;
-    padding: 0 5%;
-    padding-top: 70px;
-    padding-bottom: 25px;
-}
-
-main .seguindo h2{
-    font-family: Bebas Neue;
-    font-weight: 200;
-    font-size: 35px;
-    letter-spacing: 0.6em;
-    color: #6741B9;
-}
-
-.seguindoPessoas {
+.searchResult {
     background-color: #000000;
     width: 100%;
     display: flex;
@@ -70,63 +49,11 @@ main .seguindo h2{
     padding: 0 5%;
 }
 
-.follower {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-}
-
-.follower h4{
-    color:#FFFFFF;
-    font-size: 18px;
+.searchResult p{
+    color: #FFFFFF;
     text-align: center;
-    text-transform: uppercase;
-    margin-top: 5px;
-    line-height: 95%;
-    font-weight: normal;
-}
-
-
-.follower .followerPicture {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    background-repeat: no-repeat;
-    background-position: center;
-    object-fit: cover;
-}
-
-/******************/
-
-/*Sessão Conexões Seguidores*/
-
-
-.seguidores{
-    background-color: #000000;
-    text-align: right;
-    padding: 0 4%;
-    padding-top: 70px;
-    padding-bottom: 25px;
-}
-
-main .seguidores h2{
-    font-family: Bebas Neue;
-    font-weight: 200;
-    font-size: 35px;
-    letter-spacing: 0.6em;
-    color: #6741B9;
-}
-
-.seguidoresPessoas {
-    background-color: #000000;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    flex-direction: row;
-    padding: 0 5%;
-    padding-bottom: 5%;
+    margin: 60px auto;
+    font-size: 17px;
 }
 
 .follower {
@@ -178,22 +105,12 @@ h4:hover {
         display: none;
     }
 
-    .seguindoPessoas {
+    .searchResult {
         background-color: #000000;
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: left;
-        flex-direction: row;
-        padding: 0 5%;
-    }
-
-    .seguidoresPessoas {
-        background-color: #000000;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: right;
         flex-direction: row;
         padding: 0 5%;
     }
@@ -206,15 +123,6 @@ h4:hover {
         background-position: center;
         object-fit: cover;
     }
-
-    .seguindo{
-        background-color: #000000;
-        text-align: center;
-        padding: 0 5%;
-        padding-top: 70px;
-        padding-bottom: 25px;
-    }
-
 }
 
 /******************/

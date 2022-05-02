@@ -15,8 +15,10 @@
                 <img src="/images/imgConexoes/iconesUsuarioConexao/iconeConexão.png" alt="">
                 <h1>USUÁRIOS</h1>
             </div>
-            <div class="seguindoPessoas">
-                <%if(users){%>
+            <div class="searchResult"> 
+                <%if(users.length === 0){%>
+                    <p>Não foram encontrados resultados para está pesquisa!</p>
+                <%}else{%>
                     <%users.forEach(({}, index) => {%>
                         <div class="follower">
                             <a href ="<%=`/usuario/${users[index].username}/${users[index].id}`%>">
@@ -25,7 +27,7 @@
                             </a> 
                         </div> 
                     <%})%>
-                <%}%>                        
+                <%}%> 
             </div>
         </main>
 
