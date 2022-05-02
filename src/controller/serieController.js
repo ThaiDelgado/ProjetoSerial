@@ -105,8 +105,8 @@ module.exports = {
         res.redirect(`/serie/${req.params.id}/${req.params.season}`);
     },
 
-    removeTvShowToCast(req, res){
-        castTvShow.destroy({
+    async removeTvShowToCast(req, res){
+        await castTvShow.destroy({
             where: {
                 idTvShow: req.params.id,
                 id_user_cast_fk: req.session.user.id

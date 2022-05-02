@@ -81,8 +81,14 @@ module.exports = {
 
         genres = [...uniqueGenres.values()];
 
+        const isFollowing = (await Connection.findOne({
+            where: {
+               id_main_user: req.session.user.id,
+               id_secondary_user: req.params.id
+            }
+        })) === null ? false : true;
 
-        res.render('usuarioPerfil', { user: userProfile, userSession: req.session.user, timekeeper, episodes, favoritesCast, cast, genres });       
+        res.render('usuarioPerfil', { user: userProfile, userSession: req.session.user, timekeeper, episodes, favoritesCast, cast, genres, isFollowing });       
     },
 
     async search(req,res){
@@ -95,12 +101,14 @@ module.exports = {
                 }
             }
         });
+
+        console.log(users);
         
         res.render('SearchUsers', { userSession: req.session.user, users });
     },
     
     feed(req,res){    
-        res.render('usuarioFeed', { user: req.session.user, userSession: req.session.user });
+        res.render('usuarioFeed', { user: req.session.user, userSession: req.session.user});
     },
 
     async conexoes(req, res){
@@ -125,12 +133,25 @@ module.exports = {
             }
         });
 
-        console.log(userFollowers);
-        res.render('usuarioConexoes', {user: userProfile, userSession: req.session.user, userFollowing, userFollowers});
+        const isFollowing = (await Connection.findOne({
+            where: {
+               id_main_user: req.session.user.id,
+               id_secondary_user: req.params.id
+            }
+        })) === null ? false : true;
+
+        res.render('usuarioConexoes', {user: userProfile, userSession: req.session.user, userFollowing, userFollowers, isFollowing});
     },
     
-    pipocando(req,res){
-        res.render('usuarioPipocando', {user: req.session.user});
+    async pipocando(req,res){
+        const userProfile = await User.findOne({
+            raw: true,
+            where:{
+                id: req.params.id
+            }
+        })
+
+        res.render('usuarioPipocando', {user: userProfile, userSession:req.session.user, isFollowing: false});
     },
 
     async follow(req,res){
