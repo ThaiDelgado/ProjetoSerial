@@ -88,7 +88,19 @@ module.exports = {
             }
         })) === null ? false : true;
 
-        res.render('usuarioPerfil', { user: userProfile, userSession: req.session.user, timekeeper, episodes, favoritesCast, cast, genres, isFollowing });       
+        const followers = await Connection.count({
+            where: {
+               id_main_user: req.session.user.id,
+            }
+        });
+
+        const following = await Connection.count({
+            where: {
+               id_secondary_user: req.session.user.id,
+            }
+        });
+
+        res.render('usuarioPerfil', { user: userProfile, userSession: req.session.user, followers, following, timekeeper, episodes, favoritesCast, cast, genres, isFollowing });       
     },
 
     async search(req,res){
@@ -107,8 +119,19 @@ module.exports = {
         res.render('SearchUsers', { userSession: req.session.user, users });
     },
     
-    feed(req,res){    
-        res.render('usuarioFeed', { user: req.session.user, userSession: req.session.user});
+    async feed(req,res){    
+        const followers = await Connection.count({
+            where: {
+               id_main_user: req.session.user.id,
+            }
+        });
+
+        const following = await Connection.count({
+            where: {
+               id_secondary_user: req.session.user.id,
+            }
+        });
+        res.render('usuarioFeed', { user: req.session.user, userSession: req.session.user, following, followers});
     },
 
     async conexoes(req, res){
@@ -140,7 +163,19 @@ module.exports = {
             }
         })) === null ? false : true;
 
-        res.render('usuarioConexoes', {user: userProfile, userSession: req.session.user, userFollowing, userFollowers, isFollowing});
+        const followers = await Connection.count({
+            where: {
+               id_main_user: req.session.user.id,
+            }
+        });
+
+        const following = await Connection.count({
+            where: {
+               id_secondary_user: req.session.user.id,
+            }
+        });
+
+        res.render('usuarioConexoes', {user: userProfile, userSession: req.session.user, followers, following, userFollowing, userFollowers, isFollowing});
     },
     
     async pipocando(req,res){
@@ -151,7 +186,19 @@ module.exports = {
             }
         })
 
-        res.render('usuarioPipocando', {user: userProfile, userSession:req.session.user, isFollowing: false});
+        const followers = await Connection.count({
+            where: {
+               id_main_user: req.session.user.id,
+            }
+        });
+
+        const following = await Connection.count({
+            where: {
+               id_secondary_user: req.session.user.id,
+            }
+        });
+
+        res.render('usuarioPipocando', {user: userProfile, userSession:req.session.user, isFollowing: false, followers, following});
     },
 
     async follow(req,res){
