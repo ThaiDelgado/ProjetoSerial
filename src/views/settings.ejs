@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head')%>
+    <link href="/css/stylePadrao.css" rel="stylesheet">
+    <link href="/css/usuarioSettings.css" rel="stylesheet">
+        
+    <link rel="icon" type="imagem/png" href="images/icones/icon.png" />
+    <title>Serial - Configurações</title>
+</head>
+<body>
+    <%console.log(user)%>
+    <%- include('./partials/header')%>
+
+    <%- include('./partials/userInfo')%>
+
+    <form action="<%=`/usuario/${userSession.username}/${userSession.id}/settings/profile-picture`%>" method="POST" enctype="multipart/form-data">
+        <input type="file" name="imgProfile" id="file" single>
+        <button type="submit">Enviar</button>
+    </form> 
+
+    <form action="<%=`/usuario/${userSession.username}/${userSession.id}/settings/background-picture`%>" method ="POST" enctype="multipart/form-data">
+        <input type="file" name="imgBackground" id="file" single>
+        <button type="submit">Enviar</button>
+    </form> 
+</body>
+</html>
