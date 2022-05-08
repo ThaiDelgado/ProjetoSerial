@@ -7,6 +7,7 @@ const { Connection } = require('../models');
 const { Op } = require('sequelize');
 const { Result } = require('express-validator');
 
+
 module.exports = {
 
     async perfil(req,res){
@@ -90,13 +91,13 @@ module.exports = {
 
         const followers = await Connection.count({
             where: {
-               id_main_user: req.session.user.id,
+                id_secondary_user: req.session.user.id
             }
         });
 
         const following = await Connection.count({
             where: {
-               id_secondary_user: req.session.user.id,
+                id_main_user: req.session.user.id
             }
         });
 
@@ -119,7 +120,15 @@ module.exports = {
         res.render('SearchUsers', { userSession: req.session.user, users });
     },
     
-    async feed(req,res){    
+    async feed(req,res){ 
+        
+        const userProfile = await User.findOne({
+            raw: true,
+            where:{
+                id: req.params.id
+            }
+        })
+
         const followers = await Connection.count({
             where: {
                id_main_user: req.session.user.id,
@@ -131,7 +140,8 @@ module.exports = {
                id_secondary_user: req.session.user.id,
             }
         });
-        res.render('usuarioFeed', { user: req.session.user, userSession: req.session.user, following, followers});
+
+        res.render('usuarioFeed', { user: userProfile, userSession: req.session.user, following, followers});
     },
 
     async conexoes(req, res){
@@ -214,8 +224,53 @@ module.exports = {
         return res.redirect(`/usuario/${usernameSecondaryUser}/${idSecondaryUser}`);
     },
     
-    multer(req, res){
-        res.render('multer');
+    async settings(req, res){
+
+        const userProfile = await User.findOne({
+            raw: true,
+            where:{
+                id: req.params.id
+            }
+        })
+        
+        const followers = await Connection.count({
+            where: {
+               id_main_user: req.session.user.id,
+            }
+        });
+
+        const following = await Connection.count({
+            where: {
+               id_secondary_user: req.session.user.id,
+            }
+        });
+        res.render('settings', { user: userProfile, userSession: req.session.user, following, followers});
+    },
+
+    async imgProfile(req,res){
+        
+        await User.update({
+            imgProfile: `/images/uploads/${req.file.filename}`
+        },{
+            where: {
+                id: req.session.user.id
+            }
+        });
+
+        res.redirect(`/usuario/${req.session.user.username}/${req.session.user.id}/settings`);
+    },
+
+    async imgBackground(req,res){
+        
+        await User.update({
+            imgBackground: `/images/uploads/${req.file.filename}`
+        },{
+            where: {
+                id: req.session.user.id
+            }
+        });
+
+        res.redirect(`/usuario/${req.session.user.username}/${req.session.user.id}/settings`);
     }
 
 };

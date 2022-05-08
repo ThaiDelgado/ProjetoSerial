@@ -1,0 +1,95 @@
+.selectSettings{
+    background-color: black;
+}
+
+/*SESSAO FEED*/
+main{
+    background-color: #000000;
+}
+
+main .container{
+    padding: 5% 2%;
+    text-align: center;
+}
+
+.titleFeed img {
+    max-width: 80px;
+}
+
+.titleFeed h1 {
+    font-family: Bebas Neue;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 90px;
+    width: 300px;
+    margin: 0 auto;
+    letter-spacing: 0.6em;
+    color: #6741B9;
+}
+
+.infoFeed{
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 5% 2%;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoFeed .post{
+    width: 90%;
+    height: auto;
+    padding: 2%;
+    background-color: rgba(170, 177, 185, 0.2);
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.titlePost{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.titlePost img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.titlePost p{
+    margin-left: 30px;
+    font-size: 30px;
+}
+
+.titlePost span{
+    color: #6741B9;
+    cursor: pointer;
+}
+
+.postWrap{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.postImage img{
+    width:260px;
+    height:380px;
+    background-position:center;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.postText{
+    margin-left: 20px;
+}
+
+.postText p{
+    font-size: 30px;
+    text-align: justify;
+}
+
+
