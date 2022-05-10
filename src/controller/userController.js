@@ -10,17 +10,17 @@ const { Result } = require('express-validator');
 
 module.exports = {
 
-    async perfil(req,res){
+    async perfil(req, res) {
         const userProfile = await User.findOne({
             raw: true,
-            where:{
+            where: {
                 id: req.params.id
             }
         })
 
-        const times = await Episode.sum('tvShow_episode.episode_run_time',{
+        const times = await Episode.sum('tvShow_episode.episode_run_time', {
             include: 'tvShow_episode',
-            where:{
+            where: {
                 id_user_episodes_fk: req.params.id
             }
         });
@@ -44,16 +44,16 @@ module.exports = {
         });
 
         const favoritesCast = await castTvShow.findAll({
-            include:'user_tvShow',
-            where:{
+            include: 'user_tvShow',
+            where: {
                 id_user_cast_fk: req.params.id,
                 isFavorite: 1
             }
         });
 
         const cast = await castTvShow.findAll({
-            include:'user_tvShow',
-            where:{
+            include: 'user_tvShow',
+            where: {
                 id_user_cast_fk: req.params.id
             }
         });
@@ -69,13 +69,13 @@ module.exports = {
             delete genre.id;
             delete genre.id_tvshow_genre;
             delete genre.createdAt;
-            delete genre.updatedAt;            
+            delete genre.updatedAt;
         });
 
         const uniqueGenres = new Map();
 
         genres.forEach(genre => {
-            if(!uniqueGenres.has(genre.name)){
+            if (!uniqueGenres.has(genre.name)) {
                 uniqueGenres.set(genre.name, genre);
             }
         });
@@ -84,8 +84,8 @@ module.exports = {
 
         const isFollowing = (await Connection.findOne({
             where: {
-               id_main_user: req.session.user.id,
-               id_secondary_user: req.params.id
+                id_main_user: req.session.user.id,
+                id_secondary_user: req.params.id
             }
         })) === null ? false : true;
 
@@ -101,10 +101,10 @@ module.exports = {
             }
         });
 
-        res.render('usuarioPerfil', { user: userProfile, userSession: req.session.user, followers, following, timekeeper, episodes, favoritesCast, cast, genres, isFollowing });       
+        res.render('usuarioPerfil', { user: userProfile, userSession: req.session.user, followers, following, timekeeper, episodes, favoritesCast, cast, genres, isFollowing });
     },
 
-    async search(req,res){
+    async search(req, res) {
         const searchTerm = req.query.txtBusca;
         console.log(searchTerm);
         const users = await User.findAll({
@@ -116,38 +116,59 @@ module.exports = {
         });
 
         console.log(users);
-        
+
         res.render('SearchUsers', { userSession: req.session.user, users });
     },
-    
-    async feed(req,res){ 
-        
+
+    async feed(req, res) {
+
         const userProfile = await User.findOne({
             raw: true,
-            where:{
+            where: {
                 id: req.params.id
             }
         })
 
+        const following = await Connection.findAndCountAll({            
+            where: {
+                id_main_user: req.session.user.id,
+            }
+        });
+
         const followers = await Connection.count({
             where: {
-               id_main_user: req.session.user.id,
+                id_secondary_user: req.session.user.id,
             }
         });
 
-        const following = await Connection.count({
-            where: {
-               id_secondary_user: req.session.user.id,
-            }
+        const followingIds = following.rows.map(row => row.id);
+
+        const feed = await castTvShow.findAll({
+            include: [{
+                as: 'user_tvShow',
+                model: User,
+                [Op.in]: {
+                    id_user_cast_fk: followingIds
+                }
+            }],
+            where:{
+                [Op.not]: {
+                    id_user_cast_fk: userProfile.id
+                }
+            },
+            limit: 10,
+            order: [['createdAt', 'DESC']]
         });
 
-        res.render('usuarioFeed', { user: userProfile, userSession: req.session.user, following, followers});
+        console.log(feed);
+
+        res.render('usuarioFeed', { user: userProfile, userSession: req.session.user, following: following.count, followers });
     },
 
-    async conexoes(req, res){
+    async conexoes(req, res) {
         const userProfile = await User.findOne({
             raw: true,
-            where:{
+            where: {
                 id: req.params.id
             }
         });
@@ -168,50 +189,50 @@ module.exports = {
 
         const isFollowing = (await Connection.findOne({
             where: {
-               id_main_user: req.session.user.id,
-               id_secondary_user: req.params.id
+                id_main_user: req.session.user.id,
+                id_secondary_user: req.params.id
             }
         })) === null ? false : true;
 
         const followers = await Connection.count({
             where: {
-               id_main_user: req.session.user.id,
+                id_main_user: req.session.user.id,
             }
         });
 
         const following = await Connection.count({
             where: {
-               id_secondary_user: req.session.user.id,
+                id_secondary_user: req.session.user.id,
             }
         });
 
-        res.render('usuarioConexoes', {user: userProfile, userSession: req.session.user, followers, following, userFollowing, userFollowers, isFollowing});
+        res.render('usuarioConexoes', { user: userProfile, userSession: req.session.user, followers, following, userFollowing, userFollowers, isFollowing });
     },
-    
-    async pipocando(req,res){
+
+    async pipocando(req, res) {
         const userProfile = await User.findOne({
             raw: true,
-            where:{
+            where: {
                 id: req.params.id
             }
         })
 
         const followers = await Connection.count({
             where: {
-               id_main_user: req.session.user.id,
+                id_main_user: req.session.user.id,
             }
         });
 
         const following = await Connection.count({
             where: {
-               id_secondary_user: req.session.user.id,
+                id_secondary_user: req.session.user.id,
             }
         });
 
-        res.render('usuarioPipocando', {user: userProfile, userSession:req.session.user, isFollowing: false, followers, following});
+        res.render('usuarioPipocando', { user: userProfile, userSession: req.session.user, isFollowing: false, followers, following });
     },
 
-    async follow(req,res){
+    async follow(req, res) {
         const idMainUser = req.session.user.id;
         const idSecondaryUser = req.params.id;
         const usernameSecondaryUser = req.params.nomeUsuario;
@@ -223,35 +244,35 @@ module.exports = {
 
         return res.redirect(`/usuario/${usernameSecondaryUser}/${idSecondaryUser}`);
     },
-    
-    async settings(req, res){
+
+    async settings(req, res) {
 
         const userProfile = await User.findOne({
             raw: true,
-            where:{
+            where: {
                 id: req.params.id
             }
         })
-        
+
         const followers = await Connection.count({
             where: {
-               id_main_user: req.session.user.id,
+                id_main_user: req.session.user.id,
             }
         });
 
         const following = await Connection.count({
             where: {
-               id_secondary_user: req.session.user.id,
+                id_secondary_user: req.session.user.id,
             }
         });
-        res.render('settings', { user: userProfile, userSession: req.session.user, following, followers});
+        res.render('settings', { user: userProfile, userSession: req.session.user, following, followers });
     },
 
-    async imgProfile(req,res){
-        
+    async imgProfile(req, res) {
+
         await User.update({
             imgProfile: `/images/uploads/${req.file.filename}`
-        },{
+        }, {
             where: {
                 id: req.session.user.id
             }
@@ -260,11 +281,11 @@ module.exports = {
         res.redirect(`/usuario/${req.session.user.username}/${req.session.user.id}/settings`);
     },
 
-    async imgBackground(req,res){
-        
+    async imgBackground(req, res) {
+
         await User.update({
             imgBackground: `/images/uploads/${req.file.filename}`
-        },{
+        }, {
             where: {
                 id: req.session.user.id
             }
