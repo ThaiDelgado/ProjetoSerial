@@ -29,7 +29,7 @@ routes.get('/:nomeUsuario/:id/pipocando', auth, userController.pipocando);
 routes.get('/:nomeUsuario/:id/conexoes', auth, userController.conexoes);
 
 //Rota Feed
-routes.get('/:nomeUsuario/:id/feed', auth, userController.feed);
+routes.get('/:nomeUsuario/:id/feed/:page', auth, userController.feed);
 
 //Rota Settings
 routes.get('/:nomeUsuario/:id/settings', auth, userController.settings)

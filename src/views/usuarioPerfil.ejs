@@ -24,10 +24,10 @@
                             <%}%>
                             <%favoritesCast.forEach(({},index)=> {%>
                                 <div class="favoritesCastTitle">
-                                    <a href="<%=`/serie/${favoritesCast[index].idTvShow}/1`%>">
-                                        <img src="<%=`https://image.tmdb.org/t/p/w500${favoritesCast[index].poster_path}`%>" alt="">
-                                        <h3><%=favoritesCast[index].original_name%></h3>
-                                        <h4><%=favoritesCast[index].first_air_date.substring(0,4)%></h4>
+                                    <a href="<%=`/serie/${favoritesCast[index].tvShow_episode.idTvShow}/1`%>">
+                                        <img src="<%=`https://image.tmdb.org/t/p/w500${favoritesCast[index].tvShow_episode.poster_path}`%>" alt="">
+                                        <h3><%=favoritesCast[index].tvShow_episode.original_name%></h3>
+                                        <h4><%=favoritesCast[index].tvShow_episode.first_air_date.substring(0,4)%></h4>
                                     </a>
                                 </div>
                             <%})%>
@@ -91,9 +91,9 @@
                             <%cast.forEach(({},index)=> {%>
                                 <div class="userCastTitle">
                                     <a href="<%=`/serie/${cast[index].idTvShow}/1`%>">
-                                        <img src="<%=`https://image.tmdb.org/t/p/w500/${cast[index].poster_path}`%>" alt="">
-                                        <h3><%=cast[index].original_name%></h3>
-                                        <h4><%=cast[index].first_air_date.substring(0,4)%></h4>
+                                        <img src="<%=`https://image.tmdb.org/t/p/w500/${cast[index].tvShow_episode.poster_path}`%>" alt="">
+                                        <h3><%=cast[index].tvShow_episode.original_name%></h3>
+                                        <h4><%=cast[index].tvShow_episode.first_air_date.substring(0,4)%></h4>
                                     </a>
                                 </div><!--userCastTitle-->
                             <%})%>

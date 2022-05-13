@@ -16,14 +16,28 @@ module.exports = {
             where: {
                 id: req.params.id
             }
-        })
+        });
 
-        const times = await Episode.sum('tvShow_episode.episode_run_time', {
-            include: 'tvShow_episode',
+        
+        const cast = await Episode.findAndCountAll({
+            include: [
+                {
+                    as: 'tvShow_episode', 
+                    model: castTvShow
+                }
+            ],
             where: {
                 id_user_episodes_fk: req.params.id
             }
         });
+
+        let times = 0;
+        
+        cast.rows.forEach(episode => {
+            times += episode.tvShow_episode.episode_run_time;
+        })
+
+        const episodes = cast.count;
 
         const timeMonths = parseInt(((times / 60) / 24) / 30);
         const timeDays = parseInt(((times / 60) / 24) > 30 ? ((times / 60) / 24) % 30 : (times / 60) / 24);
@@ -37,26 +51,17 @@ module.exports = {
             timeMinutes: timeMinutes
         }
 
-        const episodes = await Episode.count({
-            where: {
-                id_user_episodes_fk: req.params.id
+        const uniqueCast = new Map();
+
+        cast.rows.forEach(tvShow => {
+            if (!uniqueCast.has(tvShow.idTvShow)) {
+                uniqueCast.set(tvShow.idTvShow, tvShow);
             }
         });
 
-        const favoritesCast = await castTvShow.findAll({
-            include: 'user_tvShow',
-            where: {
-                id_user_cast_fk: req.params.id,
-                isFavorite: 1
-            }
-        });
+        const casting = [...uniqueCast.values()];
 
-        const cast = await castTvShow.findAll({
-            include: 'user_tvShow',
-            where: {
-                id_user_cast_fk: req.params.id
-            }
-        });
+        const favoritesCast = casting.filter(tvShow => tvShow.tvShow_episode.isFavorite);
 
         let genres = await Genre.findAll({
             raw: true,
@@ -101,7 +106,7 @@ module.exports = {
             }
         });
 
-        res.render('usuarioPerfil', { user: userProfile, userSession: req.session.user, followers, following, timekeeper, episodes, favoritesCast, cast, genres, isFollowing });
+        res.render('usuarioPerfil', { user: userProfile, userSession: req.session.user, followers, following, timekeeper, episodes, favoritesCast, cast: casting, genres, isFollowing });
     },
 
     async search(req, res) {
@@ -121,6 +126,10 @@ module.exports = {
     },
 
     async feed(req, res) {
+
+        const page = parseInt(req.params.page);
+        const limit = 2;
+        const offset = (page - 1) * limit;
 
         const userProfile = await User.findOne({
             raw: true,
@@ -143,7 +152,7 @@ module.exports = {
 
         const followingIds = following.rows.map(row => row.id);
 
-        const feed = await castTvShow.findAll({
+        const feed = await castTvShow.findAndCountAll({
             include: [{
                 as: 'user_tvShow',
                 model: User,
@@ -156,13 +165,16 @@ module.exports = {
                     id_user_cast_fk: userProfile.id
                 }
             },
-            limit: 10,
+            limit,
+            offset,
             order: [['createdAt', 'DESC']]
         });
 
         console.log(feed);
 
-        res.render('usuarioFeed', { user: userProfile, userSession: req.session.user, following: following.count, followers });
+        const nextPage = offset + limit < feed.count;
+
+        res.render('usuarioFeed', { user: userProfile, userSession: req.session.user, following: following.count, feed: feed.rows, followers, nextPage, page });
     },
 
     async conexoes(req, res) {
@@ -196,13 +208,13 @@ module.exports = {
 
         const followers = await Connection.count({
             where: {
-                id_main_user: req.session.user.id,
-            }
+                id_secondary_user: req.session.user.id,
+            }            
         });
 
         const following = await Connection.count({
             where: {
-                id_secondary_user: req.session.user.id,
+                id_main_user: req.session.user.id,
             }
         });
 
@@ -219,13 +231,13 @@ module.exports = {
 
         const followers = await Connection.count({
             where: {
-                id_main_user: req.session.user.id,
+                id_secondary_user: req.session.user.id,
             }
         });
 
         const following = await Connection.count({
             where: {
-                id_secondary_user: req.session.user.id,
+                id_main_user: req.session.user.id,
             }
         });
 
@@ -256,13 +268,13 @@ module.exports = {
 
         const followers = await Connection.count({
             where: {
-                id_main_user: req.session.user.id,
+                id_secondary_user: req.session.user.id,
             }
         });
 
         const following = await Connection.count({
             where: {
-                id_secondary_user: req.session.user.id,
+                id_main_user: req.session.user.id,
             }
         });
         res.render('settings', { user: userProfile, userSession: req.session.user, following, followers });

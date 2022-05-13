@@ -20,90 +20,39 @@
                 </div>
 
                 <section class="infoFeed">
-                    <div class="post">
-                        <div class="titlePost">
-                            <img src="images/imgUsuarioFeed/Rectangle 868.png" alt="">
-                            <p><span>Bellatrix Lestrange</span> marcou <span>How to get away with a murder</span> como <span>Quero Ver</span></p>
-                        </div>
+                    <%if(!feed) {%>
+                        <p>Você não está seguindo ninguém!</p>
+                    <%} else {%>
+                        <%feed.forEach((post, index) => {%>
+                            <article class="post">
+                                <div class="titlePost">
+                                    <img src="<%= post.user_tvShow.imgProfile%>" alt="">
+                                    <p><span><%=post.user_tvShow.name%></span> adicionou <span><%=post.original_name%></span> ao Cast!</p>
+                                </div>
 
-                        <div class="postWrap">
-                            <div class="postImage">
-                                <img src="images/imgUsuarioFeed/htgw.jpg" alt="">
-                                
-                            </div>
-                            <div class="postText">
-                                <p>Sinopse: A professora de direito penal e 
-                                brilhante advogada criminal Annalise Keating (Viola Davis) 
-                                recruta cinco alunos para estagiar em sua firma. Logo na 
-                                primeira temporada, o quinteto se envolve em um assassinato 
-                                que acaba criando um laço eterno entre eles.</p>
-                            </div>
-                        </div>                        
-                    </div>
-
-                    <div class="post">
-                        <div class="titlePost">
-                            <img src="images/imgUsuarioFeed/Rectangle 868.png" alt="">
-                            <p><span>Bellatrix Lestrange</span> marcou <span>How to get away with a murder</span> como <span>Quero Ver</span></p>
-                        </div>
-
-                        <div class="postWrap">
-                            <div class="postImage">
-                                <img src="images/imgUsuarioFeed/htgw.jpg" alt="">
-                                
-                            </div>
-                            <div class="postText">
-                                <p>Sinopse: A professora de direito penal e 
-                                brilhante advogada criminal Annalise Keating (Viola Davis) 
-                                recruta cinco alunos para estagiar em sua firma. Logo na 
-                                primeira temporada, o quinteto se envolve em um assassinato 
-                                que acaba criando um laço eterno entre eles.</p>
-                            </div>
-                        </div>                        
-                    </div>
-
-                    <div class="post">
-                        <div class="titlePost">
-                            <img src="images/imgUsuarioFeed/Rectangle 868.png" alt="">
-                            <p><span>Bellatrix Lestrange</span> marcou <span>How to get away with a murder</span> como <span>Quero Ver</span></p>
-                        </div>
-
-                        <div class="postWrap">
-                            <div class="postImage">
-                                <img src="images/imgUsuarioFeed/htgw.jpg" alt="">
-                                
-                            </div>
-                            <div class="postText">
-                                <p>Sinopse: A professora de direito penal e 
-                                brilhante advogada criminal Annalise Keating (Viola Davis) 
-                                recruta cinco alunos para estagiar em sua firma. Logo na 
-                                primeira temporada, o quinteto se envolve em um assassinato 
-                                que acaba criando um laço eterno entre eles.</p>
-                            </div>
-                        </div>                        
-                    </div>
-
-                    <div class="post">
-                        <div class="titlePost">
-                            <img src="images/imgUsuarioFeed/Rectangle 868.png" alt="">
-                            <p><span>Bellatrix Lestrange</span> marcou <span>How to get away with a murder</span> como <span>Quero Ver</span></p>
-                        </div>
-
-                        <div class="postWrap">
-                            <div class="postImage">
-                                <img src="images/imgUsuarioFeed/htgw.jpg" alt="">
-                                
-                            </div>
-                            <div class="postText">
-                                <p>Sinopse: A professora de direito penal e 
-                                brilhante advogada criminal Annalise Keating (Viola Davis) 
-                                recruta cinco alunos para estagiar em sua firma. Logo na 
-                                primeira temporada, o quinteto se envolve em um assassinato 
-                                que acaba criando um laço eterno entre eles.</p>
-                            </div>
-                        </div>                        
-                    </div>
+                                <div class="postWrap">
+                                    <div class="postImage">
+                                        <img src="<%=`https://image.tmdb.org/t/p/w500${post.poster_path}`%>" alt="">
+                                        
+                                    </div>
+                                    <div class="postText">
+                                        <p></p>
+                                    </div>
+                                </div>                        
+                            </article >
+                    <%})}%>
                 </section>
+                
+                <div class="pages">
+                    
+                    <%if(page > 1){%>
+                        <a href="<%=`/usuario/${userSession.username}/${userSession.id}/feed/${page-1}`%>">ANTERIOR</a>
+                    <%}%>
+                    <%if(nextPage){%>
+                        <a href="<%=`/usuario/${userSession.username}/${userSession.id}/feed/${page+1}`%>">PRÓXIMA</a>
+                    <%}%>
+
+                </div>
             </div>
         </main>
 

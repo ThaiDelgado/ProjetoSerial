@@ -30,7 +30,7 @@
             <%if(user.id === userSession.id){%>
                 <ul>
                     <li class="selectPerfil"><a href="<%=`/usuario/${userSession.username}/${userSession.id}`%>">PERFIL</a></li>
-                    <li class="selectFeed"><a href="<%=`/usuario/${userSession.username}/${user.id}/feed`%>">FEED</a></li>
+                    <li class="selectFeed"><a href="<%=`/usuario/${userSession.username}/${user.id}/feed/1`%>">FEED</a></li>
                     <li class="selectConexoes"><a href="<%=`/usuario/${userSession.username}/${userSession.id}/conexoes`%>">CONEXÕES</a></li>
                     <li class="selectPipocando"><a href="<%=`/usuario/${userSession.username}/${userSession.id}/pipocando`%>">PIPOCANDO</a></li>
                     <li class="selectSettings"><a href="<%=`/usuario/${userSession.username}/${userSession.id}/settings`%>">CONFIGURAÇÕES</a></li>
