@@ -111,13 +111,22 @@ const { SeriesComment } = require('./models');
 //     episode_number: 1
 // });
 
-Filme.bulkCreate([
-    {
-        titulo:'Harry Potter',
-        genero: 'Fantasia'
-    },
-    {
-        titulo:'007',
-        genero: 'Ação'
+// Filme.bulkCreate([
+//     {
+//         titulo:'Harry Potter',
+//         genero: 'Fantasia'
+//     },
+//     {
+//         titulo:'007',
+//         genero: 'Ação'
+//     }
+// ]);
+
+
+castTvShow.findAndCountAll({
+    raw: true,
+    include: ['episodes_tvShow', 'genres_tvShow'],
+    where: {
+        id_user_cast_fk: 2
     }
-]);
+}).then(console.log)
