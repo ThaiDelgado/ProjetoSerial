@@ -18,7 +18,7 @@
                 <span>Nota dos Usuários: <%=serie.vote_average%></span>
                 <br>
                 <span style="color:#6741B9; font-weight:bold"><%=(serie.number_of_seasons != '1')?`${serie.number_of_seasons} TEMPORADAS`:`${serie.number_of_seasons} TEMPORADA`%> </span>           
-                <p><%=serie.overview?serie.overview:'Não temos uma sinopse para esta série.'%></p>
+                <p><%=serie.overview ? serie.overview : 'Não temos uma sinopse para esta série.'%></p>
                 <div class="actions">
                 <!--<form>
                         <input type="submit" id="buttonPrivate" name="buttonPrivate" value="Tornar Privado?">

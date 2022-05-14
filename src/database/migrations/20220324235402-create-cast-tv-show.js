@@ -26,6 +26,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      overview: {
+        type: Sequelize.TEXT('medium')
+      },
       poster_path: {
         type: Sequelize.STRING
       },

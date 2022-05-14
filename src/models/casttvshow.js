@@ -45,6 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     original_name: DataTypes.STRING,
+    overview: DataTypes.STRING,
     poster_path: DataTypes.STRING,
     first_air_date: DataTypes.DATEONLY,
     isFavorite: DataTypes.BOOLEAN,

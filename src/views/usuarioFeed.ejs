@@ -15,32 +15,37 @@
         <main>
             <div class="container">
                 <div class="titleFeed">
-                    <img src="images/icons/iconeFeed.png" alt="">
+                    <img src="/images/icons/iconeFeed.png" alt="">
                     <h1>FEED</h1>
                 </div>
 
-                <section class="infoFeed">
-                    <%if(!feed) {%>
-                        <p>Você não está seguindo ninguém!</p>
-                    <%} else {%>
-                        <%feed.forEach((post, index) => {%>
-                            <article class="post">
-                                <div class="titlePost">
-                                    <img src="<%= post.user_tvShow.imgProfile%>" alt="">
-                                    <p><span><%=post.user_tvShow.name%></span> adicionou <span><%=post.original_name%></span> ao Cast!</p>
-                                </div>
+                <%if(following === 0 && followers === 0) {%>
+                    <p style="color: white; margin-top: 100px; font-size: 20px;">Você não está seguindo ninguém!</p>
+                <%}%> 
+                <%console.log(feed) %>
+                
+                <%if(feed.length === 0) {%>
+                    <p style="color: white; margin-top: 100px; font-size: 20px;">Os usuários que você segue ainda não tiveram atualizações de Cast!</p>
+                <%}%>
 
-                                <div class="postWrap">
-                                    <div class="postImage">
-                                        <img src="<%=`https://image.tmdb.org/t/p/w500${post.poster_path}`%>" alt="">
-                                        
-                                    </div>
-                                    <div class="postText">
-                                        <p></p>
-                                    </div>
-                                </div>                        
-                            </article >
-                    <%})}%>
+                <section class="infoFeed">
+                    <%feed.forEach((post, index) => {%>
+                        <article class="post">
+                            <div class="titlePost">
+                                <img src="<%= post.user_tvShow.imgProfile%>" alt="">                              
+                                <p><a href="<%= `/usuario/${post.user_tvShow.username}/${post.user_tvShow.id}`%>"><%=post.user_tvShow.name%></a> adicionou <a href="<%=`/serie/${post.idTvShow}/1`%>"><%=post.original_name%></a> ao Cast!</p>
+                            </div>
+
+                            <div class="postWrap">
+                                <div class="postImage">
+                                    <img src="<%=`https://image.tmdb.org/t/p/w500${post.poster_path}`%>" alt="">
+                                </div>
+                                <div class="postText">
+                                    <p class="overview"><%= post.overview%></p>
+                                </div>
+                            </div>                        
+                        </article >
+                    <%})%>
                 </section>
                 
                 <div class="pages">
