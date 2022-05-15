@@ -163,19 +163,20 @@ header .container #btnBusca{
 }
 
 .background-user .container #profilePicture form input[type="submit"]{
+    width: 23px;
+    height: 23px;
+    text-align: center;
     background-color: rgba(0, 0, 0, 1);
     border: none;
     color: #6741B9;
     font-weight: bold;
     font-size: 30px;
     line-height: 20px;
-    padding-right: 5px;
     cursor: pointer;
-    padding: 1px 3px 2px 4px;
     border-radius: 50%;
     position: relative;
     top:-30px;
-    left: 8px;
+    left: 8px;    
 }
 
 .background-user .container #userName{

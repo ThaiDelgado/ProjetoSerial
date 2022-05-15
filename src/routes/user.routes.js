@@ -17,7 +17,10 @@ const uploadPictureBackground = require('../middlewares/uploadPictureBackground'
 //Rota usuário
 routes.get('/:nomeUsuario/:id', verificarLogin, auth, userController.perfil);
 
-routes.put('/:nomeUsuario/:id', verificarLogin, auth, userController.follow);
+//Rota Follow/Unfollow
+routes.post('/:nomeUsuario/:id', verificarLogin, auth, userController.follow);
+
+routes.delete('/:nomeUsuario/:id', verificarLogin, auth, userController.unfollow);
 
 //Pesquisa usuário
 routes.get('/search', verificarLogin, auth, userController.search);

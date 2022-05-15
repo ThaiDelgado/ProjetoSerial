@@ -21,10 +21,7 @@
 
                 <%if(following === 0 && followers === 0) {%>
                     <p style="color: white; margin-top: 100px; font-size: 20px;">Você não está seguindo ninguém!</p>
-                <%}%> 
-                <%console.log(feed) %>
-                
-                <%if(feed.length === 0) {%>
+                <%} else if(feed.length === 0) {%>
                     <p style="color: white; margin-top: 100px; font-size: 20px;">Os usuários que você segue ainda não tiveram atualizações de Cast!</p>
                 <%}%>
 
