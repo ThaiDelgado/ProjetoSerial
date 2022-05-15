@@ -128,7 +128,7 @@ module.exports = {
     async feed(req, res) {
 
         const page = parseInt(req.params.page);
-        const limit = 2;
+        const limit = 20;
         const offset = (page - 1) * limit;
 
         const userProfile = await User.findOne({
@@ -245,6 +245,19 @@ module.exports = {
     },
 
     async follow(req, res) {
+        const idMainUser = req.session.user.id;
+        const idSecondaryUser = req.params.id;
+        const usernameSecondaryUser = req.params.nomeUsuario;
+
+        await Connection.create({
+            id_main_user: idMainUser,
+            id_secondary_user: idSecondaryUser
+        });
+
+        return res.redirect(`/usuario/${usernameSecondaryUser}/${idSecondaryUser}`);
+    },
+
+    async unfollow(req, res) {
         const idMainUser = req.session.user.id;
         const idSecondaryUser = req.params.id;
         const usernameSecondaryUser = req.params.nomeUsuario;

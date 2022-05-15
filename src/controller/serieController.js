@@ -93,6 +93,7 @@ module.exports = {
             idTvShow: tvShow.id,
             id_user_cast_fk: req.session.user.id,
             original_name: tvShow.original_name,
+            overview: tvShow.overview,
             poster_path: tvShow.poster_path,
             first_air_date: tvShow.first_air_date,
             isFavorite: false,
