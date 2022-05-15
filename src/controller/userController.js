@@ -152,29 +152,33 @@ module.exports = {
 
         const followingIds = following.rows.map(row => row.id);
 
-        const feed = await castTvShow.findAndCountAll({
-            include: [{
-                as: 'user_tvShow',
-                model: User,
-                [Op.in]: {
-                    id_user_cast_fk: followingIds
-                }
-            }],
-            where:{
-                [Op.not]: {
-                    id_user_cast_fk: userProfile.id
-                }
-            },
-            limit,
-            offset,
-            order: [['createdAt', 'DESC']]
-        });
+        let feed = undefined;
 
-        console.log(feed);
+        if(followingIds.length != 0) {
+            feed = await castTvShow.findAndCountAll({
+                include: [{
+                    as: 'user_tvShow',
+                    model: User,
+                    [Op.in]: {
+                        id_user_cast_fk: followingIds
+                    }
+                }],
+                where:{
+                    [Op.not]: {
+                        id_user_cast_fk: userProfile.id
+                    }
+                },
+                limit,
+                offset,
+                order: [['createdAt', 'DESC']]
+            });
+        }
 
-        const nextPage = offset + limit < feed.count;
+        const count = feed ? feed.count : 0;
 
-        res.render('usuarioFeed', { user: userProfile, userSession: req.session.user, following: following.count, feed: feed.rows, followers, nextPage, page });
+        const nextPage = offset + limit < count;
+
+        res.render('usuarioFeed', { user: userProfile, userSession: req.session.user, following: following.count, feed: feed ? feed.rows : [], followers, nextPage, page });
     },
 
     async conexoes(req, res) {
@@ -262,9 +266,11 @@ module.exports = {
         const idSecondaryUser = req.params.id;
         const usernameSecondaryUser = req.params.nomeUsuario;
 
-        await Connection.create({
-            id_main_user: idMainUser,
-            id_secondary_user: idSecondaryUser
+        await Connection.destroy({
+            where:{
+                id_main_user: idMainUser,
+                id_secondary_user: idSecondaryUser
+            }
         });
 
         return res.redirect(`/usuario/${usernameSecondaryUser}/${idSecondaryUser}`);

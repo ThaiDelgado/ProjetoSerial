@@ -5,7 +5,7 @@
                 <img src="<%=user.imgProfile%>" />
                 <%if(user.id != userSession.id){%>
                     <%if(!isFollowing){%>
-                        <form method="POST" action="<%=`/usuario/${user.username}/${user.id}?_method=PUT`%>">
+                        <form method="POST" action="<%=`/usuario/${user.username}/${user.id}`%>">
                             <input type="submit" value="+"> 
                         </form>
                     <%} else {%>
