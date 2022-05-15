@@ -11,6 +11,7 @@ module.exports = {
     async serieById(req,res){
         const serie = await findByID(req.params.id);
         const season = await findSeason(req.params.id, req.params.season);
+        
         const serieComments = await SeriesComment.findAll({
             where: {
                 idTvShow: req.params.id
@@ -22,25 +23,20 @@ module.exports = {
             raw:true,
             where:{                
                 idTvShow: serie.id,
-                id_user_episodes_fk: req.session.user.id
+                id_user_episodes_fk: req.session.user.id,
+                isNext: false
             }
         });
-        
-        const itIsOnFavorite = (await castTvShow.findOne({
-            where: {
-                idTvShow: req.params.id,
-                id_user_cast_fk: req.session.user.id,
-                isFavorite: 1
-            }
-        })) === null ? false : true;
-
-     
-        const itIsOnCast = (await castTvShow.findOne({
+    
+        const cast = await castTvShow.findOne({
             where: {
                 idTvShow: req.params.id,
                 id_user_cast_fk: req.session.user.id
             }
-        })) === null ? false : true;
+        });
+
+        const itIsOnFavorite = cast !== null ? cast.isFavorite : false;
+        const itIsOnCast = cast !== null ? true : false;
         
         res.render('pgSerie', { userSession: req.session.user, serie, season, itIsOnFavorite, itIsOnCast, comments: serieComments, episodes});    
     },
@@ -124,14 +120,14 @@ module.exports = {
         const episodeSeasonToAdd = req.params.season;
         const userId = req.session.user.id;
 
+        const isPipocando = req.params.pipocando;
+
         let itIsOnCast = await castTvShow.findOne({
             where: {
                 idTvShow: episodeTvShowIdToAdd,
                 id_user_cast_fk: userId
             }
         });
-
-        console.log(itIsOnCast);
         
         if(!itIsOnCast){
             let tvShow = await findByID(req.params.id);
@@ -156,6 +152,14 @@ module.exports = {
             });
 
         };
+
+        await Episode.destroy({
+            where:{
+                idTvShow: episodeTvShowIdToAdd,
+                id_user_episodes_fk: userId,
+                isNext: true
+            }
+        })
 
         const episodesOnDB = await Episode.findAll({
             where:{
@@ -186,11 +190,12 @@ module.exports = {
                 episodesSeasons = [...episodesSeasons, ...episodes];
             };
             
-
             const episodeIndexToAdd = episodesSeasons.findIndex(episode => episode.id == episodeIdToAdd);
             
             const episodesToAdd = episodesSeasons.slice(0, (episodeIndexToAdd + 1));
-            
+
+            const nextEpisodes = episodesSeasons.filter(episode => !episodesToAdd.includes(episode));
+        
             episodesToAdd.forEach(episode => {
                 const episodeIsOnDB = episodesOnDB.findIndex(episodeDB => episodeDB.idEpisodes === episode.id);
                 if(episodeIsOnDB == -1){
@@ -200,13 +205,32 @@ module.exports = {
                         id_user_episodes_fk: userId,
                         idTvShow: episodeTvShowIdToAdd,
                         season: episode.season_number,
-                        episode_number: episode.episode_number
+                        episode_number: episode.episode_number,
+                        name: episode.name,
+                        isNext: false
                     });
                 };
-            });                  
+            }); 
+            
+            if(nextEpisodes.length !== 0){
+                Episode.create({
+                    idEpisodes: nextEpisodes[0].id,
+                    id_tvshow_episodes_fk: itIsOnCast.id,
+                    id_user_episodes_fk: userId,
+                    idTvShow: episodeTvShowIdToAdd,
+                    season: nextEpisodes[0].season_number,
+                    episode_number: nextEpisodes[0].episode_number,
+                    name: nextEpisodes[0].name,
+                    isNext: true
+                });
+            }
         }
 
-        res.redirect(`/serie/${req.params.id}/${req.params.season}`);
+        if(isPipocando){
+            res.redirect(`/usuario/${req.session.user.username}/${req.session.user.id}/pipocando`);
+        } else {
+            res.redirect(`/serie/${req.params.id}/${req.params.season}`);
+        }
     },
 
     async removeEpisode(req,res){

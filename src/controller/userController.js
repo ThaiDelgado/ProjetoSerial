@@ -18,7 +18,6 @@ module.exports = {
             }
         });
 
-        
         const cast = await Episode.findAndCountAll({
             include: [
                 {
@@ -27,7 +26,8 @@ module.exports = {
                 }
             ],
             where: {
-                id_user_episodes_fk: req.params.id
+                id_user_episodes_fk: req.params.id,
+                isNext: false
             }
         });
 
@@ -111,7 +111,6 @@ module.exports = {
 
     async search(req, res) {
         const searchTerm = req.query.txtBusca;
-        console.log(searchTerm);
         const users = await User.findAll({
             where: {
                 name: {
@@ -119,8 +118,6 @@ module.exports = {
                 }
             }
         });
-
-        console.log(users);
 
         res.render('SearchUsers', { userSession: req.session.user, users });
     },
@@ -140,13 +137,13 @@ module.exports = {
 
         const following = await Connection.findAndCountAll({            
             where: {
-                id_main_user: req.session.user.id,
+                id_main_user: req.session.user.id
             }
         });
 
         const followers = await Connection.count({
             where: {
-                id_secondary_user: req.session.user.id,
+                id_secondary_user: req.session.user.id
             }
         });
 
@@ -245,7 +242,20 @@ module.exports = {
             }
         });
 
-        res.render('usuarioPipocando', { user: userProfile, userSession: req.session.user, isFollowing: false, followers, following });
+        const episodesToWatch = await Episode.findAll({
+            include: [
+                {
+                    as: 'tvShow_episode', 
+                    model: castTvShow
+                }
+            ],
+            where: {
+                id_user_episodes_fk: req.params.id,
+                isNext: true
+            }
+        });
+
+        res.render('usuarioPipocando', { user: userProfile, userSession: req.session.user, isFollowing: false, followers, following, episodesToWatch});
     },
 
     async follow(req, res) {

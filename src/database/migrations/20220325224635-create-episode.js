@@ -42,7 +42,13 @@ module.exports = {
       },
       episode_number: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+      },
+      name:{
+        type: Sequelize.STRING
+      },
+      isNext:{
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

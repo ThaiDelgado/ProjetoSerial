@@ -33,6 +33,9 @@ routes.delete('/:id/:season/remover', auth, serieController.removeTvShowToCast);
 //Rota Insere Episódio
 routes.put('/:id/:season/:episode_number/:episode_id', auth, serieController.addEpisode);
 
+//Rota Insere Episódio Pipocando
+routes.put('/pipocando/:id/:season/:episode_number/:episode_id/:pipocando', auth, serieController.addEpisode);
+
 //Rota Remove Episódio
 routes.delete('/:id/:season/:episode_number/:episode_id', auth, serieController.removeEpisode);   
 
