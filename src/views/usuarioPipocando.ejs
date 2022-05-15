@@ -17,56 +17,27 @@
                     <img src="/images/icons/iconePipocando.png" alt="ícone pipocando">
                     <h1>PIPOCANDO</h1>
                 </div><!--title-->
-
-                <div class="episodesUpdated">
-                    <div class="title">
-                        <h1>Tá em dia!</h1>
-                    </div>
-                    <div class="watchedEpisodes">
-                        <div class="imgEpisode">
-                            <img src="/images/imgUsuarioPerfil/Cast/lock.jpg" alt="poster Lock&Key">
-                        </div>                        
-                        <div class="infoEpisode">
-                            <h1>Locke & Key</h1>
-                            <p><span class="seasonEpisode">S02|E04</span> "Memórias"</p>
-                            <p>Restam + 6 episódios <span class="premiere">Estreia</span></p>
-                        </div>
-                        <div class="watched">
-                            <img src="/images/icons/iconeAssistiu.png" alt="">
-                        </div>
-                    </div>
-                    <div class="watchedEpisodes">
-                        <div class="imgEpisode">
-                            <img src="/images/imgUsuarioPerfil/Cast/lock.jpg" alt="poster Lock&Key">
-                        </div>                        
-                        <div class="infoEpisode">
-                            <h1>Locke & Key</h1>
-                            <p><span class="seasonEpisode">S02|E05</span> "O passado é um prólogo"</p>
-                            <p>Restam + 5 episódios <span class="premiere">Estreia</span></p>
-                        </div>
-                        <div class="watched">
-                            <img src="/images/icons/iconeAssistiu.png" alt="">
-                        </div>
-                    </div>
-                </div><!--WatchedEpisodes-->
                 
                 <div class="episodesToUpdate">
-                    <div class="title">
-                        <h1>Vem me ver!</h1>
-                    </div>
-                    <div class="toWatchEpisodes">
-                        <div class="imgEpisode">
-                            <img src="/images/imgUsuarioPerfil/Cast/lock.jpg" alt="poster Locke & Key">
-                        </div>                        
-                        <div class="infoEpisode">
-                            <h1>Locke & Key</h1>
-                            <p><span class="seasonEpisode">S02|E06</span> "O Labirinto"</p>
-                            <p>Restam + 4 episódios <span class="premiere">Estreia</span></p>
+                    <%if(episodesToWatch.length === 0) {%>
+                        <p style="color:white">Não há episódios para atualizar!</p>
+                    <%}%>
+                    <%episodesToWatch.forEach((episode,index)=> {%>
+                        <div class="toWatchEpisodes">
+                            <div class="imgEpisode">
+                                <img src="<%=`https://image.tmdb.org/t/p/w500${episode.tvShow_episode.poster_path}`%>" alt="poster TvShow">
+                            </div>                        
+                            <div class="infoEpisode">
+                                <h1><a href="<%=`/serie/${episode.tvShow_episode.idTvShow}/1`%>"><%= episode.tvShow_episode.original_name%></a></h1>
+                                <p><span class="seasonEpisode">S<%=episode.season > 9 ? episode.season : '0' + episode.season %>|E<%=episode.episode_number > 9 ? episode.episode_number : '0' + episode.episode_number %></span> <%= episode.name%></p>
+                            </div>
+                            <div class="watched">
+                                <form method="POST" action="<%=`/serie/pipocando/${episode.idTvShow}/${episode.season}/${episode.episode_number}/${episode.idEpisodes}/${true}?_method=PUT`%>">
+                                    <input type="submit" value="+">
+                                </form>
+                            </div>
                         </div>
-                        <div class="watched">
-                            <img src="/images/icons/iconeNaoAssistiu.png" alt="">
-                        </div>
-                    </div>
+                    <%})%>
                 </div><!--toWatchEpisodes-->
             </div><!--container-->
         </section>

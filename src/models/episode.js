@@ -35,7 +35,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     idTvShow: DataTypes.INTEGER,
     season: DataTypes.INTEGER,
-    episode_number: DataTypes.INTEGER
+    episode_number: DataTypes.INTEGER,
+    name: DataTypes.STRING,
+    isNext: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Episode',

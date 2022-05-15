@@ -1,3 +1,8 @@
+a {
+    text-decoration: none;
+    color: #222325;
+}
+
 .selectPipocando{
     background-color: black;
 }
@@ -98,15 +103,16 @@
     padding: 0 5%;
 }
 
-.pipocando .container .watchedEpisodes .infoEpisode h1{
+.pipocando .container .watchedEpisodes .infoEpisode a{
     width: fit-content;
     height: max-content;
-    color: #222325;
     background-color:#6741B9;
     padding:0 10px;
     border-radius: 5px;
     margin-bottom: 10px;
     text-transform: uppercase;
+    color:#222325;
+    text-decoration: none;
 }
 
 .pipocando .container .watchedEpisodes .infoEpisode p{
