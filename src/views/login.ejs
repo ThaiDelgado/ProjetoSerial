@@ -19,11 +19,8 @@
             <input type="password" name="password" id="password" placeholder="Digite sua senha">
             <a href="/recuperaSenha" id="forgot-pass">Esqueceu a senha?</a>
 
-            <% if(locals.errors && errors.email) { %>
-                <p class="feedback"><%= errors.email.msg %></p>
-            <% } %>
-            <% if(locals.errors && errors.password) { %>
-                <p class="feedback"><%= errors.password.msg %></p>
+            <% if(status) { %>
+                <p class="feedback"><%= mesage %></p>
             <% } %>
             
             <input class="submit" type="submit" value="Entrar">
@@ -31,7 +28,6 @@
     </section>
 
     <video id="bakground" src="/video/video/videoBackground2.mp4" autoplay="true" muted loop></video>  
-    
 </body>
 <script src="/scripts/login.js"></script>
 </html>

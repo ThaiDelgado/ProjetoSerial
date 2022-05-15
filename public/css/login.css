@@ -8,6 +8,11 @@
     overflow: hidden;
 }
 
+.feedback{
+    color: blueviolet;
+    margin-top: 5px;
+}
+
 a.menu{
     position: fixed;
     top: 30px;

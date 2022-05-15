@@ -40,7 +40,7 @@ module.exports = {
     }, 
 
     pageLogin(req,res){
-      res.render('login')
+      res.render('login', {status: undefined})
     },
 
     async login(req, res){
@@ -54,7 +54,9 @@ module.exports = {
         })
 
       if(!user){
-        return res.send("Usuário ou senha inválidos!");
+        return res
+          .status(401)
+          .render('login', {status:401, mesage: "Usuário ou senha inválidos!"});
       }
 
       const isPasswordCorrect = bcrypt.compareSync(password, user.password);
@@ -62,7 +64,7 @@ module.exports = {
       if(!isPasswordCorrect){
         return res
           .status(401)
-          .render('login', {mesage: "Usuário ou senha inválidos!"});
+          .render('login', {status:401, mesage: "Usuário ou senha inválidos!"});
       }
 
       user.password = null;
