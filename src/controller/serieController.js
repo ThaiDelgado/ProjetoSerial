@@ -88,6 +88,7 @@ module.exports = {
         const tvShowDB = await castTvShow.create({
             idTvShow: tvShow.id,
             id_user_cast_fk: req.session.user.id,
+            name: tvShow.name,
             original_name: tvShow.original_name,
             overview: tvShow.overview,
             poster_path: tvShow.poster_path,
@@ -142,6 +143,7 @@ module.exports = {
                 idTvShow: tvShow.id,
                 id_user_cast_fk: req.session.user.id,
                 original_name: tvShow.original_name,
+                overview: tvShow.overview,
                 poster_path: tvShow.poster_path,
                 first_air_date: tvShow.first_air_date,
                 isFavorite: false,
@@ -226,7 +228,7 @@ module.exports = {
             }
         }
 
-        if(isPipocando){
+        if(isPipocando === 'true'){
             res.redirect(`/usuario/${req.session.user.username}/${req.session.user.id}/pipocando`);
         } else {
             res.redirect(`/serie/${req.params.id}/${req.params.season}`);

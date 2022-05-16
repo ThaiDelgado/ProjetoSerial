@@ -14,14 +14,26 @@
 
     <%- include('./partials/userInfo')%>
 
-    <form action="<%=`/usuario/${userSession.username}/${userSession.id}/settings/profile-picture`%>" method="POST" enctype="multipart/form-data">
-        <input type="file" name="imgProfile" id="file" single>
-        <button type="submit">Enviar</button>
-    </form> 
+    <main>
+        <div class="container">
+            <div class="backgroundSettings">
+                <form action="<%=`/usuario/${userSession.username}/${userSession.id}/settings/profile-picture`%>" method="POST" enctype="multipart/form-data">
+                    <label for="imgProfile">Imagem Perfil</label>
+                    <div class="fileImg">
+                        <input type="file" name="imgProfile" id="file" single>
+                        <button type="submit">Enviar</button>
+                    </div>                    
+                </form> 
 
-    <form action="<%=`/usuario/${userSession.username}/${userSession.id}/settings/background-picture`%>" method ="POST" enctype="multipart/form-data">
-        <input type="file" name="imgBackground" id="file" single>
-        <button type="submit">Enviar</button>
-    </form> 
+                <form action="<%=`/usuario/${userSession.username}/${userSession.id}/settings/background-picture`%>" method ="POST" enctype="multipart/form-data">
+                    <label for="imgProfile">Imagem Capa</label>
+                    <div>
+                        <input type="file" name="imgBackground" id="file" single>
+                        <button type="submit">Enviar</button>
+                    </div>
+                </form> 
+            </div>
+        </div>
+    </main>
 </body>
 </html>

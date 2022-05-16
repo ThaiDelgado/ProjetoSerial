@@ -12,84 +12,51 @@ main .container{
     text-align: center;
 }
 
-.titleFeed img {
-    max-width: 80px;
-}
-
-.titleFeed h1 {
-    font-family: Bebas Neue;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 90px;
-    width: 300px;
-    margin: 0 auto;
-    letter-spacing: 0.6em;
-    color: #6741B9;
-}
-
-.infoFeed{
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 5% 2%;
-    justify-content: center;
-    align-items: center;
-}
-
-.infoFeed .post{
-    width: 90%;
-    height: auto;
-    padding: 2%;
-    background-color: rgba(170, 177, 185, 0.2);
+.backgroundSettings{
+    width: fit-content;
+    background-color: #ffffff10;
     border-radius: 10px;
-    color: #FFFFFF;
+    padding: 2% 5%;
     margin: 0 auto;
-    margin-bottom: 20px;
 }
 
-.titlePost{
-    display: flex;
-    justify-content: left;
-    align-items: center;
+.backgroundSettings label{
+    color: #733FBE;
+    font-family: 'Bebas Neue';
+    font-size: 25px;    
 }
 
-.titlePost img{
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+.backgroundSettings .fileImg{
+    margin-bottom: 30px;
 }
 
-.titlePost p{
-    margin-left: 30px;
-    font-size: 30px;
-}
-
-.titlePost span{
-    color: #6741B9;
+.backgroundSettings form button{
+    font-weight: 500;
+    background-color: rgba(95, 51, 190, 0.336);
+    color:white;
+    font-size: 15px;
+    border-radius: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
     cursor: pointer;
+    border: none;
 }
 
-.postWrap{
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+.backgroundSettings form button:hover{
+    background-color: rgba(103, 65, 185, 0.5);
 }
 
-.postImage img{
-    width:260px;
-    height:380px;
-    background-position:center;
-    object-fit: cover;
-    border-radius: 10px;
+.backgroundSettings form input[type=file]::-webkit-file-upload-button{
+    font-weight: 500;
+    background-color: rgba(95, 51, 190, 0.336);
+    color:white;
+    font-size: 15px;
+    border-radius: 50px;
+    padding:3px 15px;
+    cursor: pointer;
+    border: none;
 }
 
-.postText{
-    margin-left: 20px;
+.backgroundSettings form input[type=file]::-webkit-file-upload-button:hover{
+    background-color: rgba(103, 65, 185, 0.5);
 }
-
-.postText p{
-    font-size: 30px;
-    text-align: justify;
-}
-
-
