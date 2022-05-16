@@ -4,6 +4,7 @@ const { Episode } = require('./models');
 const { Connection } = require('./models');
 const { castTvShow } = require('./models');
 const { SeriesComment } = require('./models');
+const { findByName, findByID, findSeason, discover } = require('../src/services/serieServices');
 
 // User.create({
 //     name: 'Humberto Galdino' , 
@@ -121,12 +122,3 @@ const { SeriesComment } = require('./models');
 //         genero: 'Ação'
 //     }
 // ]);
-
-
-castTvShow.findAndCountAll({
-    raw: true,
-    include: ['episodes_tvShow', 'genres_tvShow'],
-    where: {
-        id_user_cast_fk: 2
-    }
-}).then(console.log)

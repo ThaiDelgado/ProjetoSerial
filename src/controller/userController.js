@@ -223,6 +223,7 @@ module.exports = {
     },
 
     async pipocando(req, res) {
+
         const userProfile = await User.findOne({
             raw: true,
             where: {
