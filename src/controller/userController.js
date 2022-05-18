@@ -96,13 +96,13 @@ module.exports = {
 
         const followers = await Connection.count({
             where: {
-                id_secondary_user: req.session.user.id
+                id_secondary_user: req.params.id
             }
         });
 
         const following = await Connection.count({
             where: {
-                id_main_user: req.session.user.id
+                id_main_user: req.params.id
             }
         });
 
